@@ -9,8 +9,8 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Network from "@/components/network";
-import { useDispatch } from "react-redux";
-import { setClasses } from "@/redux/slices/classSlice";
+// import { useDispatch } from "react-redux";
+// import { setClasses } from "@/redux/slices/classSlice";
 
 const SignInPage = () => {
     const [isLoading, setIsLoading] = useState(false);
@@ -18,7 +18,7 @@ const SignInPage = () => {
     const [errorMessage, setErrorMessage] = useState();
     const router=useRouter();
     const [open, setOpen] = useState(true);
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
  
     const handleChange = (e) => {
