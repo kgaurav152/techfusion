@@ -11,7 +11,7 @@ const Footer = () => {
           <li><a href="/about">About Us</a></li>
           <li><a href="/events">Events</a></li>
           <li><a href="/contact">Contact Us</a></li>
-          <li><a href="/login">Login</a></li>
+          <li><a href="/sign-in">Login</a></li>
         </ul>
       </nav>
       {/* Additional Footer Content */}
