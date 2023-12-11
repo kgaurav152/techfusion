@@ -1,6 +1,7 @@
-import './globals.css'
-import { Inter } from 'next/font/google'
-import { Toaster } from 'react-hot-toast'
+import './globals.css';
+import { Inter } from 'next/font/google';
+import { Toaster } from 'react-hot-toast';
+import { Analytics } from '@vercel/analytics/react';
 // import {Providers} from "@/redux/providers";
 
 const inter = Inter({ subsets: ['latin'] })
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {/* <Providers> */}
             {children}
+            <Analytics />
         {/* </Providers> */}
         <Toaster />
       </body>
