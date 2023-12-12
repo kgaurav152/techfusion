@@ -1,11 +1,14 @@
 "use client";
 
-import React, { useState } from 'react';
-import Link from 'next/link';
+import React, { useState } from "react";
+import Link from "next/link";
+import { useSelector } from "react-redux";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const { token } = useSelector((state) => state.auth);
+  console.log(token);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -31,20 +34,34 @@ const NavBar = () => {
           <Link href="/events" className="text-white hover:text-[#e11d48]">
             Events
           </Link>
-          <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-[#e11d48]">
+          <Link
+            href="/kec_techfest_brochure.pdf"
+            download={`kec_techfest_brochure.pdf`}
+            target="_blank"
+            className="text-white hover:text-[#e11d48]"
+          >
             Brochure
           </Link>
           <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
-            Login
-          </Link>
+          {token ? (
+            <Avatar>
+              <AvatarFallback  className="bg-slate-800">PJ</AvatarFallback>
+            </Avatar>
+          ) : (
+            <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Menu icon for mobile screens */}
         <div className="md:hidden mr-1">
-          <button className="text-white focus:outline-none" onClick={toggleMenu}>
+          <button
+            className="text-white focus:outline-none"
+            onClick={toggleMenu}
+          >
             <svg
               className="w-6 h-6"
               fill="none"
@@ -85,7 +102,12 @@ const NavBar = () => {
             <Link href="/events" className="text-white hover:text-[#e11d48]">
               Events
             </Link>
-            <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-[#e11d48]">
+            <Link
+              href="/kec_techfest_brochure.pdf"
+              download={`kec_techfest_brochure.pdf`}
+              target="_blank"
+              className="text-white hover:text-[#e11d48]"
+            >
               Brochure
             </Link>
             <Link href="/contact" className="text-white hover:text-[#e11d48]">
