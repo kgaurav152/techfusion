@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Network from "@/components/network";
 // import { useDispatch } from "react-redux";
-// import { setClasses } from "@/redux/slices/classSlice"; 
+// import { setClasses } from "@/redux/slices/classSlice";
 import {
   Form,
   FormControl,
@@ -19,7 +19,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form" 
+} from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,29 +29,29 @@ import { CloudCog } from "lucide-react";
 
 const SignInPage = () => {
   const [isLoading, setIsLoading] = useState(false);
-   
-  const form = useForm(
-   { mode : "onChange"}
-  );
+
+  const form = useForm({ mode: "onChange" });
   // const {token} = useSelector((state)=>state.auth)
   const router = useRouter();
-  const [open, setOpen] = useState(true); 
+  const [open, setOpen] = useState(true);
   const dispatch = useDispatch();
+
   const onSubmit = async (formData) => {
     setLoading(true);
-    const {data} = await axios.post("/api/login",formData); 
-    setLoading(false);  
-    if(data.success){
-      localStorage.setItem("token",JSON.stringify(data.token));
-      dispatch(setToken(data.token)); 
-      toast.success("Login Successfull");
-      router.push("/")
+    try {
+      const { data } = await axios.post("/api/login", formData);
+      setLoading(false);
+      if (data.success) {
+        localStorage.setItem("token", JSON.stringify(data.token));
+        dispatch(setToken(data.token));
+        toast.success("Login Successfull");
+        router.push("/");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
     }
-    else{
-      toast.error(data.message);
-    }
-  
-     
   };
 
   return (
@@ -66,37 +66,41 @@ const SignInPage = () => {
           </p>
         </div>
         <div className={cn("grid gap-6")}>
-        <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Username</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter Your Email" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="password"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Password</FormLabel>
-              <FormControl>
-                <Input placeholder="Enter Your Password" type="password" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Username</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter Your Email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="password"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Password</FormLabel>
+                    <FormControl>
+                      <Input
+                        placeholder="Enter Your Password"
+                        type="password"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Submit</Button>
+            </form>
+          </Form>
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
               <span className="w-full border-t" />
