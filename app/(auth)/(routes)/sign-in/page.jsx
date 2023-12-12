@@ -43,7 +43,7 @@ const SignInPage = () => {
       setLoading(false);
       if (data.success) {
         dispatch(setToken(data.token));
-        toast.success("Login Successfull");
+        toast.success("Login Successful");
         router.push("/");
       } else {
         toast.error(data.message);

@@ -22,7 +22,8 @@ const LandingPage = () => {
   useEffect(()=>{
     const fetchUserDetails = async()=>{
       const {data} = await axios.get('/api/userDetails');
-       dispatch(setUserDetails(data.data)) 
+      console.log(data)
+       dispatch(setUserDetails(data?.data)) 
     }
     fetchUserDetails();
 

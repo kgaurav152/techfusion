@@ -2,16 +2,33 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { Button } from "./ui/button";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { setUserDetails } from "@/redux/slices/profileSlice";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
-  console.log(user);
+  const dispatch = useDispatch();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+  const logoutHandler = async() =>{
+    const {data} = await axios.get('/api/logout');
+    if(data.success) {
+      toast.success("Logout Successful");
+      dispatch(setUserDetails(null));
+
+    }
+  }
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
@@ -46,9 +63,20 @@ const NavBar = () => {
             Contact Us
           </Link>
           {user ? (
-            <Avatar>
-              <AvatarFallback  className="bg-slate-800">PJ</AvatarFallback>
-            </Avatar>
+            <Popover>
+              <PopoverTrigger>
+                {" "}
+                <Avatar>
+                  <AvatarFallback className="bg-slate-800">
+                    {user.firstName[0]}
+                    {user.lastName[0]}
+                  </AvatarFallback>
+                </Avatar>
+              </PopoverTrigger>
+              <PopoverContent className="w-fit text-white bg-black/50 border-primary">
+                <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
+              </PopoverContent>
+            </Popover>
           ) : (
             <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
               Login
