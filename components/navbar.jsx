@@ -21,23 +21,23 @@ const NavBar = () => {
         </div>
 
         {/* Menu for large screens */}
-        <div className="hidden md:flex md:space-x-4 mr-4">
-          <Link href="/" className="text-white hover:text-gray-300">
+        <div className="hidden md:flex md:space-x-8 mr-4">
+          <Link href="/" className="text-white hover:text-[#e11d48]">
             Home
           </Link>
-          <Link href="/about" className="text-white hover:text-gray-300">
+          <Link href="/about" className="text-white hover:text-[#e11d48]">
             About Us
           </Link>
-          <Link href="/events" className="text-white hover:text-gray-300">
+          <Link href="/events" className="text-white hover:text-[#e11d48]">
             Events
           </Link>
-          <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-gray-300">
+          <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-[#e11d48]">
             Brochure
           </Link>
-          <Link href="/contact" className="text-white hover:text-gray-300">
+          <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          <Link href="/sign-in" className="text-white hover:text-gray-300">
+          <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
             Login
           </Link>
         </div>
@@ -76,22 +76,22 @@ const NavBar = () => {
       {isOpen && (
         <div className="md:hidden mt-4">
           <div className="flex flex-col space-y-4">
-            <Link href="/" className="text-white hover:text-gray-300">
+            <Link href="/" className="text-white hover:text-[#e11d48]">
               Home
             </Link>
-            <Link href="/about" className="text-white hover:text-gray-300">
+            <Link href="/about" className="text-white hover:text-[#e11d48]">
               About Us
             </Link>
-            <Link href="/events" className="text-white hover:text-gray-300">
+            <Link href="/events" className="text-white hover:text-[#e11d48]">
               Events
             </Link>
-            <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-gray-300">
+            <Link href="/kec_techfest_brochure.pdf" download={`kec_techfest_brochure.pdf`} target="_blank" className="text-white hover:text-[#e11d48]">
               Brochure
             </Link>
-            <Link href="/contact" className="text-white hover:text-gray-300">
+            <Link href="/contact" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
-            <Link href="/sign-in" className="text-white hover:text-gray-300">
+            <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
               Login
             </Link>
           </div>
