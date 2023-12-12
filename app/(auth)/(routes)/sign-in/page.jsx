@@ -42,7 +42,6 @@ const SignInPage = () => {
       const { data } = await axios.post("/api/login", formData);
       setLoading(false);
       if (data.success) {
-        localStorage.setItem("token", JSON.stringify(data.token));
         dispatch(setToken(data.token));
         toast.success("Login Successfull");
         router.push("/");

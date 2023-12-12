@@ -1,7 +1,7 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState =  {
-   user:null,
+   userDetails:null,
    participateIn : []
 };
 
@@ -9,7 +9,7 @@ const profileSlice = createSlice({
     name:'auth',
     initialState:initialState,
     reducers : {
-        setUser(state, value) {
+        setUserDetails(state, value) {
             state.user = value.payload;
           },
            
@@ -19,5 +19,5 @@ const profileSlice = createSlice({
     }
 });
 
-export const { setUser } = profileSlice.actions;
+export const { setUserDetails } = profileSlice.actions;
 export default profileSlice.reducer;

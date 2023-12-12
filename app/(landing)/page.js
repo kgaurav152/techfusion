@@ -5,15 +5,28 @@ import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 import NavBar from '@/components/navbar';
 import Footer from '@/components/footer';
+import { useEffect } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setUserDetails } from "@/redux/slices/profileSlice";
 
 
 const LandingPage = () => {
 
   const router=useRouter();
+  const dispatch = useDispatch();
   const handleClick = (e,path) => {
     e.preventDefault()
     router.push(path)
   };
+  useEffect(()=>{
+    const fetchUserDetails = async()=>{
+      const {data} = await axios.get('/api/userDetails');
+       dispatch(setUserDetails(data.data)) 
+    }
+    fetchUserDetails();
+
+  },[])
 
   return (
     <div>

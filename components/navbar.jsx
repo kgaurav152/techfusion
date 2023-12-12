@@ -7,8 +7,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { token } = useSelector((state) => state.auth);
-  console.log(token);
+  const { user } = useSelector((state) => state.profile);
+  console.log(user);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -45,7 +45,7 @@ const NavBar = () => {
           <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          {token ? (
+          {user ? (
             <Avatar>
               <AvatarFallback  className="bg-slate-800">PJ</AvatarFallback>
             </Avatar>
