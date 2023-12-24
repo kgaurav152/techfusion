@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import toast from "react-hot-toast";
 import * as z from "zod";
 
 import Network from "@/components/network";
@@ -59,91 +60,121 @@ import { colleges, branches, batches, tshirtSizeValue, knowAbout } from "@/publi
 const RegistrationForm = ({setOpen}) => {
   
   
-const studentSignupFormSchema = z.object({
-  fname: z.string().min(2, {
-    message: "name must be at least 2 characters.",
-  }),
-  lname: z.string().min(2, {
-    message: "name must be at least 2 characters.",
-  }),
-  email: z.string().email().optional(),
-  father_name: z.string().min(2, {
-    message: "name must be at least 2 characters.",
-  }),
-//   date_of_birth: z.date({
-//     required_error: "A date of birth is required.",
+// const studentSignupFormSchema = z.object({
+//   fname: z.string().min(2, {
+//     message: "name must be at least 2 characters.",
 //   }),
-  registration_no: z.string({
-    required_error: "Please enter a valid registration number.",
-  }),
-  address: z.string().min(2, {
-    message: "Address must be at least 2 characters.",
-  }),
-//   pincode: z.string({
-//     required_error: "Pincode is required.",
+//   lname: z.string().min(2, {
+//     message: "name must be at least 2 characters.",
 //   }),
-//   nominee_email: z.string().email({
-//     message: "Please enter a valid email address.",
+//   email: z.string().email().optional(),
+//   father_name: z.string().min(2, {
+//     message: "name must be at least 2 characters.",
+//   }),
+// //   date_of_birth: z.date({
+// //     required_error: "A date of birth is required.",
+// //   }),
+//   registration_no: z.string({
+//     required_error: "Please enter a valid registration number.",
+//   }),
+//   address: z.string().min(2, {
+//     message: "Address must be at least 2 characters.",
+//   }),
+// //   pincode: z.string({
+// //     required_error: "Pincode is required.",
+// //   }),
+// //   nominee_email: z.string().email({
+// //     message: "Please enter a valid email address.",
+// //   }).optional(),
+// //   nominee_type: z.string({
+// //     message: "Please enter a valid nominee type.",
+// //   }).optional(),
+//   mobile: z.string().min(2, {
+//     message: "Mobile number must be at least 2 digits.",
+//   }).max(10, {
+//     message: "Mobile number cannot be longer than 10 digits.",
 //   }).optional(),
-//   nominee_type: z.string({
-//     message: "Please enter a valid nominee type.",
-//   }).optional(),
-  mobile: z.string().min(2, {
-    message: "Mobile number must be at least 2 digits.",
-  }).max(10, {
-    message: "Mobile number cannot be longer than 10 digits.",
-  }).optional(),
-//   user_name: z.string().min(2, {
-//     message: "Username must be at least 2 characters.",
-//   }).max(30, {
-//     message: "Username must not be longer than 30 characters.",
-//   }),
-  password: z.string().min(8, {
-    message: "Password must be at least 8 characters long.",
-  }),
-//   confirmPassword: z.string().min(8, {
+// //   user_name: z.string().min(2, {
+// //     message: "Username must be at least 2 characters.",
+// //   }).max(30, {
+// //     message: "Username must not be longer than 30 characters.",
+// //   }),
+//   password: z.string().min(8, {
 //     message: "Password must be at least 8 characters long.",
 //   }),
-});
+// //   confirmPassword: z.string().min(8, {
+// //     message: "Password must be at least 8 characters long.",
+// //   }),
+// });
+
+
+  const RegistrationFormSchema = z.object({
+    name: z.string({
+      required_error: "Name is required",
+      invalid_type_error: "Name must be a string",
+    }).min(2, { message: "Name must be 5 or more characters long" } ),
+    email: z.string().email(),
+    mobile: z.string().min(10, { message: "Mobile no. must be 10 digits"}).max(10, { message: "Mobile no. must be 10 digits"}),
+    password: z.string().min(8, { message: "Password must be longer than 8 characters"} ),
+    confirmPassword: z.string(),
+    gender: z.enum(['male', 'female'],  { message: "Select a valid option"} ),
+    college: z.string({ message: "Must be a valid College Name"}),
+    branch: z.string({ message: "Must be a valid branch"}),
+    batch: z.string({ message: "Must be a valid batch"}),
+    knowAbout: z.string({ message: "Select a valid option"}),
+    accomodation: z.enum(['yes', 'no'], { message: "Select a valid option"} ),
+    tShirtSize: z.string( { message: "Select a valid option"} ),
+    paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
+    otherCollege: z.string().min(2).optional(),
+    // Add other fields to your schema
+  }).refine((data) => data.password === data.confirmPassword, {
+    message: 'Password and confirm password must be same.',
+    path: ["confirmPassword"],
+  });
 
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
-  // const [openChargePop, setOpenChargePop] = useState(false);
 
   const form = useForm({
-    resolver: zodResolver(studentSignupFormSchema),
+    resolver: zodResolver(RegistrationFormSchema),
     mode: "onChange",
   })
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
 
-    const fieldMap = {
+    
+    // if (data.password !== data.confirmPassword) {
+    //   // Handle the case where passwords do not match
+    //   toast.error('Password and confirm password must be the same.');
+    //   setIsLoading(false);
+    //   return;
+    // }
+
+    const obj = {
       name: data.name,
       email: data.email,
-      father_name: data.father_name,
-      mother_name: data.mother_name,
-      date_of_birth: data.date_of_birth,
-      registration_no: data.registration_no,
-      address: data.address,
-      pincode: data.pincode,
-      nominee_email: data.nominee_email,
-      nominee_type: data.nominee_type,
       mobile: data.mobile,
-      user_name: data.user_name,
-      password: data.password,
-      user_type: "5",
+      password: data.confirmPassword,
+      gender: data.gender,
+      college: data.college === 'other' ? data.otherCollege : data.college,
+      branch: data.branch,
+      batch: data.batch,
+      knowAbout: data.knowAbout,
+      accomodation: data.accomodation,
+      tShirtSize: data.tShirtSize,
+      paymentMethod: data.paymentMethod,
+      // Add other fields to your obj based on your form
     };
 
-    const obj = Object.fromEntries(
-      Object.entries(fieldMap).filter(([_, value]) => value !== undefined && value !== null)
-    );
+    // new Network().hit("account", "create", obj, (responseData) => {
+    //   if (responseData) {
+    //     // setOpen(false);
+    //   }
+    // })
 
-    new Network().hit("account", "create", obj, (responseData) => {
-      if (responseData) {
-        setOpen(false);
-      }
-    })
+    console.log(obj);
+
     setIsLoading(false);
   }
 
@@ -202,7 +233,7 @@ const studentSignupFormSchema = z.object({
             <FormItem>
                 <FormLabel>Password*</FormLabel>
                 <FormControl>
-                <Input placeholder="Password" {...field} />
+                <Input placeholder="Password" {...field} type="password" />
 
                 </FormControl>
                 <FormDescription />
@@ -266,7 +297,7 @@ const studentSignupFormSchema = z.object({
                     >
                       {field.value
                         ? colleges.find(
-                            (user) => user.value === field.value
+                            (college) => college.value === field.value
                           )?.label
                         : "Select College"}
                       <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -279,24 +310,24 @@ const studentSignupFormSchema = z.object({
                     <CommandEmpty>No College found.</CommandEmpty>
                     <ScrollArea className="h-48 overflow-auto">
                       <CommandGroup>
-                        {colleges.map((user) => (
+                        {colleges.map((college) => (
                           <CommandItem
-                            value={user.label}
-                            key={user.value}
+                            value={college.label}
+                            key={college.value}
                             onSelect={() => {
-                              form.setValue("user", user.value);
+                              form.setValue("college", college.value);
                               setOpenPop(false);
                             }}
                           >
                             <Check
                               className={cn(
                                 "mr-2 h-4 w-4",
-                                user.value === field.value
+                                college.value === field.value
                                   ? "opacity-100"
                                   : "opacity-0"
                               )}
                             />
-                            {user.label}
+                            {college.label}
                           </CommandItem>
                         ))}
                       </CommandGroup>
@@ -308,7 +339,23 @@ const studentSignupFormSchema = z.object({
               <FormMessage />
             </FormItem>
           )}
-        />
+        />        
+        {form.watch('college') === "other" && (
+         <FormField
+            control={form.control}
+            name="otherCollege"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>College Name*</FormLabel>
+                <FormControl>
+                  <Input placeholder="Enter College Name" {...field} />
+                </FormControl>
+                <FormDescription />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
         <FormField
               control={form.control}
               name="branch"
@@ -363,7 +410,7 @@ const studentSignupFormSchema = z.object({
         />
         <FormField
             control={form.control}
-            name="batch"
+            name="knowAbout"
             render={({ field }) => (
             <FormItem>
                 <FormLabel>How did you came to know about TechKEC2024?*</FormLabel>
@@ -411,7 +458,7 @@ const studentSignupFormSchema = z.object({
         />
         <FormField
               control={form.control}
-              name="batch"
+              name="tShirtSize"
               render={({ field }) => (
               <FormItem>
                   <FormLabel>T-Shirt Size*</FormLabel>
@@ -437,7 +484,7 @@ const studentSignupFormSchema = z.object({
         />
         <FormField
             control={form.control}
-            name="paymentmethod"
+            name="paymentMethod"
             render={({ field }) => (
             <FormItem>
                 <FormLabel>Payment Method*</FormLabel>
