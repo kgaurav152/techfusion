@@ -57,56 +57,8 @@ import {
 import { colleges, branches, batches, tshirtSizeValue, knowAbout } from "@/public/constants";
 
 
-const RegistrationForm = ({setOpen}) => {
+const RegistrationForm = () => {
   
-  
-// const studentSignupFormSchema = z.object({
-//   fname: z.string().min(2, {
-//     message: "name must be at least 2 characters.",
-//   }),
-//   lname: z.string().min(2, {
-//     message: "name must be at least 2 characters.",
-//   }),
-//   email: z.string().email().optional(),
-//   father_name: z.string().min(2, {
-//     message: "name must be at least 2 characters.",
-//   }),
-// //   date_of_birth: z.date({
-// //     required_error: "A date of birth is required.",
-// //   }),
-//   registration_no: z.string({
-//     required_error: "Please enter a valid registration number.",
-//   }),
-//   address: z.string().min(2, {
-//     message: "Address must be at least 2 characters.",
-//   }),
-// //   pincode: z.string({
-// //     required_error: "Pincode is required.",
-// //   }),
-// //   nominee_email: z.string().email({
-// //     message: "Please enter a valid email address.",
-// //   }).optional(),
-// //   nominee_type: z.string({
-// //     message: "Please enter a valid nominee type.",
-// //   }).optional(),
-//   mobile: z.string().min(2, {
-//     message: "Mobile number must be at least 2 digits.",
-//   }).max(10, {
-//     message: "Mobile number cannot be longer than 10 digits.",
-//   }).optional(),
-// //   user_name: z.string().min(2, {
-// //     message: "Username must be at least 2 characters.",
-// //   }).max(30, {
-// //     message: "Username must not be longer than 30 characters.",
-// //   }),
-//   password: z.string().min(8, {
-//     message: "Password must be at least 8 characters long.",
-//   }),
-// //   confirmPassword: z.string().min(8, {
-// //     message: "Password must be at least 8 characters long.",
-// //   }),
-// });
-
 
   const RegistrationFormSchema = z.object({
     name: z.string({
@@ -142,14 +94,6 @@ const RegistrationForm = ({setOpen}) => {
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
-
-    
-    // if (data.password !== data.confirmPassword) {
-    //   // Handle the case where passwords do not match
-    //   toast.error('Password and confirm password must be the same.');
-    //   setIsLoading(false);
-    //   return;
-    // }
 
     const obj = {
       name: data.name,
