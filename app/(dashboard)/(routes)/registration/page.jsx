@@ -183,294 +183,221 @@ const RegistrationForm = ({setOpen}) => {
 
 
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-8">
-        <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Full Name*</FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter Full Name" {...field} />
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-              </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Email*</FormLabel>
-                <FormControl>
-                <Input placeholder="Email" {...field} />
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="mobile"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Mobile No*</FormLabel>
-                <FormControl>
-                <Input placeholder="Enter 10 digit Mobile Number" {...field} />
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="password"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Password*</FormLabel>
-                <FormControl>
-                <Input placeholder="Password" {...field} type="password" />
-
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="confirmPassword"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Confirm Password*</FormLabel>
-                <FormControl>
-                <Input placeholder="Confirm Password" {...field} />
-
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="gender"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Gender*</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder= "Select Gender" />
-                    </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                    <SelectItem value="female">Female</SelectItem>
-                    <SelectItem value="male">Male</SelectItem>
-                    </SelectContent>
-                </Select>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="college"
-          render={({ field }) => (
-            <FormItem className="flex flex-col">
-              <FormLabel>College</FormLabel>
-              <Popover open={openPop} onOpenChange={setOpenPop} >
-                <PopoverTrigger asChild>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto flex flex-col items-center mb-8">
+        <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-8">
+          <FormField
+              control={form.control}
+              name="name"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Full Name*</FormLabel>
                   <FormControl>
-                    <Button
-                      variant="outline"
-                      role="combobox"
-                      className={cn(
-                        "justify-between",
-                        !field.value && "text-muted-foreground"
-                      )}
-                    >
-                      {field.value
-                        ? colleges.find(
-                            (college) => college.value === field.value
-                          )?.label
-                        : "Select College"}
-                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                    </Button>
+                    <Input placeholder="Enter Full Name" {...field} />
                   </FormControl>
-                </PopoverTrigger>
-                <PopoverContent className="p-0">
-                  <Command>
-                    <CommandInput placeholder="Search College..." />
-                    <CommandEmpty>No College found.</CommandEmpty>
-                    <ScrollArea className="h-48 overflow-auto">
-                      <CommandGroup>
-                        {colleges.map((college) => (
-                          <CommandItem
-                            value={college.label}
-                            key={college.value}
-                            onSelect={() => {
-                              form.setValue("college", college.value);
-                              setOpenPop(false);
-                            }}
-                          >
-                            <Check
-                              className={cn(
-                                "mr-2 h-4 w-4",
-                                college.value === field.value
-                                  ? "opacity-100"
-                                  : "opacity-0"
-                              )}
-                            />
-                            {college.label}
-                          </CommandItem>
-                        ))}
-                      </CommandGroup>
-                    </ScrollArea>
-                  </Command>
-                </PopoverContent>
-              </Popover>
-              <FormDescription />
-              <FormMessage />
-            </FormItem>
-          )}
-        />        
-        {form.watch('college') === "other" && (
-         <FormField
-            control={form.control}
-            name="otherCollege"
-            render={({ field }) => (
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
               <FormItem>
-                <FormLabel>College Name*</FormLabel>
-                <FormControl>
-                  <Input placeholder="Enter College Name" {...field} />
-                </FormControl>
-                <FormDescription />
-                <FormMessage />
+                  <FormLabel>Email*</FormLabel>
+                  <FormControl>
+                  <Input placeholder="Email" {...field} />
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
               </FormItem>
             )}
           />
-        )}
-        <FormField
+          <FormField
               control={form.control}
-              name="branch"
+              name="mobile"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Branch*</FormLabel>
+                  <FormLabel>Mobile No*</FormLabel>
+                  <FormControl>
+                  <Input placeholder="Enter 10 digit Mobile Number" {...field} />
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Password*</FormLabel>
+                  <FormControl>
+                  <Input placeholder="Password" {...field} type="password" />
+
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="confirmPassword"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Confirm Password*</FormLabel>
+                  <FormControl>
+                  <Input placeholder="Confirm Password" {...field} />
+
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="gender"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Gender*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
-                          <SelectValue placeholder= "Select Branch" />
+                          <SelectValue placeholder= "Select Gender" />
                       </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                      {branches &&
-                        branches.map((item, index) => (
-                          <SelectItem key={index}
-                            value={item.value}
-                          >{`${item.label}`}</SelectItem>
-                      ))}
+                      <SelectItem value="female">Female</SelectItem>
+                      <SelectItem value="male">Male</SelectItem>
                       </SelectContent>
                   </Select>
                   <FormDescription />
                   <FormMessage />
               </FormItem>
-          )}
-        />
-        <FormField
+            )}
+          />
+          <FormField
             control={form.control}
-            name="batch"
+            name="college"
             render={({ field }) => (
-            <FormItem>
-                <FormLabel>Batch*</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormItem className="flex flex-col">
+                <FormLabel>College</FormLabel>
+                <Popover open={openPop} onOpenChange={setOpenPop} >
+                  <PopoverTrigger asChild>
                     <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder= "Select Batch" />
-                    </SelectTrigger>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        className={cn(
+                          "justify-between",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value
+                          ? colleges.find(
+                              (college) => college.value === field.value
+                            )?.label
+                          : "Select College"}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
                     </FormControl>
-                    <SelectContent>
-                    {batches &&
-                      batches.map((item, index) => (
-                        <SelectItem key={index}
-                          value={item.value}
-                        >{item.label}</SelectItem>
-                    ))}
-                    </SelectContent>
-                </Select>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-0">
+                    <Command>
+                      <CommandInput placeholder="Search College..." />
+                      <CommandEmpty>No College found.</CommandEmpty>
+                      <ScrollArea className="h-48 overflow-auto">
+                        <CommandGroup>
+                          {colleges.map((college) => (
+                            <CommandItem
+                              value={college.label}
+                              key={college.value}
+                              onSelect={() => {
+                                form.setValue("college", college.value);
+                                setOpenPop(false);
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  college.value === field.value
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                                )}
+                              />
+                              {college.label}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </ScrollArea>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
                 <FormDescription />
                 <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="knowAbout"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>How did you came to know about TechKEC2024?*</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder= "Select One" />
-                    </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                    {knowAbout &&
-                      knowAbout.map((item, index) => (
-                        <SelectItem key={index}
-                          value={item.value}
-                        >{item.label}</SelectItem>
-                    ))}
-                    </SelectContent>
-                </Select>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="accomodation"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Do you need Accomodation?*</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder= "Select One" />
-                    </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                    <SelectItem value="yes">Yes</SelectItem>
-                    <SelectItem value="no">No</SelectItem>
-                    </SelectContent>
-                </Select>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
+              </FormItem>
+            )}
+          />        
+          {form.watch('college') === "other" && (
+          <FormField
               control={form.control}
-              name="tShirtSize"
+              name="otherCollege"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>College Name*</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter College Name" {...field} />
+                  </FormControl>
+                  <FormDescription />
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          )}
+          <FormField
+                control={form.control}
+                name="branch"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel>Branch*</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder= "Select Branch" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        {branches &&
+                          branches.map((item, index) => (
+                            <SelectItem key={index}
+                              value={item.value}
+                            >{`${item.label}`}</SelectItem>
+                        ))}
+                        </SelectContent>
+                    </Select>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="batch"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>T-Shirt Size*</FormLabel>
+                  <FormLabel>Batch*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
-                          <SelectValue placeholder= "Select One" />
+                          <SelectValue placeholder= "Select Batch" />
                       </SelectTrigger>
                       </FormControl>
                       <SelectContent>
-                      {tshirtSizeValue &&
-                        tshirtSizeValue.map((item, index) => (
+                      {batches &&
+                        batches.map((item, index) => (
                           <SelectItem key={index}
                             value={item.value}
                           >{item.label}</SelectItem>
@@ -480,30 +407,105 @@ const RegistrationForm = ({setOpen}) => {
                   <FormDescription />
                   <FormMessage />
               </FormItem>
-          )}
-        />
-        <FormField
-            control={form.control}
-            name="paymentMethod"
-            render={({ field }) => (
-            <FormItem>
-                <FormLabel>Payment Method*</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
-                    <FormControl>
-                    <SelectTrigger>
-                        <SelectValue placeholder= "Select One" />
-                    </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                    <SelectItem value="ca">Through Campus Ambassador</SelectItem>
-                    <SelectItem value="ba">Through Bank Account</SelectItem>
-                    </SelectContent>
-                </Select>
-                <FormDescription />
-                <FormMessage />
-            </FormItem>
-          )}
-        />  
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="knowAbout"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>How did you came to know about TechKEC2024?*</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                      <SelectTrigger>
+                          <SelectValue placeholder= "Select One" />
+                      </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                      {knowAbout &&
+                        knowAbout.map((item, index) => (
+                          <SelectItem key={index}
+                            value={item.value}
+                          >{item.label}</SelectItem>
+                      ))}
+                      </SelectContent>
+                  </Select>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="accomodation"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Do you need Accomodation?*</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                      <SelectTrigger>
+                          <SelectValue placeholder= "Select One" />
+                      </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                      <SelectItem value="yes">Yes</SelectItem>
+                      <SelectItem value="no">No</SelectItem>
+                      </SelectContent>
+                  </Select>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+                control={form.control}
+                name="tShirtSize"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel>T-Shirt Size*</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder= "Select One" />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        {tshirtSizeValue &&
+                          tshirtSizeValue.map((item, index) => (
+                            <SelectItem key={index}
+                              value={item.value}
+                            >{item.label}</SelectItem>
+                        ))}
+                        </SelectContent>
+                    </Select>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+            )}
+          />
+          <FormField
+              control={form.control}
+              name="paymentMethod"
+              render={({ field }) => (
+              <FormItem>
+                  <FormLabel>Payment Method*</FormLabel>
+                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <FormControl>
+                      <SelectTrigger>
+                          <SelectValue placeholder= "Select One" />
+                      </SelectTrigger>
+                      </FormControl>
+                      <SelectContent>
+                      <SelectItem value="ca">Through Campus Ambassador</SelectItem>
+                      <SelectItem value="ba">Through Bank Account</SelectItem>
+                      </SelectContent>
+                  </Select>
+                  <FormDescription />
+                  <FormMessage />
+              </FormItem>
+            )}
+          />  
+        </div>
         <Button type="submit" disabled={isLoading}>Register</Button>
       </form>
     </Form>
