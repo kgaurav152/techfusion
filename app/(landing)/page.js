@@ -39,7 +39,7 @@ const LandingPage = () => {
             <div>
                 <h1 className="font-bold text-[3rem]">Techfest 2023</h1>
                 <p className="text-[1.5rem] mb-5">Tentative Date: 20-25 January 2024</p>
-                  <Button variant="" type="button" className="bg-white text-[#00040F] font-bold pt-2 pb-2 pr-4 pl-4 rounded-lg" onClick={(e) => handleClick(e, "/register")}>
+                  <Button variant="" type="button" className="bg-white text-[#00040F] font-bold pt-2 pb-2 pr-4 pl-4 rounded-lg" onClick={(e) => handleClick(e, "/registration")}>
                   Register Now <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
             </div>

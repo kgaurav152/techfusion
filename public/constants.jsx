@@ -90,7 +90,13 @@ export const batches = [
     { label: "2k23", value: "2k23" },
 ];
 
-export const tshirtSizeValue = ["S", "M", "L", "XL", "XXL"];
+export const tshirtSizeValue = [
+{ label: "S", value: "S"},
+{ label: "M", value: "M"},
+{ label: "L", value: "L"},
+{ label: "XL", value: "XL"},
+{ label: "XXL", value: "XXL"}
+];
 
 export const knowAbout = [
   { label: "Campus Ambassador", value: "Campus Ambassador" },
