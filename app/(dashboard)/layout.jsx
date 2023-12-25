@@ -1,5 +1,5 @@
 "use client";
-import NavBar from "@/components/Navbar";
+import NavBar from "@/components/navbar";
 import Footer from '@/components/footer';
 // import Sidebar from "@/components/Sidebar";
 
