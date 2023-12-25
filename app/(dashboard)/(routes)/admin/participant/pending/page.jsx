@@ -39,7 +39,6 @@ export const PendingParticipants = () => {
       fetchPendingParticipants();
     }, []);
 
-    
     if(actionSuccess){ 
         fetchPendingParticipants();
         setActionSuccess(false);

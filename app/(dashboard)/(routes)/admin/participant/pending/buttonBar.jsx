@@ -18,10 +18,10 @@ import {
 import { Trash2 } from "lucide-react";
 
 
-export function AcceptApprovalForm({ setOpen,  userId, setActionSuccess }) {
+export function AcceptApprovalForm({ setOpen,  UserId, setActionSuccess }) {
     const handleAcceptApprovalRequest = async () => {
       const obj = { 
-        user_id: userId,
+        user_id: UserId,
         approval: "1"
         };
   
@@ -88,10 +88,10 @@ export function AcceptApprovalForm({ setOpen,  userId, setActionSuccess }) {
   }
 
 
-export function RejectApprovalForm({ setOpen,  userId, setActionSuccess }) {
+export function RejectApprovalForm({ setOpen,  UserId, setActionSuccess }) {
     const handleRejectApprovalRequest = async () => {
       const obj = { 
-        user_id: userId,
+        user_id: UserId,
         approval: "0"
         };
   
