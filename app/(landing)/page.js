@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, MoveUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import NavBar from '@/components/navbar';
 import Footer from '@/components/footer';
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
@@ -15,6 +16,19 @@ const LandingPage = () => {
 
   const router=useRouter();
   const dispatch = useDispatch();
+
+  
+  const [isHovered, setIsHovered] = useState(false);
+
+  
+  // const handleHover = () => {
+  //   setIsHovered(true);
+  // };
+
+  // const handleLeave = () => {
+  //   setIsHovered(false);
+  // };
+
   const handleClick = (e,path) => {
     e.preventDefault()
     router.push(path)
@@ -34,14 +48,28 @@ const LandingPage = () => {
       <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative" >
         <NavBar />
         {/* Provided Decorative Elements */}
-        <div className="relative text-center">
+        <div className="relative text-center mb-8">
           <div className="z-0">
-            <div>
-                <h1 className="font-bold text-[3rem]">Techfest 2023</h1>
-                <p className="text-[1.5rem] mb-5">Tentative Date: 20-25 January 2024</p>
-                  <Button variant="" type="button" className="bg-white text-[#00040F] font-bold pt-2 pb-2 pr-4 pl-4 rounded-lg" onClick={(e) => handleClick(e, "/registration")}>
-                  Register Now <ArrowRight className="ml-2 w-4 h-4" />
-                  </Button>
+            <div className="flex flex-col items-center">
+              <h1 className="font-bold text-[3rem]">TechFest 2024</h1>
+              <p className="text-[1.5rem] mb-5">Tentative Date: 22-26 January 2024</p>
+              <button
+                className="relative rounded-lg mb-2 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 transition-all duration-300 hover:bg-purple-500 hover:text-white flex items-center"
+                onMouseEnter={()=>{setIsHovered(true);}}
+                onMouseLeave={()=>{setIsHovered(false);}} 
+                onClick={(e) => handleClick(e, "/registration")}
+              >
+                <div className="flex items-center">
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${isHovered ? 'bg-purple-500' : 'bg-white'}`}
+                  >
+                    <MoveUpRight className={`w-4 h-4 ${isHovered ? 'text-white' : 'text-gray-700'}`} />
+                  </div>
+                  <span className="ml-3">
+                    Register Now
+                  </span>
+                </div>
+              </button>
             </div>
             <div className="bg-primary-radial-gradient sm:w-[130px] w-[80px] h-[80px] sm:h-[130px] rounded-full absolute top-[25%] left-[15%] lg:top-[25%] lg:left-[15%]"></div>
             <div className="bg-primary-radial-gradient sm:w-[130px] w-[80px] h-[80px] sm:h-[130px] rounded-full absolute top-[20%] left-[65%] lg:top-[15%] lg:left-[75%]"></div>
