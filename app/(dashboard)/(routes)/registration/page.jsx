@@ -134,7 +134,7 @@ const RegistrationForm = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Full Name*</FormLabel>
+                  <FormLabel className="text-white">Full Name*</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter Full Name" {...field} />
                   </FormControl>
@@ -148,7 +148,7 @@ const RegistrationForm = () => {
               name="email"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Email*</FormLabel>
+                  <FormLabel className="text-white">Email*</FormLabel>
                   <FormControl>
                   <Input placeholder="Email" {...field} />
                   </FormControl>
@@ -162,7 +162,7 @@ const RegistrationForm = () => {
               name="mobile"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Mobile No*</FormLabel>
+                  <FormLabel className="text-white">Mobile No*</FormLabel>
                   <FormControl>
                   <Input placeholder="Enter 10 digit Mobile Number" {...field} />
                   </FormControl>
@@ -176,7 +176,7 @@ const RegistrationForm = () => {
               name="password"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Password*</FormLabel>
+                  <FormLabel className="text-white">Password*</FormLabel>
                   <FormControl>
                   <Input placeholder="Password" {...field} type="password" />
 
@@ -191,7 +191,7 @@ const RegistrationForm = () => {
               name="confirmPassword"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Confirm Password*</FormLabel>
+                  <FormLabel className="text-white">Confirm Password*</FormLabel>
                   <FormControl>
                   <Input placeholder="Confirm Password" {...field} />
 
@@ -206,7 +206,7 @@ const RegistrationForm = () => {
               name="gender"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Gender*</FormLabel>
+                  <FormLabel className="text-white">Gender*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
@@ -228,7 +228,7 @@ const RegistrationForm = () => {
             name="college"
             render={({ field }) => (
               <FormItem className="flex flex-col">
-                <FormLabel>College</FormLabel>
+                <FormLabel className="text-white">College</FormLabel>
                 <Popover open={openPop} onOpenChange={setOpenPop} >
                   <PopoverTrigger asChild>
                     <FormControl>
@@ -291,7 +291,7 @@ const RegistrationForm = () => {
               name="otherCollege"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>College Name*</FormLabel>
+                  <FormLabel className="text-white">College Name*</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter College Name" {...field} />
                   </FormControl>
@@ -306,7 +306,7 @@ const RegistrationForm = () => {
                 name="branch"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>Branch*</FormLabel>
+                    <FormLabel className="text-white">Branch*</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -332,7 +332,7 @@ const RegistrationForm = () => {
               name="batch"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Batch*</FormLabel>
+                  <FormLabel className="text-white">Batch*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
@@ -358,7 +358,7 @@ const RegistrationForm = () => {
               name="knowAbout"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>How did you came to know about TechKEC2024?*</FormLabel>
+                  <FormLabel className="text-white">How did you came to know about TechKEC2024?*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
@@ -384,7 +384,7 @@ const RegistrationForm = () => {
               name="accomodation"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Do you need Accomodation?*</FormLabel>
+                  <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
@@ -406,7 +406,7 @@ const RegistrationForm = () => {
                 name="tShirtSize"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel>T-Shirt Size*</FormLabel>
+                    <FormLabel className="text-white">T-Shirt Size*</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -432,7 +432,7 @@ const RegistrationForm = () => {
               name="paymentMethod"
               render={({ field }) => (
               <FormItem>
-                  <FormLabel>Payment Method*</FormLabel>
+                  <FormLabel className="text-white">Payment Method*</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                       <SelectTrigger>
@@ -450,7 +450,7 @@ const RegistrationForm = () => {
             )}
           />  
         </div>
-        <Button type="submit" disabled={isLoading}>Register</Button>
+        <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 hover:text-white flex items-center hover:border-white" >Register</Button>
       </form>
     </Form>
 
