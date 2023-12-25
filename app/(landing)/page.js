@@ -51,7 +51,7 @@ const LandingPage = () => {
         <div className="relative text-center mb-8">
           <div className="z-0">
             <div className="flex flex-col items-center">
-              <h1 className="font-bold text-[3rem]">TechFest 2024</h1>
+              <h1 className="font-bold text-[3rem]">TechFest'24</h1>
               <p className="text-[1.5rem] mb-5">Tentative Date: 22-26 January 2024</p>
               <Button
                 className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
