@@ -77,6 +77,9 @@ const RegistrationForm = () => {
     color: '#fff',
   };
 
+  const MAX_FILE_SIZE = 500000;
+  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+
   const RegistrationFormSchema = z.object({
     name: z.string({
       required_error: "Name is required",
@@ -95,7 +98,38 @@ const RegistrationForm = () => {
     tShirtSize: z.string( { message: "Select a valid option"} ),
     paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
     otherCollege: z.string().optional(),
-    // Add other fields to your schema
+    ca_no_ba: z.string().optional(),
+    ca_no_ca: z.string().optional(),
+    trx_id: z.string().optional(),
+    // trx_img: z
+    //   .any()
+    //   .refine((file) => file?.length == 1, 'Payment Screenshot is required.')
+    //   .refine((file) => file[0]?.size <= 3000000, `Max file size is 3MB.`),
+    // trx_img: z
+    //   .any()
+    //   .refine(
+    //     (file) => file?.length === 1 && file[0]?.size <= 3000000, // Check if 'file' and its properties are defined before accessing
+    //     {
+    //       message: 'Payment Screenshot is required and must be less than 3MB.',
+    //       path: ['trx_img'],
+    //     }
+    //   ),
+    trx_img: z
+    .any()
+    .refine((file) => {
+      if (!file) return false;
+
+      const fileType = file[0]?.type;
+      const fileSize = file[0]?.size;
+
+      const isImageOrPDF = fileType.includes("image/") || fileType === "application/pdf";
+      const isUnder3MB = fileSize <= 3000000; // 3 MB in bytes
+
+      return isImageOrPDF && isUnder3MB;
+    }, {
+      message: 'File must be an image or PDF and less than 3 MB in size',
+      path: ['trx_img'],
+    }),
   }).refine((data) => data.password === data.confirmPassword, {
     message: 'Password and confirm password must be same.',
     path: ["confirmPassword"],
@@ -108,6 +142,8 @@ const RegistrationForm = () => {
     resolver: zodResolver(RegistrationFormSchema),
     mode: "onChange",
   })
+
+  const fileRef = form.register('file', { required: true });
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
@@ -129,7 +165,10 @@ const RegistrationForm = () => {
       accomodation: data.accomodation,
       tShirtSize: data.tShirtSize,
       paymentMethod: data.paymentMethod,
-      // Add other fields to your obj based on your form
+      college: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
+      transection_id: data.trx_id == null ? '' : data.trx_id,
+      screenshot: data.trx_img,
+      userType: 'participant'
     };
 
     // new Network().hit("account", "create", obj, (responseData) => {
@@ -153,7 +192,7 @@ const RegistrationForm = () => {
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
             <CardDescription />
           </CardHeader>
-          <CardContent className="grid gap-2 lg:grid-cols-2">
+          <CardContent className="grid gap-4 lg:gap-2 lg:grid-cols-2">
             <div className="flex items-center justify-between space-x-4">
               <div className="flex items-center space-x-4">
                 <Avatar>
@@ -190,7 +229,7 @@ const RegistrationForm = () => {
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto flex flex-col items-center mb-8">
-          <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-8">
+          <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
             <FormField
                 control={form.control}
                 name="name"
@@ -502,8 +541,8 @@ const RegistrationForm = () => {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="ca">Through Campus Ambassador</SelectItem>
                         <SelectItem value="ba">Through Bank Account</SelectItem>
+                        <SelectItem value="ca">Through Campus Ambassador</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />
@@ -512,6 +551,100 @@ const RegistrationForm = () => {
               )}
             />  
           </div>
+          {form.watch('paymentMethod') === "ba" && (
+          <div>
+            <h1 className="font-bold text-xl text-white underline mb-2 pb-2">Bank Account</h1>
+            <Card className="mx-auto max-w-xl mb-4 text-left">
+              <CardContent>
+                  <div className="flex items-center pt-4">
+                    <p className="font-semibold font-mono">Participants can pay registration fee of Rs 700/- on following bank account and upload the screenshot of payment:</p>
+                  </div>
+              </CardContent>
+            </Card>
+            <div className="text-white mb-3">
+              <span>
+                <h1 className="font-bold text-xl text-red-400 underline mb-2">Bank Account Details:</h1>
+                <p>A/c No. - 123456789</p>
+                <p>A/c Holder - PRINCIPAL, KEC KATIHAR</p>
+                <p>IFSC code - CBIN0287026</p>
+                <p>Bank - Central Bank of India</p>
+                <p>Branch - New Market Road, Katihar (BH)</p>
+              </span>
+            </div>
+            <FormField
+                control={form.control}
+                name="ca_no_ba"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="text-white">Campus Ambassador Code</FormLabel>
+                    <FormControl>
+                    <Input placeholder="Enter CA code" {...field} />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+                control={form.control}
+                name="trx_id"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="text-white">Transection Id*</FormLabel>
+                    <FormControl>
+                    <Input placeholder="Enter Transection Id" {...field} />
+                    </FormControl>
+                    <FormDescription />
+                    <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          )}
+          {form.watch('paymentMethod') === "ca" && (
+            <div>
+              <h1 className="font-bold text-xl text-white underline mb-2 pb-2">Campus Ambassador</h1>
+              <Card className="mx-auto max-w-xl mb-4 text-left">
+                <CardContent>
+                    <div className="flex items-center pt-4">
+                      <p className="font-semibold font-mono">Participants can pay registration fee of Rs 700/- to Campus Ambassador of their college.</p>
+                    </div>
+                </CardContent>
+              </Card>
+              <FormField
+                  control={form.control}
+                  name="ca_no_ca"
+                  render={({ field }) => (
+                  <FormItem>
+                      <FormLabel className="text-white">Campus Ambassador Code*</FormLabel>
+                      <FormControl>
+                      <Input placeholder="Enter CA code" {...field} />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          )}
+          {form.watch('paymentMethod')  && (
+            <div className="mx-auto w-full max-w-xl mb-6 mt-2">
+              <FormField
+                  control={form.control}
+                  name="trx_img"
+                  render={({ field }) => (
+                  <FormItem>
+                      <FormLabel className="text-white">Screenshot of Payment (less than 3 mb)*</FormLabel>
+                      <FormControl>
+                      <Input type="file" {...fileRef} />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+          )}
           <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none" >Register</Button>
         </form>
       </Form>
