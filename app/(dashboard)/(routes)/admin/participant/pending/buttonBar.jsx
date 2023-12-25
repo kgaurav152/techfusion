@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Trash } from "lucide-react";
+import { Trash2 } from "lucide-react";
 
 
 export function AcceptApprovalForm({ setOpen,  userId, setActionSuccess }) {
