@@ -66,12 +66,42 @@ export const DataTable = ({
     <>
         {/* table */}
         <div className="flex items-center justify-between">
-            <div className="flex items-center py-4">
+            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+            <Input
+            placeholder="Filter TechFest Id..."
+            value={(table.getColumn("id")?.getFilterValue()) ?? ""}
+            onChange={(event) =>
+                table.getColumn("id")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+            />
+            </div>
+            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
             <Input
             placeholder="Filter Name..."
             value={(table.getColumn("name")?.getFilterValue()) ?? ""}
             onChange={(event) =>
                 table.getColumn("name")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+            />
+            </div>
+            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+            <Input
+            placeholder="Filter College..."
+            value={(table.getColumn("college")?.getFilterValue()) ?? ""}
+            onChange={(event) =>
+                table.getColumn("college")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+            />
+            </div>
+            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+            <Input
+            placeholder="Filter Events..."
+            value={(table.getColumn("events")?.getFilterValue()) ?? ""}
+            onChange={(event) =>
+                table.getColumn("events")?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
             />
