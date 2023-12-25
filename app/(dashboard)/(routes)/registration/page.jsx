@@ -552,7 +552,7 @@ const RegistrationForm = () => {
             />  
           </div>
           {form.watch('paymentMethod') === "ba" && (
-          <div>
+          <div className="mx-auto w-4/5 gap-2 lg:gap-4 max-w-xl">
             <h1 className="font-bold text-xl text-white underline mb-2 pb-2">Bank Account</h1>
             <Card className="mx-auto max-w-xl mb-4 text-left">
               <CardContent>
@@ -602,7 +602,7 @@ const RegistrationForm = () => {
           </div>
           )}
           {form.watch('paymentMethod') === "ca" && (
-            <div>
+            <div className="mx-auto w-4/5 gap-2 lg:gap-4 max-w-xl">
               <h1 className="font-bold text-xl text-white underline mb-2 pb-2">Campus Ambassador</h1>
               <Card className="mx-auto max-w-xl mb-4 text-left">
                 <CardContent>
@@ -628,7 +628,7 @@ const RegistrationForm = () => {
             </div>
           )}
           {form.watch('paymentMethod')  && (
-            <div className="mx-auto w-full max-w-xl mb-6 mt-2">
+            <div className="mx-auto w-4/5 lg:w-full max-w-xl mb-6 mt-2">
               <FormField
                   control={form.control}
                   name="trx_img"
