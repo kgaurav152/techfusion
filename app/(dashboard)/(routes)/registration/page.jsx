@@ -147,7 +147,7 @@ const RegistrationForm = () => {
             
     <React.Fragment>
       <div className="text-center mb-4 text-border flex-col">
-        <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFest'24 Registration</h1>
+        <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFest&apos;24 Registration</h1>
         <Card className="mx-auto w-4/5 max-w-xl mt-2 mb-2 text-left">
           <CardHeader>
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
@@ -420,7 +420,7 @@ const RegistrationForm = () => {
                 name="knowAbout"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="text-white">How did you came to know about TechFest'24?*</FormLabel>
+                    <FormLabel className="text-white">How did you came to know about TechFest&apos;24?*</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
