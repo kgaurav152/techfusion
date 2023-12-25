@@ -54,15 +54,14 @@ const LandingPage = () => {
               <h1 className="font-bold text-[3rem]">TechFest 2024</h1>
               <p className="text-[1.5rem] mb-5">Tentative Date: 22-26 January 2024</p>
               <Button
-                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 hover:text-white flex items-center hover:border-white"
+                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
                 onMouseEnter={()=>{setIsHovered(true);}}
                 onMouseLeave={()=>{setIsHovered(false);}} 
                 onClick={(e) => handleClick(e, "/registration")}
               >
                 <div className="flex items-center">
                   <div className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${isHovered ? 'bg-purple-500' : 'bg-white'}`}>
-                    <MoveUpRight className={`w-4 h-4 ${isHovered ? 'hidden' : 'text-gray-700'}`} />
-                    <MoveUpRight className={`w-4 h-4 ${isHovered ? 'text-white ' : 'hidden'}`} />
+                    <MoveUpRight className={`w-4 h-4 ${isHovered ? 'text-white' : 'text-gray-700'}`} />
                   </div>
                   <span className="ml-3">
                     Register Now
