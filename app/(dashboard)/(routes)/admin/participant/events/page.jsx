@@ -7,14 +7,14 @@ import toast from "react-hot-toast";
 import {columns} from '@/app/(dashboard)/(routes)/admin/participant/all/columns'
 import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/all/data-table'
 
-export const PendingParticipants = () => {
+export const AllEventParticipants = () => {
 
     const [loading, setLoading] = useState(false);
     const [actionSuccess, setActionSuccess] = useState(false);
 
-    const [allParticipantsData, setAllParticipantsData] = useState([]);
+    const [allEventParticipantsData, setAllEventParticipantsData] = useState([]);
 
-    const fetchAllParticipants = async () => {
+    const fetchAllEventParticipants = async () => {
         // new Network().hit("employee", "all", {}, (responseData) => {
         //   if (responseData) {
         //     setPendingParticipantsData(responseData);
@@ -26,7 +26,7 @@ export const PendingParticipants = () => {
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
-            setAllParticipantsData(data.data);
+            setAllEventParticipantsData(data.data);
             } else {
             toast.error(data.message);
             }
@@ -36,23 +36,23 @@ export const PendingParticipants = () => {
     }
 
     useEffect(() => {
-      fetchAllParticipants();
+      fetchAllEventParticipants();
     }, []);
 
     // if(actionSuccess){ 
-    //     fetchAllParticipants();
+    //     fetchAllEventParticipants();
     //     setActionSuccess(false);
     // }
     
 
   return (
         <div className="flex flex-col items-center mt-2 text-center">
-            <h1 className='text-3xl text-white font-bold'>All Participants</h1>
+            <h1 className='text-3xl text-white font-bold'>Participants by Event</h1>
             <div className='container mt-4 mb-20 w-4/5'>
-                <DataTable columns={columns(setActionSuccess)} data={allParticipantsData} />
+                <DataTable columns={columns(setActionSuccess)} data={allEventParticipantsData} />
             </div>
         </div>
   )
 };
 
-export default PendingParticipants;
+export default AllEventParticipants;
