@@ -1,6 +1,7 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { React, useRef, useEffect, useState } from "react";
+import { useReactToPrint } from "react-to-print";
 
 import {
   ColumnDef,
@@ -42,6 +43,11 @@ export const DataTable = ({
     const [columnFilters, setColumnFilters] = useState([]);
     const [columnVisibility, setColumnVisibility] = useState({});
     const [rowSelection, setRowSelection] = useState({});
+    
+    const printAreaRef = useRef(null);
+    const handlePrint = useReactToPrint({
+      content: () => printAreaRef.current,
+    });
 
   const table = useReactTable({
   data,
@@ -64,7 +70,6 @@ export const DataTable = ({
 
   return (
     <>
-        {/* table */}
         <div className="flex items-center justify-between">
             <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
             <Input
@@ -125,7 +130,7 @@ export const DataTable = ({
           </DropdownMenuContent>
         </DropdownMenu>
         </div>
-        <div className="rounded-md border text-white">
+        <div className="rounded-md border text-white" ref={printAreaRef}>
             <Table>
               
                 <TableHeader>
@@ -169,7 +174,12 @@ export const DataTable = ({
                 )}
                 </TableBody>
             </Table>
-            </div>
+        </div>
+        <div className="text-center text-white mt-20 mb-4">
+          <Button onClick={handlePrint} className="text-white">
+            Print
+          </Button>
+        </div>
     </>
   )
 }

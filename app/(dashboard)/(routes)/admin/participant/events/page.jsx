@@ -1,18 +1,24 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
+// import { useReactToPrint } from "react-to-print";
 import Network from "@/components/network";
 import axios from "axios";
 import toast from "react-hot-toast";
-import {columns} from '@/app/(dashboard)/(routes)/admin/participant/all/columns'
-import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/all/data-table'
+import { Button } from '@/components/ui/button';
+import {columns} from '@/app/(dashboard)/(routes)/admin/participant/events/columns'
+import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/events/data-table'
 
 export const AllEventParticipants = () => {
-
+    
     const [loading, setLoading] = useState(false);
     const [actionSuccess, setActionSuccess] = useState(false);
-
     const [allEventParticipantsData, setAllEventParticipantsData] = useState([]);
+
+    // const printAreaRef = useRef(null);
+    // const handlePrint = useReactToPrint({
+    //     content: () => printAreaRef.current,
+    // });
 
     const fetchAllEventParticipants = async () => {
         // new Network().hit("employee", "all", {}, (responseData) => {
