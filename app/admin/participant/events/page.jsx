@@ -6,8 +6,8 @@ import Network from "@/components/network";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Button } from '@/components/ui/button';
-import {columns} from '@/app/(dashboard)/(routes)/admin/participant/events/columns'
-import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/events/data-table'
+import {columns} from '@/app/admin/participant/events/columns'
+import { DataTable } from '@/app/admin/participant/events/data-table'
 
 export const AllEventParticipants = () => {
     

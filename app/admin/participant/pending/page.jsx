@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react'
 import Network from "@/components/network";
 import axios from "axios";
 import toast from "react-hot-toast";
-import {columns} from '@/app/(dashboard)/(routes)/admin/participant/pending/columns'
-import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/pending/data-table'
+import {columns} from '@/app/admin/participant/pending/columns'
+import { DataTable } from '@/app/admin/participant/pending/data-table'
 
 export const PendingParticipants = () => {
 
