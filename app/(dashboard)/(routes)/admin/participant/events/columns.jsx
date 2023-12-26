@@ -14,18 +14,14 @@ export const columns = (setActionSuccess) => [
     header: 'TechFest ID'
   },
   {
-    accessorKey: 'gender',
-    header: 'Gender'
-  },
-  {
-    accessorKey: 'name',
+    accessorKey: 'team_leader_name',
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Name
+          Team Leader Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
@@ -44,20 +40,6 @@ export const columns = (setActionSuccess) => [
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           College
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-  },
-  {
-    accessorKey: 'accomodation',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Accomodation
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

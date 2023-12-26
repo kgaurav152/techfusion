@@ -78,30 +78,10 @@ export const DataTable = ({
             </div>
             <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
             <Input
-            placeholder="Filter Name..."
-            value={(table.getColumn("name")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("name")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
-            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
-            <Input
             placeholder="Filter College..."
             value={(table.getColumn("college")?.getFilterValue()) ?? ""}
             onChange={(event) =>
                 table.getColumn("college")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
-            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
-            <Input
-            placeholder="Filter Accomodation..."
-            value={(table.getColumn("accomodation")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("accomodation")?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
             />

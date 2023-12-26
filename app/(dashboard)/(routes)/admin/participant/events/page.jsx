@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import {columns} from '@/app/(dashboard)/(routes)/admin/participant/all/columns'
 import { DataTable } from '@/app/(dashboard)/(routes)/admin/participant/all/data-table'
 
-export const AllParticipants = () => {
+export const PendingParticipants = () => {
 
     const [loading, setLoading] = useState(false);
     const [actionSuccess, setActionSuccess] = useState(false);
@@ -55,4 +55,4 @@ export const AllParticipants = () => {
   )
 };
 
-export default AllParticipants;
+export default PendingParticipants;
