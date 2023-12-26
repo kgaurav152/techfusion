@@ -43,10 +43,10 @@ const NavBar = () => {
         {/* Menu for large screens */}
         <div className="hidden md:flex md:space-x-8 mr-4">
           <Link href="/admin/dashboard" className="text-white hover:text-[#e11d48]">
-            Home
+            Dashboard
           </Link>
-          <Link href="/admin/hospatility" className="text-white hover:text-[#e11d48]">
-            Hospatility
+          <Link href="/admin/hospitality" className="text-white hover:text-[#e11d48]">
+            Hospitality
           </Link>
           <Link href="/admin/participant/pending" className="text-white hover:text-[#e11d48]">
             View Pending
@@ -118,10 +118,10 @@ const NavBar = () => {
         <div className="md:hidden mt-4">
           <div className="flex flex-col space-y-4">
             <Link href="/admin/dashboard" className="text-white hover:text-[#e11d48]">
-              Home
+            Dashboard
             </Link>
-            <Link href="/admin/hospatility" className="text-white hover:text-[#e11d48]">
-              About Us
+            <Link href="/admin/hospitality" className="text-white hover:text-[#e11d48]">
+              Hospitality
             </Link>
             <Link href="/admin/participant/pending" className="text-white hover:text-[#e11d48]">
               View Pending

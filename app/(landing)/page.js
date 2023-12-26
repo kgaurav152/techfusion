@@ -44,9 +44,7 @@ const LandingPage = () => {
   },[])
 
   return (
-    <div>
       <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative" >
-        <NavBar />
         {/* Provided Decorative Elements */}
         <div className="relative text-center mb-8">
           <div className="z-0">
@@ -115,9 +113,6 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
-
-        <Footer />
-      </div>
     </div>
   )
 }
