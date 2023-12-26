@@ -31,15 +31,15 @@ const LandingPage = () => {
     e.preventDefault()
     router.push(path)
   };
-  // useEffect(()=>{
-  //   const fetchUserDetails = async()=>{
-  //     const {data} = await axios.get('/api/userDetails');
-  //     console.log(data)
-  //      dispatch(setUserDetails(data?.data)) 
-  //   }
-  //   fetchUserDetails();
+  useEffect(()=>{
+    const fetchUserDetails = async()=>{
+      const {data} = await axios.get('/api/userDetails');
+      console.log(data)
+       dispatch(setUserDetails(data?.data)) 
+    }
+    fetchUserDetails();
 
-  // },[])
+  },[])
 
   return (
       <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative" >
