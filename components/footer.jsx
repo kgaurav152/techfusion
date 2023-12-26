@@ -57,7 +57,7 @@ const Footer = () => {
 
           {/* <div> */}
             <nav className="lg:hidden mb-4">
-              <ul className="flex flex-col space-y-4">
+              <ul className="flex flex-col space-y-4 items-center">
                 <li><a href="/" className="hover:text-[#e11d48]">Home</a></li>
                 <li><a href="/about" className="hover:text-[#e11d48]">About Us</a></li>
                 <li><a href="/events" className="hover:text-[#e11d48]">Events</a></li>

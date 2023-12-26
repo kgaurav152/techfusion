@@ -1,5 +1,6 @@
 "use client";
-// import Navbar from "@/components/Navbar";
+import NavBar from "@/components/navbar";
+import Footer from '@/components/footer';
 // import Sidebar from "@/components/Sidebar";
 
 import { useEffect } from "react";
@@ -7,19 +8,13 @@ import Network from "@/components/network";
 
 const DashboardLayout = ({ children }) => {
 
-  return (
-    <div className="h-full relative">
-      {/* <div className="hidden h-full md:flex md:w md:fixed md:inset-y-0 z-[80] bg-gray-900 ">
-        <div>
-          <Sidebar />
-        </div>
+  return (      
+    <div>
+      <div className=" min-h-[100vh] bg-[#00040F] relative" >
+        <NavBar />
+        {children}
+        <Footer />
       </div>
-      <main className="md:pl-60">
-        <Navbar />
-        {children}
-      </main> */}
-      <p>Hello Dashboard</p>
-        {children}
     </div>
   );
 };
