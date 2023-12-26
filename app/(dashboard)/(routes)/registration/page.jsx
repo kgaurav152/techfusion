@@ -82,7 +82,7 @@ const studentSignupFormSchema = z.object({
 //   }),
 });
 
-export function StudentSignupForm({setOpen}) {
+export default function StudentSignupForm({setOpen}) {
 
   const form = useForm({
     resolver: zodResolver(studentSignupFormSchema),
