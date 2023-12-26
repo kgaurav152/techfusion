@@ -103,7 +103,7 @@ const SignInPage = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Submit</Button>
+              <Button type="submit items-center">Submit</Button>
             </form>
           </Form>
           <div className="relative">

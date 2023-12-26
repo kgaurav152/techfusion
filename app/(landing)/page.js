@@ -4,8 +4,6 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, MoveUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 // import Link from "next/link";
-import NavBar from '@/components/navbar';
-import Footer from '@/components/footer';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
