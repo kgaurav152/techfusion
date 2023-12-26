@@ -44,6 +44,12 @@ const SignInPage = () => {
       if (data.success) {
         dispatch(setToken(data.token));
         toast.success("Login Successful");
+        // if(data.user.role=="admin"){
+        //   router.push("/admin/dashboard");
+        // }
+        // else{
+        //   router.push("/");
+        // }
         router.push("/");
       } else {
         toast.error(data.message);
