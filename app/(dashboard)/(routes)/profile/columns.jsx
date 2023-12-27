@@ -11,39 +11,11 @@ import { Checkbox } from "@/components/ui/checkbox"
 export const columns = (setActionSuccess) => [
   {
     accessorKey: 'id',
-    header: 'TechFest ID'
+    header: 'Member/Lead Id'
   },
   {
     accessorKey: 'team_leader_name',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Team Leader Name
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
-  },
-  {
-    accessorKey: 'mobile',
-    header: 'Phone No.'
-  },
-  {
-    accessorKey: 'college',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          College
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      )
-    },
+    header: 'Member/Team Lead Name'
   },
   {
     accessorKey: 'events',
@@ -53,7 +25,7 @@ export const columns = (setActionSuccess) => [
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Events
+          Name of Event
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
