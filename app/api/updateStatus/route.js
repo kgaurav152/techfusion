@@ -11,7 +11,7 @@ export async function PUT(req){
         const userID = await getDataFromToken(req);
         const {userId,status} = await req.json();
         const user = await User.findById(userID);
-        if(user?.userType!=="Admin"){
+        if(user?.userType!=="admin"){
             return NextResponse.json({
                 success: false,
                 message:"This is protected route for Admin access"
@@ -19,18 +19,22 @@ export async function PUT(req){
         }
         if(status=="0"){
             const participant = await User.findByIdAndDelete(userId);
+            const data = await User.find({status:{ $eq: "pending" }}); 
             return NextResponse.json({
-                success: false,
-                message:"Participant has been deleted"
+                success: true,
+                message:"Participant has been deleted",
+                data:data
             })
         }
         const participant = await User.findByIdAndUpdate(userId, {
-            status:"Approved",
-        },{new:true}) 
+            status:"approved",
+        },{new:true});
+
+        const data = await User.find({status:{ $eq: "pending" }}) 
         return NextResponse.json({
             success: true,
             message:"Participant has been Approved",
-            data:participant,
+            data:data,
         })
 
     }catch(err){

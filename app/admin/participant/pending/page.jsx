@@ -15,14 +15,10 @@ export const PendingParticipants = () => {
     const [pendingParticipantsData, setPendingParticipantsData] = useState([]);
 
     const fetchPendingParticipants = async () => {
-        // new Network().hit("employee", "all", {}, (responseData) => {
-        //   if (responseData) {
-        //     setPendingParticipantsData(responseData);
-        //   }
-        // });
+        
         setLoading(true);
         try {
-            const { data } = await axios.post("/api/pending",{});
+            const { data } = await axios.get("/api/getPendingParticipants");
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
@@ -39,17 +35,17 @@ export const PendingParticipants = () => {
       fetchPendingParticipants();
     }, []);
 
-    if(actionSuccess){ 
-        fetchPendingParticipants();
-        setActionSuccess(false);
-    }
+    // if(actionSuccess){ 
+    //     fetchPendingParticipants();
+    //     setActionSuccess(false);
+    // }
     
 
   return (
         <div className="flex flex-col items-center mt-2 text-center">
             <h1 className='text-3xl text-white font-bold'>Pending Participants</h1>
             <div className='container mt-4 mb-20 w-4/5'>
-                <DataTable columns={columns(setActionSuccess)} data={pendingParticipantsData} />
+                <DataTable columns={columns(setPendingParticipantsData)} data={pendingParticipantsData} />
             </div>
         </div>
   )

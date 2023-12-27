@@ -10,13 +10,13 @@ export async function GET(req){
     try{
         const userID = await getDataFromToken(req);
         const user = await User.findById(userID);
-        if(user?.userType!=="Admin"){
+        if(user?.userType!=="admin"){
             return NextResponse.json({
                 success: false,
                 message:"This is protected route for Admin access"
             })
         }
-        const data = await User.find({status:{ $eq: "Approved" },userType:{$ne: "Admin"}}); 
+        const data = await User.find({status:{ $eq: "approved" },userType:{$ne: "admin"}}); 
         return NextResponse.json({
             success: true,
             message:"All Participant with Approved Status",

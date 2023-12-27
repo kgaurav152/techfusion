@@ -31,15 +31,15 @@ const NavBar = () => {
     }
   }
   
-  // useEffect(()=>{
-  //   const fetchUserDetails = async()=>{
-  //     const {data} = await axios.get('/api/userDetails');
-  //     console.log(data)
-  //      dispatch(setUserDetails(data?.data)) 
-  //   }
-  //   fetchUserDetails();
+  useEffect(()=>{
+    const fetchUserDetails = async()=>{
+      const {data} = await axios.get('/api/userDetails');
+      console.log(data)
+       dispatch(setUserDetails(data?.data)) 
+    }
+    fetchUserDetails();
 
-  // },[])
+  },[])
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
@@ -79,8 +79,7 @@ const NavBar = () => {
                 {" "}
                 <Avatar>
                   <AvatarFallback className="bg-slate-800">
-                    {user.firstName[0]}
-                    {user.lastName[0]}
+                    {user.name[0]}
                   </AvatarFallback>
                 </Avatar>
               </PopoverTrigger>

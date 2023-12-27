@@ -65,6 +65,7 @@ import { colleges, branches, batches, tshirtSizeValue, knowAbout } from "@/publi
 
 const RegistrationForm = () => {
   
+  const router = useRouter()
   const neonTextStyle = {
     marginTop: '5vh',
     marginBottom: '5vh',
@@ -182,10 +183,11 @@ const RegistrationForm = () => {
 
     // console.log(obj);
     try {
+      const toastId = toast.loading("Creating Account...")
       const { data } = await axios.post("/api/signup", obj);
+      toast.dismiss(toastId);
       setIsLoading(false);
-      if (data.success) {
-        dispatch(setToken(data.token));
+      if (data.success) { 
         toast.success("Registered Successfully!");
         // if(data.user.role=="admin"){
         //   router.push("/admin/dashboard");
@@ -193,7 +195,7 @@ const RegistrationForm = () => {
         // else{
         //   router.push("/");
         // }
-        router.push("/profile");
+        router.push("/sign-in");
       } else {
         toast.error(data.message);
       }

@@ -41,16 +41,14 @@ const SignInPage = () => {
     try {
       const { data } = await axios.post("/api/login", formData);
       setLoading(false);
-      if (data.success) {
-        dispatch(setToken(data.token));
+      if (data.success) { 
         toast.success("Login Successful");
-        // if(data.user.role=="admin"){
-        //   router.push("/admin/dashboard");
-        // }
-        // else{
-        //   router.push("/");
-        // }
-        router.push("/");
+        if(data?.userType=="admin"){
+          router.push("/admin/dashboard");
+        }
+        else{
+          router.push("/");
+        } 
       } else {
         toast.error(data.message);
       }

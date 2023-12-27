@@ -15,20 +15,16 @@ export const AllParticipants = () => {
     const [allParticipantsData, setAllParticipantsData] = useState([]);
 
     const fetchAllParticipants = async () => {
-        // new Network().hit("employee", "all", {}, (responseData) => {
-        //   if (responseData) {
-        //     setPendingParticipantsData(responseData);
-        //   }
-        // });
+       
         setLoading(true);
         try {
-            const { data } = await axios.post("/api/participant/all",{});
+            const { data } = await axios.get("/api/getAllParticipants");
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
             setAllParticipantsData(data.data);
             } else {
-            toast.error(data.message);
+             toast.error(data.message);
             }
         } catch (err) {
             console.log(err);
@@ -39,17 +35,11 @@ export const AllParticipants = () => {
       fetchAllParticipants();
     }, []);
 
-    // if(actionSuccess){ 
-    //     fetchAllParticipants();
-    //     setActionSuccess(false);
-    // }
-    
-
   return (
         <div className="flex flex-col items-center mt-2 text-center">
             <h1 className='text-3xl text-white font-bold'>All Participants</h1>
             <div className='container mt-4 mb-20 w-4/5'>
-                <DataTable columns={columns(setActionSuccess)} data={allParticipantsData} />
+                <DataTable columns={columns(setAllParticipantsData)} data={allParticipantsData} />
             </div>
         </div>
   )

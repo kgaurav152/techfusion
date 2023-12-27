@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox"
   
 // import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
 
-export const columns = (setActionSuccess) => [
+export const columns = (setAllParticipantsData) => [
   {
     accessorKey: 'id',
     header: 'TechFest ID'

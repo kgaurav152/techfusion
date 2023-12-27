@@ -16,31 +16,26 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Trash2 } from "lucide-react";
+import toast from "react-hot-toast";
 
 
-export function AcceptApprovalForm({ setOpen,  UserId, setActionSuccess }) {
+export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsData }) {
     const handleAcceptApprovalRequest = async () => {
       const obj = { 
-        user_id: UserId,
-        approval: "1"
+        userId:UserId,
+        status: "1"
         };
   
-    //   new Network().hit("approval", "accept", obj, (responseData) => {
-    //     if (responseData) {
-    //       setOpen(false);
-    //       setActionSuccess(true);
-    //     }
-    //   });
-
-        
-    setLoading(true);
+         
     try {
-        const { data } = await axios.post("/api/pending/approval",obj);
-        setLoading(false);
+        const toastId = toast.loading("Loading...");
+        const { data } = await axios.put("/api/updateStatus",obj);
+        console.log(data)
+        toast.dismiss(toastId) 
         if (data.success) {
-            setOpen(false);
+          setOpen(false);
             toast.success("Approval request accepted!");
-            setActionSuccess(true);
+            setPendingParticipantsData(data.data);
         } else {
         toast.error(data.message);
         }
@@ -67,7 +62,7 @@ export function AcceptApprovalForm({ setOpen,  UserId, setActionSuccess }) {
     );
   }
   
-  export function ApproveButton({ UserId, setActionSuccess }) {
+  export function ApproveButton({ UserId, setPendingParticipantsData }) {
     const [open, setOpen] = useState(false);
   
     return (
@@ -81,36 +76,31 @@ export function AcceptApprovalForm({ setOpen,  UserId, setActionSuccess }) {
           <DialogHeader>
             <DialogTitle>Accept Approval Request</DialogTitle>
           </DialogHeader>
-          <AcceptApprovalForm setOpen={setOpen} UserId={UserId} setActionSuccess={setActionSuccess} />
+          <AcceptApprovalForm setOpen={setOpen} UserId={UserId} setPendingParticipantsData={setPendingParticipantsData} />
         </DialogContent>
       </Dialog>
     );
   }
 
 
-export function RejectApprovalForm({ setOpen,  UserId, setActionSuccess }) {
+export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsData }) {
     const handleRejectApprovalRequest = async () => {
       const obj = { 
-        user_id: UserId,
-        approval: "0"
-        };
-  
-    //   new Network().hit("approval", "reject", obj, (responseData) => {
-    //     if (responseData) {
-    //       setOpen(false);
-    //       setActionSuccess(true);
-    //     }
-    //   });
-
-        
-    setLoading(true);
+        userId: UserId,
+        status: "0"
+        }; 
+ 
     try {
-        const { data } = await axios.post("/api/pending/approval",obj);
-        setLoading(false);
+      const toastId = toast.loading("Loading...");
+        const { data } = await axios.put("/api/updateStatus",obj);
+        console.log(data)
+        toast.dismiss(toastId); 
         if (data.success) {
             setOpen(false);
             toast.success("Approval request rejected!");
-            setActionSuccess(true);
+            console.log("data setting")
+            setPendingParticipantsData(data.data);
+            console.log("data setting success")
         } else {
         toast.error(data.message);
         }
@@ -137,7 +127,7 @@ export function RejectApprovalForm({ setOpen,  UserId, setActionSuccess }) {
     );
   }
   
-  export function RejectButton({ UserId, setActionSuccess }) {
+  export function RejectButton({ UserId, setPendingParticipantsData }) {
     const [open, setOpen] = useState(false);
   
     return (
@@ -151,7 +141,7 @@ export function RejectApprovalForm({ setOpen,  UserId, setActionSuccess }) {
           <DialogHeader>
             <DialogTitle>Reject Approval Request</DialogTitle>
           </DialogHeader>
-          <RejectApprovalForm setOpen={setOpen} UserId={UserId} setActionSuccess={setActionSuccess} />
+          <RejectApprovalForm setOpen={setOpen} UserId={UserId} setPendingParticipantsData={setPendingParticipantsData} />
         </DialogContent>
       </Dialog>
     );

@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox"
   
 import { ApproveButton, RejectButton } from "@/app/admin/participant/pending/buttonBar";
 
-export const columns = (setActionSuccess) => [
+export const columns = (setPendingParticipantsData) => [
   {
     accessorKey: 'id',
     header: 'TechFest ID'
@@ -59,7 +59,7 @@ export const columns = (setActionSuccess) => [
       const user = row.original
  
       return (
-        <ApproveButton  UserId={user.id} setActionSuccess={setActionSuccess} />
+        <ApproveButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },
@@ -69,7 +69,7 @@ export const columns = (setActionSuccess) => [
       const user = row.original
  
       return (
-        <RejectButton  UserId={user.id} setActionSuccess={setActionSuccess} />
+        <RejectButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },
