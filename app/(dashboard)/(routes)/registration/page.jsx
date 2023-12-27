@@ -77,8 +77,39 @@ const RegistrationForm = () => {
     color: '#fff',
   };
 
-  const MAX_FILE_SIZE = 500000;
-  const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+    // const MAX_FILE_SIZE = 500000;
+    // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+    // const fileRef = form.register('file', { required: true });
+    // trx_img: z
+    //   .any()
+    //   .refine((file) => file?.length == 1, 'Payment Screenshot is required.')
+    //   .refine((file) => file[0]?.size <= 3000000, `Max file size is 3MB.`),
+    // trx_img: z
+    //   .any()
+    //   .refine(
+    //     (file) => file?.length === 1 && file[0]?.size <= 3000000, // Check if 'file' and its properties are defined before accessing
+    //     {
+    //       message: 'Payment Screenshot is required and must be less than 3MB.',
+    //       path: ['trx_img'],
+    //     }
+    //   ),
+    
+    // trx_img: z
+    // .any()
+    // .refine((file) => {
+    //   if (!file) return false;
+
+    //   const fileType = file[0]?.type;
+    //   const fileSize = file[0]?.size;
+
+    //   const isImageOrPDF = fileType.includes("image/") || fileType === "application/pdf";
+    //   const isUnder3MB = fileSize <= 3000000; // 3 MB in bytes
+
+    //   return isImageOrPDF && isUnder3MB;
+    // }, {
+    //   message: 'File must be an image or PDF and less than 3 MB in size',
+    //   path: ['trx_img'],
+    // }),
 
   const RegistrationFormSchema = z.object({
     name: z.string({
@@ -101,35 +132,8 @@ const RegistrationForm = () => {
     ca_no_ba: z.string().optional(),
     ca_no_ca: z.string().optional(),
     trx_id: z.string().optional(),
-    // trx_img: z
-    //   .any()
-    //   .refine((file) => file?.length == 1, 'Payment Screenshot is required.')
-    //   .refine((file) => file[0]?.size <= 3000000, `Max file size is 3MB.`),
-    // trx_img: z
-    //   .any()
-    //   .refine(
-    //     (file) => file?.length === 1 && file[0]?.size <= 3000000, // Check if 'file' and its properties are defined before accessing
-    //     {
-    //       message: 'Payment Screenshot is required and must be less than 3MB.',
-    //       path: ['trx_img'],
-    //     }
-    //   ),
     trx_img: z
     .any()
-    .refine((file) => {
-      if (!file) return false;
-
-      const fileType = file[0]?.type;
-      const fileSize = file[0]?.size;
-
-      const isImageOrPDF = fileType.includes("image/") || fileType === "application/pdf";
-      const isUnder3MB = fileSize <= 3000000; // 3 MB in bytes
-
-      return isImageOrPDF && isUnder3MB;
-    }, {
-      message: 'File must be an image or PDF and less than 3 MB in size',
-      path: ['trx_img'],
-    }),
   }).refine((data) => data.password === data.confirmPassword, {
     message: 'Password and confirm password must be same.',
     path: ["confirmPassword"],
@@ -142,8 +146,6 @@ const RegistrationForm = () => {
     resolver: zodResolver(RegistrationFormSchema),
     mode: "onChange",
   })
-
-  const fileRef = form.register('file', { required: true });
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
