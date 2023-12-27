@@ -73,8 +73,7 @@ const NavBar = () => {
                 {" "}
                 <Avatar>
                   <AvatarFallback className="bg-slate-800">
-                    {user.firstName[0]}
-                    {user.lastName[0]}
+                    {user.name[0]} 
                   </AvatarFallback>
                 </Avatar>
               </PopoverTrigger>

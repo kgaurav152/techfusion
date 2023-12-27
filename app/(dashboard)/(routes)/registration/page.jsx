@@ -177,12 +177,19 @@ const RegistrationForm = () => {
 
     // console.log(obj);
     try {
+      const toastId = toast.loading("Creating Account...")
       const { data } = await axios.post("/api/signup", obj);
+      toast.dismiss(toastId);
       setIsLoading(false);
-      if (data.success) {
-        dispatch(setToken(data.token));
+      if (data.success) { 
         toast.success("Registered Successfully!");
-        router.push("/profile");
+        // if(data.user.role=="admin"){
+        //   router.push("/admin/dashboard");
+        // }
+        // else{
+        //   router.push("/");
+        // }
+        router.push("/sign-in");
       } else {
         toast.error(data.message);
       }

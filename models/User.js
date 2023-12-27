@@ -22,7 +22,7 @@ const UserSchema = new mongoose.Schema({
     },
     gender:{
         type:String,
-        enum:["Male","Female","other"], 
+        enum:["male","female","other"], 
     },
     college:{
         type:String,
@@ -58,8 +58,8 @@ const UserSchema = new mongoose.Schema({
     },
     userType:{
         type:String,
-        enum:["Admin","Participant"],
-        default: "Participant", 
+        enum:["admin","participant"],
+        default: "participant", 
     },
     participatedIn:[{
         type:mongoose.Schema.Types.ObjectId,
@@ -70,8 +70,8 @@ const UserSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:["Pending","Approved"],
-        default:"Pending"
+        enum:["pending","approved"],
+        default:"pending"
 
     }
 });
