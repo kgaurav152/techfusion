@@ -2,20 +2,19 @@
 
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
-import { useState } from "react";
 import toast from "react-hot-toast";
 import * as z from "zod";
 
-import Network from "@/components/network";
+// import Network from "@/components/network";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CalendarIcon, ChevronsUpDown, Check } from "lucide-react";
-import { Calendar } from "@/components/ui/calendar";
-import { format } from "date-fns";
+import { ChevronsUpDown, Check } from "lucide-react";
+// import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 import {
@@ -141,7 +140,9 @@ const RegistrationForm = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const [openPop, setOpenPop] = useState(false);
+  const [openPop, setOpenPop] = useState(false);  
+  const router = useRouter();
+  const dispatch = useDispatch();
 
   const form = useForm({
     resolver: zodResolver(RegistrationFormSchema),
@@ -161,24 +162,18 @@ const RegistrationForm = () => {
       mobile: data.mobile,
       password: data.confirmPassword,
       gender: data.gender,
-      college: data.college === 'other' ? data.otherCollege : data.college,
+      college: data.college == 'other' ? data.otherCollege : data.college,
       branch: data.branch,
       batch: data.batch,
       knowAbout: data.knowAbout,
       accomodation: data.accomodation,
       tShirtSize: data.tShirtSize,
       paymentMethod: data.paymentMethod,
-      college: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
+      ca_no: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
       transaction_id: data.trx_id == null ? '' : data.trx_id,
-      screenshot: data.trx_img,
+      screenshot: data.trx_img[0],
       // userType: 'Participant'
     };
-
-    // new Network().hit("account", "create", obj, (responseData) => {
-    //   if (responseData) {
-    //     // setOpen(false);
-    //   }
-    // })
 
     // console.log(obj);
     try {
@@ -187,12 +182,6 @@ const RegistrationForm = () => {
       if (data.success) {
         dispatch(setToken(data.token));
         toast.success("Registered Successfully!");
-        // if(data.user.role=="admin"){
-        //   router.push("/admin/dashboard");
-        // }
-        // else{
-        //   router.push("/");
-        // }
         router.push("/profile");
       } else {
         toast.error(data.message);
@@ -200,7 +189,6 @@ const RegistrationForm = () => {
     } catch (err) {
       console.log(err);
     }
-    // setIsLoading(false);
   }
   
     const fileRef = form.register('file', { required: true });
@@ -659,7 +647,7 @@ const RegistrationForm = () => {
                   <FormItem>
                       <FormLabel className="text-white">Screenshot of Payment (less than 3 mb)*</FormLabel>
                       <FormControl>
-                      <Input type="file" {...fileRef} />
+                      <Input type="file" {...field} accept="image/*"/>
                       </FormControl>
                       <FormDescription />
                       <FormMessage />

@@ -48,8 +48,7 @@ export const technicalEvents = [
       Team scoring the maximum number of points wins the championship.
       The challenge is not just the fighting bots but the 
       the hazardous arena which shall contain dead drop 
-      ravines, valleys, and other bot damaging structures.
-          `,
+      ravines, valleys, and other bot damaging structures.`,
       link: "https://drive.google.com/file/d/1zofTyC8f33A4obDPQXdtP5tfqAYWNOjO/view",
       date: "12/04/2023",
       posterUrl: "https://i.imgur.com/DwUVMej.png",
