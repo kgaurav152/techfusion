@@ -179,9 +179,27 @@ const RegistrationForm = () => {
     //   }
     // })
 
-    console.log(obj);
-
-    setIsLoading(false);
+    // console.log(obj);
+    try {
+      const { data } = await axios.post("/api/signup", obj);
+      setIsLoading(false);
+      if (data.success) {
+        dispatch(setToken(data.token));
+        toast.success("Registered Successfully!");
+        // if(data.user.role=="admin"){
+        //   router.push("/admin/dashboard");
+        // }
+        // else{
+        //   router.push("/");
+        // }
+        router.push("/profile");
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+    // setIsLoading(false);
   }
   
     const fileRef = form.register('file', { required: true });
