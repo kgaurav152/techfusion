@@ -1,16 +1,25 @@
 "use client"
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
-import { useForm } from "react-hook-form";
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import toast from "react-hot-toast";
+import { useForm } from "react-hook-form";
 import * as z from "zod";
-
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
+import { Trash2 } from "lucide-react";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from '@/components/ui/textarea';
-
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 import {
   Form,
   FormControl,
@@ -37,7 +46,7 @@ import {
 } from "@/components/ui/select"
 
 
-const EventCreationForm = () => {
+export function EventCreationForm({ setOpen, setEventData }) {
 
   const EventCreationFormSchema = z.object({
     eventType: z.enum(['cultural', 'technical'], { message: "Select a valid option"} ),
@@ -77,7 +86,8 @@ const EventCreationForm = () => {
       setIsLoading(false);
       if (data.success) {
         toast.success("Event Created!");
-        // router.push("/profile");
+        setOpen(false);
+        setEventData(data.data);
       } else {
         toast.error(data.message);
       }
@@ -102,7 +112,7 @@ const EventCreationForm = () => {
       </div>
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="mx-auto flex flex-col items-center mb-8">
-          <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
+          <div className="mx-auto gap-2 max-w-xl mb-4">
             <FormField
                 control={form.control}
                 name="eventType"
@@ -225,4 +235,147 @@ const EventCreationForm = () => {
   )
 }
 
-export default EventCreationForm;
+export function CreateEventButton({ setEventData }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline">
+          Create New Event
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px] bg-[#00040F]">
+        <DialogHeader>
+          <DialogTitle className="text-white">Create New Event</DialogTitle>
+        </DialogHeader>
+        <EventCreationForm setOpen={setOpen} setEventData={setEventData}/>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function DeleteEventForm({ setOpen,  EventId, setEventData }) {
+  const handleEventDeletion = async () => {
+    const obj = { 
+      eventId: EventId
+    }; 
+
+  try {
+    const toastId = toast.loading("Loading...");
+      const { data } = await axios.put("/api/deleteevent",obj);
+      console.log(data)
+      toast.dismiss(toastId); 
+      if (data.success) {
+          toast.success("Event Deleted!");
+          setOpen(false);
+          setEventData(data.data);
+      } else {
+      toast.error(data.message);
+      }
+  } catch (err) {
+      console.log(err);
+  }
+  };
+
+  return (
+    <div className="bg-white text-center">
+      <p className="mb-4">Are you sure you want to delete this event?</p>
+      <Button
+        className="mr-8"
+        variant="destructive"
+        type="button"
+        onClick={handleEventDeletion}
+      >
+        Confirm
+      </Button>
+      <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+        Cancel
+      </Button>
+    </div>
+  );
+}
+
+export function DeleteButton({ EventId, setEventData }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline">
+          <Trash2 className="h-4 w-4" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Delete Event</DialogTitle>
+        </DialogHeader>
+        <DeleteEventForm setOpen={setOpen} EventId={EventId} setEventData={setEventData} />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+// export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsData }) {
+//     const handleAcceptApprovalRequest = async () => {
+//       const obj = { 
+//         userId:UserId,
+//         status: "1"
+//         };
+  
+         
+//     try {
+//         const toastId = toast.loading("Loading...");
+//         const { data } = await axios.put("/api/updateStatus",obj);
+//         console.log(data)
+//         toast.dismiss(toastId) 
+//         if (data.success) {
+//             toast.success("Approval request accepted!");
+//             setOpen(false);
+//             setPendingParticipantsData(data.data);
+//         } else {
+//         toast.error(data.message);
+//         }
+//     } catch (err) {
+//         console.log(err);
+//     }
+//     };
+  
+//     return (
+//       <div className="bg-white text-center">
+//         <p className="mb-4">Are you sure you want to Accept Approval Request?</p>
+//         <Button
+//           className="mr-8"
+//           variant="destructive"
+//           type="button"
+//           onClick={handleAcceptApprovalRequest}
+//         >
+//           Confirm
+//         </Button>
+//         <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+//           Cancel
+//         </Button>
+//       </div>
+//     );
+//   }
+  
+//   export function ApproveButton({ UserId, setPendingParticipantsData }) {
+//     const [open, setOpen] = useState(false);
+  
+//     return (
+//       <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+//         <DialogTrigger asChild>
+//           <Button variant="outline">
+//             Approve
+//           </Button>
+//         </DialogTrigger>
+//         <DialogContent className="sm:max-w-[425px]">
+//           <DialogHeader>
+//             <DialogTitle>Accept Approval Request</DialogTitle>
+//           </DialogHeader>
+//           <AcceptApprovalForm setOpen={setOpen} UserId={UserId} setPendingParticipantsData={setPendingParticipantsData} />
+//         </DialogContent>
+//       </Dialog>
+//     );
+//   }
+

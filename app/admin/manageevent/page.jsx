@@ -3,24 +3,26 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import toast from "react-hot-toast";
-// import { Button } from '@/components/ui/button';
-import {columns} from '@/app/admin/participant/events/columns'
-import { DataTable } from '@/app/admin/participant/events/data-table'
+import {columns} from '@/app/admin/manageevent/columns'
+import { DataTable } from '@/app/admin/manageevent/data-table'
+import { CreateEventButton } from '@/app/admin/manageevent/buttonBar'
 
-export const AllEventParticipants = () => {
-    
+export const EventManagement = () => {
+
     const [loading, setLoading] = useState(false);
     const [actionSuccess, setActionSuccess] = useState(false);
-    const [allEventParticipantsData, setAllEventParticipantsData] = useState([]);
 
-    const fetchAllEventParticipants = async () => {
+    const [eventData, setEventData] = useState([]);
+
+    const fetchEventData = async () => {
+        
         setLoading(true);
         try {
-            const { data } = await axios.post("/api/participant/all",{});
+            const { data } = await axios.get("/api/event");
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
-            setAllEventParticipantsData(data.data);
+            setEventData(data.data);
             } else {
             toast.error(data.message);
             }
@@ -30,23 +32,24 @@ export const AllEventParticipants = () => {
     }
 
     useEffect(() => {
-      fetchAllEventParticipants();
+      fetchEventData();
     }, []);
 
     // if(actionSuccess){ 
-    //     fetchAllEventParticipants();
+    //     fetchEventData();
     //     setActionSuccess(false);
     // }
     
 
   return (
         <div className="flex flex-col items-center mt-2 text-center">
-            <h1 className='text-3xl text-white font-bold'>Participants by Event</h1>
+            <CreateEventButton className="flex items-center"/>
+            <h1 className='text-3xl text-white font-bold mt-8'>List of All Events</h1>
             <div className='container mt-4 mb-20 w-4/5'>
-                <DataTable columns={columns(setActionSuccess)} data={allEventParticipantsData} />
+                <DataTable columns={columns(setEventData)} data={eventData} />
             </div>
         </div>
   )
 };
 
-export default AllEventParticipants;
+export default EventManagement;

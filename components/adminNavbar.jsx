@@ -58,6 +58,9 @@ const NavBar = () => {
           <Link href="/admin/hospitality" className="text-white hover:text-[#e11d48]">
             Hospitality
           </Link>
+          <Link href="/admin/manageevent" className="text-white hover:text-[#e11d48]">
+            Manage Event
+          </Link>
           <Link href="/admin/participant/pending" className="text-white hover:text-[#e11d48]">
             View Pending
           </Link>
@@ -131,6 +134,9 @@ const NavBar = () => {
             </Link>
             <Link href="/admin/hospitality" className="text-white hover:text-[#e11d48]">
               Hospitality
+            </Link>
+            <Link href="/admin/manageevent" className="text-white hover:text-[#e11d48]">
+              Manage Event
             </Link>
             <Link href="/admin/participant/pending" className="text-white hover:text-[#e11d48]">
               View Pending
