@@ -183,6 +183,8 @@ const RegistrationForm = () => {
 
     setIsLoading(false);
   }
+  
+    const fileRef = form.register('file', { required: true });
 
   return (
             
