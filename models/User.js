@@ -1,12 +1,12 @@
 import mongoose from "mongoose";
 
 const UserSchema = new mongoose.Schema({
-    firstName:{
+    name:{
         type:String,
         required:true,
         trim:true
-    },
-    lastName:{
+    }, 
+    mobile:{
         type:String,
         required:true,
         trim:true
@@ -20,18 +20,54 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true, 
     },
-    accountType:{
+    gender:{
         type:String,
-        enum:["Admin","Student"],
-        default: "Student", 
+        enum:["Male","Female","other"], 
+    },
+    college:{
+        type:String,
+        required:true,
+    },
+    branch:{
+        type:String,
+        required:true,
+    },
+    knowAbout:{
+        type:String,
+        required:true,
+    },
+    tShirtSize:{
+        type:String,
+        required:true,
+    },
+    paymentMethod:{
+        type:String,
+        required:true,
+    },
+    transactionId:{
+        type:String,
+        required:true,
+    },
+    accomodation:{
+        type:String,
+        required:true,
+    },
+    batch:{
+        type:String,
+        required:true,
+    },
+    userType:{
+        type:String,
+        enum:["Admin","Participant"],
+        default: "Participant", 
     },
     participatedIn:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Participation" 
-    }],
-    token:{
-        type:String,
-    }, 
+    }], 
+    screenshotImage:{
+        type:String, 
+    },
     status:{
         type:String,
         enum:["Pending","Approved"],

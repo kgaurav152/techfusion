@@ -166,9 +166,9 @@ const RegistrationForm = () => {
       tShirtSize: data.tShirtSize,
       paymentMethod: data.paymentMethod,
       college: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
-      transection_id: data.trx_id == null ? '' : data.trx_id,
+      transaction_id: data.trx_id == null ? '' : data.trx_id,
       screenshot: data.trx_img,
-      userType: 'participant'
+      // userType: 'Participant'
     };
 
     // new Network().hit("account", "create", obj, (responseData) => {
