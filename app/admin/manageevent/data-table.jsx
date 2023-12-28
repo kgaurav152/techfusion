@@ -51,11 +51,10 @@ export const DataTable = ({
     });
 
     const tableRef = useRef(null);
-
     const { onDownload } = useDownloadExcel({
         currentTableRef: tableRef.current,
-        filename: 'Users table',
-        sheet: 'Users'
+        filename: 'List of all events',
+        sheet: 'Events'
     })
 
   const table = useReactTable({
