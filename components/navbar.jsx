@@ -79,6 +79,12 @@ const NavBar = () => {
               <PopoverTrigger>
                 {" "}
                 <Avatar>
+                  if ({user.gender=='female'}){
+                  <AvatarImage src="avatar_01.png" />
+                  }
+                  else{
+                  <AvatarImage src="avatar_02.png" />
+                  }
                   <AvatarFallback className="bg-slate-800 text-white">
                     {user.name[0]}
                   </AvatarFallback>
@@ -152,9 +158,31 @@ const NavBar = () => {
             <Link href="/contact" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
+          {user ? (
+            <Popover>
+              <PopoverTrigger>
+                {" "}
+                <Avatar>
+                  if ({user.gender=='female'}){
+                  <AvatarImage src="avatar_01.png" />
+                  }
+                  else{
+                  <AvatarImage src="avatar_02.png" />
+                  }
+                  <AvatarFallback className="bg-slate-800 text-white">
+                    {user.name[0]}
+                  </AvatarFallback>
+                </Avatar>
+              </PopoverTrigger>
+              <PopoverContent className="w-fit text-white bg-black/50 border-primary">
+                <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
+              </PopoverContent>
+            </Popover>
+          ) : (
             <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
               Login
             </Link>
+          )}
           </div>
         </div>
       )}

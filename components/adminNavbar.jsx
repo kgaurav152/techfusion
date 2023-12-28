@@ -76,6 +76,12 @@ const NavBar = () => {
               <PopoverTrigger>
                 {" "}
                 <Avatar>
+                  if ({user.gender=='female'}){
+                  <AvatarImage src="avatar_01.png" />
+                  }
+                  else{
+                  <AvatarImage src="avatar_02.png" />
+                  }
                   <AvatarFallback className="bg-slate-800">
                     {user.name[0]} 
                   </AvatarFallback>
@@ -153,6 +159,12 @@ const NavBar = () => {
                 <PopoverTrigger>
                     {" "}
                     <Avatar>
+                      if ({user.gender=='female'}){
+                      <AvatarImage src="avatar_01.png" />
+                      }
+                      else{
+                      <AvatarImage src="avatar_02.png" />
+                      }
                     <AvatarFallback className="bg-slate-800 text-white">
                         {user.name[0]} 
                     </AvatarFallback>
