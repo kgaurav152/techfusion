@@ -6,6 +6,11 @@ const UserSchema = new mongoose.Schema({
         required:true,
         trim:true
     }, 
+    festId:{
+        type:String,
+        required:true,
+        trim:true
+    }, 
     mobile:{
         type:String,
         required:true,
