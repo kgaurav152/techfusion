@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import {columns} from '@/app/(dashboard)/(routes)/profile/columns';
 import { DataTable } from '@/app/(dashboard)/(routes)/profile/data-table'
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
-import { Building, Mail, Phone, User } from 'lucide-react';
+import { Building, ChevronDownSquare, Mail, Phone, PilcrowSquare, User } from 'lucide-react';
 
 export const ProfilePage = () => {
 
@@ -59,6 +59,8 @@ export const ProfilePage = () => {
                             <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
                             <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
                             <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><ChevronDownSquare className="h-5 w-5 mr-3"/>TechFest ID</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><PilcrowSquare className="h-5 w-5 mr-3"/>{user.festId || 'Not Available'}</p>
                         </span>
                     </div>
                 </CardContent>
