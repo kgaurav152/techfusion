@@ -10,6 +10,7 @@ export const getDataFromToken = (req)=>{
             return decodedToken.id;
     
     } catch(err){
+        console.log("Error in verifing token")
         throw new Error(err.message)
     }
 }
