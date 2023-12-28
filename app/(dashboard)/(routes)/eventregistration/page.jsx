@@ -64,6 +64,8 @@ import {
 
 const EventRegistrationForm = () => {
   
+  const { user } = useSelector((state) => state.profile);
+
   const neonTextStyle = {
     marginTop: '5vh',
     marginBottom: '5vh',
@@ -105,11 +107,11 @@ const EventRegistrationForm = () => {
   //   path: ["confirmPassword"],
   // });
 
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);  
   const [eventData, setEventData] = useState([]);
   const router = useRouter();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const form = useForm({
     // resolver: zodResolver(RegistrationFormSchema),
@@ -117,10 +119,10 @@ const EventRegistrationForm = () => {
   })
 
   const fetchEvents = async () => {
-    setLoading(true);
+    setIsLoading(true);
     try {
         const { data } = await axios.post("/api/events",{});
-        setLoading(false);
+        setIsLoading(false);
         if (data.success) {
         toast.success("Data Fetched Successfully!");
         setEventData(data.data);
@@ -131,6 +133,10 @@ const EventRegistrationForm = () => {
         console.log(err);
     }
   }
+  
+  useEffect(()=>{
+    fetchEvents();
+  },[])
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
