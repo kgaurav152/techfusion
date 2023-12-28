@@ -90,6 +90,7 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
+                    <p className="mb-2">Id: {user.festId}</p>
                 <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
               </PopoverContent>
             </Popover>
@@ -173,6 +174,7 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
+                    <p className="mb-2">Id: {user.festId}</p>
                 <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
               </PopoverContent>
             </Popover>

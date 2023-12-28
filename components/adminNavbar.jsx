@@ -88,6 +88,7 @@ const NavBar = () => {
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
                 {/* <Button variant="ghost" onClick={handleRedirect}>Profile</Button> */}
+                <p className="mb-2">Id: {user.festId}</p>
                 <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
               </PopoverContent>
             </Popover>
@@ -170,6 +171,7 @@ const NavBar = () => {
                 </PopoverTrigger>
                 <PopoverContent className="w-fit text-white bg-black/50 border-primary">
                     {/* <Button variant="ghost" onClick={handleRedirect}>Profile</Button> */}
+                    <p className="mb-2">Id: {user.festId}</p>
                     <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
                 </PopoverContent>
                 </Popover>
