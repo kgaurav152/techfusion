@@ -7,15 +7,15 @@ import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 connect();
 
-export async function GET(req){
-
+export async function POST(req){ 
+    const {token} = await req.json() 
     try{
-        const userID = await getDataFromToken(req);
+        const userID = await getDataFromToken(token);
         const user = await User.findById(userID);
         user.password = undefined;
         return NextResponse.json({
             success: true,
-            data:user
+            data:user 
         })
 
     }catch(err){

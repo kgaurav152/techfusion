@@ -13,6 +13,7 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
+import { apiConnector } from "@/helpers/apiConnector";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,7 +34,8 @@ const NavBar = () => {
   
   useEffect(()=>{
     const fetchUserDetails = async()=>{
-      const {data} = await axios.get('/api/userDetails');
+      
+      const {data} =await apiConnector("POST","/api/userDetails");
       console.log(data)
        dispatch(setUserDetails(data?.data)) 
     }
