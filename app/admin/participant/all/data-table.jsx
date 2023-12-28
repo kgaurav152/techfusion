@@ -74,9 +74,9 @@ export const DataTable = ({
           <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
           <Input
           placeholder="Filter TechFest Id..."
-          value={(table.getColumn("id")?.getFilterValue()) ?? ""}
+          value={(table.getColumn("festId")?.getFilterValue()) ?? ""}
           onChange={(event) =>
-              table.getColumn("id")?.setFilterValue(event.target.value)
+              table.getColumn("festId")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
           />
