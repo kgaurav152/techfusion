@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 // import Network from "@/components/network";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { useSelector } from "react-redux";
 import {columns} from '@/app/(dashboard)/(routes)/profile/columns';
 import { DataTable } from '@/app/(dashboard)/(routes)/profile/data-table'
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
@@ -14,33 +15,16 @@ export const ProfilePage = () => {
     const [loading, setLoading] = useState(false);
     const [actionSuccess, setActionSuccess] = useState(false);
 
-    const [userData, setUserData] = useState([]);
+    const { user } = useSelector((state) => state.profile);
     const [participatingEventsData, setparticipatingEventsData] = useState([]);
-
-    const fetchUserData = async () => {
-        setLoading(true);
-        try {
-            const { data } = await axios.post("/api/userDetails");
-            setLoading(false);
-            if (data.success) {
-            toast.success("Data Fetched Successfully!");
-            setUserData(data.data);
-            } else {
-            toast.error(data.message);
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     const fetchParticipatingEventsData = async () => {
         setLoading(true);
         const obj = {
-            user_id: userData.id
+            user_id: user.id
         }
-
         try {
-            const { data } = await axios.post("/api/userEvents",obj);
+            const { data } = await apiConnector("POST","/api/userEvents");
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
@@ -54,13 +38,13 @@ export const ProfilePage = () => {
     };
 
     useEffect(() => {
-      fetchUserData();
+        fetchParticipatingEventsData();
     }, []);
 
-    if(actionSuccess){ 
-        fetchUserData();
-        setActionSuccess(false);
-    }
+    // if(actionSuccess){ 
+    //     fetchParticipatingEventsData();
+    //     setActionSuccess(false);
+    // }
     
 
   return (
@@ -71,10 +55,10 @@ export const ProfilePage = () => {
                     <div className="flex flex-col text-left pt-4">
                         <span className="pr-12">
                             <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><User className="h-5 w-5 mr-3"/>{userData.name || 'No Name Found'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{userData.email || 'Not Available'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{userData.phone || 'Not Available'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{userData.college || 'Not Available'}</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><User className="h-5 w-5 mr-3"/>{user.name || 'No Name Found'}</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
+                            <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
                         </span>
                     </div>
                 </CardContent>
