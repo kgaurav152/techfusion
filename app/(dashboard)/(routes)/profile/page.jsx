@@ -50,21 +50,23 @@ export const ProfilePage = () => {
   return (
         <div className="h-[100vh] flex flex-col items-center mt-2 text-center">
             {/* <h1 className='text-3xl text-white font-bold'>Pending Participants</h1> */}
-            <Card className="mx-auto max-w-xl mb-4 text-left shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
-                <CardContent>
-                    <div className="flex flex-col text-left pt-4">
-                        <span className="pr-12">
-                            <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><User className="h-5 w-5 mr-3"/>{user.name || 'No Name Found'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><ChevronDownSquare className="h-5 w-5 mr-3"/>TechFest ID</p>
-                            <p className="font-semibold font-mono mb-1 flex flex-row"><PilcrowSquare className="h-5 w-5 mr-3"/>{user.festId || 'Not Available'}</p>
-                        </span>
-                    </div>
-                </CardContent>
-              </Card>
+            {user &&
+                <Card className="mx-auto max-w-xl mb-4 text-left shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
+                    <CardContent>
+                        <div className="flex flex-col text-left pt-4">
+                            <span className="pr-12">
+                                <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><User className="h-5 w-5 mr-3"/>{user.name || 'No Name Found'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><ChevronDownSquare className="h-5 w-5 mr-3"/>TechFest ID</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><PilcrowSquare className="h-5 w-5 mr-3"/>{user.festId || 'Not Available'}</p>
+                            </span>
+                        </div>
+                    </CardContent>
+                </Card>
+            }
             <div className='container mt-4 mb-20 w-4/5'>  
                 <h1 className='text-3xl text-white font-bold'>List of Events</h1>
                 <DataTable columns={columns(setActionSuccess)} data={participatingEventsData} />
