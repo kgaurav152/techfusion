@@ -1,9 +1,5 @@
-import { connect } from "@/config/dbconfig";
-import User from "@/models/User";
-// import bcryptjs from "bcryptjs";
-import { NextResponse } from "next/server";
-// import jwt from "jsonwebtoken"
-import { getDataFromToken } from "@/helpers/getDataFromToken";
+import { connect } from "@/config/dbconfig"; 
+import { NextResponse } from "next/server"; 
 import Event from "@/models/Event";
 
 connect();
@@ -12,7 +8,7 @@ export async function GET(){
         const data = await Event.find({});
         return NextResponse.json({
             success: true,
-            message:"All Event Fetch Successfully",
+            message:"All Event Fetched Successfully",
             data:data,
         })
 

@@ -8,8 +8,7 @@ import Event from "@/models/Event";
 
 connect();
 export async function POST(req){
-    const {token,id} = await req.json();
-    console.log(id)
+    const {token,id} = await req.json(); 
     try{
         const userID = await getDataFromToken(token);
         const user = await User.findById(userID);
