@@ -6,6 +6,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import {columns} from '@/app/admin/participant/all/columns'
 import { DataTable } from '@/app/admin/participant/all/data-table'
+import { apiConnector } from '@/helpers/apiConnector';
 
 export const AllParticipants = () => {
 
@@ -18,7 +19,7 @@ export const AllParticipants = () => {
        
         setLoading(true);
         try {
-            const { data } = await axios.get("/api/getAllParticipants");
+            const { data } = await apiConnector("POST","/api/getAllParticipants"); 
             setLoading(false);
             if (data.success) {
             toast.success("Data Fetched Successfully!");

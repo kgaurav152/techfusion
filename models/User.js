@@ -6,6 +6,11 @@ const UserSchema = new mongoose.Schema({
         required:true,
         trim:true
     }, 
+    festId:{
+        type:String,
+        required:true,
+        trim:true
+    }, 
     mobile:{
         type:String,
         required:true,
@@ -22,7 +27,7 @@ const UserSchema = new mongoose.Schema({
     },
     gender:{
         type:String,
-        enum:["male","female","other"], 
+        enum:["Male","Female","other"], 
     },
     college:{
         type:String,

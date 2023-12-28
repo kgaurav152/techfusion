@@ -6,10 +6,10 @@ import { NextResponse } from "next/server";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 connect();
-export async function PUT(req){
+export async function POST(req){
+    const {token,userId,status} = await req.json()
     try{
-        const userID = await getDataFromToken(req);
-        const {userId,status} = await req.json();
+        const userID = await getDataFromToken(token); 
         const user = await User.findById(userID);
         if(user?.userType!=="admin"){
             return NextResponse.json({

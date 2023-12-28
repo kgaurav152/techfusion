@@ -30,7 +30,7 @@ export const AllEventParticipants = () => {
     }
 
     useEffect(() => {
-      fetchAllEventParticipants();
+    //   fetchAllEventParticipants();
     }, []);
 
     // if(actionSuccess){ 

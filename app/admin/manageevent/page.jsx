@@ -6,6 +6,7 @@ import toast from "react-hot-toast";
 import {columns} from '@/app/admin/manageevent/columns'
 import { DataTable } from '@/app/admin/manageevent/data-table'
 import { CreateEventButton } from '@/app/admin/manageevent/buttonBar'
+import { apiConnector } from '@/helpers/apiConnector';
 
 export const EventManagement = () => {
 
@@ -18,8 +19,10 @@ export const EventManagement = () => {
         
         setLoading(true);
         try {
-            const { data } = await axios.get("/api/event");
+            const toastId = toast.loading("Loading ....")
+            const { data } = await apiConnector("GET","/api/event/getAllEvent");
             setLoading(false);
+            toast.dismiss(toastId);
             if (data.success) {
             toast.success("Data Fetched Successfully!");
             setEventData(data.data);
@@ -34,16 +37,11 @@ export const EventManagement = () => {
     useEffect(() => {
       fetchEventData();
     }, []);
-
-    // if(actionSuccess){ 
-    //     fetchEventData();
-    //     setActionSuccess(false);
-    // }
     
 
   return (
         <div className="flex flex-col items-center mt-2 text-center">
-            <CreateEventButton className="flex items-center"/>
+            <CreateEventButton className="flex items-center" setEventData={setEventData}/>
             <h1 className='text-3xl text-white font-bold mt-8'>List of All Events</h1>
             <div className='container mt-4 mb-20 w-4/5'>
                 <DataTable columns={columns(setEventData)} data={eventData} />

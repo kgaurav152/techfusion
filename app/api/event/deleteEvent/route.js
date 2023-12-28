@@ -4,10 +4,11 @@ import User from "@/models/User";
 import { NextResponse } from "next/server";
 // import jwt from "jsonwebtoken"
 import { getDataFromToken } from "@/helpers/getDataFromToken";
+import Event from "@/models/Event";
 
 connect();
 export async function POST(req){
-    const {token} = await req.json()
+    const {token,id} = await req.json(); 
     try{
         const userID = await getDataFromToken(token);
         const user = await User.findById(userID);
@@ -17,10 +18,12 @@ export async function POST(req){
                 message:"This is protected route for Admin access"
             })
         }
-        const data = await User.find({status:{ $eq: "pending" }}) 
+        const deleteEvent = await Event.findByIdAndDelete(id);
+             
+        const data = await Event.find({});
         return NextResponse.json({
             success: true,
-            message:"All Participant with Pending Status",
+            message:"Event Deleted successfully",
             data:data,
         })
 
@@ -28,7 +31,7 @@ export async function POST(req){
         return NextResponse.json({
             error: err.message,
             success:false,
-            message: "Unable to fetch Pending Participants"
+            message: "Unable to Delete Event"
         })
     }
 

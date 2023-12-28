@@ -26,6 +26,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setToken } from "@/redux/slices/authSlice";
 import toast from "react-hot-toast";
 import { CloudCog } from "lucide-react";
+import { apiConnector } from "@/helpers/apiConnector";
 
 const SignInPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -39,11 +40,11 @@ const SignInPage = () => {
   const onSubmit = async (formData) => {
     setLoading(true);
     try {
-      const { data } = await axios.post("/api/login", formData);
+      const { data } = await apiConnector("POST","/api/login",formData);
       setLoading(false);
       if (data.success) { 
         toast.success("Login Successful");
-        if(data?.userType=="admin"){
+        if(data?.data?.userType=="admin"){
           router.push("/admin/dashboard");
         }
         else{

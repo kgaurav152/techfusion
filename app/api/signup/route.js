@@ -13,7 +13,7 @@ export async function POST(request) {
     // const screenshot = reqBody.files.screenshot;
 
     //check if user already exists
-    const user = await User.findOne({ email: email });
+    const user = await User.findOne({ $or:[{ email: email.toLowerCase()},{mobile:mobile}]});
 
     if (user) {
       return NextResponse.json(
@@ -31,7 +31,7 @@ export async function POST(request) {
     //create new user
     const newUser = new User({
       name,
-      email,
+      email : email.toLowerCase(),
       mobile,
       password: hashPassword,
       gender,
@@ -42,6 +42,7 @@ export async function POST(request) {
       paymentMethod,
       accomodation,
       batch,
+      festId : "KEC"+mobile,
       transactionId:transaction_id,
       // screenshotImage:screenshotImage.secure_url
     });

@@ -13,6 +13,7 @@ import { Button } from "./ui/button";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
+import { apiConnector } from "@/helpers/apiConnector";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const NavBar = () => {
     setIsOpen(!isOpen);
   };
   const logoutHandler = async() =>{
-    const {data} = await axios.get('/api/logout');
+    const {data} = await apiConnector("GET",'/api/logout');
     if(data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
@@ -30,15 +31,15 @@ const NavBar = () => {
     }
   }
   
-  // useEffect(()=>{
-  //   const fetchUserDetails = async()=>{
-  //     const {data} = await axios.get('/api/userDetails');
-  //     // console.log(data)
-  //      dispatch(setUserDetails(data?.data)) 
-  //   }
-  //   fetchUserDetails();
+  useEffect(()=>{
+    const fetchUserDetails = async()=>{
+      const {data} = await apiConnector("POST","/api/userDetails");
+      // console.log(data)
+       dispatch(setUserDetails(data?.data)) 
+    }
+    fetchUserDetails();
 
-  // },[])
+  },[])
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
@@ -152,9 +153,8 @@ const NavBar = () => {
                 <PopoverTrigger>
                     {" "}
                     <Avatar>
-                    <AvatarFallback className="bg-slate-800">
-                        {user.firstName[0]}
-                        {user.lastName[0]}
+                    <AvatarFallback className="bg-slate-800 text-white">
+                        {user.name[0]} 
                     </AvatarFallback>
                     </Avatar>
                 </PopoverTrigger>

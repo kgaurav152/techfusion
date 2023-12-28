@@ -120,7 +120,7 @@ const RegistrationForm = () => {
     mobile: z.string().min(10, { message: "Mobile no. must be 10 digits"}).max(10, { message: "Mobile no. must be 10 digits"}),
     password: z.string().min(8, { message: "Password must be longer than 8 characters"} ),
     confirmPassword: z.string(),
-    gender: z.enum(['male', 'female'],  { message: "Select a valid option"} ),
+    gender: z.enum(['Male', 'Female'],  { message: "Select a valid option"} ),
     college: z.string({ message: "Must be a valid College Name"}),
     branch: z.string({ message: "Must be a valid branch"}),
     batch: z.string({ message: "Must be a valid batch"}),
@@ -333,8 +333,8 @@ const RegistrationForm = () => {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="female">Female</SelectItem>
-                        <SelectItem value="male">Male</SelectItem>
+                        <SelectItem value="Female">Female</SelectItem>
+                        <SelectItem value="Male">Male</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />
