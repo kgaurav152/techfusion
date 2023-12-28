@@ -2,10 +2,11 @@
 
 // import Link from 'next/link';
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
   
 import { ApproveButton, DeleteButton } from "@/app/admin/manageevent/buttonBar";
+import Link from "next/link";
 
 export const columns = (setEventData) => [
   {
@@ -66,7 +67,13 @@ export const columns = (setEventData) => [
   },
   {
     accessorKey: 'rulebookLink',
-    header: 'Rulebook Link'
+    header: 'Rulebook Link',
+    cell: ({ row }) => {
+      const event = row.original
+      return (
+        <Link href={event.relebookLink} target="_blank"><Eye className="h-4 w-4"/></Link>
+      )
+    },
   },
   {
     accessorKey: 'posterUrl',
