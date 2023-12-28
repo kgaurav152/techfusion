@@ -46,7 +46,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/" className="text-white font-bold text-lg">
+          <Link href="/admin/dashboard" className="text-white font-bold text-lg">
             Logo
           </Link>
         </div>
