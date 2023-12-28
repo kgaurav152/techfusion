@@ -14,7 +14,7 @@ export const apiConnector = (method,url,bodyData) => {
         {
             method: `${method}`,
             url :   `${url}`,
-            data : temp ? temp : bodyData,
+            data : temp ? temp : null,
             headers:  null,
             params :  null,
 

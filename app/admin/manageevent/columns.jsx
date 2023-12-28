@@ -86,9 +86,8 @@ export const columns = (setEventData) => [
     id: "deleteButton",
     cell: ({ row }) => {
       const event = row.original
- 
       return (
-        <DeleteButton  eventId={event._id} setEventData={setEventData} />
+        <DeleteButton  EventId={event._id} setEventData={setEventData} />
       )
     },
   },

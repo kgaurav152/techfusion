@@ -35,7 +35,7 @@ const NavBar = () => {
   useEffect(()=>{
     const fetchUserDetails = async()=>{
       
-      const {data} =await apiConnector("POST","/api/userDetails");
+      const {data} = await apiConnector("POST","/api/userDetails");
       console.log(data)
        dispatch(setUserDetails(data?.data)) 
     }

@@ -44,6 +44,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { apiConnector } from "@/helpers/apiConnector";
 
 
 export function EventCreationForm({ setOpen, setEventData }) {
@@ -55,7 +56,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
       required_error: "Name is required",
       invalid_type_error: "Name must be a string",
     }).min(2, { message: "Name must be 2 or more characters long" } ),
-    participationMode: z.enum([0,1], { message: "Select a valid option"} ),
+    participationMode: z.enum(["0","1"], { message: "Select a valid option"} ),
     description: z.string({ message: "Description can't be empty!"}),
     rulebookLink: z.string().url(),
     posterUrl: z.string().url(),
@@ -73,17 +74,20 @@ export function EventCreationForm({ setOpen, setEventData }) {
 
     const obj = {
       eventType: data.eventType,
-      id: data.id,
+      eventId: data.id,
       name: data.name,
       participationMode: data.participationMode,
       description: data.description,
-      rulebookLink: data.rulebookLink,
+      ruleBook: data.rulebookLink,
       posterUrl: data.posterUrl
     };
     
     try {
-      const { data } = await axios.post("/api/createevent", obj);
+      const toastId = toast.loading("Creating Event...")
+     
+      const { data } = await  apiConnector("POST","/api/event/createEvent",obj);
       setIsLoading(false);
+      toast.dismiss(toastId)
       if (data.success) {
         toast.success("Event Created!");
         setOpen(false);
@@ -258,12 +262,12 @@ export function CreateEventButton({ setEventData }) {
 export function DeleteEventForm({ setOpen,  EventId, setEventData }) {
   const handleEventDeletion = async () => {
     const obj = { 
-      eventId: EventId
+      id: EventId
     }; 
 
   try {
     const toastId = toast.loading("Loading...");
-      const { data } = await axios.put("/api/deleteevent",obj);
+      const { data } = await apiConnector("POST","/api/event/deleteEvent",obj);
       console.log(data)
       toast.dismiss(toastId); 
       if (data.success) {

@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/dialog";
 import { Trash2 } from "lucide-react";
 import toast from "react-hot-toast";
+import { apiConnector } from "@/helpers/apiConnector";
 
 
 export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsData }) {
@@ -29,8 +30,7 @@ export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
          
     try {
         const toastId = toast.loading("Loading...");
-        const { data } = await axios.put("/api/updateStatus",obj);
-        console.log(data)
+        const { data } = await apiConnector("POST","/api/updateStatus",obj);
         toast.dismiss(toastId) 
         if (data.success) {
           setOpen(false);
@@ -92,8 +92,8 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
  
     try {
       const toastId = toast.loading("Loading...");
-        const { data } = await axios.put("/api/updateStatus",obj);
-        console.log(data)
+      
+        const { data } = await apiConnector("POST","/api/updateStatus",obj); 
         toast.dismiss(toastId); 
         if (data.success) {
             setOpen(false);
