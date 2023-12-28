@@ -10,7 +10,7 @@ import { ApproveButton, RejectButton } from "@/app/admin/participant/pending/but
 
 export const columns = (setPendingParticipantsData) => [
   {
-    accessorKey: 'id',
+    accessorKey: 'festId',
     header: 'TechFest ID'
   },
   {

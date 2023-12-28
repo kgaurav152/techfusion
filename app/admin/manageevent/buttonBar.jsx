@@ -306,7 +306,7 @@ export function DeleteButton({ EventId, setEventData }) {
   return (
     <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" className="text-red-500">
           <Trash2 className="h-4 w-4" />
         </Button>
       </DialogTrigger>

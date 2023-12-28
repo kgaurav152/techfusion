@@ -10,7 +10,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 export const columns = (setActionSuccess) => [
   {
-    accessorKey: 'id',
+    accessorKey: 'festId',
     header: 'TechFest ID'
   },
   {

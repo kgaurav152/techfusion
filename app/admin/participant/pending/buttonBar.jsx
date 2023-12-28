@@ -68,7 +68,7 @@ export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
     return (
       <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">
+          <Button variant="outline" className="text-green-500">
             Approve
           </Button>
         </DialogTrigger>
@@ -134,7 +134,7 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
       <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button variant="outline">
-            <Trash2 className="h-4 w-4" />
+            <Trash2 className="h-4 w-4 text-red-500" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
