@@ -44,7 +44,7 @@ const SignInPage = () => {
       setLoading(false);
       if (data.success) { 
         toast.success("Login Successful");
-        if(data?.userType=="admin"){
+        if(data?.data?.userType=="admin"){
           router.push("/admin/dashboard");
         }
         else{
