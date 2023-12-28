@@ -39,7 +39,11 @@ export async function POST(request){
                 userType:user.userType,
             }
         })
-        response.cookies.set("token",token)
+        response.cookies.set("token",token,{
+            sameSite:strict,
+            httpOnly:true,
+            
+        });
         return response;
     
       } catch (error) {
