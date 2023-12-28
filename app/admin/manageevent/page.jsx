@@ -41,7 +41,7 @@ export const EventManagement = () => {
 
   return (
         <div className="flex flex-col items-center mt-2 text-center">
-            <CreateEventButton className="flex items-center"/>
+            <CreateEventButton className="flex items-center" setEventData={setEventData}/>
             <h1 className='text-3xl text-white font-bold mt-8'>List of All Events</h1>
             <div className='container mt-4 mb-20 w-4/5'>
                 <DataTable columns={columns(setEventData)} data={eventData} />
