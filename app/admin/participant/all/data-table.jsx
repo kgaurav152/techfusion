@@ -203,11 +203,11 @@ export const DataTable = ({
         </Table>
       </div>
       <div className="text-center text-white mt-20 mb-4">
-        <Button onClick={handlePrint} className="text-white">
+        <Button onClick={handlePrint} className="text-white mr-6">
           Print
         </Button>
+        <Button onClick={onDownload}> Export excel </Button>
       </div>
-      <Button onClick={onDownload}> Export excel </Button>
     </>
   )
 }
