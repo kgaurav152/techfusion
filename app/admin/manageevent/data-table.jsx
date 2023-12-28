@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useDownloadExcel } from 'react-export-table-to-excel';
 
 import {
   ColumnDef,
@@ -48,6 +49,14 @@ export const DataTable = ({
     const handlePrint = useReactToPrint({
       content: () => printAreaRef.current,
     });
+
+    const tableRef = useRef(null);
+
+    const { onDownload } = useDownloadExcel({
+        currentTableRef: tableRef.current,
+        filename: 'Users table',
+        sheet: 'Users'
+    })
 
   const table = useReactTable({
   data,
@@ -112,7 +121,7 @@ export const DataTable = ({
         </DropdownMenu>
         </div>
         <div className="rounded-md border text-white print:m-10 print:text-black" ref={printAreaRef}>
-          <Table>
+          <Table ref={tableRef}>
             <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
@@ -160,6 +169,8 @@ export const DataTable = ({
             Print
           </Button>
         </div>
+        <Button onClick={onDownload}> Export excel </Button>
+
     </>
   )
 }
