@@ -130,7 +130,7 @@ export const DataTable = ({
           </DropdownMenuContent>
         </DropdownMenu>
         </div>
-        <div className="rounded-md border text-white" ref={printAreaRef}>
+        <div className="rounded-md border text-white print:text-black" ref={printAreaRef}>
             <Table>
               
                 <TableHeader>
