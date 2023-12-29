@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -57,6 +58,7 @@ export const ProfilePage = () => {
     if(data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
+      Cookies.remove('token');
       router.push('/');
     }
   }
@@ -69,7 +71,7 @@ export const ProfilePage = () => {
                         <div className="flex flex-col text-left pt-4">
                             <span className="pr-12">
                                 <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
-                                <h2 className="font-bold font-mono text-lg mb-1 flex flex-row">{user.name || 'No Name Found'}</h2>
+                                <h2 className="font-bold font-mono text-lg mb-3 flex flex-row">{user.name || 'No Name Found'}</h2>
                                 <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
                                 <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
                                 <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>

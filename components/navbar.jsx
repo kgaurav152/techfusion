@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -30,6 +31,7 @@ const NavBar = () => {
     if(data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
+      Cookies.remove('token');
       router.push('/');
     }
   }
