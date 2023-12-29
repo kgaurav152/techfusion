@@ -74,7 +74,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
 
     const obj = {
       eventType: data.eventType,
-      eventId: data.id,
+      eventId: (data.eventType=="cultural")?"C"+data.id:"T"+data.id,
       name: data.name,
       participationMode: data.participationMode,
       description: data.description,
@@ -180,8 +180,8 @@ export function EventCreationForm({ setOpen, setEventData }) {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="0">Individual</SelectItem>
-                        <SelectItem value="1">Group</SelectItem>
+                        <SelectItem value="individual">Individual</SelectItem>
+                        <SelectItem value="group">Group</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />

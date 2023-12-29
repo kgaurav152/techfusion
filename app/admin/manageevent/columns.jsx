@@ -2,7 +2,7 @@
 
 // import Link from 'next/link';
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, Eye } from "lucide-react";
+import { ArrowUpDown, Eye, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
   
 import { ApproveButton, DeleteButton } from "@/app/admin/manageevent/buttonBar";
@@ -70,25 +70,33 @@ export const columns = (setEventData) => [
     header: 'Rulebook Link',
     cell: ({ row }) => {
       const event = row.original
-      return (
-        <Link href={event.relebookLink} target="_blank"><Eye className="h-4 w-4"/></Link>
-      )
+      if (event.rulebookLink) {
+        return (
+          <Link href={event.rulebookLink} target="_blank" className="flex justify-center">
+            <Eye className="h-4 w-4 text-violet-500" />
+          </Link>
+        );
+      } else {
+        return <p>Not Available</p>;
+      }
     },
   },
   {
     accessorKey: 'posterUrl',
-    header: 'Poster URL'
+    header: 'Poster URL',
+    cell: ({ row }) => {
+      const event = row.original
+      if (event.posterUrl) {
+        return (
+          <Link href={event.posterUrl} target="_blank" className="flex justify-center">
+            <Image className="h-6 w-6 text-emerald-400" />
+          </Link>
+        );
+      } else {
+        return <p>Not Available</p>;
+      }
+    },
   },
-  // {
-  //   id: "approveButton",
-  //   cell: ({ row }) => {
-  //     const user = row.original
- 
-  //     return (
-  //       <ApproveButton  UserId={user._id} setEventData={setEventData} />
-  //     )
-  //   },
-  // },
   {
     id: "deleteButton",
     cell: ({ row }) => {
