@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -9,7 +10,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
@@ -18,6 +19,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
+  const router=useRouter();
   const dispatch = useDispatch();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -28,7 +30,7 @@ const NavBar = () => {
     if(data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
-
+      router.push('/');
     }
   }
   
@@ -74,6 +76,11 @@ const NavBar = () => {
           <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
+          {user && 
+          <Link href="/profile" className="text-white hover:text-[#e11d48]">
+            Profile
+          </Link>
+          }
           {user ? (
             <Popover>
               <PopoverTrigger>
@@ -90,8 +97,7 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                    <p className="mb-2">Id: {user.festId}</p>
-                <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
+                <Button variant="destructive" onClick={logoutHandler}>Logout</Button>
               </PopoverContent>
             </Popover>
           ) : (
@@ -158,6 +164,11 @@ const NavBar = () => {
             <Link href="/contact" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
+          {user && 
+          <Link href="/profile" className="text-white hover:text-[#e11d48]">
+            Profile
+          </Link>
+          }
           {user ? (
             <Popover>
               <PopoverTrigger>
@@ -174,8 +185,7 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                    <p className="mb-2">Id: {user.festId}</p>
-                <Button variant="ghost" onClick={logoutHandler}>Logout</Button>
+                <Button variant="destructive" onClick={logoutHandler}>Logout</Button>
               </PopoverContent>
             </Popover>
           ) : (

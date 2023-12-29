@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
-import {columns} from '@/app/(dashboard)/(routes)/profile/columns';
-import { DataTable } from '@/app/(dashboard)/(routes)/profile/data-table';
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent } from '@/components/ui/card'
 import { Building, ChevronDownSquare, Mail, Phone, PilcrowSquare, User } from 'lucide-react';
@@ -80,10 +78,6 @@ export const ProfilePage = () => {
                     </CardContent>
                 </Card>
             }
-            <div className='container mt-4 mb-20 w-4/5'>  
-                <h1 className='text-3xl text-white font-bold'>List of Events</h1>
-                <DataTable columns={columns(setActionSuccess)} data={participatingEventsData} />
-            </div>
         </div>
   )
 };
