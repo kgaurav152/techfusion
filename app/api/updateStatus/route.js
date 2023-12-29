@@ -29,7 +29,8 @@ export async function POST(req){
         const participant = await User.findByIdAndUpdate(userId, {
             status:"approved",
         },{new:true});
-
+     
+        console.log(participant);
         const data = await User.find({status:{ $eq: "pending" }}) 
         return NextResponse.json({
             success: true,
