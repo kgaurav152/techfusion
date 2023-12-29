@@ -1,18 +1,16 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import Cookies from 'js-cookie';
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import Cookies from 'js-cookie';
 import toast from "react-hot-toast";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
-import {columns} from '@/app/(dashboard)/(routes)/profile/columns';
-import { DataTable } from '@/app/(dashboard)/(routes)/profile/data-table';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from '@/components/ui/card'
-import { Building, Mail, Phone } from 'lucide-react';
+import { Building, Mail, Phone} from 'lucide-react';
 
 export const ProfilePage = () => {
     
@@ -83,10 +81,6 @@ export const ProfilePage = () => {
                     </CardContent>
                 </Card>
             }
-            <div className='container mt-4 mb-20 w-4/5'>  
-                <h1 className='text-3xl text-white font-bold'>List of Events</h1>
-                <DataTable columns={columns(setActionSuccess)} data={participatingEventsData} />
-            </div>
         </div>
   )
 };

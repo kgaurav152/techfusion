@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Trash2 } from "lucide-react";
+import { Trash2, Image } from "lucide-react";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
 
@@ -68,7 +68,7 @@ export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
     return (
       <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
-          <Button variant="outline">
+          <Button variant="outline" className="text-green-500">
             Approve
           </Button>
         </DialogTrigger>
@@ -134,7 +134,7 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
       <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <Button variant="outline">
-            <Trash2 className="h-4 w-4" />
+            <Trash2 className="h-4 w-4 text-red-500" />
           </Button>
         </DialogTrigger>
         <DialogContent className="sm:max-w-[425px]">
@@ -142,6 +142,28 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
             <DialogTitle>Reject Approval Request</DialogTitle>
           </DialogHeader>
           <RejectApprovalForm setOpen={setOpen} UserId={UserId} setPendingParticipantsData={setPendingParticipantsData} />
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  export function ViewImageButton({ ImageUrl }) {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button variant="outline">
+            <Image className="h-6 w-6 text-emerald-400" />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Payment Screenshot</DialogTitle>
+          </DialogHeader>
+          <div className="flex items-center">
+            <img src={ImageUrl} alt="Payment Screenshot" className="w-full" />
+          </div>
         </DialogContent>
       </Dialog>
     );

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import { useReactToPrint } from "react-to-print";
+import { useDownloadExcel } from 'react-export-table-to-excel';
 
 import {
   ColumnDef,
@@ -31,6 +32,14 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import {ArrowLeft, ArrowRight, Settings2} from "lucide-react";
 
@@ -48,6 +57,13 @@ export const DataTable = ({
     const handlePrint = useReactToPrint({
       content: () => printAreaRef.current,
     });
+
+    const tableRef = useRef(null);
+    const { onDownload } = useDownloadExcel({
+        currentTableRef: tableRef.current,
+        filename: 'List of all participants',
+        sheet: 'Participants'
+    })
 
   const table = useReactTable({
   data,
@@ -74,9 +90,9 @@ export const DataTable = ({
           <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
           <Input
           placeholder="Filter TechFest Id..."
-          value={(table.getColumn("id")?.getFilterValue()) ?? ""}
+          value={(table.getColumn("festId")?.getFilterValue()) ?? ""}
           onChange={(event) =>
-              table.getColumn("id")?.setFilterValue(event.target.value)
+              table.getColumn("festId")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
           />
@@ -111,6 +127,25 @@ export const DataTable = ({
           className="max-w-sm"
           />
           </div>
+          {/* <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+          <Select 
+          onChange={(event) =>
+            table.getColumn("accomodation")?.setFilterValue(event.target.value)
+          }
+          value={(table.getColumn("accomodation")?.getFilterValue()) ?? ""}
+          className="max-w-sm"
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Filter Accomodation..." />
+            </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="yes">Yes</SelectItem>
+                  <SelectItem value="no">No</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+          </Select>
+          </div> */}
           <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
           <Input
           placeholder="Filter Events..."
@@ -150,55 +185,55 @@ export const DataTable = ({
         </DropdownMenuContent>
       </DropdownMenu>
       </div>
-      <div className="rounded-md border text-white" ref={printAreaRef}>
-          <Table>
-            
-              <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                      return (
-                      <TableHead key={header.id} className="text-center">
-                          {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                              )}
-                      </TableHead>
-                      )
-                  })}
-                  </TableRow>
-              ))}
-              </TableHeader>
-              <TableBody>
-              {table.getRowModel().rows?.length ? (
-                  table.getRowModel().rows.map((row) => (
-                  <TableRow
-                      key={row.id}
-                      data-state={row.getIsSelected() && "selected"}
-                  >
-                      {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                      ))}
-                  </TableRow>
-                  ))
-              ) : (
-                  <TableRow>
-                  <TableCell colSpan={columns.length} className="h-24 text-center">
-                      No results.
+      <div className="rounded-md border text-white print:m-10 print:text-black" ref={printAreaRef}>
+        <Table ref={tableRef}>
+          <TableHeader>
+          {table.getHeaderGroups().map((headerGroup) => (
+              <TableRow key={headerGroup.id}>
+              {headerGroup.headers.map((header) => {
+                  return (
+                  <TableHead key={header.id} className="text-center">
+                      {header.isPlaceholder
+                      ? null
+                      : flexRender(
+                          header.column.columnDef.header,
+                          header.getContext()
+                          )}
+                  </TableHead>
+                  )
+              })}
+              </TableRow>
+          ))}
+          </TableHeader>
+          <TableBody>
+          {table.getRowModel().rows?.length ? (
+              table.getRowModel().rows.map((row) => (
+              <TableRow
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
+              >
+                  {row.getVisibleCells().map((cell) => (
+                  <TableCell key={cell.id}>
+                      {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
-                  </TableRow>
-              )}
-              </TableBody>
-          </Table>
+                  ))}
+              </TableRow>
+              ))
+          ) : (
+              <TableRow>
+              <TableCell colSpan={columns.length} className="h-24 text-center">
+                  No results.
+              </TableCell>
+              </TableRow>
+          )}
+          </TableBody>
+        </Table>
       </div>
       <div className="text-center text-white mt-20 mb-4">
-        <Button onClick={handlePrint} className="text-white">
+        <Button onClick={handlePrint} className="text-white mr-6">
           Print
         </Button>
+        <Button onClick={onDownload}> Export excel </Button>
       </div>
     </>
   )
