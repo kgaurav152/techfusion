@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import { Trash2 } from "lucide-react";
+import { Trash2, Image } from "lucide-react";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
 
