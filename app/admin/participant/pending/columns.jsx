@@ -65,6 +65,7 @@ export const columns = (setPendingParticipantsData) => [
   },
   {
     id: "approvebutton",
+    header:'Approve',
     cell: ({ row }) => {
       const user = row.original
  
@@ -75,6 +76,7 @@ export const columns = (setPendingParticipantsData) => [
   },
   {
     id: "rejectbutton",
+    header:'Reject',
     cell: ({ row }) => {
       const user = row.original
  
