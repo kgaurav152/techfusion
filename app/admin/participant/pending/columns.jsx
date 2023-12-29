@@ -6,7 +6,7 @@ import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox"
   
-import { ApproveButton, RejectButton } from "@/app/admin/participant/pending/buttonBar";
+import { ApproveButton, RejectButton, ViewImageButton } from "@/app/admin/participant/pending/buttonBar";
 
 export const columns = (setPendingParticipantsData) => [
   {
@@ -51,7 +51,17 @@ export const columns = (setPendingParticipantsData) => [
   },
   {
     accessorKey: 'trx_img',
-    header: 'Payment SS'
+    header: 'Payment SS',
+    cell: ({ row }) => {
+      const user = row.original
+      if (user.trx_img) {
+        return (
+          <ViewImageButton imageUrl={user.trx_img}/>
+        );
+      } else {
+        return <p>Not Available</p>;
+      }
+    },
   },
   {
     id: "approvebutton",
@@ -59,7 +69,7 @@ export const columns = (setPendingParticipantsData) => [
       const user = row.original
  
       return (
-        <ApproveButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
+        <ApproveButton  UserId={user.id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },
@@ -69,7 +79,7 @@ export const columns = (setPendingParticipantsData) => [
       const user = row.original
  
       return (
-        <RejectButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
+        <RejectButton  UserId={user.id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },

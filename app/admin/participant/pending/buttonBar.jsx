@@ -146,3 +146,25 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
       </Dialog>
     );
   }
+
+  export function ViewImageButton({ ImageUrl }) {
+    const [open, setOpen] = useState(false);
+  
+    return (
+      <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+        <DialogTrigger asChild>
+          <Button variant="outline">
+            <Image className="h-6 w-6 text-emerald-400" />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>Payment Screenshot</DialogTitle>
+          </DialogHeader>
+          <div className="flex items-center">
+            <img src={ImageUrl} alt="Payment Screenshot" className="w-full" />
+          </div>
+        </DialogContent>
+      </Dialog>
+    );
+  }

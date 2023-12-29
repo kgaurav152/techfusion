@@ -32,6 +32,14 @@ import {
     DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
 import {ArrowLeft, ArrowRight, Settings2} from "lucide-react";
 
@@ -119,6 +127,25 @@ export const DataTable = ({
           className="max-w-sm"
           />
           </div>
+          {/* <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+          <Select 
+          onChange={(event) =>
+            table.getColumn("accomodation")?.setFilterValue(event.target.value)
+          }
+          value={(table.getColumn("accomodation")?.getFilterValue()) ?? ""}
+          className="max-w-sm"
+          >
+            <SelectTrigger>
+              <SelectValue placeholder="Filter Accomodation..." />
+            </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectItem value="yes">Yes</SelectItem>
+                  <SelectItem value="no">No</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+          </Select>
+          </div> */}
           <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
           <Input
           placeholder="Filter Events..."
