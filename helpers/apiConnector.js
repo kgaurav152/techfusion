@@ -9,11 +9,12 @@ export const apiConnector = (method,url,bodyData) => {
         token:token,
         ...bodyData
     }
+    const newUrl =" https://techfestkec.vercel.app"+url
 
     return axiosInstance(
         {
             method: `${method}`,
-            url :   `${url}`,
+            url :   `${newUrl}`,
             data : temp ? temp : null,
             headers:  null,
             params :  null,

@@ -24,7 +24,7 @@ export async function POST(req){
                 success: true,
                 message:"Participant has been deleted",
                 data:data
-            })
+            });
         }
         const participant = await User.findByIdAndUpdate(userId, {
             status:"approved",
