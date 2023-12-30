@@ -400,7 +400,7 @@ const RegistrationForm = () => {
                     </PopoverContent>
                   </Popover>
                   <FormDescription>
-                    If you don't find your college in the list select other. 
+                    If you don&apos;t find your college in the list select other. 
                   </FormDescription>
                   <FormMessage />
                 </FormItem>
