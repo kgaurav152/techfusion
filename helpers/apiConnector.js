@@ -15,12 +15,14 @@ export const apiConnector = (method,url,bodyData) => {
             method: `${method}`,
             url :   `${url}`,
             data : temp ? temp : null,
-            headers: {
-                Authorization: `Bearer ${token}`,
-                'Content-Type': 'application/json', // Adjust the content type if necessary
-              },
+            headers: null,
             params :  null,
 
         }
     )
 }
+
+// {
+//     Authorization: `Bearer ${token}`,
+//     'Content-Type': 'application/json', // Adjust the content type if necessary
+//   }
