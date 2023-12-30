@@ -8,15 +8,17 @@ export const apiConnector = (method,url,bodyData) => {
     let temp = {
         token:token,
         ...bodyData
-    }
-    const newUrl =" https://techfestkec.vercel.app"+url
+    } 
 
     return axiosInstance(
         {
             method: `${method}`,
-            url :   `${newUrl}`,
+            url :   `${url}`,
             data : temp ? temp : null,
-            headers:  null,
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json', // Adjust the content type if necessary
+              },
             params :  null,
 
         }
