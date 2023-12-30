@@ -60,9 +60,6 @@ const NavBar = () => {
           <Link href="/" className="text-white hover:text-[#e11d48]">
             Home
           </Link>
-          <Link href="/about" className="text-white hover:text-[#e11d48]">
-            About Us
-          </Link>
           <Link href="/events" className="text-white hover:text-[#e11d48]">
             Events
           </Link>
@@ -77,6 +74,11 @@ const NavBar = () => {
           <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
+          {user && (
+            <Link href="/eventregistration" className="text-white hover:text-[#e11d48]">
+              Event Registration
+            </Link>
+          )}
           {user && (
             <Link href="/profile" className="text-white hover:text-[#e11d48]">
               Profile
@@ -150,9 +152,6 @@ const NavBar = () => {
             <Link href="/" className="text-white hover:text-[#e11d48]">
               Home
             </Link>
-            <Link href="/about" className="text-white hover:text-[#e11d48]">
-              About Us
-            </Link>
             <Link href="/events" className="text-white hover:text-[#e11d48]">
               Events
             </Link>
@@ -167,6 +166,11 @@ const NavBar = () => {
             <Link href="/contact" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
+            {user && (
+              <Link href="/eventregistration" className="text-white hover:text-[#e11d48]">
+                Event Registration
+              </Link>
+            )}
             {user && (
               <Link href="/profile" className="text-white hover:text-[#e11d48]">
                 Profile
