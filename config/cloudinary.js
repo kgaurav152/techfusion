@@ -1,6 +1,6 @@
 import {v2 as cloudinary} from 'cloudinary'; //! Cloudinary is being required
 
-exports.cloudinaryConnect = () => {
+export const cloudinaryConnect = () => {
 	try {
 		cloudinary.config({ 
 			cloud_name: process.env.CLOUD_NAME,

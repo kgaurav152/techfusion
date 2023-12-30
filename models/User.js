@@ -61,6 +61,9 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    ca_no:{
+        type:String,
+    },
     userType:{
         type:String,
         enum:["admin","participant"],

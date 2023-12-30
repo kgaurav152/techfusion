@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export const columns = (setEventData) => [
   {
-    accessorKey: 'id',
+    accessorKey: 'eventId',
     header: 'Event Id'
   },
   {
