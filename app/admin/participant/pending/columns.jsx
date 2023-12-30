@@ -70,7 +70,7 @@ export const columns = (setPendingParticipantsData) => [
       const user = row.original
  
       return (
-        <ApproveButton  UserId={user.id} setPendingParticipantsData={setPendingParticipantsData} />
+        <ApproveButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },
@@ -81,7 +81,7 @@ export const columns = (setPendingParticipantsData) => [
       const user = row.original
  
       return (
-        <RejectButton  UserId={user.id} setPendingParticipantsData={setPendingParticipantsData} />
+        <RejectButton  UserId={user._id} setPendingParticipantsData={setPendingParticipantsData} />
       )
     },
   },

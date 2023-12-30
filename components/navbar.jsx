@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Cookies from 'js-cookie';
+import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -20,31 +20,30 @@ import { apiConnector } from "@/helpers/apiConnector";
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
-  const router=useRouter();
+  const router = useRouter();
   const dispatch = useDispatch();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-  const logoutHandler = async() =>{
-    const {data} = await axios.get('/api/logout');
-    if(data.success) {
+  const logoutHandler = async () => {
+    const { data } = await apiConnector("GET","/api/logout");
+    if (data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
-      Cookies.remove('token');
-      router.push('/');
+      Cookies.remove("token");
+      router.push("/");
     }
-  }
-  
-  useEffect(()=>{
-    const fetchUserDetails = async()=>{
-      const {data} = await apiConnector("POST","/api/userDetails");
-      // console.log(data)
-       dispatch(setUserDetails(data?.data)) 
-    }
-    fetchUserDetails();
+  };
 
-  },[])
+  useEffect(() => {
+    const fetchUserDetails = async () => {
+      const { data } = await apiConnector("POST", "/api/userDetails");
+      // console.log(data)
+      dispatch(setUserDetails(data?.data));
+    };
+    fetchUserDetails();
+  }, []);
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
@@ -78,17 +77,17 @@ const NavBar = () => {
           <Link href="/contact" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          {user && 
-          <Link href="/profile" className="text-white hover:text-[#e11d48]">
-            Profile
-          </Link>
-          }
+          {user && (
+            <Link href="/profile" className="text-white hover:text-[#e11d48]">
+              Profile
+            </Link>
+          )}
           {user ? (
             <Popover>
               <PopoverTrigger>
                 {" "}
-                <Avatar>              
-                  {user.gender === 'female' ? (
+                <Avatar>
+                  {user.gender === "female" ? (
                     <AvatarImage src="avatar_01.png" />
                   ) : (
                     <AvatarImage src="avatar_02.png" />
@@ -99,7 +98,9 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                <Button variant="destructive" onClick={logoutHandler}>Logout</Button>
+                <Button variant="destructive" onClick={logoutHandler}>
+                  Logout
+                </Button>
               </PopoverContent>
             </Popover>
           ) : (
@@ -166,35 +167,37 @@ const NavBar = () => {
             <Link href="/contact" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
-          {user && 
-          <Link href="/profile" className="text-white hover:text-[#e11d48]">
-            Profile
-          </Link>
-          }
-          {user ? (
-            <Popover>
-              <PopoverTrigger>
-                {" "}
-                <Avatar>                  
-                  {user.gender === 'female' ? (
-                    <AvatarImage src="avatar_01.png" />
-                  ) : (
-                    <AvatarImage src="avatar_02.png" />
-                  )}
-                  <AvatarFallback className="bg-slate-800 text-white">
-                    {user.name[0]}
-                  </AvatarFallback>
-                </Avatar>
-              </PopoverTrigger>
-              <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                <Button variant="destructive" onClick={logoutHandler}>Logout</Button>
-              </PopoverContent>
-            </Popover>
-          ) : (
-            <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
-              Login
-            </Link>
-          )}
+            {user && (
+              <Link href="/profile" className="text-white hover:text-[#e11d48]">
+                Profile
+              </Link>
+            )}
+            {user ? (
+              <Popover>
+                <PopoverTrigger>
+                  {" "}
+                  <Avatar>
+                    {user.gender === "female" ? (
+                      <AvatarImage src="avatar_01.png" />
+                    ) : (
+                      <AvatarImage src="avatar_02.png" />
+                    )}
+                    <AvatarFallback className="bg-slate-800 text-white">
+                      {user.name[0]}
+                    </AvatarFallback>
+                  </Avatar>
+                </PopoverTrigger>
+                <PopoverContent className="w-fit text-white bg-black/50 border-primary">
+                  <Button variant="destructive" onClick={logoutHandler}>
+                    Logout
+                  </Button>
+                </PopoverContent>
+              </Popover>
+            ) : (
+              <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
+                Login
+              </Link>
+            )}
           </div>
         </div>
       )}

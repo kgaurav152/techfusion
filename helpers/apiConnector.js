@@ -8,16 +8,21 @@ export const apiConnector = (method,url,bodyData) => {
     let temp = {
         token:token,
         ...bodyData
-    }
+    } 
 
     return axiosInstance(
         {
             method: `${method}`,
             url :   `${url}`,
             data : temp ? temp : null,
-            headers:  null,
+            headers: null,
             params :  null,
 
         }
     )
 }
+
+// {
+//     Authorization: `Bearer ${token}`,
+//     'Content-Type': 'application/json', // Adjust the content type if necessary
+//   }
