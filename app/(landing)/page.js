@@ -50,7 +50,7 @@ const LandingPage = () => {
         <div className="relative text-center mb-8 lg:min-h-[80vh]">
           <div className="z-0">
             <div className="flex flex-col items-center mt-20">
-              <h1 className="font-extrabold text-5xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">TechFest&apos;24</h1>
+            <h1 className="font-extrabold text-5xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">TechFest&apos;24</h1>
               <p className="text-xl lg:text-4xl mb-5 mt-4 underline">22-26 January 2024</p>
               <Button
                 className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
@@ -67,9 +67,8 @@ const LandingPage = () => {
                   </span>
                 </div>
               </Button>
-            </div>            
+            </div>
           </div>
-        </div>
         {/* About Us Section */}
         <section style={{ marginBottom: '40px' }}>
           <div>

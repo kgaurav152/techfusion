@@ -19,31 +19,17 @@ export async function POST(req){
         }
         if(status=="0"){
             const participant = await User.findByIdAndDelete(userId);
-            if(!participant){
-                return NextResponse.json({
-                    success: false,
-                    message:"User Not Found", 
-                });
-
-            }
             const data = await User.find({status:{ $eq: "pending" }}); 
             return NextResponse.json({
                 success: true,
                 message:"Participant has been deleted",
                 data:data
-            });
+            })
         }
-
         const participant = await User.findByIdAndUpdate(userId, {
             status:"approved",
         },{new:true});
-        
-        if(!participant){
-            return NextResponse.json({
-                success: false,
-                message:"User Not Found", 
-            });
-        } 
+
         const data = await User.find({status:{ $eq: "pending" }}) 
         return NextResponse.json({
             success: true,
