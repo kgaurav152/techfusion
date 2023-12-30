@@ -56,7 +56,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
       required_error: "Name is required",
       invalid_type_error: "Name must be a string",
     }).min(2, { message: "Name must be 2 or more characters long" } ),
-    participationMode: z.enum(["0","1"], { message: "Select a valid option"} ),
+    participationMode: z.enum(["Individual","Group"], { message: "Select a valid option"} ),
     description: z.string({ message: "Description can't be empty!"}),
     rulebookLink: z.string().url(),
     posterUrl: z.string().url(),
@@ -180,8 +180,8 @@ export function EventCreationForm({ setOpen, setEventData }) {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="individual">Individual</SelectItem>
-                        <SelectItem value="group">Group</SelectItem>
+                        <SelectItem value="Individual">Individual</SelectItem>
+                        <SelectItem value="Group">Group</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />
