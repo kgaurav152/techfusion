@@ -45,7 +45,7 @@ export const colleges = [
     { label: 'J. P. Institute of Technology, Nalanda', value: 'J. P. Institute of Technology, Nalanda' },
     { label: 'K. K. College of Engineering and Management, Nalanda', value: 'K. K. College of Engineering and Management, Nalanda' },
     { label: 'Kameshwar Narayan Singh Government Polytechnic, Samastipur', value: 'Kameshwar Narayan Singh Government Polytechnic, Samastipur' },
-    { label: 'Katihar Engineering College, katihar', value: 'Katihar Engineering College, katihar' },
+    { label: 'Katihar Engineering College, Katihar', value: 'Katihar Engineering College, Katihar' },
     { label: 'KK Polytechnic, Nalanda', value: 'KK Polytechnic, Nalanda' },
     { label: 'Loknayak Jai Prakash Institute of Technology, Chapra', value: 'Loknayak Jai Prakash Institute of Technology, Chapra' },
     { label: 'Millia Polytechnic, Purnea', value: 'Millia Polytechnic, Purnea' },
