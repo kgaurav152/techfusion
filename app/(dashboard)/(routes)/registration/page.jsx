@@ -347,7 +347,7 @@ const RegistrationForm = () => {
               name="college"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel className="text-white">College*</FormLabel>
+                  <FormLabel className="text-white">College</FormLabel>
                   <Popover open={openPop} onOpenChange={setOpenPop} >
                     <PopoverTrigger asChild>
                       <FormControl>
@@ -399,9 +399,7 @@ const RegistrationForm = () => {
                       </Command>
                     </PopoverContent>
                   </Popover>
-                  <FormDescription>
-                    If you don&apos;t find your college in the list select other. 
-                  </FormDescription>
+                  <FormDescription />
                   <FormMessage />
                 </FormItem>
               )}
@@ -506,18 +504,16 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'no' : field.value}
-                      disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
-                    >
-                      <FormControl>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
                         <SelectTrigger>
-                            <SelectValue placeholder={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'No' : "Select One"} />
+                            <SelectValue placeholder= "Select One" />
                         </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
+                        </FormControl>
+                        <SelectContent>
                         <SelectItem value="yes">Yes</SelectItem>
                         <SelectItem value="no">No</SelectItem>
-                      </SelectContent>
+                        </SelectContent>
                     </Select>
                     <FormDescription />
                     <FormMessage />
@@ -579,13 +575,7 @@ const RegistrationForm = () => {
             <Card className="mx-auto max-w-xl mb-4 text-left">
               <CardContent>
                   <div className="flex items-center pt-4">
-                    <p className="font-semibold font-mono">
-                      Participants can pay registration fee of{' '}
-                      <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
-                      </span>{' '}
-                      on following bank account and upload the screenshot of payment:
-                    </p>
+                    <p className="font-semibold font-mono">Participants can pay registration fee of Rs 700/- on following bank account and upload the screenshot of payment:</p>
                   </div>
               </CardContent>
             </Card>
@@ -635,11 +625,7 @@ const RegistrationForm = () => {
               <Card className="mx-auto max-w-xl mb-4 text-left">
                 <CardContent>
                     <div className="flex items-center pt-4">
-                      <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
-                      <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
-                      </span>{' '}
-                      to Campus Ambassador of their college.</p>
+                      <p className="font-semibold font-mono">Participants can pay registration fee of Rs 700/- to Campus Ambassador of their college.</p>
                     </div>
                 </CardContent>
               </Card>

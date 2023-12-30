@@ -26,6 +26,8 @@ export function AcceptApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
         userId:UserId,
         status: "1"
         };
+  
+         
     try {
         const toastId = toast.loading("Loading...");
         const { data } = await apiConnector("POST","/api/updateStatus",obj);
