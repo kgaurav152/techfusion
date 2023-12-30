@@ -165,4 +165,4 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
         </DialogContent>
       </Dialog>
     );
-  }
+}

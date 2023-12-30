@@ -531,15 +531,15 @@ const RegistrationForm = () => {
                     <Select onValueChange={field.onChange} defaultValue={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'no' : field.value}
                       disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
                     >
-                      <FormControl>
+                        <FormControl>
                         <SelectTrigger>
                             <SelectValue placeholder={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'No' : "Select One"} />
                         </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
+                        </FormControl>
+                        <SelectContent>
                         <SelectItem value="yes">Yes</SelectItem>
                         <SelectItem value="no">No</SelectItem>
-                      </SelectContent>
+                        </SelectContent>
                     </Select>
                     <FormDescription />
                     <FormMessage />
@@ -601,7 +601,7 @@ const RegistrationForm = () => {
             <Card className="mx-auto max-w-xl mb-4 text-left">
               <CardContent>
                   <div className="flex items-center pt-4">
-                    <p className="font-semibold font-mono">
+                  <p className="font-semibold font-mono">
                       Participants can pay registration fee of{' '}
                       <span className="font-bold">
                         {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
@@ -657,7 +657,7 @@ const RegistrationForm = () => {
               <Card className="mx-auto max-w-xl mb-4 text-left">
                 <CardContent>
                     <div className="flex items-center pt-4">
-                      <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
+                    <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
                       <span className="font-bold">
                         {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
                       </span>{' '}
