@@ -73,11 +73,6 @@ const LandingPage = () => {
                 onClick={(e) => handleClick(e, "/eventregistration")}
               >
                 <div className="flex items-center">
-                  <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
-                      isHovered ? "bg-purple-500" : "bg-white"
-                    }`}
-                  ></div>
                   <span className="ml-3">Event Registration</span>
                 </div>
               </Button>
