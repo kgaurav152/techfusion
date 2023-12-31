@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
@@ -48,10 +49,13 @@ const NavBar = () => {
   return (
     <nav className="bg-gray-900 p-4 mb-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        {/* Logo */}
         <div className="flex-shrink-0">
           <Link href="/" className="text-white font-bold text-lg">
-            Logo
+            <Image src="/TechfestLogo.png"
+              width={30}
+              height={30}
+              alt="TechFest&apos;24 Logo"
+            />
           </Link>
         </div>
 

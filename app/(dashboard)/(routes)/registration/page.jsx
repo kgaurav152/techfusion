@@ -125,7 +125,7 @@ const RegistrationForm = () => {
     branch: z.string({ message: "Must be a valid branch"}),
     batch: z.string({ message: "Must be a valid batch"}),
     knowAbout: z.string({ message: "Select a valid option"}),
-    accomodation: z.enum(['yes', 'no'], { message: "Select a valid option"} ),
+    accomodation: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
     tShirtSize: z.string( { message: "Select a valid option"} ),
     paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
     otherCollege: z.string().optional(),
@@ -506,7 +506,7 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'no' : field.value}
+                    <Select onValueChange={field.onChange} defaultValue={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'No' : field.value}
                       disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
                     >
                         <FormControl>
@@ -515,8 +515,8 @@ const RegistrationForm = () => {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="yes">Yes</SelectItem>
-                        <SelectItem value="no">No</SelectItem>
+                        <SelectItem value="Yes">Yes</SelectItem>
+                        <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />

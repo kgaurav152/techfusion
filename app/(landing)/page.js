@@ -8,11 +8,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
+import Image from "next/image";
 
 const LandingPage = () => {
   const router = useRouter();
   const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
+
+  const [live, setLive] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -61,47 +64,61 @@ const LandingPage = () => {
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
               22-26 January 2024
             </p>
-            {user ? (
-              <Button
-                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                onMouseEnter={() => {
-                  setIsHovered(true);
-                }}
-                onMouseLeave={() => {
-                  setIsHovered(false);
-                }}
-                onClick={(e) => handleClick(e, "/eventregistration")}
-              >
-                <div className="flex items-center">
-                  <span className="ml-3">Event Registration</span>
-                </div>
-              </Button>
-            ) : (
-              <Button
-                className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                onMouseEnter={() => {
-                  setIsHovered(true);
-                }}
-                onMouseLeave={() => {
-                  setIsHovered(false);
-                }}
-                onClick={(e) => handleClick(e, "/registration")}
-              >
-                <div className="flex items-center">
-                  <div
-                    className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
-                      isHovered ? "bg-purple-500" : "bg-white"
-                    }`}
+
+            {live ? (
+              <div>
+                {user ? (
+                  <Button
+                    className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                    onMouseEnter={() => {
+                      setIsHovered(true);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovered(false);
+                    }}
+                    onClick={(e) => handleClick(e, "/eventregistration")}
                   >
-                    <MoveUpRight
-                      className={`w-4 h-4 ${
-                        isHovered ? "text-white" : "text-gray-700"
-                      }`}
-                    />
-                  </div>
-                  <span className="ml-3">Register Now</span>
-                </div>
-              </Button>
+                    <div className="flex items-center">
+                      <span className="ml-3">Event Registration</span>
+                    </div>
+                  </Button>
+                ) : (
+                  <Button
+                    className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                    onMouseEnter={() => {
+                      setIsHovered(true);
+                    }}
+                    onMouseLeave={() => {
+                      setIsHovered(false);
+                    }}
+                    onClick={(e) => handleClick(e, "/registration")}
+                  >
+                    <div className="flex items-center">
+                      <div
+                        className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
+                          isHovered ? "bg-purple-500" : "bg-white"
+                        }`}
+                      >
+                        <MoveUpRight
+                          className={`w-4 h-4 ${
+                            isHovered ? "text-white" : "text-gray-700"
+                          }`}
+                        />
+                      </div>
+                      <span className="ml-3">Register Now</span>
+                    </div>
+                  </Button>
+                )}
+              </div>
+            ) : (
+              <div className="flex justify-center">
+                <Image
+                  src="/registrationStartsFrom.svg"
+                  width={900}
+                  height={200}
+                  alt="TechFest'24 Registration from 6th jan"
+                />
+              </div>
             )}
           </div>
         </div>
@@ -116,6 +133,19 @@ const LandingPage = () => {
             {/* Example: */}
             {/* <EventCard title="Event 1" poster="poster1.jpg" /> */}
             {/* <EventCard title="Event 2" poster="poster2.jpg" /> */}
+
+            {live ? (
+              ""
+            ) : (
+              <div className="flex justify-center">
+                <Image
+                  src="/comingSoon.svg"
+                  width={900}
+                  height={200}
+                  alt="TechFest'24 Coming Soon"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>
