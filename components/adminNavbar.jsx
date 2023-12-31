@@ -51,7 +51,7 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/admin/dashboard" className="text-white font-bold text-lg">
-            <Image src="/TechfestLogo.png"
+            <Image src="/TechfestLogo.svg"
               width={30}
               height={30}
               alt="TechFest&apos;24 Logo"

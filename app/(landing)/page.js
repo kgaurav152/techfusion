@@ -114,7 +114,7 @@ const LandingPage = () => {
               <div className="flex justify-center">
                 <Image
                   src="/registrationStartsFrom.svg"
-                  width={900}
+                  width={850}
                   height={200}
                   alt="TechFest'24 Registration from 6th jan"
                 />
