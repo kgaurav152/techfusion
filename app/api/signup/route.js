@@ -7,35 +7,37 @@ import { uploadImageToCloudinary } from "@/lib/imageUploader";
 import tempWrite from "temp-write";
 import path from "path";
 import fs from 'fs';
-connect();
-const upload = multer({ dest: "uploads/" });
+connect(); 
 export async function POST(request) {
 
   try { 
     const reqBody = await request.formData();
     const name = reqBody.get("name");
     const email = reqBody.get("email");
-    const mobile = reqBody.get("mobile");
-    const password = reqBody.get("password");
-    const gender = reqBody.get("gender");
-    const college = reqBody.get("college");
-    const branch = reqBody.get("branch");
-    const batch = reqBody.get("batch");
-    const knowAbout = reqBody.get("knowAbout");
-    const accomodation = reqBody.get("accomodation");
-    const tShirtSize = reqBody.get("tShirtSize");
-    const paymentMethod = reqBody.get("paymentMethod");
-    const transaction_id = reqBody.get("transaction_id");
-    const ca_no = reqBody.get("ca_no");
+    // const mobile = reqBody.get("mobile");
+    // const password = reqBody.get("password");
+    // const gender = reqBody.get("gender");
+    // const college = reqBody.get("college");
+    // const branch = reqBody.get("branch");
+    // const batch = reqBody.get("batch");
+    // const knowAbout = reqBody.get("knowAbout");
+    // const accomodation = reqBody.get("accomodation");
+    // const tShirtSize = reqBody.get("tShirtSize");
+    // const paymentMethod = reqBody.get("paymentMethod");
+    // const transaction_id = reqBody.get("transaction_id");
+    // const ca_no = reqBody.get("ca_no");
     const screenshot = reqBody.get("screenshot")
 
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
     const screenshotBufferObj = Buffer.from(screenshotBuffer); 
-    const tempFileDirectory = path.join(__dirname, "temp");
-    const tempFilePath = await tempWrite(screenshotBufferObj, 'screenshot',{ dir: tempFileDirectory });
+    // const tempFileDirectory = path.join(__dirname,"temp"  );
+    // console.log(tempFileDirectory);
+    const date = Date.now()
+    const tempFilePath = tempWrite.sync(screenshotBufferObj,date.toString());
+    console.log("path",tempFilePath)
 
-   
+    // , { dir: "../../../upload" }
 
     //check if user already exists
     const user = await User.findOne({ $or:[{ email: email.toLowerCase()},{mobile:mobile}]});
