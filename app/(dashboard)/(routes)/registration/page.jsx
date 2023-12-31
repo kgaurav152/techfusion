@@ -141,6 +141,7 @@ const RegistrationForm = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);  
+  const [file,setFile] = useState();
   const router = useRouter();
   const dispatch = useDispatch();
 
@@ -148,10 +149,17 @@ const RegistrationForm = () => {
     resolver: zodResolver(RegistrationFormSchema),
     mode: "onChange",
   })
+  const fileHandler = (e) =>{
+    console.log("File Handler")
+    console.log(e.target.files);
+    setFile(e.target.files[0])
+  }
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
 
+    console.log(data)
+    console.log(file)
     if (data.college!='other') {
       data.otherCollege=null;
     };
@@ -171,14 +179,28 @@ const RegistrationForm = () => {
       paymentMethod: data.paymentMethod,
       ca_no: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
       transaction_id: data.trx_id == null ? '' : data.trx_id,
-      screenshot: data.trx_img[0],
+      // screenshot: file,
       // userType: 'Participant'
     };
-
-    // console.log(obj);
+    const formData = new FormData();
+    formData.append("name",data.name)
+    formData.append("email",data.email)
+    formData.append("mobile",data.mobile)
+    formData.append("password",data.confirmPassword)
+    formData.append("gender",data.gender)
+    formData.append("college",data.college)
+    formData.append("branch",data.branch)
+    formData.append("batch",data.batch)
+    formData.append("knowAbout",data.knowAbout)
+    formData.append("accomodation",data.accomodation)
+    formData.append("tShirtSize",data.tShirtSize)
+    formData.append("paymentMethod",data.paymentMethod)
+    formData.append("ca_no",data.ca_no_ba)
+    formData.append("transaction_id",data.trx_id)
+    formData.append("screenshot",file); 
     try {
       const toastId = toast.loading("Creating Account...")
-      const { data } = await axios.post("/api/signup", obj);
+      const { data } = await axios.post("/api/signup", formData);
       toast.dismiss(toastId);
       setIsLoading(false);
       if (data.success) { 
@@ -668,7 +690,8 @@ const RegistrationForm = () => {
                   <FormItem>
                       <FormLabel className="text-white">Screenshot of Payment (less than 3 mb)*</FormLabel>
                       <FormControl>
-                      <Input type="file" {...field} accept="image/*"/>
+                      {/* <Input type="file" onChange={fileHandler} {...field} accept="image/*"/> */}
+                      <input type="file" name="trx_img" onChange={fileHandler} accept="image/*"/>
                       </FormControl>
                       <FormDescription />
                       <FormMessage />
