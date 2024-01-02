@@ -1,20 +1,18 @@
 "use client"
 
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as z from "zod";
 
-// import Network from "@/components/network";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronsUpDown, Check } from "lucide-react";
-// import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 import {
@@ -33,13 +31,6 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command"
-import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
 import {
   Card,
   CardHeader,
@@ -60,8 +51,6 @@ import {
 } from "@/components/ui/avatar"
 import { apiConnector } from "@/helpers/apiConnector";
 
-// import { colleges, branches, batches, tshirtSizeValue, knowAbout } from "@/public/constants";
-
 
 const EventRegistrationForm = () => {
   
@@ -79,44 +68,60 @@ const EventRegistrationForm = () => {
     animation: 'flicker 1.5s infinite alternate',
     color: '#fff',
   };
-
-  // const RegistrationFormSchema = z.object({
-  //   name: z.string({
-  //     required_error: "Name is required",
-  //     invalid_type_error: "Name must be a string",
-  //   }).min(2, { message: "Name must be 5 or more characters long" } ),
-  //   email: z.string().email(),
-  //   mobile: z.string().min(10, { message: "Mobile no. must be 10 digits"}).max(10, { message: "Mobile no. must be 10 digits"}),
-  //   password: z.string().min(8, { message: "Password must be longer than 8 characters"} ),
-  //   confirmPassword: z.string(),
-  //   gender: z.enum(['male', 'female'],  { message: "Select a valid option"} ),
-  //   college: z.string({ message: "Must be a valid College Name"}),
-  //   branch: z.string({ message: "Must be a valid branch"}),
-  //   batch: z.string({ message: "Must be a valid batch"}),
-  //   knowAbout: z.string({ message: "Select a valid option"}),
-  //   accomodation: z.enum(['yes', 'no'], { message: "Select a valid option"} ),
-  //   tShirtSize: z.string( { message: "Select a valid option"} ),
-  //   paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
-  //   otherCollege: z.string().optional(),
-  //   ca_no_ba: z.string().optional(),
-  //   ca_no_ca: z.string().optional(),
-  //   trx_id: z.string().optional(),
-  //   trx_img: z
-  //   .any()
-  // }).refine((data) => data.password === data.confirmPassword, {
-  //   message: 'Password and confirm password must be same.',
-  //   path: ["confirmPassword"],
+  
+  // const GroupEventRegistrationFormSchema = z.object({
+  //   event: z.any({message:"Select an Event!"}),
+  //   teamLead: z.string(),
+  //   tmOne: z.string({message:"Enter a Valid Id"}),
+  //   tmTwo: z.string({message:"Enter a Valid Id"}).optional(),
+  //   tmThree: z.string({message:"Enter a Valid Id"}).optional(),
+  //   teamName: z.string({message:"Enter a Team Name"})
+  // });
+  
+  // const IndividualEventRegistrationFormSchema = z.object({
+  //   event: z.any({message:"Select an Event!"}),
+  //   teamLead: z.string(),
   // });
 
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);  
   const [eventData, setEventData] = useState([]);
-  const router = useRouter();
-  // const dispatch = useDispatch();
+  // const router = useRouter();
 
-  const form = useForm({
-    // resolver: zodResolver(RegistrationFormSchema),
-    mode: "onChange",
+  // const form = if (form.watch('event')?.split('@')[1]==='Individual') {
+  //   useForm({
+  //   resolver: zodResolver(IndividualEventRegistrationFormSchema),
+  //   mode:"onChange"
+  //   })
+  // } else {
+  //   useForm({
+  //     resolver: zodResolver(GroupEventRegistrationFormSchema),
+  //     mode:"onChange"
+  //     })
+  // }
+
+  // const form = useForm({
+  //   // resolver: form.watch('event')?.split('@')[1]==='Individual'? zodResolver(IndividualEventRegistrationFormSchema): zodResolver(GroupEventRegistrationFormSchema),
+  //   // resolver: (data) =>{
+  //     if (form.watch('event')?.split('@')[1]==='Individual') {
+  //       resolver: zodResolver(IndividualEventRegistrationFormSchema),
+  //     } else {
+  //       resolver: zodResolver(GroupEventRegistrationFormSchema),
+  //     }
+  //   // },
+  //   mode: "onChange",
+  // })
+
+  // const form = useForm({
+  //   resolver:
+  //     form.watch('event')?.split('@')[1] === 'Individual'
+  //       ? zodResolver(IndividualEventRegistrationFormSchema)
+  //       : zodResolver(GroupEventRegistrationFormSchema),
+  //   mode: 'onChange',
+  // });
+
+  const form= useForm({
+    mode:'onChange'
   })
 
   const fetchEvents = async () => {
@@ -125,8 +130,13 @@ const EventRegistrationForm = () => {
         const { data } = await apiConnector("GET","/api/event/getAllEvent")
         setIsLoading(false);
         if (data.success) {
-        toast.success("Data Fetched Successfully!");
-        setEventData(data.data);
+        const unRestructuredEvents=data.data;
+        const restructuredEvents = unRestructuredEvents.map((event) => ({
+          label: `${event.eventId} - ${event.name}`,
+          value: `${event._id}@${event.participationMode}`,
+          // participationMode:event.participationMode
+        }));
+        setEventData(restructuredEvents);
         } else {
         toast.error(data.message);
         }
@@ -141,54 +151,39 @@ const EventRegistrationForm = () => {
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
-
-    if (data.college!='other') {
-      data.otherCollege=null;
-    };
-
-    const obj = {
-      name: data.name,
-      email: data.email,
-      mobile: data.mobile,
-      password: data.confirmPassword,
-      gender: data.gender,
-      college: data.college == 'other' ? data.otherCollege : data.college,
-      branch: data.branch,
-      batch: data.batch,
-      knowAbout: data.knowAbout,
-      accomodation: data.accomodation,
-      tShirtSize: data.tShirtSize,
-      paymentMethod: data.paymentMethod,
-      ca_no: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
-      transaction_id: data.trx_id == null ? '' : data.trx_id,
-      screenshot: data.trx_img[0],
-      // userType: 'Participant'
-    };
-
-    // console.log(obj);
-    try {
-      const toastId = toast.loading("Creating Account...")
-      const { data } = await axios.post("/api/signup", obj);
-      toast.dismiss(toastId);
-      setIsLoading(false);
-      if (data.success) { 
-        toast.success("Registered Successfully!");
-        // if(data.user.role=="admin"){
-        //   router.push("/admin/dashboard");
-        // }
-        // else{
-        //   router.push("/");
-        // }
-        router.push("/sign-in");
-      } else {
-        toast.error(data.message);
-      }
-    } catch (err) {
-      console.log(err);
+    const tempObj = data.event?.split('@')[1]==='Individual'? {
+      event_id:data.event?.split('@')[0],
+      team_name:user.name,
+      team_lead:user.festId,
+      team_member_1:null,
+      team_member_2:null,
+      team_member_3:null,
+    }: {
+      event_id:data.event?.split('@')[0],
+      team_name:data.teamName,
+      team_lead:user.festId,
+      team_member_1:data.tmOne,
+      team_member_2:data.tmTwo?data.tmTwo:null,
+      team_member_3:data.tmThree?data.tmThree:null,
     }
+    const obj = tempObj;
+
+    console.log(obj);
+    // try {
+    //   const toastId = toast.loading("Regestring Event...")
+    //   const { data } = await axios.post("/api/eventRegistration", obj);
+    //   toast.dismiss(toastId);
+    //   setIsLoading(false);
+    //   if (data.success) { 
+    //     toast.success("Registered for Event Successfully!");
+    //     form.reset();
+    //   } else {
+    //     toast.error(data.message);
+    //   }
+    // } catch (err) {
+    //   console.log(err);
+    // }
   }
-  
-    const fileRef = form.register('file', { required: true });
 
   return (
             
@@ -258,7 +253,7 @@ const EventRegistrationForm = () => {
                           {field.value
                             ? eventData.find(
                                 (event) => event.value === field.value
-                              )?.label
+                              )?.level
                             : "Select Event"}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
@@ -266,7 +261,7 @@ const EventRegistrationForm = () => {
                     </PopoverTrigger>
                     <PopoverContent className="p-0">
                       <Command>
-                        <CommandInput placeholder="Search College..." />
+                        <CommandInput placeholder="Search Event..." />
                         <CommandEmpty>No Event found.</CommandEmpty>
                         <ScrollArea className="h-48 overflow-auto">
                           <CommandGroup>
@@ -300,9 +295,9 @@ const EventRegistrationForm = () => {
                 </FormItem>
               )}
             />        
-            {form.watch('eventvent') === "team" && (
+            {form.watch('event')?.split('@')[1] === "Group" && (
               // selectedEvent && selectedEvent.participatingType==group
-            <div>
+            <>
             <FormField
                 control={form.control}
                 name="teamLead"
@@ -310,9 +305,9 @@ const EventRegistrationForm = () => {
                   <FormItem>
                     <FormLabel className="text-white">Team Leader Id*</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Team Leader TechFest Id" {...field} />
+                      <Input disabled defaultValue={user.festId}/>
                     </FormControl>
-                    <FormDescription />
+                    <FormDescription>If you want other member of your team to be a leader ask them to register for the event instead.</FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
@@ -359,26 +354,41 @@ const EventRegistrationForm = () => {
                   </FormItem>
                 )}
             />
-            </div>
-            )}        
-            {form.watch('eventvent') === "individual" && (
-              // selectedEvent && selectedEvent.participatingType==group
             <div>
+              <FormField
+                  control={form.control}
+                  name="teamName"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-white">Team Name*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Enter Team Name" {...field} />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+              />
+            </div>
+            </>
+            )}        
+            {form.watch('event')?.split('@')[1] === "Individual" && (
+            <>
             <FormField
                 control={form.control}
-                name="teamLead"
+                name="teamLeadIndividial"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white"></FormLabel>
+                    <FormLabel className="text-white">Participant's TechFest Id</FormLabel>
                     <FormControl>
-                      <Input defaultValue={user.festId} {...field} />
+                      <Input disabled defaultValue={user.festId} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
                   </FormItem>
                 )}
             />
-            </div>
+            </>
             )}
           </div>
           <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none" >Participate</Button>
