@@ -379,7 +379,7 @@ const EventRegistrationForm = () => {
                 name="teamLeadIndividial"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white">Participant's TechFest Id</FormLabel>
+                    <FormLabel className="text-white">Participant&apos;s TechFest Id</FormLabel>
                     <FormControl>
                       <Input disabled defaultValue={user.festId} />
                     </FormControl>
