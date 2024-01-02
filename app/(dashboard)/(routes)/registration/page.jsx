@@ -528,12 +528,13 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'No' : field.value}
+                    <Select onValueChange={field.onChange} defaultValue={field.value}
+                      value={form.watch('college') === 'Katihar Engineering College, Katihar' ? "No" : field.value}
                       disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
                     >
                         <FormControl>
                         <SelectTrigger>
-                            <SelectValue placeholder={form.watch('college') === 'Katihar Engineering College, Katihar' ? 'No' : "Select One"} />
+                            <SelectValue placeholder={"Select One"} />
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
