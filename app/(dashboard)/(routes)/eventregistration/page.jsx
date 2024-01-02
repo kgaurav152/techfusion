@@ -58,6 +58,7 @@ import {
   AvatarFallback,
   AvatarImage 
 } from "@/components/ui/avatar"
+import { apiConnector } from "@/helpers/apiConnector";
 
 // import { colleges, branches, batches, tshirtSizeValue, knowAbout } from "@/public/constants";
 
@@ -121,7 +122,7 @@ const EventRegistrationForm = () => {
   const fetchEvents = async () => {
     setIsLoading(true);
     try {
-        const { data } = await axios.post("/api/events",{});
+        const { data } = await apiConnector("GET","/api/event/getAllEvent")
         setIsLoading(false);
         if (data.success) {
         toast.success("Data Fetched Successfully!");

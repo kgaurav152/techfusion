@@ -32,9 +32,8 @@ export async function POST(request) {
     const screenshotBuffer = await screenshot.arrayBuffer();
     const screenshotBufferObj = Buffer.from(screenshotBuffer); 
     // const tempFileDirectory = path.join(__dirname,"temp"  );
-    // console.log(tempFileDirectory);
-    const date = Date.now()
-    const tempFilePath = tempWrite.sync(screenshotBufferObj,date.toString());
+    // console.log(tempFileDirectory); 
+    const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
     console.log("path",tempFilePath)
 
     // , { dir: "../../../upload" }
