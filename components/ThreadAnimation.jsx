@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useDispatch, useSelector } from "react-redux";
