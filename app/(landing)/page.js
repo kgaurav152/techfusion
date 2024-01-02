@@ -15,7 +15,7 @@ const LandingPage = () => {
   const { user } = useSelector((state) => state.profile);
   const dispatch = useDispatch();
 
-  const [live, setLive] = useState(true);
+  const [live, setLive] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
 
