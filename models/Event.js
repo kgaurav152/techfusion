@@ -30,9 +30,9 @@ name: {
   posterUrl:{
     type:String,
     required: true,
-  }
+  },
 });
 
-const Event = mongoose.models.Events || mongoose.model("Events", EventSchema);
+const Event = mongoose.models.Event || mongoose.model("Event", EventSchema);
 
 export default Event;

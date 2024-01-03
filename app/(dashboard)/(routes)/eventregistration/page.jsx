@@ -169,20 +169,20 @@ const EventRegistrationForm = () => {
     const obj = tempObj;
 
     console.log(obj);
-    // try {
-    //   const toastId = toast.loading("Regestring Event...")
-    //   const { data } = await axios.post("/api/eventRegistration", obj);
-    //   toast.dismiss(toastId);
-    //   setIsLoading(false);
-    //   if (data.success) { 
-    //     toast.success("Registered for Event Successfully!");
-    //     form.reset();
-    //   } else {
-    //     toast.error(data.message);
-    //   }
-    // } catch (err) {
-    //   console.log(err);
-    // }
+    try {
+      const toastId = toast.loading("Regestring Event...")
+      const { data } = await apiConnector("POST",'/api/eventRegistration',obj);
+      toast.dismiss(toastId);
+      setIsLoading(false);
+      if (data.success) { 
+        toast.success("Registered for Event Successfully!");
+        form.reset();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   return (
