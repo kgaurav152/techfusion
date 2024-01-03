@@ -5,7 +5,11 @@ const ParticipationSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Event",
   },
-  student: [
+  teamName: {
+    type:String,
+    required:true,
+  },
+  participants: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
@@ -13,6 +17,6 @@ const ParticipationSchema = new mongoose.Schema({
   ],
 });
  
-const Participation = mongoose.models.Participations || mongoose.model("Participations", ParticipationSchema);
+const Participation = mongoose.models.Participation || mongoose.model("Participation", ParticipationSchema);
 
 export default Participation;

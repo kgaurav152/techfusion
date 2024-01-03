@@ -18,14 +18,20 @@
    
 // }
 
+import Event from "@/models/Event";
+import Participation from "@/models/Participation";
+import User from "@/models/User";
 import mongoose from "mongoose";
 
 export async function connect() {
   try {
-    mongoose.connect(process.env.MONGO_URL);
-    const connnection= mongoose.connection;
-
+    await mongoose.connect(process.env.MONGO_URL);
+    const connnection = mongoose.connection;
+   
     connnection.on('connected', ()=>{
+      // mongoose.model('User',User) 
+      // mongoose.model('Participation',Participation) 
+      // mongoose.model('Event',Event) 
       console.log('MongoDB connected successfully');
     })
 
