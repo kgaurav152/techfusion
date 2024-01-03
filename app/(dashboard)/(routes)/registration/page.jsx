@@ -158,8 +158,6 @@ const RegistrationForm = () => {
   const onSubmit = async (data) => {    
     setIsLoading(true);
 
-    console.log(data)
-    console.log(file)
     if (data.college!='other') {
       data.otherCollege=null;
     };
@@ -528,7 +526,7 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}
+                    <Select onValueChange={field.onChange}
                       value={form.watch('college') === 'Katihar Engineering College, Katihar' ? "No" : field.value}
                       disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
                     >
