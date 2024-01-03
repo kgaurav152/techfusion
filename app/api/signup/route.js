@@ -25,11 +25,7 @@ export async function POST(request) {
     const paymentMethod = reqBody.get("paymentMethod");
     const transaction_id = reqBody.get("transaction_id");
     const ca_no = reqBody.get("ca_no");
-<<<<<<< HEAD
     const screenshot = reqBody.get("screenshot");
-=======
-    const screenshot = reqBody.get("screenshot")
->>>>>>> a1951485cdff534593dfa5c346dd29e576e9fca6
 
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
