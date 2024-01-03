@@ -25,15 +25,20 @@ export async function POST(request) {
     const paymentMethod = reqBody.get("paymentMethod");
     const transaction_id = reqBody.get("transaction_id");
     const ca_no = reqBody.get("ca_no");
-    const screenshot = reqBody.get("screenshot");
-
+    const screenshot = reqBody.get("screenshot")
+    console.log("Raw Screenshot",screenshot);
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
-    const screenshotBufferObj = Buffer.from(screenshotBuffer);
+    let mime = screenshot.type;
+    let encoding = 'base64'
+    let base64Data = Buffer.from(screenshotBuffer).toString('base64');
+    // const screenshotBufferObj = Buffer.from(screenshotBuffer); 
+    console.log("ScreenShot Buffer",base64Data);
     // const tempFileDirectory = path.join(__dirname,"temp"  );
-    // console.log(tempFileDirectory);
-    const tempFilePath = tempWrite.sync(screenshotBufferObj, "screenshot");
-    console.log("path", tempFilePath);
+    // console.log(tempFileDirectory); 
+    // const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
+    let fileUrl = 'data:'+mime+';'+encoding+','+base64Data;
+    console.log("file temp path",fileUrl);
 
     // , { dir: "../../../upload" }
 
@@ -53,17 +58,17 @@ export async function POST(request) {
     const salt = await bcryptjs.genSalt(10);
     const hashPassword = await bcryptjs.hash(password, salt);
 
-    // console.log("screenshot", screenshot);
     const screenshotImage = await uploadImageToCloudinary(
-      tempFilePath,
+      fileUrl,
       process.env.FOLDER_NAME
-    );
+      );
+      console.log("Clodinary screenshot Image", screenshotImage);
 
-    fs.unlink(tempFilePath, (err) => {
-      if (err) {
-        console.error("Error deleting temporary file:", err);
-      }
-    });
+    // fs.unlink(tempFilePath, (err) => {
+    //   if (err) {
+    //     console.error("Error deleting temporary file:", err);
+    //   }
+    // });
     // console.log("Scheenshot Image", screenshotImage);
     // create new user
     const newUser = new User({
