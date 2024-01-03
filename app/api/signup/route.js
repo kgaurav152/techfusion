@@ -27,14 +27,15 @@ export async function POST(request) {
     const transaction_id = reqBody.get("transaction_id");
     const ca_no = reqBody.get("ca_no");
     const screenshot = reqBody.get("screenshot")
-
+    console.log("Raw Screenshot",screenshot);
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
     const screenshotBufferObj = Buffer.from(screenshotBuffer); 
+    console.log("ScreenShot Buffer",screenshotBufferObj);
     // const tempFileDirectory = path.join(__dirname,"temp"  );
     // console.log(tempFileDirectory); 
     const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
-    console.log("path",tempFilePath)
+    console.log("file temp path",tempFilePath)
 
     // , { dir: "../../../upload" }
 
@@ -52,11 +53,11 @@ export async function POST(request) {
     const salt = await bcryptjs.genSalt(10);
     const hashPassword = await bcryptjs.hash(password, salt);
 
-    // console.log("screenshot", screenshot);
     const screenshotImage = await uploadImageToCloudinary(
       tempFilePath,
       process.env.FOLDER_NAME
-    );
+      );
+      console.log("Clodinary screenshot Image", screenshotImage);
 
     fs.unlink(tempFilePath, (err) => {
       if (err) {
