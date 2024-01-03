@@ -46,17 +46,17 @@ export const columns = (setPendingParticipantsData) => [
     },
   },
   {
-    accessorKey: 'trx_id',
+    accessorKey: 'transactionId',
     header: 'Payment Id'
   },
   {
-    accessorKey: 'trx_img',
+    accessorKey: 'screenshotImage',
     header: 'Payment SS',
     cell: ({ row }) => {
       const user = row.original
-      if (user.trx_img) {
+      if (user.screenshotImage) {
         return (
-          <ViewImageButton imageUrl={user.trx_img}/>
+          <ViewImageButton imageUrl={user.screenshotImage}/>
         );
       } else {
         return <p>Not Available</p>;

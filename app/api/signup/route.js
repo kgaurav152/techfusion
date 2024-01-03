@@ -6,46 +6,47 @@ import multer from "multer";
 import { uploadImageToCloudinary } from "@/lib/imageUploader";
 import tempWrite from "temp-write";
 import path from "path";
-import fs from 'fs';
-connect(); 
+import fs from "fs";
+connect();
 export async function POST(request) {
-
-  try { 
+  try {
     const reqBody = await request.formData();
     const name = reqBody.get("name");
     const email = reqBody.get("email");
-    // const mobile = reqBody.get("mobile");
-    // const password = reqBody.get("password");
-    // const gender = reqBody.get("gender");
-    // const college = reqBody.get("college");
-    // const branch = reqBody.get("branch");
-    // const batch = reqBody.get("batch");
-    // const knowAbout = reqBody.get("knowAbout");
-    // const accomodation = reqBody.get("accomodation");
-    // const tShirtSize = reqBody.get("tShirtSize");
-    // const paymentMethod = reqBody.get("paymentMethod");
-    // const transaction_id = reqBody.get("transaction_id");
-    // const ca_no = reqBody.get("ca_no");
-    const screenshot = reqBody.get("screenshot")
+    const mobile = reqBody.get("mobile");
+    const password = reqBody.get("password");
+    const gender = reqBody.get("gender");
+    const college = reqBody.get("college");
+    const branch = reqBody.get("branch");
+    const batch = reqBody.get("batch");
+    const knowAbout = reqBody.get("knowAbout");
+    const accomodation = reqBody.get("accomodation");
+    const tShirtSize = reqBody.get("tShirtSize");
+    const paymentMethod = reqBody.get("paymentMethod");
+    const transaction_id = reqBody.get("transaction_id");
+    const ca_no = reqBody.get("ca_no");
+    const screenshot = reqBody.get("screenshot");
 
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
-    const screenshotBufferObj = Buffer.from(screenshotBuffer); 
+    const screenshotBufferObj = Buffer.from(screenshotBuffer);
     // const tempFileDirectory = path.join(__dirname,"temp"  );
-    // console.log(tempFileDirectory); 
-    const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
-    console.log("path",tempFilePath)
+    // console.log(tempFileDirectory);
+    const tempFilePath = tempWrite.sync(screenshotBufferObj, "screenshot");
+    console.log("path", tempFilePath);
 
     // , { dir: "../../../upload" }
 
     //check if user already exists
-    const user = await User.findOne({ $or:[{ email: email.toLowerCase()},{mobile:mobile}]});
+    const user = await User.findOne({
+      $or: [{ email: email.toLowerCase() }, { mobile: mobile }],
+    });
 
     if (user) {
-      return NextResponse.json(
-        { success:false,
-          message: "User already exists" },
-      );
+      return NextResponse.json({
+        success: false,
+        message: "User already exists",
+      });
     }
 
     // //hash passwordscreensscreenshot
@@ -60,14 +61,14 @@ export async function POST(request) {
 
     fs.unlink(tempFilePath, (err) => {
       if (err) {
-        console.error('Error deleting temporary file:', err);
-      }  
+        console.error("Error deleting temporary file:", err);
+      }
     });
     // console.log("Scheenshot Image", screenshotImage);
     // create new user
     const newUser = new User({
       name,
-      email : email.toLowerCase(),
+      email: email.toLowerCase(),
       mobile,
       password: hashPassword,
       gender,
@@ -78,17 +79,17 @@ export async function POST(request) {
       paymentMethod,
       accomodation,
       batch,
-      festId : "KEC"+mobile,
-      transactionId:transaction_id,
+      festId: "KEC" + mobile,
+      transactionId: transaction_id,
       ca_no,
-      screenshotImage:screenshotImage.secure_url
+      screenshotImage: screenshotImage.secure_url,
     });
     const savedUser = await newUser.save();
 
     return NextResponse.json({
       message: "User created successfully",
       success: true,
-      savedUser, 
+      savedUser,
     });
   } catch (error) {
     return NextResponse.json(
