@@ -204,7 +204,7 @@ const EventRegistrationForm = () => {
                 </Avatar>
                 <div className="gap-1">
                   <p className="text-sm font-medium leading-none">Mohit Kumar</p>
-                  <a href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917257827104</a>
+                  <a href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917257827104</a>
                 </div>
               </div>
             </div>
@@ -216,7 +216,7 @@ const EventRegistrationForm = () => {
                 </Avatar>
                 <div>
                   <p className="text-sm font-medium leading-none">Kumar Gaurav</p>
-                  <a href="https://wa.me/917004174269?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917004174269</a>
+                  <a href="https://wa.me/917004174269?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917004174269</a>
                 </div>
               </div>
             </div>
@@ -226,6 +226,7 @@ const EventRegistrationForm = () => {
           <CardContent>
               <div className="flex items-center pt-4">
                 <p className="font-semibold font-mono">Note: For Group Events min. 2 and max. 4 members (Including Team Leader) can be part of a group.</p>
+                {/* {form.watch('event').split('@')[1]==='Individual' && <p className="font-semibold font-mono"></p>} */}
               </div>
           </CardContent>
         </Card>
