@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import axios from "axios";
+import Link from "next/link";
 
 
 import Network from "@/components/network";
@@ -145,7 +146,8 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
     );
   }
 
-  export function ViewImageButton({ ImageUrl }) {
+  export function ViewImageButton({ imageUrl }) {
+    console.log(imageUrl);
     const [open, setOpen] = useState(false);
   
     return (
@@ -160,7 +162,9 @@ export function RejectApprovalForm({ setOpen,  UserId, setPendingParticipantsDat
             <DialogTitle>Payment Screenshot</DialogTitle>
           </DialogHeader>
           <div className="flex items-center">
-            <img src={ImageUrl} alt="Payment Screenshot" className="w-full" />
+            <a href={imageUrl} target='_blank'>
+              <img src={imageUrl} alt="Payment Screenshot" className="w-full" />
+            </a>
           </div>
         </DialogContent>
       </Dialog>

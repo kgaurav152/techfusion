@@ -6,11 +6,10 @@ import multer from "multer";
 import { uploadImageToCloudinary } from "@/lib/imageUploader";
 import tempWrite from "temp-write";
 import path from "path";
-import fs from 'fs';
-connect(); 
+import fs from "fs";
+connect();
 export async function POST(request) {
-
-  try { 
+  try {
     const reqBody = await request.formData();
     const name = reqBody.get("name");
     const email = reqBody.get("email");
@@ -40,13 +39,15 @@ export async function POST(request) {
     // , { dir: "../../../upload" }
 
     //check if user already exists
-    const user = await User.findOne({ $or:[{ email: email.toLowerCase()},{mobile:mobile}]});
+    const user = await User.findOne({
+      $or: [{ email: email.toLowerCase() }, { mobile: mobile }],
+    });
 
     if (user) {
-      return NextResponse.json(
-        { success:false,
-          message: "User already exists" },
-      );
+      return NextResponse.json({
+        success: false,
+        message: "User already exists",
+      });
     }
 
     // //hash passwordscreensscreenshot
@@ -61,14 +62,14 @@ export async function POST(request) {
 
     fs.unlink(tempFilePath, (err) => {
       if (err) {
-        console.error('Error deleting temporary file:', err);
-      }  
+        console.error("Error deleting temporary file:", err);
+      }
     });
     // console.log("Scheenshot Image", screenshotImage);
     // create new user
     const newUser = new User({
       name,
-      email : email.toLowerCase(),
+      email: email.toLowerCase(),
       mobile,
       password: hashPassword,
       gender,
@@ -79,17 +80,17 @@ export async function POST(request) {
       paymentMethod,
       accomodation,
       batch,
-      festId : "KEC"+mobile,
-      transactionId:transaction_id,
+      festId: "KEC" + mobile,
+      transactionId: transaction_id,
       ca_no,
-      screenshotImage:screenshotImage.secure_url
+      screenshotImage: screenshotImage.secure_url,
     });
     const savedUser = await newUser.save();
 
     return NextResponse.json({
       message: "User created successfully",
       success: true,
-      savedUser, 
+      savedUser,
     });
   } catch (error) {
     return NextResponse.json(
