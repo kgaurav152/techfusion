@@ -196,7 +196,7 @@ return(
                 />        
                 {form.watch('user')?.accomodation === "No" && (
                 <>
-                <p className="font-mono">User hasn't opted for accomodation.</p>
+                <p className="font-mono">User hasn&apos;t opted for accomodation.</p>
                 </>
                 )}       
                 {form.watch('user')?.accomodation === "Yes" && form.watch('user')?.roomAllocation === true && (
