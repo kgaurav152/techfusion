@@ -6,7 +6,7 @@ import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox"
   
-import { ApproveAdminButton, RejectButton, ViewImageButton } from "@/app/admin/participant/pending/buttonBar";
+import { ApproveAdminButton, RejectButton, ViewImageButton } from "@/app/admin/approvenewadmin/buttonBar";
 
 export const columns = (setPendingParticipantsData) => [
   {
