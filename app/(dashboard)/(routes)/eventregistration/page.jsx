@@ -254,7 +254,7 @@ const EventRegistrationForm = () => {
                           {field.value
                             ? eventData.find(
                                 (event) => event.value === field.value
-                              )?.level
+                              )?.label
                             : "Select Event"}
                           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
