@@ -697,6 +697,7 @@ const RegistrationForm = () => {
             <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
             <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
             <p className="font-mono mb-2">Your TechFest ID: {user.festId?user.festId:'not available'}</p>
+            <p className="font-mono mb-2">It may take upto 24 hours for us to verify your payment.</p>
             <p className="">
               Join our WhatsApp group to stay updated with latest information about the TechFest&apos;24:{' '}
               <Badge variant="outline">

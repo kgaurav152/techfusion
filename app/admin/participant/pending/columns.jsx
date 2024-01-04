@@ -7,6 +7,11 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox"
   
 import { ApproveButton, RejectButton, ViewImageButton } from "@/app/admin/participant/pending/buttonBar";
+  
+const paymentMethodMapping={
+  ba: 'Bank Account',
+  ca: 'Campus Ambassador'
+};
 
 export const columns = (setPendingParticipantsData) => [
   {
@@ -43,6 +48,20 @@ export const columns = (setPendingParticipantsData) => [
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )
+    },
+  },
+  {
+    accessorKey: 'paymentMethod',
+    header: 'Payment Method',
+    cell: ({ row }) => {
+
+      const paymentMethodValue = row.getValue('paymentMethod');
+      const paymentMethodName = paymentMethodMapping[paymentMethodValue];
+
+      return (
+        
+        `${paymentMethodName}` || 'Unknown'
+      );
     },
   },
   {
