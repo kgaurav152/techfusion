@@ -355,7 +355,7 @@ const EventRegistrationForm = () => {
         <div className=" min-h-[80vh]">        
           <Card className="mx-auto w-4/5 max-w-xl mb-8 mt-16 text-left">
           <CardHeader>
-            <CardTitle>Oops! Your payment status isn't verified yet!</CardTitle>
+            <CardTitle>Oops! Your payment status isn&apos;t verified yet!</CardTitle>
           </CardHeader>
             <CardContent>
               <div className="flex items-center pt-4">
