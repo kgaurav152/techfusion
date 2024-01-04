@@ -14,21 +14,21 @@ const DashboardLayout = ({ children }) => {
   const handleHover = (hovered) => {
     setIsHovered(hovered);
   };
-
+  
   const toggleIsGetStarted = () => {
     setIsGetStarted(false);
-  }
+    sessionStorage.setItem('hasSeenGetStarted', 'true');
+  };
 
   const handleButtonClick = () => {
     setTimeout(() => {
       toggleIsGetStarted();
     }, 1000);
-    
-    // toggleIsGetStarted();
   };
 
   useEffect(() => {
-    if (!isHovered) {
+    const hasSeenGetStarted = sessionStorage.getItem('hasSeenGetStarted');
+    if (!hasSeenGetStarted) {
       setIsGetStarted(true);
     }
   },[]);
