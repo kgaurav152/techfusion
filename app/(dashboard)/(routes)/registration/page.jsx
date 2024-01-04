@@ -701,7 +701,7 @@ const RegistrationForm = () => {
             <p>
               Join our WhatsApp group to stay updated with latest information about the TechFusion&apos;24:{' '}
               <Badge variant="outline" className=" bg-emerald-100">
-                <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/IeOmrGYdNWG3bT4olA3FNe2' target="_blank" rel="noopener noreferrer">
+                <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/KP8wjZXRu88DQ21FJLGZpX' target="_blank" rel="noopener noreferrer">
                 Join Now<MousePointerClick className="ml-2"/>
                 </a>
               </Badge>
