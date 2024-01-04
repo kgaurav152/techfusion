@@ -30,7 +30,7 @@ const EventCard = ({event}) => {
           </p>
         </div>
         <br />
-        <div className="flex flex-row gap-6 mb-3 justify-center">
+        <div className="flex flex-row gap-6 mb-4 justify-center">
           <Link
             className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-400 text-black"
             href={`/events/detail/${event._id}`}
