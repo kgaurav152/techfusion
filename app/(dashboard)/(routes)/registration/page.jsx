@@ -697,11 +697,11 @@ const RegistrationForm = () => {
             <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
             <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
             <p className="font-mono mb-2">Your TechFest ID: {user.festId?user.festId:'not available'}</p>
-            <p className="font-mono mb-2">It may take upto 24 hours for us to verify your payment.</p>
-            <p className="">
+            <p className="italic font-serif mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">It may take upto 24-48 hours for us to verify your payment.</p>
+            <p>
               Join our WhatsApp group to stay updated with latest information about the TechFest&apos;24:{' '}
-              <Badge variant="outline">
-                <a className="flex flex-row items-center underline decoration-double decoration-emerald-300" href='https://chat.whatsapp.com/IeOmrGYdNWG3bT4olA3FNe2' target="_blank" rel="noopener noreferrer">
+              <Badge variant="outline" className=" bg-emerald-100">
+                <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/IeOmrGYdNWG3bT4olA3FNe2' target="_blank" rel="noopener noreferrer">
                 Join Now<MousePointerClick className="ml-2"/>
                 </a>
               </Badge>
