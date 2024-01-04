@@ -3,6 +3,7 @@
 import {useState, useEffect} from "react";
 import { usePathname } from 'next/navigation';
 import toast from "react-hot-toast";
+import {useSelector } from "react-redux";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -10,58 +11,10 @@ import { apiConnector } from '@/helpers/apiConnector';
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
-// export const runtime = "edge";
-
-// export async function generateMetadata({
-//   params,
-// }: {
-//   params: { slug: string };
-// }): Promise<Metadata> {
-//   const { slug } = params;
-
-//   const event = await findEventBySlug(slug);
-
-//   if (!event) {
-//     return {
-//       title: "VTAPP 2023 - Event Page",
-//       description: "There is no event with this slug.",
-//     };
-//   }
-
-//   return {
-//     title: `VTAPP 2023 - ${event.event_name}`,
-//     description: event.description,
-//     openGraph: {
-//       type: "website",
-//       title: `VTAPP 2023 - ${event.event_name}`,
-//       description: event.description,
-//       url: `https://vtapp.vitap.ac.in/events/${event.slug}`,
-//       siteName: "VTAPP 2023",
-//       images: [
-//         {
-//           url:
-//             event.poster_url && event.poster_url.length > 0
-//               ? event.poster_url[0].url
-//               : "https://i.imgur.com/2jzM0wr.jpg",
-//         },
-//       ],
-//     },
-//     twitter: {
-//       site: "https://vtapp.vitap.ac.in",
-//       title: `VTAPP 2023 - ${event.event_name}`,
-//       description: event.description,
-//       card: "summary_large_image",
-//       images:
-//         event.poster_url && event.poster_url.length > 0
-//           ? event.poster_url[0].url
-//           : "https://i.imgur.com/2jzM0wr.jpg",
-//     },
-//   };
-// }
-
 export const EventDetailPage = () => {
 
-    
+  const { user } = useSelector((state) => state.profile);
+
   const pathname = usePathname();
   const parts = pathname.split('/');
   const eventId = parts[parts.length - 1];
@@ -140,7 +93,7 @@ export const EventDetailPage = () => {
             </Link>
             <Link
               className="rounded-md p-3 bg-blue-400 text-black text-xl relative z-10"
-              href="/eventregistration"
+              href={user ? "/eventregistration" : "/registration"}
             >
               Register now
             </Link>

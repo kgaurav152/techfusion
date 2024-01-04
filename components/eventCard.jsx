@@ -1,7 +1,13 @@
+'use client'
+
 import Image from "next/image";
 import Link from "next/link";
+import {useSelector } from "react-redux";
 
 const EventCard = ({event}) => {
+    
+  const { user } = useSelector((state) => state.profile);
+
   return (
     <div className="flex flex-col z-10">
       <div className="max-w-[22rem] rounded overflow-hidden shadow-lg bg-gray-800 m-4 flex flex-col flex-1">
@@ -34,7 +40,7 @@ const EventCard = ({event}) => {
           </Link>
           <Link
             className="rounded-md px-5 py-3 bg-blue-500 text-black"
-            href="/eventregerestration"
+            href={user ? "/eventregistration" : "/registration"}
             target="_blank"
             rel="noopener noreferrer"
           >
