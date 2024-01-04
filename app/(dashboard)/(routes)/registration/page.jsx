@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
@@ -12,8 +13,9 @@ import * as z from "zod";
 // import Network from "@/components/network";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronsUpDown, Check } from "lucide-react";
+import { ChevronsUpDown, Check, MousePointerClick } from "lucide-react";
 // import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
@@ -77,40 +79,6 @@ const RegistrationForm = () => {
     color: '#fff',
   };
 
-    // const MAX_FILE_SIZE = 500000;
-    // const ACCEPTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
-    // const fileRef = form.register('file', { required: true });
-    // trx_img: z
-    //   .any()
-    //   .refine((file) => file?.length == 1, 'Payment Screenshot is required.')
-    //   .refine((file) => file[0]?.size <= 3000000, `Max file size is 3MB.`),
-    // trx_img: z
-    //   .any()
-    //   .refine(
-    //     (file) => file?.length === 1 && file[0]?.size <= 3000000, // Check if 'file' and its properties are defined before accessing
-    //     {
-    //       message: 'Payment Screenshot is required and must be less than 3MB.',
-    //       path: ['trx_img'],
-    //     }
-    //   ),
-    
-    // trx_img: z
-    // .any()
-    // .refine((file) => {
-    //   if (!file) return false;
-
-    //   const fileType = file[0]?.type;
-    //   const fileSize = file[0]?.size;
-
-    //   const isImageOrPDF = fileType.includes("image/") || fileType === "application/pdf";
-    //   const isUnder3MB = fileSize <= 3000000; // 3 MB in bytes
-
-    //   return isImageOrPDF && isUnder3MB;
-    // }, {
-    //   message: 'File must be an image or PDF and less than 3 MB in size',
-    //   path: ['trx_img'],
-    // }),
-
   const RegistrationFormSchema = z.object({
     name: z.string({
       required_error: "Name is required",
@@ -140,6 +108,8 @@ const RegistrationForm = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [isRegistrationSuccessfulPopup, setIsRegistrationSuccessfulPopup] = useState(false);
+  const [festId, setFestId] = useState(null);
   const [openPop, setOpenPop] = useState(false);  
   const [file,setFile] = useState();
   const router = useRouter();
@@ -154,6 +124,27 @@ const RegistrationForm = () => {
     console.log(e.target.files);
     setFile(e.target.files[0])
   }
+
+  const handleRegistrationSuccessfulPopupRedirect = () => {
+    setIsRegistrationSuccessfulPopup(false);
+    router.push('/sign-in');
+  };
+
+  const handleRegistrationSuccessfulPopupCancel = () => {
+    setIsRegistrationSuccessfulPopup(false);
+    router.push('/sign-in');
+  };
+
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (isRegistrationSuccessfulPopup) {
+        setIsRegistrationSuccessfulPopup(false);
+        router.push('/sign-in');
+      }
+    }, 20000); // Redirect to sign-in page after 20 seconds if popup is not closed
+    return () => clearTimeout(timer);
+  }, [isRegistrationSuccessfulPopup=='true']);
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
@@ -177,8 +168,6 @@ const RegistrationForm = () => {
       paymentMethod: data.paymentMethod,
       ca_no: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
       transaction_id: data.trx_id == null ? '' : data.trx_id,
-      // screenshot: file,
-      // userType: 'Participant'
     };
     const formData = new FormData();
     formData.append("name",data.name)
@@ -209,7 +198,8 @@ const RegistrationForm = () => {
         // else{
         //   router.push("/");
         // }
-        router.push("/sign-in");
+        setFestId(data.data.festId);
+        setIsRegistrationSuccessfulPopup(true);
       } else {
         toast.error(data.message);
       }
@@ -526,10 +516,7 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you need Accomodation?*</FormLabel>
-                    <Select onValueChange={field.onChange}
-                      value={form.watch('college') === 'Katihar Engineering College, Katihar' ? "No" : field.value}
-                      disabled={form.watch('college') === 'Katihar Engineering College, Katihar'}
-                    >
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
                             <SelectValue placeholder={"Select One"} />
@@ -540,7 +527,7 @@ const RegistrationForm = () => {
                         <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
-                    <FormDescription />
+                    {form.watch('accomodation')==='Yes' && <FormDescription>Accomodation is chargable and is not included in the registration fee, will be collected on per day basis while allotment of room.</FormDescription>}
                     <FormMessage />
                 </FormItem>
               )}
@@ -566,7 +553,7 @@ const RegistrationForm = () => {
                           ))}
                           </SelectContent>
                       </Select>
-                      <FormDescription />
+                      <FormDescription>Charges of T-Shirt is included in the registration fee.</FormDescription>
                       <FormMessage />
                   </FormItem>
               )}
@@ -702,6 +689,27 @@ const RegistrationForm = () => {
           <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none" >Register</Button>
         </form>
       </Form>
+      
+     {isRegistrationSuccessfulPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
+            <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
+            <p className="font-mono mb-2">This is your TechFest ID: {festId?festId:'not available'}</p>
+            <p className="">
+              Join our WhatsApp group to stay updated with latest information about the TechFest&apos;24:{' '}
+              <Badge variant="outline">
+                <a className="flex flex-row items-center underline decoration-double decoration-emerald-300" href='https://chat.whatsapp.com/IeOmrGYdNWG3bT4olA3FNe2' target="_blank" rel="noopener noreferrer">
+                Join Now<MousePointerClick className="ml-2"/>
+                </a>
+              </Badge>
+            </p>
+            <div className='flex flex-row gap-6 mt-8 justify-center'>
+            <Button variant="" onClick={handleRegistrationSuccessfulPopupRedirect}>Go to Sign In</Button>
+            <Button variant="destructive" onClick={handleRegistrationSuccessfulPopupCancel}>Cancel</Button>
+            </div>
+          </div>
+        </div>
+      )}
     </React.Fragment>
   )
 }

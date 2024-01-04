@@ -1,5 +1,6 @@
+import { Heart, HeartIcon } from 'lucide-react';
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaChrome, FaLinkedin } from 'react-icons/fa';
+import { FaFacebook, FaTelegram, FaInstagram, FaChrome, FaLinkedin, FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -29,8 +30,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="text-white hover:text-blue-300" size={24} />
+                <a href="https://t.me/techfestkec" target="_blank" rel="noopener noreferrer">
+                  <FaTelegram className="text-white hover:text-blue-300" size={24} />
                 </a>
               </li>
               <li>
@@ -44,6 +45,9 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+          <div className='flex flex-row items-center mt-6'>
+            Made with<FaHeart className="text-[#ff8787] ml-2 mr-2" />by C.S.E Dept., KEC, Katihar
           </div>
         </div>
 
@@ -77,8 +81,8 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer">
-                  <FaTwitter className="text-white hover:text-blue-300" size={24} />
+                <a href="https://t.me/techfestkec" target="_blank" rel="noopener noreferrer">
+                  <FaTelegram className="text-white hover:text-blue-300" size={24} />
                 </a>
               </li>
               <li>
@@ -92,6 +96,9 @@ const Footer = () => {
                 </a>
               </li>
             </ul>
+          </div>
+          <div className='flex flex-row items-center mt-4'>
+            Made with<FaHeart className="text-[#ff8787] ml-1 mr-1" />by C.S.E Dept., KEC, Katihar
           </div>
         </div>
       </div>
