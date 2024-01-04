@@ -5,18 +5,16 @@ import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState } from "react";
 import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import * as z from "zod";
 
-// import Network from "@/components/network";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ChevronsUpDown, Check, MousePointerClick } from "lucide-react";
-// import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 
 import {
@@ -109,7 +107,7 @@ const RegistrationForm = () => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [isRegistrationSuccessfulPopup, setIsRegistrationSuccessfulPopup] = useState(false);
-  const [festId, setFestId] = useState(null);
+  const [user, setUser] = useState(null);
   const [openPop, setOpenPop] = useState(false);  
   const [file,setFile] = useState();
   const router = useRouter();
@@ -144,7 +142,7 @@ const RegistrationForm = () => {
       }
     }, 20000); // Redirect to sign-in page after 20 seconds if popup is not closed
     return () => clearTimeout(timer);
-  }, [isRegistrationSuccessfulPopup=='true']);
+  }, [isRegistrationSuccessfulPopup]);
 
   const onSubmit = async (data) => {    
     setIsLoading(true);
@@ -166,8 +164,8 @@ const RegistrationForm = () => {
       accomodation: data.accomodation,
       tShirtSize: data.tShirtSize,
       paymentMethod: data.paymentMethod,
-      ca_no: data.ca_no_ba == null ? data.ca_no_ba : data.ca_no_ba,
-      transaction_id: data.trx_id == null ? '' : data.trx_id,
+      ca_no: data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba,
+      transaction_id: data.trx_id == null ? data.ca_no_ca : data.trx_id,
     };
     const formData = new FormData();
     formData.append("name",data.name)
@@ -192,13 +190,8 @@ const RegistrationForm = () => {
       setIsLoading(false);
       if (data.success) { 
         toast.success("Registered Successfully!");
-        // if(data.user.role=="admin"){
-        //   router.push("/admin/dashboard");
-        // }
-        // else{
-        //   router.push("/");
-        // }
-        setFestId(data.data.festId);
+        setUser(data.savedUser);
+        console.log(user)
         setIsRegistrationSuccessfulPopup(true);
       } else {
         toast.error(data.message);
@@ -208,13 +201,21 @@ const RegistrationForm = () => {
     }
   }
   
-    const fileRef = form.register('file', { required: true });
+    // const fileRef = form.register('file', { required: true });
 
   return (
             
     <React.Fragment>
       <div className="text-center mb-4 text-border flex-col">
         <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFest&apos;24 Registration</h1>
+        <Card className="mx-auto w-4/5 max-w-xl mb-8 text-center bg-emerald-100">
+          <CardHeader>
+            <CardTitle>Already Registered ?</CardTitle>
+          </CardHeader>
+          <CardContent>
+                <Button className='justify-center' variant="" onClick={()=>{router.push('/sign-in')}}>Sign In Now</Button>
+          </CardContent>
+        </Card>
         <Card className="mx-auto w-4/5 max-w-xl mt-2 mb-2 text-left">
           <CardHeader>
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
@@ -675,7 +676,7 @@ const RegistrationForm = () => {
                   render={({ field }) => (
                   <FormItem>
                       <FormLabel className="text-white">Screenshot of Payment (less than 3 mb)*</FormLabel>
-                      <FormControl>
+                      <FormControl className= "text-white">
                       {/* <Input type="file" onChange={fileHandler} {...field} accept="image/*"/> */}
                       <input type="file" name="trx_img" onChange={fileHandler} accept="image/*"/>
                       </FormControl>
@@ -690,11 +691,12 @@ const RegistrationForm = () => {
         </form>
       </Form>
       
-     {isRegistrationSuccessfulPopup && (
+     {isRegistrationSuccessfulPopup && user && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
             <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
-            <p className="font-mono mb-2">This is your TechFest ID: {festId?festId:'not available'}</p>
+            <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
+            <p className="font-mono mb-2">Your TechFest ID: {user.festId?user.festId:'not available'}</p>
             <p className="">
               Join our WhatsApp group to stay updated with latest information about the TechFest&apos;24:{' '}
               <Badge variant="outline">
