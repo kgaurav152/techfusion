@@ -66,37 +66,15 @@ export async function POST(req) {
     let user1 = null;
     let user2 = null;
     let user3 = null;
-
+    let userArray = [user._id];
     if (team_member_1) {
       user1 = await User.findOne({ festId: team_member_1 });
-      console.log(!user1)
       if (!user1) {
         return NextResponse.json({
           success: false,
           message: `Team Member 1 Fest Id is Not Found, Pease Verify!!`,
         });
       }
-    }
-    if (team_member_2) {
-      user2 = await User.findOne({ festId: team_member_2 });
-      if (!user2) {
-        return NextResponse.json({
-            success: false,
-            message: `Team Member 2 Fest Id is Not Found, Please Verify !!`,
-          });
-      }
-    }
-    if (team_member_3) {
-      user3 = await User.findOne({ festId: team_member_3 });
-      if (!user3) {
-        return NextResponse.json({
-            success: false,
-            message: `Team Member 3 Fest Id is Not Found, Please Verify!!`,
-          });
-      }
-    }
-
-    if (user1) {
       if (user1.participatedIn.length == max_limit) {
         return NextResponse.json({
           success: false,
@@ -109,8 +87,16 @@ export async function POST(req) {
           message: `${user1.festId} Payment status is Pending right now`,
         });
       }
+      userArray.push(user1._id);
     }
-    if (user2) {
+    if (team_member_2) {
+      user2 = await User.findOne({ festId: team_member_2 });
+      if (!user2) {
+        return NextResponse.json({
+          success: false,
+          message: `Team Member 2 Fest Id is Not Found, Please Verify !!`,
+        });
+      }
       if (user2.participatedIn.length == max_limit) {
         return NextResponse.json({
           success: false,
@@ -123,8 +109,16 @@ export async function POST(req) {
           message: `${user2.festId} Payment status is Pending right now`,
         });
       }
+      userArray.push(user2._id);
     }
-    if (user3) {
+    if (team_member_3) {
+      user3 = await User.findOne({ festId: team_member_3 });
+      if (!user3) {
+        return NextResponse.json({
+          success: false,
+          message: `Team Member 3 Fest Id is Not Found, Please Verify!!`,
+        });
+      }
       if (user3.participatedIn.length == max_limit) {
         return NextResponse.json({
           success: false,
@@ -137,50 +131,23 @@ export async function POST(req) {
           message: `${user3.festId} Payment status is Pending right now`,
         });
       }
+      userArray.push(user3._id);
     }
 
-    let newParticipation;
-    // console.log(user)
-    if (user) {
-      newParticipation = await Participation.create({
+    // let newParticipation;
+    console.log(userArray) 
+      const newParticipation = await Participation.create({
         event: event._id,
         teamName: team_name,
-        participants: [user._id],
-      });
-      await User.findByIdAndUpdate(user._id, {
-        $push: { participatedIn: newParticipation._id },
-      });
-    }
-    if (user1) {
-      newParticipation = await Participation.findByIdAndUpdate(
-        newParticipation._id,
-        { $push: { participants: user1._id } },
-        { new: true }
-      );
-      await User.findByIdAndUpdate(user1._id, {
-        $push: { participatedIn: newParticipation._id },
-      });
-    }
-    if (user2) {
-      newParticipation = await Participation.findByIdAndUpdate(
-        newParticipation._id,
-        { $push: { participants: user2._id } },
-        { new: true }
-      );
-      await User.findByIdAndUpdate(user2._id, {
-        $push: { participatedIn: newParticipation._id },
-      });
-    }
-    if (user3) {
-      newParticipation = await Participation.findByIdAndUpdate(
-        newParticipation._id,
-        { $push: { participants: user3._id } },
-        { new: true }
-      );
-      await User.findByIdAndUpdate(user3._id, {
-        $push: { participatedIn: newParticipation._id },
-      });
-    }
+        participants: userArray,
+      }).populate("participants");
+
+      for(let i = 0; i < userArray.length; i++){
+        await User.findByIdAndUpdate(userArray[i], {
+          $push: { participatedIn: newParticipation._id },
+        });
+
+      } 
     return NextResponse.json({
       success: true,
       message: "Registered for Event Successfully!",
