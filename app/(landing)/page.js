@@ -9,6 +9,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import Image from "next/image";
+import StarsCanvas from "@/components/StarCanvas";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -43,6 +44,7 @@ const LandingPage = () => {
   return (
     <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative">
       {/* Provided Decorative Elements */}
+      {/* <StarsCanvas/> */}
       <div className="relative text-center mb-8 lg:min-h-[80vh]">
         <div className="z-0">
           <img
