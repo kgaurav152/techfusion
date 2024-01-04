@@ -47,7 +47,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-900 p-4 mb-4">
+    <nav className="bg-gray-900 p-4 mb-4 z-[99999999]">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/" className="text-white font-bold text-lg">

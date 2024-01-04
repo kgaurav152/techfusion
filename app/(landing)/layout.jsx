@@ -4,6 +4,7 @@ import clsx from "clsx";
 import NavBar from "@/components/navbar";
 import Footer from '@/components/footer';
 import GetStartedButton from "@/app/(landing)/getStartedButton";
+import StarsCanvas from "@/components/StarCanvas";
 
 const DashboardLayout = ({ children }) => {
 
@@ -51,6 +52,7 @@ const DashboardLayout = ({ children }) => {
       </div>
       ) : ( 
       <div className=" min-h-[100vh] bg-[#00040F] relative" >
+      <StarsCanvas/>
         <NavBar />
         {children}
         <Footer />
