@@ -8,9 +8,6 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import Network from "@/components/network";
-// import { useDispatch } from "react-redux";
-// import { setClasses } from "@/redux/slices/classSlice";
 import {
   Form,
   FormControl,
@@ -20,12 +17,23 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { 
+  Avatar,
+  AvatarFallback,
+  AvatarImage 
+} from "@/components/ui/avatar";
+import {
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent
+} from "@/components/ui/card";
 import { useForm } from "react-hook-form";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setToken } from "@/redux/slices/authSlice";
 import toast from "react-hot-toast";
-import { CloudCog } from "lucide-react";
 import { apiConnector } from "@/helpers/apiConnector";
 
 const SignInPage = () => {
@@ -34,7 +42,7 @@ const SignInPage = () => {
   const form = useForm({ mode: "onChange" });
   // const {token} = useSelector((state)=>state.auth)
   const router = useRouter();
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 
   const onSubmit = async (formData) => {
@@ -59,6 +67,7 @@ const SignInPage = () => {
   };
 
   return (
+    <>
     <div className="p-4 lg:p-8">
       <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
         <div className="flex flex-col space-y-2 text-center">
@@ -102,7 +111,7 @@ const SignInPage = () => {
                   </FormItem>
                 )}
               />
-              <Button type="submit items-center">Submit</Button>
+              <Button type="submit">Submit</Button>
             </form>
           </Form>
           <div className="relative">
@@ -119,7 +128,7 @@ const SignInPage = () => {
             variant="outline"
             type="button"
             disabled={isLoading}
-            onClick={(e) => handleClick(e, "/forgot-password")}
+            onClick={() => {setOpen(true);}}
           >
             Forgot Password
           </Button>
@@ -143,6 +152,48 @@ const SignInPage = () => {
         </p>
       </div>
     </div>
+    {open && (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
+        <Card className="mx-auto max-w-xl text-left">
+          <CardHeader>
+            <CardTitle>For all your queries, feel free to contact:</CardTitle>
+            <CardDescription />
+          </CardHeader>
+          <CardContent className="grid gap-4 lg:gap-2 lg:grid-cols-2">
+            <div className="flex items-center justify-between space-x-4">
+              <div className="flex items-center space-x-4">
+                <Avatar>
+                  <AvatarImage src="avatar_02.png" />
+                  <AvatarFallback>MK</AvatarFallback>
+                </Avatar>
+                <div className="gap-1">
+                  <p className="text-sm font-medium leading-none">Mohit Kumar</p>
+                  <a href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Sign%20In." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917257827104</a>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between space-x-4">
+              <div className="flex items-center space-x-4">
+                <Avatar>
+                  <AvatarImage src="avatar_02.png" />
+                  <AvatarFallback>KG</AvatarFallback>
+                </Avatar>
+                <div>
+                  <p className="text-sm font-medium leading-none">Kumar Gaurav</p>
+                  <a href="https://wa.me/917004174269?text=Hello!%20I%20have%20some%20Query%20related%20to%20Sign%20In." target="_blank" rel="noopener noreferrer" className="text-sm text-blue-800">+917004174269</a>
+                </div>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+        <div className='flex mt-8 justify-center'>
+          <Button variant="" onClick={() => {setOpen(false)}}>Back to Sign In</Button>
+          </div>
+        </div>
+      </div>
+    )}
+    </>
   );
 };
 

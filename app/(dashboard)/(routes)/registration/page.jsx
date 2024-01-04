@@ -691,27 +691,27 @@ const RegistrationForm = () => {
         </form>
       </Form>
       
-     {isRegistrationSuccessfulPopup && user && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
-            <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
-            <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
-            <p className="font-mono mb-2">Your TechFusion ID: {user.festId?user.festId:'not available'}</p>
-            <p className="italic font-serif mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">It may take upto 24-48 hours for us to verify your payment.</p>
-            <p>
-              Join our WhatsApp group to stay updated with latest information about the TechFusion&apos;24:{' '}
-              <Badge variant="outline" className=" bg-emerald-100">
-                <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/KP8wjZXRu88DQ21FJLGZpX' target="_blank" rel="noopener noreferrer">
-                Join Now<MousePointerClick className="ml-2"/>
-                </a>
-              </Badge>
-            </p>
-            <div className='flex flex-row gap-6 mt-8 justify-center'>
-            <Button variant="" onClick={handleRegistrationSuccessfulPopupRedirect}>Go to Sign In</Button>
-            <Button variant="destructive" onClick={handleRegistrationSuccessfulPopupCancel}>Cancel</Button>
+      {isRegistrationSuccessfulPopup && user && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+            <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
+              <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
+              <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
+              <p className="font-mono mb-2">Your TechFusion Id: {user.festId?user.festId:'not available'}</p>
+              <p className="italic font-serif mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">It may take upto 24-48 hours for us to verify your payment.</p>
+              <p>
+                Join our WhatsApp group to stay updated with latest information about the TechFusion&apos;24:{' '}
+                <Badge variant="outline" className=" bg-emerald-100">
+                  <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/KP8wjZXRu88DQ21FJLGZpX' target="_blank" rel="noopener noreferrer">
+                  Join Now<MousePointerClick className="ml-2"/>
+                  </a>
+                </Badge>
+              </p>
+              <div className='flex flex-row gap-6 mt-8 justify-center'>
+              <Button variant="" onClick={handleRegistrationSuccessfulPopupRedirect}>Go to Sign In</Button>
+              <Button variant="destructive" onClick={handleRegistrationSuccessfulPopupCancel}>Cancel</Button>
+              </div>
             </div>
           </div>
-        </div>
       )}
     </React.Fragment>
   )
