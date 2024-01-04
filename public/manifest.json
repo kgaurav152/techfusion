@@ -4,8 +4,8 @@
     "display": "standalone",
     "scope": "/",
     "start_url": "/",
-    "name": "TechFestKEC",
-    "short_name": "TechFestKEC",
+    "name": "TechFusion",
+    "short_name": "TechFusion",
     "description": "This webapp is dedicated for Technical Festival of KEC Katihar",
     "icons": [
         {

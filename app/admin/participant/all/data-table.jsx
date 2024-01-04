@@ -89,7 +89,7 @@ export const DataTable = ({
       <div className="flex items-center justify-between">
           <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
           <Input
-          placeholder="Filter TechFest Id..."
+          placeholder="Filter TechFusion Id..."
           value={(table.getColumn("festId")?.getFilterValue()) ?? ""}
           onChange={(event) =>
               table.getColumn("festId")?.setFilterValue(event.target.value)

@@ -59,7 +59,7 @@ const LandingPage = () => {
           />
           <div className="flex flex-col items-center mt-20">
             <h1 className="font-extrabold text-5xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              TechFest&apos;24
+              TechFusion&apos;24
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
               22-26 January 2024
@@ -116,7 +116,7 @@ const LandingPage = () => {
                   src="/registrationStartsFrom.svg"
                   width={850}
                   height={200}
-                  alt="TechFest'24 Registration from 6th jan"
+                  alt="TechFusion'24 Registration from 6th jan"
                 />
               </div>
             )}
@@ -142,7 +142,7 @@ const LandingPage = () => {
                   src="/comingSoon.svg"
                   width={900}
                   height={200}
-                  alt="TechFest'24 Coming Soon"
+                  alt="TechFusion'24 Coming Soon"
                 />
               </div>
             )}

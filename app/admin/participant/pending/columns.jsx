@@ -16,7 +16,7 @@ const paymentMethodMapping={
 export const columns = (setPendingParticipantsData) => [
   {
     accessorKey: 'festId',
-    header: 'TechFest ID'
+    header: 'TechFusion ID'
   },
   {
     accessorKey: 'name',

@@ -30,7 +30,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://t.me/techfestkec" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/techfusion24" target="_blank" rel="noopener noreferrer">
                   <FaTelegram className="text-white hover:text-blue-300" size={24} />
                 </a>
               </li>
@@ -81,7 +81,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://t.me/techfestkec" target="_blank" rel="noopener noreferrer">
+                <a href="https://t.me/techfusion24" target="_blank" rel="noopener noreferrer">
                   <FaTelegram className="text-white hover:text-blue-300" size={24} />
                 </a>
               </li>

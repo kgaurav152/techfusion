@@ -207,7 +207,7 @@ const RegistrationForm = () => {
             
     <React.Fragment>
       <div className="text-center mb-4 text-border flex-col">
-        <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFest&apos;24 Registration</h1>
+        <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
         <Card className="mx-auto w-4/5 max-w-xl mb-8 text-center bg-emerald-100">
           <CardHeader>
             <CardTitle>Already Registered ?</CardTitle>
@@ -490,7 +490,7 @@ const RegistrationForm = () => {
                 name="knowAbout"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="text-white">How did you came to know about TechFest&apos;24?*</FormLabel>
+                    <FormLabel className="text-white">How did you came to know about TechFusion&apos;24?*</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -696,10 +696,10 @@ const RegistrationForm = () => {
           <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
             <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
             <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
-            <p className="font-mono mb-2">Your TechFest ID: {user.festId?user.festId:'not available'}</p>
+            <p className="font-mono mb-2">Your TechFusion ID: {user.festId?user.festId:'not available'}</p>
             <p className="italic font-serif mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">It may take upto 24-48 hours for us to verify your payment.</p>
             <p>
-              Join our WhatsApp group to stay updated with latest information about the TechFest&apos;24:{' '}
+              Join our WhatsApp group to stay updated with latest information about the TechFusion&apos;24:{' '}
               <Badge variant="outline" className=" bg-emerald-100">
                 <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='https://chat.whatsapp.com/IeOmrGYdNWG3bT4olA3FNe2' target="_blank" rel="noopener noreferrer">
                 Join Now<MousePointerClick className="ml-2"/>

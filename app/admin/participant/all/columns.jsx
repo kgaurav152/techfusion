@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox"
 export const columns = (setAllParticipantsData) => [
   {
     accessorKey: 'festId',
-    header: 'TechFest ID'
+    header: 'TechFusion ID'
   },
   {
     accessorKey: 'gender',

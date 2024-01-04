@@ -71,9 +71,9 @@ export const ProfilePage = () => {
                                 <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
                                 <h2 className="font-bold font-mono text-lg mb-3 flex flex-row">{user.name || 'No Name Found'}</h2>
                                 <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.phone || 'Not Available'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.mobile || 'Not Available'}</p>
                                 <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row">TechFest Id: {user.festId || 'Not Available'}</p>
+                                <p className="font-semibold font-mono mb-1 flex flex-row">TechFusion Id: {user.festId || 'Not Available'}</p>
                                 <p className="font-semibold font-mono mb-1 flex flex-row">Payment Status: {user.status}</p>
                             </span>
                             <Button variant="destructive" onClick={logoutHandler} className="flex items-center mt-4">Logout</Button>

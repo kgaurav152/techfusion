@@ -320,7 +320,7 @@ const EventRegistrationForm = () => {
                   <FormItem>
                     <FormLabel className="text-white">Team Member 1*</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Team Member's TechFest Id" {...field} />
+                      <Input placeholder="Enter Team Member's TechFusion Id" {...field} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -334,7 +334,7 @@ const EventRegistrationForm = () => {
                   <FormItem>
                     <FormLabel className="text-white">Team Member 2</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Team Member's TechFest Id" {...field} />
+                      <Input placeholder="Enter Team Member's TechFusion Id" {...field} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -348,7 +348,7 @@ const EventRegistrationForm = () => {
                   <FormItem>
                     <FormLabel className="text-white">Team Member 3</FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Team Member's TechFest Id" {...field} />
+                      <Input placeholder="Enter Team Member's TechFusion Id" {...field} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
@@ -380,7 +380,7 @@ const EventRegistrationForm = () => {
                 name="teamLeadIndividial"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-white">Participant&apos;s TechFest Id</FormLabel>
+                    <FormLabel className="text-white">Participant&apos;s TechFusion Id</FormLabel>
                     <FormControl>
                       <Input disabled defaultValue={user.festId} />
                     </FormControl>

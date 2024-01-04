@@ -91,7 +91,7 @@ const ThreadAnimation = () => {
         <div className="flex flex-col relative items-center justify-center gap-14 z-10 px-6">
           <div className="flex flex-col items-center">
             <h1 className="font-extrabold text-5xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              TechFest&apos;24
+              TechFusion&apos;24
             </h1>
             <p className="text-white text-xl md:text-4xl underline">
               22-26 January 2024
@@ -148,7 +148,7 @@ const ThreadAnimation = () => {
                   src="/registrationStartsFrom.svg"
                   width={850}
                   height={200}
-                  alt="TechFest'24 Registration from 6th jan"
+                  alt="TechFusion'24 Registration from 6th jan"
                 />
               </div>
             )}

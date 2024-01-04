@@ -7,9 +7,10 @@ import { Providers } from "@/redux/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "TechFestKEC",
+  title: "TechFusion",
   viewport: "width=device-width, initial-scale=1.0",
-  description: "This webapp is dedicated for Technical Festival of KEC Katihar",
+  description:
+    "This webapp is dedicated for Technical cum Cultural Festival of KEC Katihar",
 };
 
 export default function RootLayout({ children }) {
@@ -17,7 +18,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <link rel="manifest" href="/manifest.json" />
-        <title>TechFestKEC</title>
+        <title>TechFusion&apos;24</title>
       </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
