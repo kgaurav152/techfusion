@@ -138,7 +138,7 @@ export const ContactUsPage = () => {
                     <AccordionItem value="item-2">
                         <AccordionTrigger>When and where does TechFusion take place?</AccordionTrigger>
                         <AccordionContent>
-                        TechFusion will be held from January 25th to January 28th, 2024, at Katihar Engineering College, Katihar's campus.
+                        TechFusion will be held from January 25th to January 28th, 2024, at Katihar Engineering College, Katihar&apos;s campus.
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
