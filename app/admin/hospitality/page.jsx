@@ -387,7 +387,7 @@ return(
                                     value={user.label}
                                     key={user.value}
                                     onSelect={() => {
-                                      form.setValue("user", user.value);
+                                      form.setValue("user", user);
                                       setOpenPop(false);
                                     }}
                                   >
