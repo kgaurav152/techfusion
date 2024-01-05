@@ -111,7 +111,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Participation and Rewards:</h4>
-                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4 text-left">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>What are the benefits of participating in TechFusion?</AccordionTrigger>
                         <AccordionContent>
@@ -127,7 +127,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Registration and Venue:</h4>
-                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4 text-left">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>How do I register for TechFusion?</AccordionTrigger>
                         <AccordionContent>
@@ -143,7 +143,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Accommodation and Food Options:</h4>
-                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4 text-left">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>Do you provide accommodation?</AccordionTrigger>
                         <AccordionContent>
@@ -165,7 +165,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Contacting Event Coordinators and Further Assistance:</h4>
-                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4 text-left">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>How can I reach event coordinators for assistance?</AccordionTrigger>
                         <AccordionContent>

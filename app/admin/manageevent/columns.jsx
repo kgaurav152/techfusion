@@ -61,7 +61,7 @@ export const columns = (setEventData) => [
     cell: ({ row }) => {
       const event = row.original
       return (
-        <p className="truncate">{event.description}</p>
+        <p className="w-4 md:w-8 truncate">{event.description}</p>
       )
     },
   },
@@ -70,9 +70,9 @@ export const columns = (setEventData) => [
     header: 'Rulebook Link',
     cell: ({ row }) => {
       const event = row.original
-      if (event.rulebookLink) {
+      if (event.ruleBook) {
         return (
-          <Link href={event.rulebookLink} target="_blank" className="flex justify-center">
+          <Link href={event.ruleBook} target="_blank" className="flex justify-center">
             <Eye className="h-4 w-4 text-violet-500" />
           </Link>
         );
