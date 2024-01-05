@@ -369,7 +369,7 @@ return(
                             >
                               {field.value
                                 ? allParticipantsData.find(
-                                    (user) => user.value === field.value
+                                    (user) => user.value === field.value._id
                                   )?.label
                                 : "Select User"}
                               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
