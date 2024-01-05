@@ -1,5 +1,6 @@
 import { connect } from "@/config/dbconfig";
 import User from "@/models/User";
+import { ObjectId } from 'mongodb'
 // import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
 // import jwt from "jsonwebtoken"
@@ -18,8 +19,10 @@ export async function POST(req){
                 success: false,
                 message:"This is protected route for Admin access"
             })
-        } 
-        const data = await Participation.find({event:event_id}).populate("event").populate("participants");
+        }
+        const eventId = new ObjectId(event_id) 
+        
+        const data = await Participation.find({event:eventId}).populate("event").populate("participants");
         return NextResponse.json({
             success: true,
             message:"All Participantion Details by Event",
