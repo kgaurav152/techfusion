@@ -52,7 +52,7 @@ const DashboardLayout = ({ children }) => {
       </div>
       ) : ( 
       <div className=" min-h-[100vh] bg-[#00040F] relative" >
-      <StarsCanvas/>
+        <StarsCanvas/>
         <NavBar />
         {children}
         <Footer />

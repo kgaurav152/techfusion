@@ -9,7 +9,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import Image from "next/image";
-import StarsCanvas from "@/components/StarCanvas";
+import RiveAnimationComponent from "@/components/riveAnimation";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -125,6 +125,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+      <RiveAnimationComponent />
       {/* Events Section */}
       <section style={{ marginBottom: "40px" }}>
         <div>
