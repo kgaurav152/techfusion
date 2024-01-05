@@ -61,7 +61,7 @@ export const columns = (setEventData) => [
     cell: ({ row }) => {
       const event = row.original
       return (
-        <p className="w-4 md:w-8 truncate">{event.description}</p>
+        <p className="w-20 md:w-32 lg:w-40 truncate">{event.description}</p>
       )
     },
   },
