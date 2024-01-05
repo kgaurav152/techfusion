@@ -696,6 +696,7 @@ const RegistrationForm = () => {
             <div className="bg-white p-4 rounded shadow-md w-4/5 lg:w-2/5">
               <h2 className="mb-2 text-center font-extrabold">Registration Successful!</h2>
               <p className="font-mono mb-2">Welcome{' '}<b>{user.name?user.name:'not available'}</b>{' '}!</p>
+              <p className="font-mono mb-2">Email: {user.email?user.email:'not available'}</p>
               <p className="font-mono mb-2">Your TechFusion Id: {user.festId?user.festId:'not available'}</p>
               <p className="italic font-serif mb-2 bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-violet-500">It may take upto 24-48 hours for us to verify your payment.</p>
               <p>
