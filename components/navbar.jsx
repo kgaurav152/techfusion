@@ -78,7 +78,7 @@ const NavBar = () => {
           >
             Brochure
           </Link>
-          <Link href="/contact" className="text-white hover:text-[#e11d48]">
+          <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
           {user && (
@@ -170,7 +170,7 @@ const NavBar = () => {
             >
               Brochure
             </Link>
-            <Link href="/contact" className="text-white hover:text-[#e11d48]">
+            <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
               Contact Us
             </Link>
             {user && (
