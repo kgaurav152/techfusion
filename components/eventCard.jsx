@@ -29,20 +29,17 @@ const EventCard = ({event}) => {
             {event.description}
           </p>
         </div>
-        {/* // Uncomment below when event descriptions and registration exist */}
         <br />
-        <div className="px-6 pb-4 mt-auto mb-3">
+        <div className="flex flex-row gap-6 mb-4 justify-center">
           <Link
-            className="rounded-md px-5 py-3 bg-blue-400 text-black mr-3"
+            className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-400 text-black"
             href={`/events/detail/${event._id}`}
           >
             Read more
           </Link>
           <Link
-            className="rounded-md px-5 py-3 bg-blue-500 text-black"
+            className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
             href={user ? "/eventregistration" : "/registration"}
-            target="_blank"
-            rel="noopener noreferrer"
           >
             Register now
           </Link>

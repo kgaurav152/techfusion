@@ -180,8 +180,8 @@ const RegistrationForm = () => {
     formData.append("accomodation",data.accomodation)
     formData.append("tShirtSize",data.tShirtSize)
     formData.append("paymentMethod",data.paymentMethod)
-    formData.append("ca_no",data.ca_no_ba)
-    formData.append("transaction_id",data.trx_id)
+    formData.append("ca_no",data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba)
+    formData.append("transaction_id",data.trx_id == null ? data.ca_no_ca : data.trx_id)
     formData.append("screenshot",file); 
     try {
       const toastId = toast.loading("Creating Account...")

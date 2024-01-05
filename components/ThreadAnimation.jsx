@@ -94,7 +94,7 @@ const ThreadAnimation = () => {
               TechFusion&apos;24
             </h1>
             <p className="text-white text-xl md:text-4xl underline">
-              22-26 January 2024
+              25-28 January 2024
             </p>
 
             {live ? (

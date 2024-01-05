@@ -60,18 +60,18 @@ const LandingPage = () => {
             src="/bghero.png"
           />
           <div className="flex flex-col items-center mt-20">
-            <h1 className="font-extrabold text-5xl md:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               TechFusion&apos;24
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              22-26 January 2024
+              25-28 January 2024
             </p>
 
             {live ? (
               <div>
                 {user ? (
                   <Button
-                    className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                    className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
                     onMouseEnter={() => {
                       setIsHovered(true);
                     }}
@@ -86,7 +86,7 @@ const LandingPage = () => {
                   </Button>
                 ) : (
                   <Button
-                    className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                    className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
                     onMouseEnter={() => {
                       setIsHovered(true);
                     }}
