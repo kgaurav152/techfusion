@@ -43,7 +43,10 @@ const NavBar = () => {
       // console.log(data)
       dispatch(setUserDetails(data?.data));
     };
-    fetchUserDetails();
+    const token = Cookies.get("token");
+    if(token){
+      fetchUserDetails();
+    }
   }, []);
 
   return (
