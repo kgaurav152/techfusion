@@ -10,8 +10,19 @@ import { Checkbox } from "@/components/ui/checkbox"
 
 export const columns = (setActionSuccess) => [
   {
-    accessorKey: 'festId',
-    header: 'TechFusion ID'
+    accessorKey: 'participants',
+    header: 'TechFusion ID',
+    cell: ({ row }) => {
+      const  {participants}= row.original
+      
+      return (
+        <div>
+          <p>
+          {participants[0].festId}
+          </p>
+        </div>
+      )
+    },
   },
   {
     accessorKey: 'team_leader_name',
@@ -26,10 +37,32 @@ export const columns = (setActionSuccess) => [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      const  {participants}= row.original
+      
+      return (
+        <div>
+          <p>
+          {participants[0].name}
+          </p>
+        </div>
+      )
+    },
   },
   {
     accessorKey: 'mobile',
-    header: 'Phone No.'
+    header: 'Phone No.',
+    cell: ({ row }) => {
+      const  {participants}= row.original
+      
+      return (
+        <div>
+          <p>
+          {participants[0].mobile}
+          </p>
+        </div>
+      )
+    },
   },
   {
     accessorKey: 'college',
@@ -44,9 +77,20 @@ export const columns = (setActionSuccess) => [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      const  {participants}= row.original
+      
+      return (
+        <div>
+          <p>
+          {participants[0].college}
+          </p>
+        </div>
+      )
+    },
   },
   {
-    accessorKey: 'events',
+    accessorKey: 'event',
     header: ({ column }) => {
       return (
         <Button
@@ -56,6 +100,17 @@ export const columns = (setActionSuccess) => [
           Events
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
+      )
+    },
+    cell: ({ row }) => {
+      const  {event}= row.original
+      
+      return (
+        <div>
+          <p>
+          {event?.name?event.name:'not available'}
+          </p>
+        </div>
       )
     },
   },
