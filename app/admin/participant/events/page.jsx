@@ -91,7 +91,7 @@ export const AllEventParticipants = () => {
                         <Button
                         variant="outline"
                         role="combobox"
-                        aria-expanded={open}
+                        aria-expanded={openPop}
                         className={cn(
                             "justify-between",
                             !value && "text-muted-foreground"

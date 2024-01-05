@@ -61,12 +61,12 @@ export const columns = (setEventData) => [
     cell: ({ row }) => {
       const event = row.original
       return (
-        <p className="truncate ...">{event.description}</p>
+        <p className="truncate">{event.description}</p>
       )
     },
   },
   {
-    accessorKey: 'rulebookLink',
+    accessorKey: 'ruleBook',
     header: 'Rulebook Link',
     cell: ({ row }) => {
       const event = row.original
