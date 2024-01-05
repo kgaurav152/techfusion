@@ -92,10 +92,10 @@ export const ContactUsPage = () => {
                     </CardContent>
                 </Card>
             } */}
-            <div className="text-left text-white mb-4 w-4/5 border-2 border-orange-100 p-10 ">
+            <div className="text-left text-white mb-4 w-4/5 border-2 border-orange-100 p-4 md:p-10 ">
                 <h2 className='text-2xl text-center underline text-white font-bold'>FAQs</h2>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />About TechFusion:</h4>
-                <Accordion type="single" collapsible className="ml-4 mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>What is TechFusion?</AccordionTrigger>
                         <AccordionContent>                       
@@ -111,7 +111,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Participation and Rewards:</h4>
-                <Accordion type="single" collapsible className="ml-4 mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>What are the benefits of participating in TechFusion?</AccordionTrigger>
                         <AccordionContent>
@@ -127,7 +127,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Registration and Venue:</h4>
-                <Accordion type="single" collapsible className="ml-4 mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>How do I register for TechFusion?</AccordionTrigger>
                         <AccordionContent>
@@ -143,7 +143,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Accommodation and Food Options:</h4>
-                <Accordion type="single" collapsible className="ml-4 mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>Do you provide accommodation?</AccordionTrigger>
                         <AccordionContent>
@@ -165,7 +165,7 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
                 <h4 className='flex flex-row text-lg text-white font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />Contacting Event Coordinators and Further Assistance:</h4>
-                <Accordion type="single" collapsible className="ml-4 mr-4">
+                <Accordion type="single" collapsible className="ml-2 md:ml-4 mr-1 md:mr-4">
                     <AccordionItem value="item-1">
                         <AccordionTrigger>How can I reach event coordinators for assistance?</AccordionTrigger>
                         <AccordionContent>
@@ -179,11 +179,10 @@ export const ContactUsPage = () => {
                         </AccordionContent>
                     </AccordionItem>
                 </Accordion>
-
             </div>
-            <div className="flex flex-col items-center mt-4 text-center">
+            <div className="flex flex-col items-center mt-4 p-4 w-4/5 text-center">
                 <h3 className='text-xl text-white font-bold'>Select event from below to get contact details of Co-ordinators</h3>
-                <div className='container mt-4 mb-5 w-4/5'>
+                <div className='container mt-4 mb-5'>
                     <Popover open={openPop} onOpenChange={setOpenPop}>
                         <PopoverTrigger asChild>
                             <Button
