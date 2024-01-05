@@ -79,36 +79,6 @@ export const DataTable = ({
   return (
     <>
         <div className="flex items-center justify-between">
-            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
-            <Input
-            placeholder="Filter TechFusion Id..."
-            value={(table.getColumn("festId")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("festId")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
-            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
-            <Input
-            placeholder="Filter College..."
-            value={(table.getColumn("college")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("college")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
-            <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
-            <Input
-            placeholder="Filter Events..."
-            value={(table.getColumn("event")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("event")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
             <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">

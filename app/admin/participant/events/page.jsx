@@ -92,10 +92,12 @@ export const AllEventParticipants = () => {
                         variant="outline"
                         role="combobox"
                         aria-expanded={open}
-                        className="w-[200px] justify-between"
+                        className={cn(
+                            "justify-between",
+                            !value && "text-muted-foreground"
+                          )}
                         >
-                        {value
-                            ? eventData.find(
+                        {value?eventData.find(
                                 (event) => event.value === value
                             )?.label
                             : "Select Event"}
@@ -111,10 +113,10 @@ export const AllEventParticipants = () => {
                                 <CommandItem
                                     value={event.label}
                                     key={event.value}
-                                    onSelect={(currentValue) => {
-                                    setValue(currentValue === value ? "" : currentValue)
+                                    onSelect={() => {
+                                    setValue(event.value)
                                     setOpenPop(false);
-                                    fetchAllEventParticipants(currentValue);
+                                    fetchAllEventParticipants(event.value);
                                     }}
                                 >
                                     <Check
