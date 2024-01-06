@@ -180,8 +180,9 @@ const EventRegistrationForm = () => {
             </Card>
             <Card className="mx-auto w-4/5 max-w-xl mb-8 text-left">
               <CardContent>
-                  <div className="flex items-center pt-4">
-                    <p className="font-semibold font-mono">Note: For Group Events min. 2 and max. 4 members (Including Team Leader) can be part of a group.</p>
+                  <div className="flex flex-col items-center pt-4">
+                    <p className="font-semibold font-mono">A participant can participate in max. 5 Technical and 3 Cultural events in total.</p>
+                    <p className="font-semibold font-mono mt-2">Note: For Group Events min. 2 and max. 4 members (Including Team Leader) can be part of a group.</p>
                     {/* {form.watch('event').split('@')[1]==='Individual' && <p className="font-semibold font-mono"></p>} */}
                   </div>
               </CardContent>
@@ -211,7 +212,7 @@ const EventRegistrationForm = () => {
                                 ? eventData.find(
                                     (event) => event.value === field.value
                                   )?.label
-                                : "Select Event"}
+                                : "Select Event to Enroll"}
                               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                             </Button>
                           </FormControl>
@@ -347,7 +348,7 @@ const EventRegistrationForm = () => {
                 </>
                 )}
               </div>
-              <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none" >Participate</Button>
+              <Button type="submit" disabled={isLoading} className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none" >Enroll</Button>
             </form>
           </Form>
         </>

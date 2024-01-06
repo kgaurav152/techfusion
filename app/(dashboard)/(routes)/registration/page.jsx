@@ -528,7 +528,29 @@ const RegistrationForm = () => {
                         <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
-                    {form.watch('accomodation')==='Yes' && <FormDescription>Accomodation is chargable and is not included in the registration fee, will be collected on per day basis while allotment of room.</FormDescription>}
+                    {form.watch('accomodation')==='Yes' && <FormDescription>Accomodation is chargable and is not included in the registration fee, &#8377; 50/day will be collected while allotment of room.</FormDescription>}
+                    <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+                control={form.control}
+                name="tshirt"
+                render={({ field }) => (
+                <FormItem>
+                    <FormLabel className="text-white">Do you want TechFusion exclusive T-Shirt?*</FormLabel>
+                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                        <SelectTrigger>
+                            <SelectValue placeholder={"Select One"} />
+                        </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                        <SelectItem value="Yes">Yes</SelectItem>
+                        <SelectItem value="No">No</SelectItem>
+                        </SelectContent>
+                    </Select>
+                    {form.watch('tshirt')==='Yes' && <FormDescription>Charges of T-Shirt is not included in the registration fee.Each TechFusion exclusive T-Shirt will cost, &#8377; 300, payable by the participant at the time of allotment.</FormDescription>}
                     <FormMessage />
                 </FormItem>
               )}
@@ -554,7 +576,7 @@ const RegistrationForm = () => {
                           ))}
                           </SelectContent>
                       </Select>
-                      <FormDescription>Charges of T-Shirt is included in the registration fee.</FormDescription>
+                      <FormDescription>Participant needs to select </FormDescription>
                       <FormMessage />
                   </FormItem>
               )}
@@ -591,7 +613,7 @@ const RegistrationForm = () => {
                   <p className="font-semibold font-mono">
                       Participants can pay registration fee of{' '}
                       <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
+                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 300/-' : 'Rs. 200/-'}
                       </span>{' '}
                       on following bank account and upload the screenshot of payment:
                     </p>
@@ -601,11 +623,11 @@ const RegistrationForm = () => {
             <div className="text-white mb-3">
               <span>
                 <h1 className="font-bold text-xl text-red-400 underline mb-2">Bank Account Details:</h1>
-                <p>A/c No. - 123456789</p>
-                <p>A/c Holder - PRINCIPAL, KEC KATIHAR</p>
-                <p>IFSC code - CBIN0287026</p>
-                <p>Bank - Central Bank of India</p>
-                <p>Branch - New Market Road, Katihar (BH)</p>
+                <p>A/c No. - 256312010000302</p>
+                <p>A/c Holder/Name - Katihar Enineering College SDF Account</p>
+                <p>IFSC code - UBIN0554031</p>
+                <p>Bank - Union Bank of India</p>
+                <p>Branch - Mangal Market Road, Katihar (BH)</p>
               </span>
             </div>
             <FormField
@@ -617,7 +639,7 @@ const RegistrationForm = () => {
                     <FormControl>
                     <Input placeholder="Enter CA code" {...field} />
                     </FormControl>
-                    <FormDescription />
+                    <FormDescription>Ask your college&apos;s CA for code or else can leave blank.</FormDescription>
                     <FormMessage />
                 </FormItem>
               )}
@@ -646,7 +668,7 @@ const RegistrationForm = () => {
                     <div className="flex items-center pt-4">
                     <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
                       <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 700/-' : 'Rs. 500/-'}
+                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 300/-' : 'Rs. 200/-'}
                       </span>{' '}
                       to Campus Ambassador of their college.</p>
                     </div>
