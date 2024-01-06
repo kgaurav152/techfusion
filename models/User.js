@@ -70,10 +70,19 @@ const UserSchema = new mongoose.Schema({
         enum:["admin","participant"],
         default: "participant", 
     },
-    participatedIn:[{
+    // participatedIn:[{
+    //     type:mongoose.Schema.Types.ObjectId,
+    //     ref:"Participation" 
+    // }], 
+    technical:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Participation" 
     }], 
+    cultural:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Participation" 
+    }], 
+
     screenshotImage:{
         type:String, 
     },
