@@ -50,7 +50,7 @@ const NavBar = () => {
   }, []);
 
   return (
-    <nav className="bg-gray-900 p-4 mb-4 z-[99999999]">
+    <nav className="bg-gray-900 p-4 mb-4">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/" className="text-white font-bold text-lg">
@@ -156,30 +156,31 @@ const NavBar = () => {
       {isOpen && (
         <div className="md:hidden mt-4">
           <div className="flex flex-col space-y-4">
-            <Link href="/" className="text-white hover:text-[#e11d48]">
+            <Link href="/" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
               Home
             </Link>
-            <Link href="/events" className="text-white hover:text-[#e11d48]">
+            <Link href="/events" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
               Events
             </Link>
             <Link
               href="/kec_techfusion_brochure.pdf"
+              onClick={()=>{setIsOpen(false)}}
               download={`kec_techfusion_brochure.pdf`}
               target="_blank"
-              className="text-white hover:text-[#e11d48]"
+              className="text-white z-50 hover:text-[#e11d48]"
             >
               Brochure
             </Link>
-            <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
+            <Link href="/contact-us" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
               Contact Us
             </Link>
             {user && (
-              <Link href="/eventregistration" className="text-white hover:text-[#e11d48]">
+              <Link href="/eventregistration" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
                 Event Registration
               </Link>
             )}
             {user && (
-              <Link href="/profile" className="text-white hover:text-[#e11d48]">
+              <Link href="/profile" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
                 Profile
               </Link>
             )}
@@ -199,13 +200,13 @@ const NavBar = () => {
                   </Avatar>
                 </PopoverTrigger>
                 <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                  <Button variant="destructive" onClick={logoutHandler}>
+                  <Button variant="destructive" onClick={logoutHandler} className="z-50">
                     Logout
                   </Button>
                 </PopoverContent>
               </Popover>
             ) : (
-              <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
+              <Link href="/sign-in" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
                 Login
               </Link>
             )}

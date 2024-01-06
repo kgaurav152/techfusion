@@ -1,6 +1,6 @@
 import { Heart, HeartIcon } from 'lucide-react';
 import React from 'react';
-import { FaFacebook, FaTelegram, FaInstagram, FaChrome, FaLinkedin, FaHeart } from 'react-icons/fa';
+import { FaTelegram, FaInstagram, FaChrome, FaLinkedin, FaHeart } from 'react-icons/fa';
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
               <li><a href="/" className="hover:text-[#e11d48]">Home</a></li>
               <li><a href="/#aboutus" className="hover:text-[#e11d48]">About Us</a></li>
               <li><a href="/events" className="hover:text-[#e11d48]">Events</a></li>
-              <li><a href="/contact" className="hover:text-[#e11d48]">Contact Us</a></li>
+              <li><a href="/contact-us" className="hover:text-[#e11d48]">Contact Us</a></li>
               {/* <li><a href="/sign-in" className="hover:text-[#e11d48]">Login</a></li> */}
             </ul>
           </nav>
@@ -65,7 +65,7 @@ const Footer = () => {
                 <li><a href="/" className="hover:text-[#e11d48]">Home</a></li>
                 <li><a href="/#aboutus" className="hover:text-[#e11d48]">About Us</a></li>
                 <li><a href="/events" className="hover:text-[#e11d48]">Events</a></li>
-                <li><a href="/contact" className="hover:text-[#e11d48]">Contact Us</a></li>
+                <li><a href="/contact-us" className="hover:text-[#e11d48]">Contact Us</a></li>
                 {/* <li><a href="/sign-in" className="hover:text-[#e11d48]">Login</a></li> */}
               </ul>
             </nav>

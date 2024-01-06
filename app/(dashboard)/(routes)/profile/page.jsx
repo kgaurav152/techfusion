@@ -27,14 +27,10 @@ export const ProfilePage = () => {
 
     const fetchParticipatingEventsData = async () => {
         setLoading(true);
-        const obj = {
-            user_id: user.id
-        }
         try {
-            const { data } = await apiConnector("POST","/api/userEvents");
+            const { data } = await apiConnector("POST","/api/myEventDetails");
             setLoading(false);
             if (data.success) {
-            toast.success("Data Fetched Successfully!");
             setparticipatingEventsData(data.data);
             } else {
             toast.error(data.message);

@@ -11,5 +11,5 @@ function RiveAnimation() {
   }
   // https://rive.app/community/4991-10096-may-the-4th/embed black bg
   
-  export default RiveAnimation;
+  export default RiveAnimation; 
   
