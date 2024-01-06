@@ -100,7 +100,7 @@ export function Accomodation(){
         roomAllocation:true,
         roomNo:data.room_no,
         noOfDays:data.day,
-        amount:data.amount
+        roomAmount:data.amount
     }
 
     // console.log(obj);

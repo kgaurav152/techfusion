@@ -58,6 +58,18 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    roomAllocation:{
+        type:String,
+    },
+    roomNo:{
+        type:String,
+    },
+    noOfDays:{
+        type:String,
+    },
+    roomAmount:{
+        type:String,
+    },
     batch:{
         type:String,
         required:true,
