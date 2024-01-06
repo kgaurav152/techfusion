@@ -31,7 +31,7 @@ export const ProfilePage = () => {
             const { data } = await apiConnector("POST","/api/myEventDetails");
             setLoading(false);
             if (data.success) {  
-            setParticipatingEventsData(data.data?.participatedIn);
+            setParticipatingEventsData([...data.data?.technical,...data.data?.cultural]);
             } else {
             toast.error(data.message);
             }
