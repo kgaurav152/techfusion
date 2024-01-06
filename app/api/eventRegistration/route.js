@@ -35,6 +35,12 @@ export async function POST(req) {
         message: "Event is Not Found, Might be it is deleted",
       });
     }
+    if(!team_name){
+      return NextResponse.json({
+        success: false,
+        message: "Team name is Required",
+      });
+    }
     if (user) {
       if (user.status == "pending") {
         return NextResponse.json({
