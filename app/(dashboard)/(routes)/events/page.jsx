@@ -13,7 +13,7 @@ export const EventList = () => {
     const fetchEventList = async () => {
         try{
             const toastId = toast.loading("Loading ....")
-            const { data } = await apiConnector("GET", "/api/event/getAllEvent");
+            const { data } = await apiConnector("POST", "/api/event/getAllEvent");
             toast.dismiss(toastId);
             if (data.success) {
             setEventList(data.data);

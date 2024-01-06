@@ -12,13 +12,25 @@ export async function POST(req) {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID)
       .populate({
-        path: "participatedIn",
+        path: "technical",
         populate: {
           path: "event",
         },
       })
       .populate({
-        path: "participatedIn",
+        path: "technical",
+        populate: {
+          path: "participants",
+        },
+      })
+      .populate({
+        path: "cultural",
+        populate: {
+          path: "event",
+        },
+      })
+      .populate({
+        path: "cultural",
         populate: {
           path: "participants",
         },

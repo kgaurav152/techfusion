@@ -47,7 +47,7 @@ const NavBar = () => {
     if(token){
       fetchUserDetails();
     }
-  }, []);
+  }, [dispatch]);
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
