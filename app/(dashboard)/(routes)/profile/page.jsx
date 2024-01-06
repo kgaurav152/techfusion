@@ -20,10 +20,9 @@ export const ProfilePage = () => {
     const dispatch = useDispatch();
 
     const [loading, setLoading] = useState(false);
-    const [actionSuccess, setActionSuccess] = useState(false); 
 
     const { user } = useSelector((state) => state.profile);
-    const [participatingEventsData, setparticipatingEventsData] = useState([]);
+    const [participatingEventsData, setParticipatingEventsData] = useState([]);
     console.log(user)
 
     const fetchParticipatingEventsData = async () => {
@@ -32,7 +31,7 @@ export const ProfilePage = () => {
             const { data } = await apiConnector("POST","/api/myEventDetails");
             setLoading(false);
             if (data.success) {  
-            setparticipatingEventsData(data.data?.participatedIn);
+            setParticipatingEventsData(data.data?.participatedIn);
             } else {
             toast.error(data.message);
             }
@@ -82,7 +81,7 @@ export const ProfilePage = () => {
             }
             <div className='container mt-4 mb-20 w-4/5'>  
                 <h1 className='text-3xl text-white font-bold'>List of Events</h1>
-                <DataTable columns={columns(setActionSuccess,user)} data={participatingEventsData} />
+                <DataTable columns={columns(user, setParticipatingEventsData)} data={participatingEventsData} />
             </div>
         </div>
   )

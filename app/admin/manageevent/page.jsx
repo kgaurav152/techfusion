@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+// import axios from "axios";
 import toast from "react-hot-toast";
 import {columns} from '@/app/admin/manageevent/columns'
 import { DataTable } from '@/app/admin/manageevent/data-table'
@@ -47,7 +47,7 @@ export const EventManagement = () => {
                 <DataTable columns={columns(setEventData)} data={eventData} />
             </div>
         </div>
-  )
+    )
 };
 
 export default EventManagement;

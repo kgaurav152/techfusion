@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox"
 import { useSelector } from 'react-redux';
   
-// import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
+import { DeleteButton } from "@/app/(dashboard)/(routes)/profile/buttonBar";
 
-export const columns = (setActionSuccess,user) => [
+export const columns = (user,setParticipatingEventsData) => [
   {
     accessorKey: 'team_leader_name',
     header: 'Team Leader ID',
@@ -62,7 +62,6 @@ export const columns = (setActionSuccess,user) => [
       )
     },
   },
-  
   {
     accessorKey: '',
     header: 'Team Member Name',
@@ -84,8 +83,7 @@ export const columns = (setActionSuccess,user) => [
         </p>
       )
     },
-  },
-  
+  },  
   {
     accessorKey: '',
     header: 'Delete',
@@ -94,7 +92,7 @@ export const columns = (setActionSuccess,user) => [
       return (
         <>
           {
-            participants[0]?._id === user?._id ? <Button>Delete</Button> : (<div>Ask Leader to Delete</div>)  
+            participants[0]?._id === user?._id ? <DeleteButton setParticipatingEventsData={setParticipatingEventsData} participationId={participationId}/> : (<div>Ask Leader to Delete</div>)  
           }
         </>
       )
