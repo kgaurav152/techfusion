@@ -639,7 +639,7 @@ const RegistrationForm = () => {
                     <FormControl>
                     <Input placeholder="Enter CA code" {...field} />
                     </FormControl>
-                    <FormDescription>Ask your college's CA for code or else can leave blank.</FormDescription>
+                    <FormDescription>Ask your college&apos;s CA for code or else can leave blank.</FormDescription>
                     <FormMessage />
                 </FormItem>
               )}
