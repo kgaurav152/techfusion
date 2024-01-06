@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 import Event from "@/models/Event";
 
 connect();
-export async function GET(){ 
+export async function POST(){ 
     try{  
         const data = await Event.find({});
         return NextResponse.json({

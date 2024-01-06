@@ -20,7 +20,7 @@ export const EventManagement = () => {
         setLoading(true);
         try {
             const toastId = toast.loading("Loading ....")
-            const { data } = await apiConnector("GET","/api/event/getAllEvent");
+            const { data } = await apiConnector("POST","/api/event/getAllEvent");
             setLoading(false);
             toast.dismiss(toastId);
             if (data.success) {
