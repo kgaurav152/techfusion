@@ -17,7 +17,7 @@ export async function POST(req) {
     team_member_2,
     team_member_3,
   } = await req.json();
-  connect();
+  connect(); 
   try {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
@@ -140,7 +140,7 @@ export async function POST(req) {
         event: event._id,
         teamName: team_name,
         participants: userArray,
-      }).populate("participants");
+      })
 
       for(let i = 0; i < userArray.length; i++){
         await User.findByIdAndUpdate(userArray[i], {
