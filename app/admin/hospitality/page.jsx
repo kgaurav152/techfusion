@@ -70,6 +70,7 @@ export function Accomodation() {
           tShirtAllocation: user.tShirtAllocation, //true,false/1,0
           roomAllocation: user.roomAllocation, //true,false/1,0
           roomNo: user.roomNo, //actual room no
+          noOfDays: user.noOfDays, //actual room no
         }));
         setAllParticipantsData(restructuredUsers);
       } else {
@@ -86,16 +87,13 @@ export function Accomodation() {
 
   const onSubmit = async (data) => {
     setLoading(true);
-
     const obj = {
-      userId: data.user,
+      userId: data.user.value,
       roomAllocation: true,
       roomNo: data.room_no,
       noOfDays: data.day,
       roomAmount: data.amount,
     };
-
-    // console.log(obj);
     try {
       const toastId = toast.loading("Allocating Room...");
       const { data } = await apiConnector("POST", "/api/roomAllocation", obj);
@@ -202,7 +200,7 @@ export function Accomodation() {
                 <>
                   <p className="font-mono mt-4">
                     User have been allocated Room No.:{" "}
-                    {form.watch("user")?.roomNo}
+                    <span className="font-semibold">{form.watch("user")?.roomNo}</span> for <span className="font-semibold">{form.watch("user")?.noOfDays}</span> Days
                   </p>
                 </>
               ) : (

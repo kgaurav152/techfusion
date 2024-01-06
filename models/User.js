@@ -59,7 +59,7 @@ const UserSchema = new mongoose.Schema({
         required:true,
     },
     roomAllocation:{
-        type:String,
+        type:Boolean,
     },
     roomNo:{
         type:String,
