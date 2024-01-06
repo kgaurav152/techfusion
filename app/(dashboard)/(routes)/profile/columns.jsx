@@ -5,17 +5,32 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox"
+import { useSelector } from 'react-redux';
   
 // import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
 
-export const columns = (setActionSuccess) => [
+export const columns = (setActionSuccess,user) => [
   {
-    accessorKey: 'id',
-    header: 'Member/Lead Id'
+    accessorKey: 'team_leader_name',
+    header: 'Team Leader ID',
+    cell: ({ row }) => {
+      const {participants} = row.original
+      return (
+        <p className="">{participants[0].festId}</p>
+      )
+    },
+
   },
   {
     accessorKey: 'team_leader_name',
-    header: 'Member/Team Lead Name'
+    header: 'Team Leader Name',
+    cell: ({ row }) => {
+      const {participants} = row.original
+      return (
+        <p className="">{participants[0].name}</p>
+      )
+    },
+
   },
   {
     accessorKey: 'events',
@@ -30,7 +45,63 @@ export const columns = (setActionSuccess) => [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      const {event} = row.original
+      return (
+        <p className="">{event?.name}</p>
+      )
+    },
   },
+  {
+    accessorKey: 'events',
+    header: 'Type of Event',
+    cell: ({ row }) => {
+      const {event} = row.original
+      return (
+        <p className="">{event?.eventType}</p>
+      )
+    },
+  },
+  
+  {
+    accessorKey: '',
+    header: 'Team Member Name',
+    cell: ({ row }) => {
+      const {participants} = row.original
+      return (
+        <p className="">
+          {
+            participants[1] ? (
+              <>
+                <p>{participants[1]?.name}</p>
+                <p>{participants[2]?.name}</p>
+                <p>{participants[3]?.name}</p>
+              </>
+            ) : (
+              <div>-</div>
+            )
+          }
+        </p>
+      )
+    },
+  },
+  
+  {
+    accessorKey: '',
+    header: 'Delete',
+    cell: ({ row }) => { 
+      const {participants} = row.original
+      return (
+        <>
+          {
+            participants[0]?._id === user?._id ? <Button>Delete</Button> : (<div>Ask Leader to Delete</div>)  
+          }
+        </>
+      )
+    },
+  },
+  
+  
 ]
 
   

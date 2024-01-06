@@ -48,8 +48,10 @@ const SignInPage = () => {
   const onSubmit = async (formData) => {
     setLoading(true);
     try {
+      const toastId = toast.loading("Logging ....")
       const { data } = await apiConnector("POST","/api/login",formData);
       setLoading(false);
+      toast.dismiss(toastId);
       if (data.success) { 
         toast.success("Login Successful");
         if(data?.data?.userType=="admin"){

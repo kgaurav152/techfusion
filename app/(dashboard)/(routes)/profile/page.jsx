@@ -20,18 +20,19 @@ export const ProfilePage = () => {
     const dispatch = useDispatch();
 
     const [loading, setLoading] = useState(false);
-    const [actionSuccess, setActionSuccess] = useState(false);
+    const [actionSuccess, setActionSuccess] = useState(false); 
 
     const { user } = useSelector((state) => state.profile);
     const [participatingEventsData, setparticipatingEventsData] = useState([]);
+    console.log(user)
 
     const fetchParticipatingEventsData = async () => {
         setLoading(true);
         try {
             const { data } = await apiConnector("POST","/api/myEventDetails");
             setLoading(false);
-            if (data.success) {
-            setparticipatingEventsData(data.data);
+            if (data.success) {  
+            setparticipatingEventsData(data.data?.participatedIn);
             } else {
             toast.error(data.message);
             }
@@ -60,7 +61,7 @@ export const ProfilePage = () => {
   }
 
   return (
-        <div className="h-[100vh] flex flex-col items-center mt-2 text-center">
+        <div className="min-h-[100vh] flex flex-col items-center mt-2 text-center">
             {user &&
                 <Card className="mx-auto max-w-xl mb-4 text-left shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
                     <CardContent>
@@ -81,7 +82,7 @@ export const ProfilePage = () => {
             }
             <div className='container mt-4 mb-20 w-4/5'>  
                 <h1 className='text-3xl text-white font-bold'>List of Events</h1>
-                <DataTable columns={columns(setActionSuccess)} data={participatingEventsData} />
+                <DataTable columns={columns(setActionSuccess,user)} data={participatingEventsData} />
             </div>
         </div>
   )

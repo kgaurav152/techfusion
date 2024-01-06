@@ -22,7 +22,7 @@ export async function POST(req) {
         populate: {
           path: "participants",
         },
-      });
+      })
     if (!user) {
       return NextResponse.json({
         success: false,
