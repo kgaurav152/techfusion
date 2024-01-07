@@ -8,7 +8,7 @@ import StarsCanvas from "@/components/StarCanvas";
 
 const DashboardLayout = ({ children }) => {
 
-  const [isGetStarted, setIsGetStarted] = useState(false);
+  const [isGetStarted, setIsGetStarted] = useState(true);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleHover = (hovered) => {
