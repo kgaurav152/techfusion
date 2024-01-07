@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
-import {eventCoordinators} from "@/public/oordinators";
+import {eventCoordinators} from "@/public/coordinators";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from '@/components/ui/card'
 import { Building, Mail, Phone } from 'lucide-react';
