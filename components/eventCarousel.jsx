@@ -130,7 +130,7 @@ function EventCarousel() {
             </span>
           </button>
         </div>
-        <div className="flex justify-center text-green-500 align-middle mt-16 relative z-10">
+        <div className="flex justify-center text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 align-middle mt-16 relative z-10">
           <Link className="btn content-center" href="/events">
             Explore All Events
           </Link>
