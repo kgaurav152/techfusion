@@ -8,7 +8,7 @@ class MyDocument extends Document {
           <title>
             TechFusion&apos;24 - Katihar Engineering College, Katihar
           </title>
-          <meta name="application-name" content="TechFusion" />
+          <meta name="application-name" content="TechFusion'24" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
@@ -34,7 +34,7 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1.0"
           />
-          <meta name="theme-color" content="#fff" />
+          <meta name="theme-color" content="#00040F" />
           <link rel="manifest" href="/manifest.json" />
           <link rel="apple-touch-icon" href="/icon.png" />
         </Head>
