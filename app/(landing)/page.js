@@ -4,47 +4,30 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, MoveUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 // import Link from "next/link";
+// import axios from "axios";
+// import { setUserDetails } from "@/redux/slices/profileSlice";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserDetails } from "@/redux/slices/profileSlice";
 import Image from "next/image";
 import RiveAnimationComponent from "@/components/riveAnimation";
+import EventCarousel from "@/components/eventCarousel";
 
 const LandingPage = () => {
   const router = useRouter();
   const { user } = useSelector((state) => state.profile);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [live, setLive] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
 
-  // const handleHover = () => {
-  //   setIsHovered(true);
-  // };
-
-  // const handleLeave = () => {
-  //   setIsHovered(false);
-  // };
-
   const handleClick = (e, path) => {
     e.preventDefault();
     router.push(path);
   };
-  useEffect(() => {
-    const fetchUserDetails = async () => {
-      const { data } = await axios.get("/api/userDetails");
-      console.log(data);
-      dispatch(setUserDetails(data?.data));
-    };
-    fetchUserDetails();
-  }, []);
 
   return (
     <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative">
-      {/* Provided Decorative Elements */}
-      {/* <StarsCanvas/> */}
       <div className="relative text-center mb-8 lg:min-h-[80vh]">
         <div className="z-0">
           <img
@@ -66,7 +49,6 @@ const LandingPage = () => {
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
               25-28 January 2024
             </p>
-
             {live ? (
               <div>
                 {user ? (
@@ -125,21 +107,16 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
-      <RiveAnimationComponent />
+      {/*Star Wars Animation*/}
+      <RiveAnimationComponent live={live} />
       {/* Events Section */}
-      <section style={{ marginBottom: "40px" }}>
+      <section className="mb-10">
         <div>
-          <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>Events</h2>
-          {/* Brief Info of Events */}
-          <div>
-            {/* Event Cards/Posters */}
-            {/* Example: */}
-            {/* <EventCard title="Event 1" poster="poster1.jpg" /> */}
-            {/* <EventCard title="Event 2" poster="poster2.jpg" /> */}
-
-            {live ? (
-              ""
-            ) : (
+          {/* {live ? (
+            <EventCarousel />
+          ) : (
+            <>
+              <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>Events</h2>
               <div className="flex justify-center">
                 <Image
                   src="/comingSoon.svg"
@@ -148,8 +125,9 @@ const LandingPage = () => {
                   alt="TechFusion'24 Coming Soon"
                 />
               </div>
-            )}
-          </div>
+            </>
+          )} */}
+          <EventCarousel />
         </div>
       </section>
 

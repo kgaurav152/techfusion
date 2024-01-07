@@ -44,7 +44,7 @@ export const ContactUsPage = () => {
     const fetchEvents = async () => {
         // setIsLoading(true);
         try {
-            const { data } = await apiConnector("GET","/api/event/getAllEvent")
+            const { data } = await apiConnector("POST","/api/event/getAllEvent")
             // setIsLoading(false);
             if (data.success) {
             const unRestructuredEvents=data.data;
