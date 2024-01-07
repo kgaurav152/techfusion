@@ -32,6 +32,20 @@ export const columns = (setAllParticipantsData) => [
     header: 'Phone No.'
   },
   {
+    accessorKey: 'accomodation',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Accomodation
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
     accessorKey: 'roomNo',
     header: ({ column }) => {
       return (
@@ -46,14 +60,28 @@ export const columns = (setAllParticipantsData) => [
     },
   },
   {
-    accessorKey: 'accomodation',
+    accessorKey: 'noOfDays',
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Accomodation
+          Days
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
+  },
+  {
+    accessorKey: 'roomAmount',
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Amount Collected
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       )

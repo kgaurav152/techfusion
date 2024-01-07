@@ -65,6 +65,10 @@ export const columns = (setPendingParticipantsData) => [
     },
   },
   {
+    accessorKey: 'registrationFee',
+    header: 'Registration Fee'
+  },
+  {
     accessorKey: 'transactionId',
     header: 'Payment Id'
   },

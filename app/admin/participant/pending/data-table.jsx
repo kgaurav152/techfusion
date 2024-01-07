@@ -1,6 +1,8 @@
 "use client"
 
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
+import { useReactToPrint } from "react-to-print";
+import { useDownloadExcel } from 'react-export-table-to-excel';
 
 import {
   ColumnDef,
@@ -43,15 +45,27 @@ export const DataTable = ({
     const [columnVisibility, setColumnVisibility] = useState({});
     const [rowSelection, setRowSelection] = useState({});
 
-  const table = useReactTable({
-  data,
-  columns,
-  state: {
-      sorting,
-      columnFilters,
-      columnVisibility,
-      rowSelection
-  },
+    const printAreaRef = useRef(null);
+    const handlePrint = useReactToPrint({
+      content: () => printAreaRef.current,
+    });
+
+    const tableRef = useRef(null);
+    const { onDownload } = useDownloadExcel({
+        currentTableRef: tableRef.current,
+        filename: 'List of pending participants',
+        sheet: 'Participants'
+    })
+
+    const table = useReactTable({
+    data,
+    columns,
+    state: {
+        sorting,
+        columnFilters,
+        columnVisibility,
+        rowSelection
+    },
   onSortingChange: setSorting,
   onColumnFiltersChange: setColumnFilters,
   getCoreRowModel: getCoreRowModel(),
@@ -64,91 +78,96 @@ export const DataTable = ({
 
   return (
     <>
-        {/* table */}
-        <div className="flex items-center justify-between">
-            <div className="flex items-center py-4">
-            <Input
-            placeholder="Filter Name..."
-            value={(table.getColumn("name")?.getFilterValue()) ?? ""}
-            onChange={(event) =>
-                table.getColumn("name")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-            />
-            </div>
-            <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button variant="outline" className="ml-auto">
-              <Settings2 /> View
-            </Button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end">
-            {table
-              .getAllColumns()
-              .filter(
-                (column) => column.getCanHide()
+      <div className="text-center text-white mt-8 mb-10">
+        <Button onClick={handlePrint} className="text-white mr-6">
+          Print
+        </Button>
+        <Button onClick={onDownload}> Export excel </Button>
+      </div>
+      <div className="flex items-center justify-between">
+          <div className="flex items-center py-4">
+          <Input
+          placeholder="Filter Name..."
+          value={(table.getColumn("name")?.getFilterValue()) ?? ""}
+          onChange={(event) =>
+              table.getColumn("name")?.setFilterValue(event.target.value)
+          }
+          className="max-w-sm"
+          />
+          </div>
+          <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="outline" className="ml-auto">
+            <Settings2 /> View
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="end">
+          {table
+            .getAllColumns()
+            .filter(
+              (column) => column.getCanHide()
+            )
+            .map((column) => {
+              return (
+                <DropdownMenuCheckboxItem
+                  key={column.id}
+                  className="capitalize"
+                  checked={column.getIsVisible()}
+                  onCheckedChange={(value) =>
+                    column.toggleVisibility(!!value)
+                  }
+                >
+                  {column.id}
+                </DropdownMenuCheckboxItem>
               )
-              .map((column) => {
-                return (
-                  <DropdownMenuCheckboxItem
-                    key={column.id}
-                    className="capitalize"
-                    checked={column.getIsVisible()}
-                    onCheckedChange={(value) =>
-                      column.toggleVisibility(!!value)
-                    }
-                  >
-                    {column.id}
-                  </DropdownMenuCheckboxItem>
-                )
-              })}
-          </DropdownMenuContent>
-        </DropdownMenu>
-        </div>
-        <div className="rounded-md border text-white">
-            <Table>
-              <TableHeader>
-              {table.getHeaderGroups().map((headerGroup) => (
-                  <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map((header) => {
-                      return (
-                      <TableHead key={header.id} className="text-center">
-                          {header.isPlaceholder
-                          ? null
-                          : flexRender(
-                              header.column.columnDef.header,
-                              header.getContext()
-                              )}
-                      </TableHead>
-                      )
-                  })}
-                  </TableRow>
-              ))}
-              </TableHeader>
-              <TableBody>
-              {table.getRowModel().rows?.length ? (
-                  table.getRowModel().rows.map((row) => (
-                  <TableRow
-                      key={row.id}
-                      data-state={row.getIsSelected() && "selected"}
-                  >
-                      {row.getVisibleCells().map((cell) => (
-                      <TableCell key={cell.id}>
-                          {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                      </TableCell>
-                      ))}
-                  </TableRow>
-                  ))
-              ) : (
-                  <TableRow>
-                  <TableCell colSpan={columns.length} className="h-24 text-center">
-                      No results.
-                  </TableCell>
-                  </TableRow>
-              )}
-              </TableBody>
-            </Table>
-            </div>
+            })}
+        </DropdownMenuContent>
+      </DropdownMenu>
+      </div>
+      <div className="rounded-md border text-white print:m-10 print:text-black" ref={printAreaRef}>
+          <Table ref={tableRef}>
+            <TableHeader>
+            {table.getHeaderGroups().map((headerGroup) => (
+                <TableRow key={headerGroup.id}>
+                {headerGroup.headers.map((header) => {
+                    return (
+                    <TableHead key={header.id} className="text-center">
+                        {header.isPlaceholder
+                        ? null
+                        : flexRender(
+                            header.column.columnDef.header,
+                            header.getContext()
+                            )}
+                    </TableHead>
+                    )
+                })}
+                </TableRow>
+            ))}
+            </TableHeader>
+            <TableBody>
+            {table.getRowModel().rows?.length ? (
+                table.getRowModel().rows.map((row) => (
+                <TableRow
+                    key={row.id}
+                    data-state={row.getIsSelected() && "selected"}
+                >
+                    {row.getVisibleCells().map((cell) => (
+                    <TableCell key={cell.id}>
+                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                    </TableCell>
+                    ))}
+                </TableRow>
+                ))
+            ) : (
+                <TableRow>
+                <TableCell colSpan={columns.length} className="h-24 text-center">
+                    No results.
+                </TableCell>
+                </TableRow>
+            )}
+            </TableBody>
+          </Table>
+      </div>
     </>
   )
 }

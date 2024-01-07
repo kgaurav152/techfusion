@@ -78,6 +78,12 @@ export const DataTable = ({
 
   return (
     <>
+      <div className="text-center text-white mt-8 mb-10">
+        <Button onClick={handlePrint} className="text-white mr-6">
+          Print
+        </Button>
+        <Button onClick={onDownload}> Export excel </Button>
+      </div>
         <div className="flex items-center justify-between">
             <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -151,12 +157,6 @@ export const DataTable = ({
             )}
             </TableBody>
           </Table>
-        </div>
-        <div className="text-center text-white mt-20 mb-4">
-          <Button onClick={handlePrint} className="text-white mr-6">
-            Print
-          </Button>
-          <Button onClick={onDownload}> Export excel </Button>
         </div>
     </>
   )
