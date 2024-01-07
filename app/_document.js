@@ -5,7 +5,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>TechFusion'24 - Katihar Engineering College, Katihar</title>
+          <title>
+            TechFusion&apos;24 - Katihar Engineering College, Katihar
+          </title>
           <meta name="application-name" content="TechFusion" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
