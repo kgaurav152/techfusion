@@ -92,7 +92,8 @@ const RegistrationForm = () => {
     batch: z.string({ message: "Must be a valid batch"}),
     knowAbout: z.string({ message: "Select a valid option"}),
     accomodation: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
-    tShirtSize: z.string( { message: "Select a valid option"} ),
+    tShirt: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
+    tShirtSize: z.optional(),
     paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
     otherCollege: z.string().optional(),
     ca_no_ba: z.string().optional(),
@@ -151,38 +152,49 @@ const RegistrationForm = () => {
       data.otherCollege=null;
     };
 
-    const obj = {
-      name: data.name,
-      email: data.email,
-      mobile: data.mobile,
-      password: data.confirmPassword,
-      gender: data.gender,
-      college: data.college == 'other' ? data.otherCollege : data.college,
-      branch: data.branch,
-      batch: data.batch,
-      knowAbout: data.knowAbout,
-      accomodation: data.accomodation,
-      tShirtSize: data.tShirtSize,
-      paymentMethod: data.paymentMethod,
-      ca_no: data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba,
-      transaction_id: data.trx_id == null ? data.ca_no_ca : data.trx_id,
-    };
+    // const obj = {
+    //   name: data.name,
+    //   email: data.email,
+    //   mobile: data.mobile,
+    //   password: data.confirmPassword,
+    //   gender: data.gender,
+    //   college: data.college == 'other' ? data.otherCollege : data.college,
+    //   branch: data.branch,
+    //   batch: data.batch,
+    //   knowAbout: data.knowAbout,
+    //   accomodation: data.accomodation,
+    //   tShirtSize: data.tShirt==="No"?"No":data.tShirtSize,
+    //   paymentMethod: data.paymentMethod,
+    //   ca_no: data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba,
+    //   transaction_id: data.trx_id == null ? data.ca_no_ca : data.trx_id,
+    // };
+
+    const conditionalAmount = data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
+    ? 200
+    : data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'
+    ? 500
+    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
+    ? 300
+    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'? 600: 600 ;
+
     const formData = new FormData();
-    formData.append("name",data.name)
-    formData.append("email",data.email)
-    formData.append("mobile",data.mobile)
-    formData.append("password",data.confirmPassword)
-    formData.append("gender",data.gender)
-    formData.append("college",data.college)
-    formData.append("branch",data.branch)
-    formData.append("batch",data.batch)
-    formData.append("knowAbout",data.knowAbout)
-    formData.append("accomodation",data.accomodation)
-    formData.append("tShirtSize",data.tShirtSize)
-    formData.append("paymentMethod",data.paymentMethod)
-    formData.append("ca_no",data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba)
-    formData.append("transaction_id",data.trx_id == null ? data.ca_no_ca : data.trx_id)
-    formData.append("screenshot",file); 
+    formData.append("name",data.name);
+    formData.append("email",data.email);
+    formData.append("mobile",data.mobile);
+    formData.append("password",data.confirmPassword);
+    formData.append("gender",data.gender);
+    formData.append("college",data.college);
+    formData.append("branch",data.branch);
+    formData.append("batch",data.batch);
+    formData.append("knowAbout",data.knowAbout);
+    formData.append("accomodation",data.accomodation);
+    formData.append("tShirtSize",data.tShirtSize);
+    formData.append("paymentMethod",data.paymentMethod);
+    formData.append("ca_no",data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba);
+    formData.append("transaction_id",data.trx_id == null ? data.ca_no_ca : data.trx_id);
+    formData.append("screenshot",file);
+    formData.append("registrationFee", conditionalAmount);
+
     try {
       const toastId = toast.loading("Creating Account...")
       const { data } = await axios.post("/api/signup", formData);
@@ -535,7 +547,7 @@ const RegistrationForm = () => {
             />
             <FormField
                 control={form.control}
-                name="tshirt"
+                name="tShirt"
                 render={({ field }) => (
                 <FormItem>
                     <FormLabel className="text-white">Do you want TechFusion exclusive T-Shirt?*</FormLabel>
@@ -550,15 +562,16 @@ const RegistrationForm = () => {
                         <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
-                    {form.watch('tshirt')==='Yes' && <FormDescription>Charges of T-Shirt is not included in the registration fee.Each TechFusion exclusive T-Shirt will cost, &#8377; 300, payable by the participant at the time of allotment.</FormDescription>}
+                    {form.watch('tShirt')==='Yes' && <FormDescription>T-Shirt is chargable and an amount of &#8377; 300 will automatically be added to you registration fee shown below.</FormDescription>}
                     <FormMessage />
                 </FormItem>
               )}
             />
-            <FormField
-                  control={form.control}
-                  name="tShirtSize"
-                  render={({ field }) => (
+            {form.watch('tShirt') === "Yes" && (
+              <FormField
+                control={form.control}
+                name="tShirtSize"
+                render={({ field }) => (
                   <FormItem>
                       <FormLabel className="text-white">T-Shirt Size*</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
@@ -576,11 +589,12 @@ const RegistrationForm = () => {
                           ))}
                           </SelectContent>
                       </Select>
-                      <FormDescription>Participant needs to select </FormDescription>
+                      <FormDescription/>
                       <FormMessage />
                   </FormItem>
-              )}
-            />
+                )}
+              />
+            )}
             <FormField
                 control={form.control}
                 name="paymentMethod"
@@ -612,8 +626,14 @@ const RegistrationForm = () => {
                   <div className="flex items-center pt-4">
                   <p className="font-semibold font-mono">
                       Participants can pay registration fee of{' '}
-                      <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 300/-' : 'Rs. 200/-'}
+                      <span className="font-bold"> 
+                        {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                          ? 'Rs. 200/-'
+                          : form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'
+                          ? 'Rs. 500/-'
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                          ? 'Rs. 300/-'
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 600/-'}
                       </span>{' '}
                       on following bank account and upload the screenshot of payment:
                     </p>
@@ -668,7 +688,13 @@ const RegistrationForm = () => {
                     <div className="flex items-center pt-4">
                     <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
                       <span className="font-bold">
-                        {form.watch('college') !== 'Katihar Engineering College, Katihar' ? 'Rs. 300/-' : 'Rs. 200/-'}
+                      {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                          ? 'Rs. 200/-'
+                          : form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'
+                          ? 'Rs. 500/-'
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                          ? 'Rs. 300/-'
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 600/-'}
                       </span>{' '}
                       to Campus Ambassador of their college.</p>
                     </div>

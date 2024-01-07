@@ -96,7 +96,7 @@ function EventCarousel() {
               <h1 className="text-3xl mb-5 animate-fade text-black">
                 {randomEvents[index].name}
               </h1>
-              <p className="text-gray-600 line-clamp-3">{randomEvents[index].description}</p>
+              <p className="text-gray-600 line-clamp-4 text-left">{randomEvents[index].description}</p>
               <Link
                 className="flex items-baseline mt-3 text-blue-800 hover:text-blue-900 focus:text-blue-900"
                 href={`/events/detail/${randomEvents[index]._id}`}

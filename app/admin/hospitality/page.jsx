@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
 
@@ -67,10 +68,11 @@ export function Accomodation() {
           tShirtSize: user.tShirtSize,
           paymentStatus: user.status,
           accomodation: user.accomodation,
+          gender: user.gender,
           tShirtAllocation: user.tShirtAllocation, //true,false/1,0
           roomAllocation: user.roomAllocation, //true,false/1,0
           roomNo: user.roomNo, //actual room no
-          noOfDays: user.noOfDays, //actual room no
+          noOfDays: user.noOfDays, //no of days
         }));
         setAllParticipantsData(restructuredUsers);
       } else {
@@ -90,7 +92,7 @@ export function Accomodation() {
     const obj = {
       userId: data.user.value,
       roomAllocation: true,
-      roomNo: data.room_no,
+      roomNo: data.user?.gender=="female"?"A"+data.room_no:"N"+data.room_no,
       noOfDays: data.day,
       roomAmount: data.amount,
     };
@@ -144,7 +146,7 @@ export function Accomodation() {
                               ? allParticipantsData.find(
                                   (user) => user.value === field.value.value
                                 )?.label
-                              : "Select User"}
+                              : "Select Participant"}
                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                           </Button>
                         </FormControl>
@@ -189,7 +191,7 @@ export function Accomodation() {
                 form.watch("user")?.accomodation === "No" ? (
                   <>
                     <p className="font-mono mt-4">
-                      User hasn&apos;t opted for accomodation.
+                      The Participant hasn&apos;t opted for accomodation.
                     </p>
                   </>
                 ) : (
@@ -199,12 +201,18 @@ export function Accomodation() {
               form.watch("user")?.roomAllocation === true) ? (
                 <>
                   <p className="font-mono mt-4">
-                    User have been allocated Room No.:{" "}
+                    Participant have been allocated Room No.:{" "}
                     <span className="font-semibold">{form.watch("user")?.roomNo}</span> for <span className="font-semibold">{form.watch("user")?.noOfDays}</span> Days
                   </p>
                 </>
               ) : (
                 <>
+                  <p className="font-mono mt-4 mb-2">
+                    Gender: {form.watch("user")?.gender}
+                  </p>
+                  <p className="font-mono mt-4 mb-2">
+                    Hostel To be Allocated: {form.watch("user")?.gender==="female"?"Girls Hostel Alaknanda":"Boys Hostel Nilgiri"}
+                  </p>
                   <FormField
                     control={form.control}
                     name="room_no"
@@ -313,6 +321,7 @@ export function TShirt() {
           label: `${user.festId} - ${user.name}`,
           value: user._id,
           tShirtSize: user.tShirtSize,
+          gender: user.gender,
           paymentStatus: user.status,
           accomodation: user.accomodation,
           tShirtAllocation: user.tShirtAllocation, //true,false/1,0
@@ -389,9 +398,9 @@ export function TShirt() {
                           >
                             {field.value
                               ? allParticipantsData.find(
-                                  (user) => user.value === field.value._id
+                                  (user) => user.value === field.value.value
                                 )?.label
-                              : "Select User"}
+                              : "Select Participant"}
                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                           </Button>
                         </FormControl>
@@ -439,7 +448,14 @@ export function TShirt() {
                   </p>
                 </>
               )}
-              {form.watch("user")?.tShirtAllocation === false && (
+              {form.watch("user")?.tShirtAllocation === false && form.watch("user")?.tShirtSize === "No" (
+                <>
+                  <p className="font-mono mt-4">
+                    The Participant hasn&apos;t opted for T-Shirt.
+                  </p>
+                </>
+              )}
+              {form.watch("user")?.tShirtAllocation === false && form.watch("user")?.tShirtSize != "No" (
                 <>
                   <p className="font-mono">
                     User have selected <b>{form.watch("user")?.tShirtSize}</b>{" "}
@@ -449,7 +465,7 @@ export function TShirt() {
               )}
             </div>
 
-            {form.watch("user")?.tShirtAllocation === false && (
+            {form.watch("user")?.tShirtAllocation === false && form.watch("user")?.tShirtSize != "No" (
               <>
                 <Button
                   type="submit"
@@ -460,6 +476,7 @@ export function TShirt() {
                 </Button>
               </>
             )}
+            
           </form>
         </Form>
       </div>
@@ -468,8 +485,22 @@ export function TShirt() {
 }
 
 export default function Hospitality() {
+
+  const router = useRouter();
+
+  const handleClick = (e, path) => {
+    e.preventDefault();
+    router.push(path);
+  };
+
   return (
-    <div className="flex justify-center mt-4 mb-8">
+    <>
+    
+    <div className='flex justify-center container mt-4 mb-8'>
+        {/* <DataTable columns={columns(setEventData)} data={eventData} /> */}
+        <Button onClick={(e) => handleClick(e, "/admin/hospitality/details")}>View Allocation Details</Button>
+    </div>
+    <div className="flex justify-center mt-4 mb-8 p-2">
       <Tabs defaultValue="accomodation" className="w-[400px] lg:w-[500px]">
         <TabsList className="grid w-full grid-cols-2">
           <TabsTrigger value="accomodation">Accomodation</TabsTrigger>
@@ -484,7 +515,7 @@ export default function Hospitality() {
                   Allocate and View Accomodation related information.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent>
                 <Accomodation />
               </CardContent>
             </Card>
@@ -499,7 +530,7 @@ export default function Hospitality() {
                   Allot T-Shirt and View Status.
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-2">
+              <CardContent>
                 <TShirt />
               </CardContent>
             </Card>
@@ -507,5 +538,6 @@ export default function Hospitality() {
         </TabsContent>
       </Tabs>
     </div>
+</>
   );
 }
