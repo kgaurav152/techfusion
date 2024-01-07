@@ -4,30 +4,32 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { apiConnector } from "@/helpers/apiConnector";
+import { useSelector } from "react-redux";
 
 function EventCarousel() {
 
-  const [eventList, setEventList] = useState([]);
+  // const [eventList, setEventList] = useState([]);
+  const {event} = useSelector((state)=>state.event);
 
-  const fetchEventList = async () => {
-    try {
-      const { data } = await apiConnector("POST", "/api/event/getAllEvent");
-      if (data.success) {
-        setEventList(data.data);
-      } else {
-        console.log(data.message);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const fetchEventList = async () => {
+  //   try {
+  //     const { data } = await apiConnector("POST", "/api/event/getAllEvent");
+  //     if (data.success) {
+  //       setEventList(data.data);
+  //     } else {
+  //       console.log(data.message);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
   
-  useEffect(() => {
-    fetchEventList();
-  }, []);
+  // useEffect(() => {
+  //   fetchEventList();
+  // }, []);
 
-  console.log(eventList);
-    const randomEvents = eventList.filter((event) =>
+  // console.log(eventList);
+    const randomEvents = event.filter((event) =>
         event.description && event.posterUrl !== "https://i.imgur.com/q2Ugtcp.png"
     ).slice(0, 5);
 

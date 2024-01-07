@@ -1,21 +1,17 @@
 import {createSlice} from '@reduxjs/toolkit'
 
 const initialState =  {
-   userDetails:null,
-   participateIn : []
+   user : null, 
 };
 
 const profileSlice = createSlice({
-    name:'auth',
+    name:'profile',
     initialState:initialState,
     reducers : {
         setUserDetails(state, value) {
             state.user = value.payload;
           },
-           
-        // setEvent(state,value) {
-        //     state.token = value.payload;
-        // }
+         
     }
 });
 

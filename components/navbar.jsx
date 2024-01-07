@@ -17,6 +17,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
+import { setEvent } from "@/redux/slices/eventSlice";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const NavBar = () => {
   };
 
   const logoutHandler = async () => {
-    const { data } = await apiConnector("GET","/api/logout");
+    const { data } = await apiConnector("GET", "/api/logout");
     if (data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
@@ -39,14 +40,23 @@ const NavBar = () => {
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const { data } = await apiConnector("POST", "/api/userDetails");
-      // console.log(data)
+      const { data } = await apiConnector("POST", "/api/userDetails"); 
       dispatch(setUserDetails(data?.data));
     };
+
     const token = Cookies.get("token");
-    if(token){
+    if (token) {
       fetchUserDetails();
     }
+  }, [dispatch]);
+
+  useEffect(() => {
+    const fetchEvents = async () => {
+      const { data } = await apiConnector("POST", "/api/event/getAllEvent");
+      console.log(data?.data)
+      dispatch(setEvent(data?.data));
+    };
+    fetchEvents();
   }, [dispatch]);
 
   return (
@@ -54,10 +64,11 @@ const NavBar = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div className="flex-shrink-0">
           <Link href="/" className="text-white font-bold text-lg">
-            <Image src="/TechFusionLogo.svg"
+            <Image
+              src="/TechFusionLogo.svg"
               width={30}
               height={30}
-              alt="TechFusion&apos;24 Logo"
+              alt="TechFusion'24 Logo"
             />
           </Link>
         </div>
@@ -82,7 +93,10 @@ const NavBar = () => {
             Contact Us
           </Link>
           {user && (
-            <Link href="/eventregistration" className="text-white hover:text-[#e11d48]">
+            <Link
+              href="/eventregistration"
+              className="text-white hover:text-[#e11d48]"
+            >
               Event Registration
             </Link>
           )}
@@ -156,31 +170,63 @@ const NavBar = () => {
       {isOpen && (
         <div className="md:hidden mt-4">
           <div className="flex flex-col space-y-4">
-            <Link href="/" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+            <Link
+              href="/"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="text-white z-50 hover:text-[#e11d48]"
+            >
               Home
             </Link>
-            <Link href="/events" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+            <Link
+              href="/events"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="text-white z-50 hover:text-[#e11d48]"
+            >
               Events
             </Link>
             <Link
               href="/kec_techfusion_brochure.pdf"
-              onClick={()=>{setIsOpen(false)}}
+              onClick={() => {
+                setIsOpen(false);
+              }}
               download={`kec_techfusion_brochure.pdf`}
               target="_blank"
               className="text-white z-50 hover:text-[#e11d48]"
             >
               Brochure
             </Link>
-            <Link href="/contact-us" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+            <Link
+              href="/contact-us"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="text-white z-50 hover:text-[#e11d48]"
+            >
               Contact Us
             </Link>
             {user && (
-              <Link href="/eventregistration" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+              <Link
+                href="/eventregistration"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+                className="text-white z-50 hover:text-[#e11d48]"
+              >
                 Event Registration
               </Link>
             )}
             {user && (
-              <Link href="/profile" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+              <Link
+                href="/profile"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+                className="text-white z-50 hover:text-[#e11d48]"
+              >
                 Profile
               </Link>
             )}
@@ -195,18 +241,28 @@ const NavBar = () => {
                       <AvatarImage src="avatar_02.png" />
                     )}
                     <AvatarFallback className="bg-slate-800 text-white">
-                      {user.name[0]}
+                      {user?.name[0]}
                     </AvatarFallback>
                   </Avatar>
                 </PopoverTrigger>
                 <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                  <Button variant="destructive" onClick={logoutHandler} className="z-50">
+                  <Button
+                    variant="destructive"
+                    onClick={logoutHandler}
+                    className="z-50"
+                  >
                     Logout
                   </Button>
                 </PopoverContent>
               </Popover>
             ) : (
-              <Link href="/sign-in" onClick={()=>{setIsOpen(false)}} className="text-white z-50 hover:text-[#e11d48]">
+              <Link
+                href="/sign-in"
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+                className="text-white z-50 hover:text-[#e11d48]"
+              >
                 Login
               </Link>
             )}
