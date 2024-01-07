@@ -64,6 +64,11 @@ const UserSchema = new mongoose.Schema({
     },
     roomAllocation:{
         type:Boolean,
+        default:false,
+    },
+    tShirtAllocation:{
+        type:Boolean,
+        default:false,
     },
     roomNo:{
         type:String,
