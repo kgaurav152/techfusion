@@ -25,20 +25,21 @@ export async function POST(request) {
     const paymentMethod = reqBody.get("paymentMethod");
     const transaction_id = reqBody.get("transaction_id");
     const ca_no = reqBody.get("ca_no");
+    const registrationFee = reqBody.get("registrationFee");
     const screenshot = reqBody.get("screenshot")
-    console.log("Raw Screenshot",screenshot);
+    // console.log("Raw Screenshot",screenshot);
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
     let mime = screenshot.type;
     let encoding = 'base64'
     let base64Data = Buffer.from(screenshotBuffer).toString('base64');
     // const screenshotBufferObj = Buffer.from(screenshotBuffer); 
-    console.log("ScreenShot Buffer",base64Data);
+    // console.log("ScreenShot Buffer",base64Data);
     // const tempFileDirectory = path.join(__dirname,"temp"  );
     // console.log(tempFileDirectory); 
     // const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
     let fileUrl = 'data:'+mime+';'+encoding+','+base64Data;
-    console.log("file temp path",fileUrl);
+    // console.log("file temp path",fileUrl);
 
     // , { dir: "../../../upload" }
 
@@ -62,7 +63,7 @@ export async function POST(request) {
       fileUrl,
       process.env.FOLDER_NAME
       );
-      console.log("Clodinary screenshot Image", screenshotImage);
+      // console.log("Clodinary screenshot Image", screenshotImage);
 
     // fs.unlink(tempFilePath, (err) => {
     //   if (err) {
@@ -87,6 +88,7 @@ export async function POST(request) {
       festId: "KEC" + mobile,
       transactionId: transaction_id,
       ca_no,
+      registrationFee,
       screenshotImage: screenshotImage.secure_url,
     });
     const savedUser = await newUser.save();

@@ -93,7 +93,7 @@ const RegistrationForm = () => {
     knowAbout: z.string({ message: "Select a valid option"}),
     accomodation: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
     tShirt: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
-    tShirtSize: z.optional(),
+    tShirtSize: z.string().optional(),
     paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
     otherCollege: z.string().optional(),
     ca_no_ba: z.string().optional(),
@@ -188,7 +188,7 @@ const RegistrationForm = () => {
     formData.append("batch",data.batch);
     formData.append("knowAbout",data.knowAbout);
     formData.append("accomodation",data.accomodation);
-    formData.append("tShirtSize",data.tShirtSize);
+    formData.append("tShirtSize",data.tShirtSize || "No");
     formData.append("paymentMethod",data.paymentMethod);
     formData.append("ca_no",data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba);
     formData.append("transaction_id",data.trx_id == null ? data.ca_no_ca : data.trx_id);
@@ -726,7 +726,7 @@ const RegistrationForm = () => {
                       <FormLabel className="text-white">Screenshot of Payment (less than 3 mb)*</FormLabel>
                       <FormControl className= "text-white">
                       {/* <Input type="file" onChange={fileHandler} {...field} accept="image/*"/> */}
-                      <input type="file" name="trx_img" onChange={fileHandler} accept="image/*"/>
+                      <input type="file" required name="trx_img" onChange={fileHandler} accept="image/*"/>
                       </FormControl>
                       <FormDescription />
                       <FormMessage />

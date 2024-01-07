@@ -42,7 +42,7 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
-    expectedAmount:{
+    registrationFee:{
         type:String,
         required:true,
     },
