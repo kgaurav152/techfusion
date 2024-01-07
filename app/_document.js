@@ -12,6 +12,10 @@ class MyDocument extends Document {
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
+          <meta
+            name="google-site-verification"
+            content="gFJoFSkD6WYmKV5bO1HwIx3hVUnL8td2UT7l0i1GxS8"
+          />
           <meta name="apple-mobile-web-app-title" content="TechFusion" />
           <meta
             name="description"
