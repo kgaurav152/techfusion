@@ -88,11 +88,11 @@ export const columns = (user,setParticipatingEventsData) => [
     accessorKey: '',
     header: 'Delete',
     cell: ({ row }) => { 
-      const {participants} = row.original
+      const {participants,_id} = row.original
       return (
         <>
           {
-            participants[0]?._id === user?._id ? <DeleteButton setParticipatingEventsData={setParticipatingEventsData} participationId={participationId}/> : (<div>Ask Leader to Delete</div>)  
+            participants[0]?._id === user?._id ? <DeleteButton setParticipatingEventsData={setParticipatingEventsData} participationId={_id} /> : (<div>Ask Leader to Delete</div>)  
           }
         </>
       )

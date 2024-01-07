@@ -49,7 +49,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 export function DeleteEventForm({ setOpen,  participationId, setParticipatingEventsData }) {
   const handleParticipationDeletion = async () => {
     const obj = { 
-      id: participationId
+      participation_id: participationId
     }; 
 
   try {
