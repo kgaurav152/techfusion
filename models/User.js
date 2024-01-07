@@ -42,6 +42,10 @@ const UserSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    expectedAmount:{
+        type:String,
+        required:true,
+    },
     tShirtSize:{
         type:String,
         required:true,
