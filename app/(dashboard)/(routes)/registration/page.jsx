@@ -644,7 +644,7 @@ const RegistrationForm = () => {
               <span>
                 <h1 className="font-bold text-xl text-red-400 underline mb-2">Bank Account Details:</h1>
                 <p>A/c No. - 256312010000302</p>
-                <p>A/c Holder/Name - Katihar Enineering College SDF Account</p>
+                <p>A/c Holder/Name - Katihar Engineering College SDF Account</p>
                 <p>IFSC code - UBIN0554031</p>
                 <p>Bank - Union Bank of India</p>
                 <p>Branch - Mangal Market Road, Katihar (BH)</p>
