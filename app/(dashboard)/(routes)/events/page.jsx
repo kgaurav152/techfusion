@@ -5,29 +5,34 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 import EventCard from "@/components/eventCard";
-import { apiConnector } from '@/helpers/apiConnector';
+import { apiConnector } from '@/helpers/apiConnector'; 
+import { useSelector } from "react-redux";
 
 export const EventList = () => {
-  const [eventList, setEventList] = useState([]);
 
-    const fetchEventList = async () => {
-        try{
-            const toastId = toast.loading("Loading ....")
-            const { data } = await apiConnector("POST", "/api/event/getAllEvent");
-            toast.dismiss(toastId);
-            if (data.success) {
-            setEventList(data.data);
-            } else {
-            toast.error(data.message);
-            }
-        } catch (err) {
-            console.log(err);
-        }
-    };
+  const {event} = useSelector((state)=>state.event);
+  // const [eventList, setEventList] = useState(event);
+
+
+  // console.log("Redux",event)
+    // const fetchEventList = async () => {
+    //     try{
+    //         const toastId = toast.loading("Loading ....")
+    //         const { data } = await apiConnector("POST", "/api/event/getAllEvent");
+    //         toast.dismiss(toastId);
+    //         if (data.success) {
+    //         setEventList(data.data);
+    //         } else {
+    //         toast.error(data.message);
+    //         }
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // };
     
-    useEffect(() => {
-    fetchEventList();
-    }, []);
+    // useEffect(() => {
+    // // fetchEventList();
+    // }, []);
 
   return (
     <div>
@@ -44,7 +49,7 @@ export const EventList = () => {
           </div>
           <br />
           <div className="flex flex-wrap justify-center mt-6">
-            {eventList.map((e) => {
+            {event.map((e) => {
               return (
                 <EventCard
                   key={e._id}

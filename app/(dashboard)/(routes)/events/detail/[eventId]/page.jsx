@@ -50,8 +50,8 @@ export const EventDetailPage = () => {
         filterByEventId(eventId);
       }, [eventList, eventId]);
       
-    console.log(eventId)
-    console.log(event)
+    // console.log(eventId)
+    // console.log(event)
 
   return (
     <section>
