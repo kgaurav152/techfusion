@@ -85,7 +85,7 @@ export const AllEventParticipants = () => {
   return (
         <div className="flex flex-col items-center mt-2 text-center">
             <h1 className='text-3xl text-white font-bold'>Participants by Event</h1>
-            <div className='container mt-4 mb-5 w-4/5'>
+            <div className='container mt-4 mb-5 w-full'>
                 <Popover open={openPop} onOpenChange={setOpenPop}>
                     <PopoverTrigger asChild>
                         <Button
@@ -93,7 +93,7 @@ export const AllEventParticipants = () => {
                         role="combobox"
                         aria-expanded={openPop}
                         className={cn(
-                            "justify-between",
+                            "justify-between w-[300px]",
                             !value && "text-muted-foreground"
                           )}
                         >
@@ -104,7 +104,7 @@ export const AllEventParticipants = () => {
                         <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                         </Button>
                     </PopoverTrigger>
-                    <PopoverContent className="w-[200px] p-0">
+                    <PopoverContent className="w-[300px] p-0">
                         <Command>
                         <CommandInput placeholder="Search Event..." />
                         <CommandEmpty>No Event found.</CommandEmpty>
