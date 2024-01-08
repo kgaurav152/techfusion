@@ -11,7 +11,17 @@ import Link from "next/link";
 export const columns = (setEventData) => [
   {
     accessorKey: 'eventId',
-    header: 'Event Id'
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Event Id
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
   },
   {
     accessorKey: 'name',
