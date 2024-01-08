@@ -114,18 +114,18 @@ function EventCarousel() {
             </svg>
           </div>
           <button
-            className="btn absolute top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-blue-600 hover:text-blue-400 focus:text-blue-400 -ml-6 focus:outline-none focus:shadow-outline"
+            className="btn absolute z-50 top-0 mt-32 left-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-blue-600 hover:text-blue-400 focus:text-blue-400 -ml-6 focus:outline-none focus:shadow-outline"
             onClick={handlePrev}
           >
-            <span className="block" style={{ transform: "scale(-1)" }}>
+            <span className="block z-50" style={{ transform: "scale(-1)" }}>
               &#x279c;
             </span>
           </button>
           <button
-            className="btn absolute top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-blue-600 hover:text-blue-400 focus:text-blue-400 -mr-6 focus:outline-none focus:shadow-outline"
+            className="btn absolute z-50 top-0 mt-32 right-0 bg-white rounded-full shadow-md h-12 w-12 text-2xl text-blue-600 hover:text-blue-400 focus:text-blue-400 -mr-6 focus:outline-none focus:shadow-outline"
             onClick={handleNext}
           >
-            <span className="block" style={{ transform: "scale(1)" }}>
+            <span className="block z-50" style={{ transform: "scale(1)" }}>
               &#x279c;
             </span>
           </button>

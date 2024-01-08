@@ -522,7 +522,6 @@ export default function Hospitality() {
   return (
     <>
       <div className="flex justify-center container mt-4 mb-8">
-        {/* <DataTable columns={columns(setEventData)} data={eventData} /> */}
         <Button onClick={(e) => handleClick(e, "/admin/hospitality/details")}>
           View Allocation Details
         </Button>
