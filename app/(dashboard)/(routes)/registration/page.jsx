@@ -550,7 +550,7 @@ const RegistrationForm = () => {
                 name="tShirt"
                 render={({ field }) => (
                 <FormItem>
-                    <FormLabel className="text-white">Do you want TechFusion exclusive T-Shirt?*</FormLabel>
+                    <FormLabel className="text-white">Do you want TechFusion exclusive SweatShirt?*</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <FormControl>
                         <SelectTrigger>
@@ -562,7 +562,7 @@ const RegistrationForm = () => {
                         <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
-                    {form.watch('tShirt')==='Yes' && <FormDescription>T-Shirt is chargable and an amount of &#8377; 300 will automatically be added to you registration fee shown below.</FormDescription>}
+                    {form.watch('tShirt')==='Yes' && <FormDescription>SweatShirt is chargable and an amount of &#8377; 300 will automatically be added to you registration fee shown below.</FormDescription>}
                     <FormMessage />
                 </FormItem>
               )}
@@ -573,7 +573,7 @@ const RegistrationForm = () => {
                 name="tShirtSize"
                 render={({ field }) => (
                   <FormItem>
-                      <FormLabel className="text-white">T-Shirt Size*</FormLabel>
+                      <FormLabel className="text-white">Sweat Shirt Size*</FormLabel>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                           <SelectTrigger>

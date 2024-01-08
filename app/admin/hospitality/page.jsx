@@ -432,7 +432,7 @@ export function TShirt({fetchAllParticipants,allParticipantsData}) {
                 (form.watch("user")?.tShirtAllocation === true ? (
                   <>
                     <p className="font-mono">
-                      T-Shirt have already been alloted to the User.
+                      Sweat Shirt have already been alloted to the User.
                     </p>
                   </>
                 ) : (
@@ -458,7 +458,7 @@ export function TShirt({fetchAllParticipants,allParticipantsData}) {
                                 disabled={loading}
                                 className="transition w-fit ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
                               >
-                                Allot T-Shirt
+                                Allot Sweat Shirt
                               </Button>
                             </>
                           )}
@@ -531,7 +531,7 @@ export default function Hospitality() {
         <Tabs defaultValue="accomodation" className="w-[400px] lg:w-[500px]">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="accomodation">Accomodation</TabsTrigger>
-            <TabsTrigger value="tShirt">T-Shirt</TabsTrigger>
+            <TabsTrigger value="tShirt">Sweat Shirt</TabsTrigger>
           </TabsList>
           <TabsContent value="accomodation">
             <div>
@@ -552,9 +552,9 @@ export default function Hospitality() {
             <div>
               <Card>
                 <CardHeader>
-                  <CardTitle>T-Shirt</CardTitle>
+                  <CardTitle>Sweat Shirt</CardTitle>
                   <CardDescription>
-                    Allot T-Shirt and View Status.
+                    Allot Sweat Shirt and View Status.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
