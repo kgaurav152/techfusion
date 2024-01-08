@@ -499,6 +499,7 @@ export default function Hospitality() {
           tShirtAllocation: user.tShirtAllocation, //true,false/1,0
           roomAllocation: user.roomAllocation, //true,false/1,0
           roomNo: user.roomNo, //actual room no
+          noOfDays: user.noOfDays, //no of days
         }));
         setAllParticipantsData(restructuredUsers);
       } else {
