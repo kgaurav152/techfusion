@@ -11,6 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 import RiveAnimationComponent from "@/components/riveAnimation";
 import EventCarousel from "@/components/eventCarousel";
+import AboutUs from "@/components/aboutUs";
+import About from "@/components/about";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -18,6 +20,7 @@ const LandingPage = () => {
   // const dispatch = useDispatch();
 
   const [live, setLive] = useState(false);
+  const [clampAbout, setClampAbout] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
 
@@ -144,12 +147,11 @@ const LandingPage = () => {
           </div>
         </div>
       </section>
-
-      {/* About Us Section */}
-      <section style={{ marginBottom: "40px" }}>
+      {/* <AboutUs clampAbout={clampAbout} /> */}
+      <section className="mb-5">
         <div id="aboutus">
-          <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>About Us</h2>
-          {/* Brief Info */}
+          <h2 className=" text-5xl mb-10">About Us</h2>
+          <About />
         </div>
       </section>
     </div>
