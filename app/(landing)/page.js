@@ -133,25 +133,24 @@ const LandingPage = () => {
           <EventCarousel />
         </div>
       </section>
-
-      {/* Sponsors Section */}
-      <section style={{ marginBottom: "40px" }}>
-        <div>
-          <h2 style={{ fontSize: "2rem", marginBottom: "10px" }}>Sponsors</h2>
-          {/* Sponsor Details */}
-          <div>
-            {/* Sponsor Logos */}
-            {/* Example: */}
-            {/* <SponsorLogo src="sponsor1.png" /> */}
-            {/* <SponsorLogo src="sponsor2.png" /> */}
-          </div>
-        </div>
-      </section>
-      {/* <AboutUs clampAbout={clampAbout} /> */}
       <section className="mb-5">
         <div id="aboutus">
           <h2 className=" text-5xl mb-10">About Us</h2>
           <About />
+        </div>
+      </section>
+      {/* Sponsors Section */}
+      <section className="mb-5">
+        <div>
+          <h2 className=" text-5xl mb-10">Sponsors</h2>
+          <div className="flex justify-center">
+            <Image
+              src="/comingSoon.svg"
+              width={900}
+              height={200}
+              alt="TechFusion'24 Coming Soon"
+            />
+          </div>
         </div>
       </section>
     </div>
