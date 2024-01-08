@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
+import { useSelector } from "react-redux";
 import {eventCoordinators} from "@/public/coordinators";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from '@/components/ui/card'
@@ -40,32 +41,49 @@ export const ContactUsPage = () => {
     const [eventData, setEventData] = useState([]);
     const [actionSuccess, setActionSuccess] = useState(false);
 
-    const [participatingEventsData, setparticipatingEventsData] = useState([]);
+    // const [participatingEventsData, setparticipatingEventsData] = useState([]);
+    
+    const {event} = useSelector((state)=>state.event);
 
-    const fetchEvents = async () => {
-        // setIsLoading(true);
-        try {
-            const { data } = await apiConnector("POST","/api/event/getAllEvent")
-            // setIsLoading(false);
-            if (data.success) {
-            const unRestructuredEvents=data.data;
-            const restructuredEvents = unRestructuredEvents.map((event) => ({
+    // const fetchEvents = async () => {
+    //     // setIsLoading(true);
+    //     try {
+    //         const { data } = await apiConnector("POST","/api/event/getAllEvent")
+    //         // setIsLoading(false);
+    //         if (data.success) {
+    //         const unRestructuredEvents=data.data;
+    //         const restructuredEvents = unRestructuredEvents.map((event) => ({
+    //           label: `${event.eventId} - ${event.name}`,
+    //           value: event._id,
+    //           // participationMode:event.participationMode
+    //         }));
+    //         setEventData(restructuredEvents);
+    //         } else {
+    //         toast.error(data.message);
+    //         }
+    //     } catch (err) {
+    //         console.log(err);
+    //     }
+    // }
+      
+    // useEffect(() => {
+    //     fetchEvents();
+    // }, []);
+
+    const reStructureEvent = (events) => {
+        
+        if (event.length > 0) {
+            const restructuredEvents = events.map((event) => ({
               label: `${event.eventId} - ${event.name}`,
               value: event._id,
-              // participationMode:event.participationMode
             }));
             setEventData(restructuredEvents);
-            } else {
-            toast.error(data.message);
-            }
-        } catch (err) {
-            console.log(err);
         }
-    }
+    };
       
     useEffect(() => {
-        fetchEvents();
-    }, []);
+        reStructureEvent(event);
+    }, [event]);
 
     // if(actionSuccess){ 
     //     fetchParticipatingEventsData();

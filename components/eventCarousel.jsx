@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { apiConnector } from "@/helpers/apiConnector";
+// import { apiConnector } from "@/helpers/apiConnector";
 import { useSelector } from "react-redux";
 
 function EventCarousel() {
