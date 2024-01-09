@@ -133,8 +133,10 @@ const EventRegistrationForm = () => {
     }, 120000);
 
     // console.log(obj);
+    var toastId;
+
     try {
-      const toastId = toast.loading("Registering Event...");
+      toastId = toast.loading("Registering Event...");
       const { data } = await apiConnector(
         "POST",
         "/api/eventRegistration",
@@ -152,6 +154,7 @@ const EventRegistrationForm = () => {
     } catch (err) {
       clearTimeout(timeoutError);
       toast.error("Something went wrong. Please try again later.");
+      toast.dismiss(toastId);
       setIsLoading(false);
       console.log(err);
     }

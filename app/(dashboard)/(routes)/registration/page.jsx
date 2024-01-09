@@ -183,8 +183,10 @@ const RegistrationForm = () => {
       setIsLoading(false);
     }, 120000);
 
+    var toastId;
+
     try {
-      const toastId = toast.loading("Creating Account...")
+      toastId = toast.loading("Creating Account...")
       const { data } = await axios.post("/api/signup", formData);
       toast.dismiss(toastId);
       clearTimeout(timeoutError);
@@ -200,6 +202,7 @@ const RegistrationForm = () => {
     } catch (err) {
       clearTimeout(timeoutError);
       toast.error("Something went wrong. Please try again later.");
+      toast.dismiss(toastId);
       setIsLoading(false);
       console.log(err);
     }
