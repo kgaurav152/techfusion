@@ -17,7 +17,7 @@ export async function POST(req){
                 message:"This is protected route for Admin access"
             })
         }
-        const data = await User.find({});
+        const data = await User.find({userType:"participant"});
         const accomodationYes = data.filter((user) => user.accomodation === "Yes");
         const accomodation = {
             yes : accomodationYes.length,
