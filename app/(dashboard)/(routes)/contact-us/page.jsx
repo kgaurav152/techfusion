@@ -2,14 +2,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-import { apiConnector } from "@/helpers/apiConnector";
 import { useSelector } from "react-redux";
 import {eventCoordinators} from "@/public/coordinators";
+import CoordinatorCard from "@/components/coordinatorCard";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from '@/components/ui/card'
-import { Building, Mail, Phone } from 'lucide-react';
-import { ChevronsUpDown, Check, Sparkles } from "lucide-react";
+// import { Card, CardContent } from '@/components/ui/card'
+// import { Building, Mail, Phone } from 'lucide-react';
+import { ChevronsUpDown, Check } from "lucide-react";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import { cn } from "@/lib/utils";
 import {
@@ -30,6 +29,7 @@ Popover,
 PopoverContent,
 PopoverTrigger,
 } from "@/components/ui/popover";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const ContactUsPage = () => {
     
@@ -37,13 +37,30 @@ export const ContactUsPage = () => {
 
     const [loading, setLoading] = useState(false);
     const [openPop, setOpenPop] = useState(false);  
-    const [value, setValue] = useState("");
+    const [value, setValue] = useState({});
     const [eventData, setEventData] = useState([]);
-    const [actionSuccess, setActionSuccess] = useState(false);
-
+    // const [actionSuccess, setActionSuccess] = useState(false);
     // const [participatingEventsData, setparticipatingEventsData] = useState([]);
+    const [eventCoordinator, setEventCoordinator] = useState({});
+
     
     const {event} = useSelector((state)=>state.event);
+
+    const mapCoordinatorsDetails = () => {
+        if (value && value.value) {
+            // console.log(value.label.split(' - ')[0])
+            const selectedEvent = eventCoordinators.find(
+                (event) => event.eventId === value.label.split(' - ')[0]
+            );
+            if (selectedEvent) {
+                setEventCoordinator(selectedEvent);
+            }
+        }
+    };
+
+    useEffect(() => {
+        mapCoordinatorsDetails();
+    }, [value]);
 
     // const fetchEvents = async () => {
     //     // setIsLoading(true);
@@ -85,32 +102,10 @@ export const ContactUsPage = () => {
         reStructureEvent(event);
     }, [event]);
 
-    // if(actionSuccess){ 
-    //     fetchParticipatingEventsData();
-    //     setActionSuccess(false);
-    // }
 
 
-  return (
+    return (
         <div className="flex flex-col items-center mt-2 mb-8 text-center">
-            {/* {user &&
-                <Card className="mx-auto max-w-xl mb-4 text-left shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
-                    <CardContent>
-                        <div className="flex flex-col text-left pt-4">
-                            <span className="pr-12">
-                                <h1 className="font-extrabold text-center text-xl mb-4">Welcome!</h1>
-                                <h2 className="font-bold font-mono text-lg mb-3 flex flex-row">{user.name || 'No Name Found'}</h2>
-                                <p className="font-semibold font-mono mb-1 flex flex-row"><Mail className="h-5 w-5 mr-3"/>{user.email || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row"><Phone className="h-5 w-5 mr-3"/>{user.mobile || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row"><Building className="h-5 w-5 mr-3"/>{user.college || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row">TechFusion Id: {user.festId || 'Not Available'}</p>
-                                <p className="font-semibold font-mono mb-1 flex flex-row">Payment Status: {user.status}</p>
-                            </span>
-                            <Button variant="destructive" onClick={logoutHandler} className="flex items-center mt-4">Logout</Button>
-                        </div>
-                    </CardContent>
-                </Card>
-            } */}
             <div className="text-left text-white mb-4 w-4/5 border-2 border-orange-100 p-4 md:p-10 ">
                 <h2 className='text-2xl text-center underline text-white font-bold'>FAQs</h2>
                 <h4 className='flex flex-row text-lg text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 font-bold mt-5'><SparklesIcon className="text-[#b49bff] mr-2 h-5 w-5" />About TechFusion:</h4>
@@ -213,7 +208,7 @@ export const ContactUsPage = () => {
                                 !value && "text-muted-foreground"
                             )}
                             >
-                            {value?eventData.find(
+                            {value.value?eventData.find(
                                     (event) => event.value === value.value
                                 )?.label
                                 : "Select Event"}
@@ -222,45 +217,49 @@ export const ContactUsPage = () => {
                         </PopoverTrigger>
                         <PopoverContent className="w-[200px] p-0">
                             <Command>
-                            <CommandInput placeholder="Search Event..." />
-                            <CommandEmpty>No Event found.</CommandEmpty>
-                            <CommandGroup>
-                                    {eventData.map((event) => (
-                                    <CommandItem
-                                        value={event.label}
-                                        key={event.value}
-                                        onSelect={() => {
-                                        setValue(event)
-                                        console.log(value)
-                                        setOpenPop(false);
-                                        }}
-                                    >
-                                        <Check
-                                        className={cn(
-                                            "mr-2 h-4 w-4",
-                                            value === event.value
-                                            ? "opacity-100"
-                                            : "opacity-0"
-                                        )}
-                                        />
-                                        {event.label}
-                                    </CommandItem>
-                                    ))}
-                            </CommandGroup>
+                                <CommandInput placeholder="Search Event..." />
+                                <CommandEmpty>No Event found.</CommandEmpty>
+                                <ScrollArea className="h-48 overflow-auto">
+                                    <CommandGroup>
+                                            {eventData.map((event) => (
+                                            <CommandItem
+                                                value={event.label}
+                                                key={event.value}
+                                                onSelect={() => {
+                                                setValue(event)
+                                                // console.log(value)
+                                                setOpenPop(false);
+                                                }}
+                                            >
+                                                <Check
+                                                className={cn(
+                                                    "mr-2 h-4 w-4",
+                                                    value === event.value
+                                                    ? "opacity-100"
+                                                    : "opacity-0"
+                                                )}
+                                                />
+                                                {event.label}
+                                            </CommandItem>
+                                            ))}
+                                    </CommandGroup>
+                                </ScrollArea>
                             </Command>
                         </PopoverContent>
                     </Popover>
                 </div>
-                {value && (
-                    <div className="hello">
-
+                {value.value  && eventCoordinator.coordinators && (
+                    <div className="coordinators">
+                        <h4 className="text-xl font-bold text-white mb-2">Event Coordinators:</h4>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                                {eventCoordinator.coordinators.map((coordinator, index) => (
+                                    <CoordinatorCard key={index} data={coordinator} eventLabel={value.label}/>
+                                ))}
+                            </div>
                     </div>
-
-                )
-                }
+                )};
             </div>
         </div>
-  )
-};
+    )}
 
 export default ContactUsPage;

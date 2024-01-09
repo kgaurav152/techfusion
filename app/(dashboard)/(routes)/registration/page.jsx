@@ -152,23 +152,6 @@ const RegistrationForm = () => {
       data.otherCollege=null;
     };
 
-    // const obj = {
-    //   name: data.name,
-    //   email: data.email,
-    //   mobile: data.mobile,
-    //   password: data.confirmPassword,
-    //   gender: data.gender,
-    //   college: data.college == 'other' ? data.otherCollege : data.college,
-    //   branch: data.branch,
-    //   batch: data.batch,
-    //   knowAbout: data.knowAbout,
-    //   accomodation: data.accomodation,
-    //   tShirtSize: data.tShirt==="No"?"No":data.tShirtSize,
-    //   paymentMethod: data.paymentMethod,
-    //   ca_no: data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba,
-    //   transaction_id: data.trx_id == null ? data.ca_no_ca : data.trx_id,
-    // };
-
     const conditionalAmount = data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
     ? 200
     : data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'
@@ -195,10 +178,16 @@ const RegistrationForm = () => {
     formData.append("screenshot",file);
     formData.append("registrationFee", conditionalAmount);
 
+    const timeoutError = setTimeout(() => {
+      toast.error("Request timed out. Please try again later.");
+      setIsLoading(false);
+    }, 120000);
+
     try {
       const toastId = toast.loading("Creating Account...")
       const { data } = await axios.post("/api/signup", formData);
       toast.dismiss(toastId);
+      clearTimeout(timeoutError);
       setIsLoading(false);
       if (data.success) { 
         toast.success("Registered Successfully!");
@@ -209,6 +198,9 @@ const RegistrationForm = () => {
         toast.error(data.message);
       }
     } catch (err) {
+      clearTimeout(timeoutError);
+      toast.error("Something went wrong. Please try again later.");
+      setIsLoading(false);
       console.log(err);
     }
   }

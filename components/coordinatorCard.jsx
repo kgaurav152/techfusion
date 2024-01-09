@@ -1,5 +1,3 @@
-
-
 import {
     Card,
     CardHeader,
@@ -7,18 +5,19 @@ import {
     CardTitle,
     CardDescription,
     CardContent,
-  } from "@/components/ui/card";
-  
-import { Icon } from 'your-icon-library'; // Adjust accordingly
+} from "@/components/ui/card";
 
-function CoordinatorCard({ data }) {
+import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
+import { IoMdMail } from "react-icons/io";
+
+function CoordinatorCard({ index , data, eventLabel }) {
   return (
     <Card className="mx-auto max-w-xl text-left">
       <CardHeader>
-        <CardTitle>{data.event}</CardTitle>
+        <CardTitle className="text-xl">{eventLabel}</CardTitle>
         <CardDescription />
       </CardHeader>
-      <CardContent className="grid gap-4 lg:gap-2 lg:grid-cols-2">
+      <CardContent className="flex flex-col items-center gap-4 lg:gap-2">
         <div className="flex items-center justify-center">
           <img
             src={data.pictureUrl}
@@ -27,25 +26,32 @@ function CoordinatorCard({ data }) {
           />
         </div>
         <div className="mt-4">
-          <p className="text-lg font-medium">{data.name}</p>
+          <p className="text-xl font-medium mb-2">{data.name}</p>
           {data.mobile ? (
-            <p className="text-sm">
+            <p className="flex flex-row items-center text-sm">
+              
+              <FaPhoneAlt className="hover:text-teal-500 mr-2"/>
               <a href={`tel:${data.mobile}`} className="text-blue-800 hover:underline">
                 {data.mobile}
               </a>
             </p>
-          ) : null}
+          ) : 
+          <p className="flex flex-row items-center text-sm">
+            
+            <FaPhoneAlt className="hover:text-teal-500 mr-2"/>
+            <span>not available</span>
+          </p>}
           <div className="flex items-center mt-4">
-            <a href={`mailto:${data.mail}`} className="text-blue-800 hover:underline">
-              <Icon icon={MailIcon} />
+            <a href={`mailto:${data.email}`} className="text-blue-800 hover:underline">
+              <IoMdMail className="hover:text-sky-300"/>
             </a>
             <a
-              href={`https://www.instagram.com/${data.instaId}`}
+              href={data.instaId}
               target="_blank"
               rel="noopener noreferrer"
               className="ml-4 text-blue-800 hover:underline"
-            >
-              <Icon icon={InstagramIcon} />
+            >              
+              <FaInstagram className="hover:text-red-500"/>
             </a>
             <a
               href={data.linkedin}
@@ -53,7 +59,7 @@ function CoordinatorCard({ data }) {
               rel="noopener noreferrer"
               className="ml-4 text-blue-800 hover:underline"
             >
-              <Icon icon={LinkedInIcon} />
+              <FaLinkedin className="hover:text-sky-300"/>
             </a>
           </div>
         </div>

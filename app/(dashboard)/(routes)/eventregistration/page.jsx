@@ -127,15 +127,21 @@ const EventRegistrationForm = () => {
           };
     const obj = tempObj;
 
-    console.log(obj);
+    const timeoutError = setTimeout(() => {
+      toast.error("Request timed out. Please try again later.");
+      setIsLoading(false);
+    }, 120000);
+
+    // console.log(obj);
     try {
-      const toastId = toast.loading("Regestring Event...");
+      const toastId = toast.loading("Registering Event...");
       const { data } = await apiConnector(
         "POST",
         "/api/eventRegistration",
         obj
       );
       toast.dismiss(toastId);
+      clearTimeout(timeoutError);
       setIsLoading(false);
       if (data.success) {
         toast.success("Registered for Event Successfully!");
@@ -144,6 +150,9 @@ const EventRegistrationForm = () => {
         toast.error(data.message);
       }
     } catch (err) {
+      clearTimeout(timeoutError);
+      toast.error("Something went wrong. Please try again later.");
+      setIsLoading(false);
       console.log(err);
     }
   };
