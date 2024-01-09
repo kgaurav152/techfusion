@@ -50,7 +50,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 export function EventCreationForm({ setOpen, setEventData }) {
 
   const EventCreationFormSchema = z.object({
-    eventType: z.enum(['cultural', 'technical'], { message: "Select a valid option"} ),
+    eventType: z.enum(['Cultural', 'Technical'], { message: "Select a valid option"} ),
     id: z.string().min(1, { message: "Id must be of min. 1 digit"}),
     name: z.string({
       required_error: "Name is required",
@@ -130,8 +130,8 @@ export function EventCreationForm({ setOpen, setEventData }) {
                         </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                        <SelectItem value="cultural">Cultural</SelectItem>
-                        <SelectItem value="technical">Technical</SelectItem>
+                        <SelectItem value="Cultural">Cultural</SelectItem>
+                        <SelectItem value="Technical">Technical</SelectItem>
                         </SelectContent>
                     </Select>
                     <FormDescription />

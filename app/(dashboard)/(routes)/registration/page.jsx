@@ -562,7 +562,7 @@ const RegistrationForm = () => {
                         <SelectItem value="No">No</SelectItem>
                         </SelectContent>
                     </Select>
-                    {form.watch('tShirt')==='Yes' && <FormDescription>SweatShirt is chargable and an amount of &#8377; 300 will automatically be added to you registration fee shown below.</FormDescription>}
+                    {form.watch('tShirt')==='Yes' && <FormDescription>SweatShirt is chargable and an amount of &#8377; 300 will automatically be added to your registration fee shown below.</FormDescription>}
                     <FormMessage />
                 </FormItem>
               )}

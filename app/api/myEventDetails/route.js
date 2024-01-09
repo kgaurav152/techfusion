@@ -12,29 +12,29 @@ export async function POST(req) {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID)
       .populate({
-        path: "technical",
+        path: "Technical",
         populate: {
           path: "event",
         },
       })
       .populate({
-        path: "technical",
+        path: "Technical",
         populate: {
           path: "participants",
         },
       })
       .populate({
-        path: "cultural",
+        path: "Cultural",
         populate: {
           path: "event",
         },
       })
       .populate({
-        path: "cultural",
+        path: "Cultural",
         populate: {
           path: "participants",
         },
-      })
+      });
     if (!user) {
       return NextResponse.json({
         success: false,

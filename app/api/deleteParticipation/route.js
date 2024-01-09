@@ -16,7 +16,7 @@ export async function POST(req) {
     const participation = await Participation.findById(
       participation_id
     ).populate("event");
-    
+
     if (participation.participants[0] != userID) {
       return NextResponse.json({
         success: false,
@@ -24,13 +24,13 @@ export async function POST(req) {
       });
     }
 
-    if (participation.event.eventType === "technical") {
+    if (participation.event.eventType === "Technical") {
       for (let i = 0; i < participation.participants.length; i++) {
         await User.findByIdAndUpdate(participation.participants[i], {
           $pull: { technical: participation._id },
         });
       }
-    } else if (participation.event.eventType === "cultural") {
+    } else if (participation.event.eventType === "Cultural") {
       for (let i = 0; i < participation.participants.length; i++) {
         await User.findByIdAndUpdate(participation.participants[i], {
           $pull: { cultural: participation._id },
@@ -38,7 +38,8 @@ export async function POST(req) {
       }
     }
     await Participation.findByIdAndDelete(participation._id);
-    const data = await User.findById(user._id).populate({
+    const data = await User.findById(user._id)
+      .populate({
         path: "technical",
         populate: {
           path: "event",
@@ -63,12 +64,11 @@ export async function POST(req) {
         },
       });
     return NextResponse.json({
-        success: true,
-        message: "Participation to Event was deleted successfully",
-        data : data
-      });
-
-  } catch (err) { 
+      success: true,
+      message: "Participation to Event was deleted successfully",
+      data: data,
+    });
+  } catch (err) {
     return NextResponse.json({
       error: err.message,
       success: false,
