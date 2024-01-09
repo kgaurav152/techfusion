@@ -60,7 +60,7 @@ export function DeleteEventForm({ setOpen,  participationId, setParticipatingEve
       if (data.success) {
           toast.success("Participation to the event deleted!");
           setOpen(false);
-          setParticipatingEventsData(data.data);
+          setParticipatingEventsData([...data.data?.technical,...data.data?.cultural]);
       } else {
       toast.error(data.message);
       }

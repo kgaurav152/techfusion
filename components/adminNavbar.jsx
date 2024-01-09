@@ -150,26 +150,47 @@ const NavBar = () => {
       {isOpen && (
         <div className="md:hidden mt-4">
           <div className="flex flex-col space-y-4">
-            <Link href="/admin/dashboard" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/dashboard" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
             Dashboard
             </Link>
-            <Link href="/admin/hospitality" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/hospitality" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
               Hospitality
             </Link>
-            <Link href="/admin/manageevent" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/manageevent" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
               Manage Event
             </Link>
-            <Link href="/admin/participant/pending" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/participant/pending" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
               View Pending
             </Link>
-            <Link href="/admin/participant/all" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/participant/all" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
               All Participants
             </Link>
-            <Link href="/admin/participant/events" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/participant/events" 
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
               Event Participants
             </Link>
             {user && 
-            <Link href="/admin/profile" className="text-white hover:text-[#e11d48]">
+            <Link href="/admin/profile" 
+            onClick={() => {
+              setIsOpen(false);
+            }} className="text-white hover:text-[#e11d48]">
               Profile
             </Link>
             }
@@ -193,7 +214,10 @@ const NavBar = () => {
                 </PopoverContent>
                 </Popover>
             ) : (
-                <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
+                <Link href="/sign-in"
+                onClick={() => {
+                  setIsOpen(false);
+                }} className="text-white hover:text-[#e11d48]">
                 Login
                 </Link>
             )}

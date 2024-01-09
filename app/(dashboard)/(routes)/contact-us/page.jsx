@@ -214,7 +214,7 @@ export const ContactUsPage = () => {
                             )}
                             >
                             {value?eventData.find(
-                                    (event) => event.value === value
+                                    (event) => event.value === value.value
                                 )?.label
                                 : "Select Event"}
                             <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
@@ -231,6 +231,7 @@ export const ContactUsPage = () => {
                                         key={event.value}
                                         onSelect={() => {
                                         setValue(event)
+                                        console.log(value)
                                         setOpenPop(false);
                                         }}
                                     >
@@ -250,6 +251,13 @@ export const ContactUsPage = () => {
                         </PopoverContent>
                     </Popover>
                 </div>
+                {value && (
+                    <div className="hello">
+
+                    </div>
+
+                )
+                }
             </div>
         </div>
   )

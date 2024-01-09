@@ -87,7 +87,7 @@ export async function POST(req) {
     let user3 = null;
     let userArray = [user._id];
     if (team_member_1) {
-      user1 = await User.findOne({ festId: team_member_1 });
+      user1 = await User.findOne({ festId: team_member_1.toUpperCase() });
       if (!user1) {
         return NextResponse.json({
           success: false,
@@ -120,7 +120,7 @@ export async function POST(req) {
       userArray.push(user1._id);
     }
     if (team_member_2) {
-      user2 = await User.findOne({ festId: team_member_2 });
+      user2 = await User.findOne({ festId: team_member_2.toUpperCase() });
       if (!user2) {
         return NextResponse.json({
           success: false,
@@ -153,7 +153,7 @@ export async function POST(req) {
       userArray.push(user2._id);
     }
     if (team_member_3) {
-      user3 = await User.findOne({ festId: team_member_3 });
+      user3 = await User.findOne({ festId: team_member_3.toUpperCase() });
       if (!user3) {
         return NextResponse.json({
           success: false,

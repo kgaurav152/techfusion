@@ -53,7 +53,7 @@ const NavBar = () => {
   useEffect(() => {
     const fetchEvents = async () => {
       const { data } = await apiConnector("POST", "/api/event/getAllEvent");
-      console.log(data?.data)
+      // console.log(data?.data)
       dispatch(setEvent(data?.data));
     };
     fetchEvents();
