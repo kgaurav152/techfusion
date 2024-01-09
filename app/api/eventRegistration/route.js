@@ -110,11 +110,11 @@ export async function POST(req) {
         });
       } else if (
         event.eventType === "Cultural" &&
-        user1.Cultural.length == cultural_max_limit
+        user1.cultural.length == cultural_max_limit
       ) {
         return NextResponse.json({
           success: false,
-          message: `${user1.festId} already enrolled in ${cultural_max_limit} cultural events`,
+          message: `${user1.festId} already enrolled in ${cultural_max_limit} Cultural events`,
         });
       }
       userArray.push(user1._id);
@@ -143,7 +143,7 @@ export async function POST(req) {
         });
       } else if (
         event.eventType === "Cultural" &&
-        user2.Cultural.length == cultural_max_limit
+        user2.cultural.length == cultural_max_limit
       ) {
         return NextResponse.json({
           success: false,
@@ -176,7 +176,7 @@ export async function POST(req) {
         });
       } else if (
         event.eventType === "Cultural" &&
-        user3.Cultural.length == cultural_max_limit
+        user3.cultural.length == cultural_max_limit
       ) {
         return NextResponse.json({
           success: false,
@@ -202,13 +202,13 @@ export async function POST(req) {
     if (event.eventType === "Technical") {
       for (let i = 0; i < userArray.length; i++) {
         await User.findByIdAndUpdate(userArray[i], {
-          $push: { Technical: newParticipation._id },
+          $push: { technical: newParticipation._id },
         });
       }
     } else if (event.eventType === "Cultural") {
       for (let i = 0; i < userArray.length; i++) {
         await User.findByIdAndUpdate(userArray[i], {
-          $push: { Cultural: newParticipation._id },
+          $push: { cultural: newParticipation._id },
         });
       }
     }
