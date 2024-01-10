@@ -5,6 +5,7 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 // import * as z from "zod";
 
@@ -48,6 +49,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { apiConnector } from "@/helpers/apiConnector";
 
 const EventRegistrationForm = () => {
+  const router = useRouter();
   const { user } = useSelector((state) => state.profile);
 
   const neonTextStyle = {
@@ -68,6 +70,9 @@ const EventRegistrationForm = () => {
   const [openPop, setOpenPop] = useState(false);
   const [eventData, setEventData] = useState([]);
   const { event } = useSelector((state) => state.event);
+  const [selectedEvent, setSelectedEvent] = useState({});
+  const [instruction, setInstruction] = useState('');
+  const [formLink, setFormLink] = useState(null);
 
   const form = useForm({
     mode: "onChange",
@@ -160,6 +165,50 @@ const EventRegistrationForm = () => {
     }
   };
 
+  const mapEventDetails = () => {
+    if (form.watch('event')) {
+        // console.log(value.label.split(' - ')[0])
+        console.log(form.watch('event').split('@')[0])
+        const e = event.find(
+            (event) => event._id === form.watch('event').split('@')[0]
+        );
+        if (e) {
+          console.log(e)
+            setSelectedEvent(e);
+            console.log(selectedEvent)
+        }
+    }
+};
+
+  useEffect(() => {
+    mapEventDetails();
+  }, [form.watch('event')]);
+
+  useEffect(() => {
+    if (selectedEvent.participationMode=== 'Group') {
+      if(selectedEvent.eventId==="C14"){
+      setInstruction('nukkad');
+      setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
+      }
+      else if(selectedEvent.eventId==="C07"){
+      setInstruction('curtain raiser.');
+      setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
+      }
+      else{        
+      setFormLink(null);
+      setInstruction('Participant Count: Min. 2 and Max. 4 members (Including Team Leader).');
+      }
+    } else if (selectedEvent.participationMode === 'Individual') {
+      setFormLink(null);
+      setInstruction('Participant Count: Individual Participant');
+    }
+  }, [selectedEvent]);
+
+  const handleClick = (e, path) => {
+    e.preventDefault();
+    router.push(path);
+  };
+
   return (
     <React.Fragment>
       {user && user.status === "approved" ? (
@@ -230,10 +279,6 @@ const EventRegistrationForm = () => {
                     A participant can participate in max. 5 Technical and 3
                     Cultural events in total.
                   </p>
-                  <p className="font-semibold font-mono mt-2">
-                    Note: For Group Events min. 2 and max. 4 members (Including
-                    Team Leader) can be part of a group.
-                  </p>
                   {/* {form.watch('event').split('@')[1]==='Individual' && <p className="font-semibold font-mono"></p>} */}
                 </div>
               </CardContent>
@@ -244,7 +289,7 @@ const EventRegistrationForm = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className="mx-auto flex flex-col items-center mb-8"
             >
-              <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
+              <div className="mx-auto w-3/5 md:w-1/5 mb-4">
                 <FormField
                   control={form.control}
                   name="event"
@@ -266,7 +311,7 @@ const EventRegistrationForm = () => {
                                 ? eventData.find(
                                     (event) => event.value === field.value
                                   )?.label
-                                : "Select Event to Enroll"}
+                                : "Select an Event to Enroll"}
                               <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
                             </Button>
                           </FormControl>
@@ -307,6 +352,33 @@ const EventRegistrationForm = () => {
                     </FormItem>
                   )}
                 />
+              </div>
+              {selectedEvent && selectedEvent?._id && (
+                <div className=" mb-4 text-border flex-col w-11/12 mx-auto">
+                  <Card className="mx-auto max-w-xl rounded-lg shadow-md overflow-hidden">
+                    <CardContent className="flex flex-col lg:flex-row items-center justify-center">
+                      <div className="lg:w-1/3 mt-3">
+                        <p  className="text-2xl font-bold mb-2">{selectedEvent.name}</p>
+                        <img src={selectedEvent.posterUrl} alt={selectedEvent.name} className="w-full h-auto" />
+                      </div>
+                      <div className="lg:w-2/3 py-4 mt-3">
+                        <CardTitle/>
+                        <CardContent>
+                          <p className="text-lg mb-1">Mode of Participation: {selectedEvent.participationMode}</p>
+                          <p className="text-lg mb-1">Type of Event: {selectedEvent.eventType}</p>
+                          <p className="text-lg mb-4">{instruction}</p>
+                          {formLink && (<p className="text-lg mb-4">Form Link: <a href={formLink} target="_blank" className="text-blue-800 underline">{formLink}</a></p>)}
+                          <button onClick={(e) => handleClick(e, `/events/detail/${selectedEvent._id}`)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                            View Details
+                          </button>
+                        </CardContent>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              )
+              }
+              <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
                 {form.watch("event")?.split("@")[1] === "Group" && (
                   <>
                     <FormField
@@ -328,6 +400,24 @@ const EventRegistrationForm = () => {
                         </FormItem>
                       )}
                     />
+                    <div>
+                      <FormField
+                        control={form.control}
+                        name="teamName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">
+                              Team Name*
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter Team Name" {...field} />
+                            </FormControl>
+                            <FormDescription />
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
                     <FormField
                       control={form.control}
                       name="tmOne"
@@ -385,24 +475,6 @@ const EventRegistrationForm = () => {
                         </FormItem>
                       )}
                     />
-                    <div>
-                      <FormField
-                        control={form.control}
-                        name="teamName"
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel className="text-white">
-                              Team Name*
-                            </FormLabel>
-                            <FormControl>
-                              <Input placeholder="Enter Team Name" {...field} />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
                   </>
                 )}
                 {form.watch("event")?.split("@")[1] === "Individual" && (

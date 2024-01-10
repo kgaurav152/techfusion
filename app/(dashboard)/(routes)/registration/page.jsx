@@ -158,7 +158,7 @@ const RegistrationForm = () => {
     ? 500
     : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
     ? 300
-    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'? 600: 600 ;
+    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'? 600: 300 ;
 
     const formData = new FormData();
     formData.append("name",data.name);
@@ -620,7 +620,7 @@ const RegistrationForm = () => {
               <CardContent>
                   <div className="flex items-center pt-4">
                   <p className="font-semibold font-mono">
-                      Participants can pay registration fee of{' '}
+                      Participant needs to pay registration fee of{' '}
                       <span className="font-bold"> 
                         {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 200/-'
@@ -628,9 +628,10 @@ const RegistrationForm = () => {
                           ? 'Rs. 500/-'
                           : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 300/-'
-                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 600/-'}
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'}
                       </span>{' '}
-                      on following bank account and upload the screenshot of payment:
+                      on below mentioned bank account and upload the screenshot of payment.
+                    <p className="mt-2">Note: This is one time payment and after this user can participate in upto 5 Technical and 3 Cultural events.</p>
                     </p>
                   </div>
               </CardContent>
@@ -681,7 +682,7 @@ const RegistrationForm = () => {
               <Card className="mx-auto max-w-xl mb-4 text-left">
                 <CardContent>
                     <div className="flex items-center pt-4">
-                    <p className="font-semibold font-mono">Participants can pay registration fee of{' '}
+                    <p className="font-semibold font-mono">Participant can pay registration fee of{' '}
                       <span className="font-bold">
                       {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 200/-'
@@ -689,9 +690,10 @@ const RegistrationForm = () => {
                           ? 'Rs. 500/-'
                           : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 300/-'
-                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 600/-'}
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'}
                       </span>{' '}
-                      to Campus Ambassador of their college.</p>
+                      to Campus Ambassador of their college.
+                    <p className="mt-2">Note: This is one time payment and after this user can participate in upto 5 Technical and 3 Cultural events.</p></p>
                     </div>
                 </CardContent>
               </Card>
