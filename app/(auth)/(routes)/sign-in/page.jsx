@@ -35,6 +35,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setToken } from "@/redux/slices/authSlice";
 import toast from "react-hot-toast";
 import { apiConnector } from "@/helpers/apiConnector";
+import Cookies from "js-cookie";
 
 const SignInPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -54,6 +55,7 @@ const SignInPage = () => {
       toast.dismiss(toastId);
       if (data.success) { 
         toast.success("Login Successful");
+        Cookies.set("IsLoggedIn", true);
         if(data?.data?.userType=="admin"){
           router.push("/admin/dashboard");
         }
