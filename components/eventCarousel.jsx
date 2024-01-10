@@ -29,9 +29,10 @@ function EventCarousel() {
   // }, []);
 
   // console.log(eventList);
-    const randomEvents = event.filter((event) =>
+    const randomEvents = event && Array.isArray(event)
+    ? event.filter((event) =>
         event.description && event.posterUrl !== "https://i.imgur.com/q2Ugtcp.png"
-    ).slice(0, 5);
+    ).slice(0, 5):[];
 
     // console.log(randomEvents);
 

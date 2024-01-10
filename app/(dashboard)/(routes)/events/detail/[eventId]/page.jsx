@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 // import toast from "react-hot-toast";
 // import { apiConnector } from '@/helpers/apiConnector';
 import {useSelector } from "react-redux";
+import {eventCoordinators} from "@/public/coordinators";
+import CoordinatorCard from "@/components/coordinatorCard";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,6 +22,7 @@ export const EventDetailPage = () => {
   const eventId = parts[parts.length - 1];
   // const [eventList, setEventList] = useState([]);
   const [eventDetail, setEventDetail] = useState(null);
+  const [eventCoordinator, setEventCoordinator] = useState({});
 
     const {event} = useSelector((state)=>state.event);
 
@@ -44,6 +47,23 @@ export const EventDetailPage = () => {
       }
     };
 
+    const mapCoordinatorsDetails = () => {
+      setEventCoordinator({});
+      if (eventDetail && eventDetail.eventId) {
+          // console.log(value.label.split(' - ')[0])
+          const selectedEvent = eventCoordinators.find(
+              (event) => event.eventId === eventDetail.eventId
+          );
+          if (selectedEvent) {
+              setEventCoordinator(selectedEvent);
+          }
+      }
+    };
+
+  useEffect(() => {
+      mapCoordinatorsDetails();
+  }, [eventDetail]);
+
     // useEffect(() => {
     //     fetchEventList();
     //   }, []);
@@ -58,8 +78,8 @@ export const EventDetailPage = () => {
   return (
     <section>
         
-    {eventDetail && 
-      <article className="max-w-4xl px-6 py-24 mx-auto space-y-12 text-white">
+    {eventDetail && (
+      <article className="max-w-4xl px-6 py-24 mx-auto space-y-12 min-h-[60vh] text-white">
         <div className="w-full mx-auto space-y-4 text-center">
           <h1 className="font-bold leading-tight text-5xl md:text-7xl text-white">
             {eventDetail.name}
@@ -101,8 +121,18 @@ export const EventDetailPage = () => {
             </Link>
           </div>
         </div>
+        {eventDetail && eventDetail.eventId && eventCoordinator.coordinators && (
+          <div className="coordinators mt-10">
+            <h4 className="text-2xl text-center font-bold text-white mb-10 mt-4">Event Coordinators:</h4>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {eventCoordinator.coordinators.map((coordinator, index) => (
+                <CoordinatorCard key={index} data={coordinator} eventLabel={`${eventDetail.eventId} - ${eventDetail.name}`}/>
+              ))}
+            </div>
+          </div>
+        )}
       </article>
-    }
+    )}
     </section>
   );
 }
