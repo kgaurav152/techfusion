@@ -2,7 +2,7 @@
 import AdminNavBar from "@/components/adminNavbar";
 import Footer from '@/components/footer';
 import { redirect } from "next/navigation";
-import { useEffect } from "react";
+import { useLayoutEffect } from "react"; 
 import { useSelector } from "react-redux";
 
 // import { useEffect } from "react";
@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
 
   const {user} = useSelector((state)=>state.profile);
 
-  useEffect(()=>{
+  useLayoutEffect(()=>{
 
     if(user?.userType !=="admin"){
       redirect("/");
