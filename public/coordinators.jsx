@@ -41,6 +41,14 @@ export const eventCoordinators = [
       eventId:"C02",
       coordinators: [
         {
+            name: "Vani Jha",
+            email: "vanijh09@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/_vani_jha_",
+            pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
+            mobile: null
+        },
+        {
             name: "Shambhu Kumar",
             email: "shambhukr62849@gmail.com",
             linkedin:"https://www.linkedin.com/in/shambhu-kumar-284709215/",
@@ -85,6 +93,14 @@ export const eventCoordinators = [
           pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
           mobile: "7700889658"
         },
+        {
+            name: "Surbhi kumari",
+            email: "naturalisticsurbhi@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/naturalistic_surbhi",
+            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
+            mobile: null
+        },
       ]
     },
     {
@@ -112,6 +128,14 @@ export const eventCoordinators = [
           instaId:"https://instagram.com/ashishh_007",
           pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
           mobile: "9504654584"
+        },
+        {
+            name: "Vani Jha",
+            email: "vanijh09@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/_vani_jha_",
+            pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
+            mobile: null
         },
       ]
     },
@@ -154,6 +178,14 @@ export const eventCoordinators = [
             instaId:"https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
             pictureUrl:"https://i.imgur.com/JNnv3nx.jpg",
             mobile: "7672929694"
+        },
+        {
+            name: "JAYRAJ",
+            email: "ayushkumar192010@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/ayush_aj1920",
+            pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
+            mobile: "7004857357"
         },
       ]
     },
@@ -342,6 +374,14 @@ export const eventCoordinators = [
             pictureUrl:"https://i.imgur.com/RFsUuO1.jpg",
             mobile: "8434912483"
         },
+        {
+            name: "JAYRAJ",
+            email: "ayushkumar192010@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/ayush_aj1920",
+            pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
+            mobile: "7004857357"
+        },
 
       ]
     },
@@ -526,6 +566,14 @@ export const eventCoordinators = [
             instaId:"https://instagram.com/pranjan_09",
             pictureUrl:"https://i.imgur.com/Btu5oV8.jpg",
             mobile: "7070979750"
+        },
+        {
+            name: "Surbhi kumari",
+            email: "naturalisticsurbhi@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/naturalistic_surbhi",
+            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
+            mobile: null
         },
       ]
     },
@@ -835,33 +883,33 @@ export const coordinatordetails = [
         mobile: "9352216102"
     },
     {
-        name: "",
-        email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
+        name: "JAYRAJ",
+        email: "ayushkumar192010@gmail.com",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://www.instagram.com/ayush_aj1920",
+        pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
+        mobile: "7004857357"
+    },
+    {
+        name: "Surbhi kumari",
+        email: "naturalisticsurbhi@gmail.com",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://www.instagram.com/naturalistic_surbhi",
+        pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
+        mobile: "6202945303"
+    },
+    {
+        name: "Vani Jha",
+        email: "vanijh09@gmail.com",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://www.instagram.com/_vani_jha_",
+        pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
+        mobile: "8709691055"
     },
     {
         name: "",
         email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
         instaId:"",
         pictureUrl:"",
         mobile: ""
@@ -947,7 +995,7 @@ export const campusAmbassadors = [
     caId: "KECTF24CA101",
   },
   {
-    name: "",
+    name: "Ashutosh Raj",
     email: "",
     linkedin:"",
     pictureUrl:"",
