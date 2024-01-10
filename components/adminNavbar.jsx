@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Cookies from 'js-cookie';
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
   Popover,
@@ -25,7 +25,8 @@ const NavBar = () => {
   const dispatch = useDispatch();
   const toggleMenu = () => {
     setIsOpen(!isOpen);
-  };
+  }; 
+  
   const logoutHandler = async() =>{
     const {data} = await apiConnector("GET",'/api/logout');
     if(data.success) {
@@ -47,7 +48,9 @@ const NavBar = () => {
       fetchUserDetails();
     }
 
-  },[dispatch])
+  },[dispatch]);
+ 
+ 
 
   return (
     <nav className="bg-gray-900 p-4 mb-4">
