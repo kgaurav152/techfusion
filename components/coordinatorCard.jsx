@@ -1,69 +1,70 @@
 import {
-    Card,
-    CardHeader,
-    CardFooter,
-    CardTitle,
-    CardDescription,
-    CardContent,
+  Card,
+  CardHeader,
+  CardFooter,
+  CardTitle,
+  CardDescription,
+  CardContent,
 } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 import { IoMdMail } from "react-icons/io";
 
-function CoordinatorCard({ index , data, eventLabel }) {
+function CoordinatorCard({ data, eventLabel }) {
   return (
-    <Card className="mx-auto max-w-xl text-left">
-      <CardHeader>
-        <CardTitle className="text-xl">{eventLabel}</CardTitle>
-        <CardDescription />
-      </CardHeader>
-      <CardContent className="flex flex-col items-center gap-4 lg:gap-2">
-        <div className="flex items-center justify-center">
-          <img
+    <Card className="mx-auto max-w-xl rounded-lg shadow-md overflow-hidden">
+      <div className="p-6 text-center">
+        <CardTitle className="text-xl font-bold mb-4">{eventLabel}</CardTitle>
+        <div className="flex justify-center items-center mb-2">
+          {/* <img
             src={data.pictureUrl}
             alt={data.name}
-            className="w-16 h-16 rounded-full"
-          />
+            className="w-32 h-32 rounded-full object-cover mb-2"
+          /> */}
+          <Avatar className="w-32 h-32">
+              <AvatarImage src={data.pictureUrl} 
+            alt={data.name[0]} 
+            className="rounded-full object-cover mb-2"/>
+              <AvatarFallback>{data.name}</AvatarFallback>
+          </Avatar>
         </div>
-        <div className="mt-4">
-          <p className="text-xl font-medium mb-2">{data.name}</p>
-          {data.mobile ? (
-            <p className="flex flex-row items-center text-sm">
-              
-              <FaPhoneAlt className="hover:text-teal-500 mr-2"/>
-              <a href={`tel:${data.mobile}`} className="text-blue-800 hover:underline">
+        <div className="mb-4">
+          <p className="text-lg font-semibold mb-2">{data.name}</p>
+          <div className="flex justify-center items-center mb-4">
+            {data.mobile ? (
+              <a href={`tel:${data.mobile}`} className="flex items-center text-blue-800 hover:underline">
+                <FaPhoneAlt className="mr-2" />
                 {data.mobile}
               </a>
-            </p>
-          ) : 
-          <p className="flex flex-row items-center text-sm">
-            
-            <FaPhoneAlt className="hover:text-teal-500 mr-2"/>
-            <span>not available</span>
-          </p>}
-          <div className="flex items-center mt-4">
-            <a href={`mailto:${data.email}`} className="text-blue-800 hover:underline">
-              <IoMdMail className="hover:text-sky-300"/>
-            </a>
-            <a
-              href={data.instaId}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 text-blue-800 hover:underline"
-            >              
-              <FaInstagram className="hover:text-red-500"/>
-            </a>
-            <a
-              href={data.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-4 text-blue-800 hover:underline"
-            >
-              <FaLinkedin className="hover:text-sky-300"/>
-            </a>
+            ) : (
+              <span className="flex items-center hover:underline">
+              <FaPhoneAlt className="mr-2" /> not available</span>
+            )}
           </div>
         </div>
-      </CardContent>
+        <div className="flex justify-center items-center mb-5">
+          <a href={`mailto:${data.email}`} className="hover:underline mr-4">
+            <IoMdMail className="text-3xl hover:text-purple-600" />
+          </a>
+          <a
+            href={data.instaId}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline mr-5"
+          >
+            <FaInstagram className="text-3xl hover:text-red-500" />
+          </a>
+          <a
+            href={data.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:underline"
+          >
+            <FaLinkedin className="text-3xl hover:text-blue-600" />
+          </a>
+        </div>
+      </div>
     </Card>
   );
 }

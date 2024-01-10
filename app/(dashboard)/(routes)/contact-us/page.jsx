@@ -62,31 +62,6 @@ export const ContactUsPage = () => {
         mapCoordinatorsDetails();
     }, [value]);
 
-    // const fetchEvents = async () => {
-    //     // setIsLoading(true);
-    //     try {
-    //         const { data } = await apiConnector("POST","/api/event/getAllEvent")
-    //         // setIsLoading(false);
-    //         if (data.success) {
-    //         const unRestructuredEvents=data.data;
-    //         const restructuredEvents = unRestructuredEvents.map((event) => ({
-    //           label: `${event.eventId} - ${event.name}`,
-    //           value: event._id,
-    //           // participationMode:event.participationMode
-    //         }));
-    //         setEventData(restructuredEvents);
-    //         } else {
-    //         toast.error(data.message);
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // }
-      
-    // useEffect(() => {
-    //     fetchEvents();
-    // }, []);
-
     const reStructureEvent = (events) => {
         
         if (event.length > 0) {
@@ -194,8 +169,8 @@ export const ContactUsPage = () => {
                     </AccordionItem>
                 </Accordion>
             </div>
-            <div className="flex flex-col items-center mt-4 p-4 w-4/5 text-center">
-                <h3 className='text-xl text-white font-bold'>Select event from below to get contact details of Co-ordinators</h3>
+            <div className="flex flex-col items-center mt-4 p-4 w-4/5 text-center"  id="eventCoordinators">
+                <h3 className='text-xl text-white font-bold'>Select event from below to get contact details of Coordinators</h3>
                 <div className='container mt-4 mb-5'>
                     <Popover open={openPop} onOpenChange={setOpenPop}>
                         <PopoverTrigger asChild>
@@ -226,6 +201,7 @@ export const ContactUsPage = () => {
                                                 value={event.label}
                                                 key={event.value}
                                                 onSelect={() => {
+                                                setEventCoordinator("");
                                                 setValue(event)
                                                 // console.log(value)
                                                 setOpenPop(false);
@@ -250,8 +226,8 @@ export const ContactUsPage = () => {
                 </div>
                 {value.value  && eventCoordinator.coordinators && (
                     <div className="coordinators">
-                        <h4 className="text-xl font-bold text-white mb-2">Event Coordinators:</h4>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                        <h4 className="text-xl font-bold text-white mb-10 mt-4">Event Coordinators:</h4>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                                 {eventCoordinator.coordinators.map((coordinator, index) => (
                                     <CoordinatorCard key={index} data={coordinator} eventLabel={value.label}/>
                                 ))}

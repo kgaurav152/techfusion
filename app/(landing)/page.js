@@ -1,17 +1,17 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MoveUpRight } from "lucide-react";
+import { MoveUpRight } from "lucide-react";
 import { useRouter } from "next/navigation";
 // import Link from "next/link";
 // import axios from "axios";
 // import { setUserDetails } from "@/redux/slices/profileSlice";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 import Image from "next/image";
 import RiveAnimationComponent from "@/components/riveAnimation";
 import EventCarousel from "@/components/eventCarousel";
-import AboutUs from "@/components/aboutUs";
+// import AboutUs from "@/components/aboutUs";
 import About from "@/components/about";
 
 const LandingPage = () => {
@@ -20,7 +20,7 @@ const LandingPage = () => {
   // const dispatch = useDispatch();
 
   const [live, setLive] = useState(false);
-  const [clampAbout, setClampAbout] = useState(true);
+  // const [clampAbout, setClampAbout] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
 
