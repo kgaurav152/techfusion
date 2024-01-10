@@ -13,7 +13,6 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import axios from "axios";
 import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";

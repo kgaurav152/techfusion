@@ -22,6 +22,7 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export const AllEventParticipants = () => {
     
@@ -108,29 +109,31 @@ export const AllEventParticipants = () => {
                         <Command>
                         <CommandInput placeholder="Search Event..." />
                         <CommandEmpty>No Event found.</CommandEmpty>
-                        <CommandGroup>
-                                {eventData.map((event) => (
-                                <CommandItem
-                                    value={event.label}
-                                    key={event.value}
-                                    onSelect={() => {
-                                    setValue(event.value)
-                                    setOpenPop(false);
-                                    fetchAllEventParticipants(event.value);
-                                    }}
-                                >
-                                    <Check
-                                    className={cn(
-                                        "mr-2 h-4 w-4",
-                                        value === event.value
-                                        ? "opacity-100"
-                                        : "opacity-0"
-                                    )}
-                                    />
-                                    {event.label}
-                                </CommandItem>
-                                ))}
-                        </CommandGroup>
+                        <ScrollArea className="h-48 overflow-auto">
+                            <CommandGroup>
+                                    {eventData.map((event) => (
+                                    <CommandItem
+                                        value={event.label}
+                                        key={event.value}
+                                        onSelect={() => {
+                                        setValue(event.value)
+                                        setOpenPop(false);
+                                        fetchAllEventParticipants(event.value);
+                                        }}
+                                    >
+                                        <Check
+                                        className={cn(
+                                            "mr-2 h-4 w-4",
+                                            value === event.value
+                                            ? "opacity-100"
+                                            : "opacity-0"
+                                        )}
+                                        />
+                                        {event.label}
+                                    </CommandItem>
+                                    ))}
+                            </CommandGroup>
+                        </ScrollArea>
                         </Command>
                     </PopoverContent>
                 </Popover>

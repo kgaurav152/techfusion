@@ -1,4 +1,3 @@
-import { Heart, HeartIcon } from 'lucide-react';
 import React from 'react';
 import { FaTelegram, FaInstagram, FaChrome, FaLinkedin, FaHeart } from 'react-icons/fa';
 
