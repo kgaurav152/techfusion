@@ -74,7 +74,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
 
     const obj = {
       eventType: data.eventType,
-      eventId: (data.eventType=="cultural")?"C"+data.id:"T"+data.id,
+      eventId: (data.eventType=="Cultural")?"C"+data.id:"T"+data.id,
       name: data.name,
       participationMode: data.participationMode,
       description: data.description,
