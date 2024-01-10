@@ -12,15 +12,15 @@ import { useSelector } from "react-redux";
 const DashboardLayout = ({ children }) => {
   const {user} = useSelector(state=>state.profile);
   
+  const IsLoggedIn = Cookies.get("IsLoggedIn");
   useEffect(()=>{
-    const IsLoggedIn = Cookies.get("IsLoggedIn");
     if(!IsLoggedIn){
       redirect("/");
     }
     if(user && user?.userType !=="admin"){
       redirect("/");
     }
-  },[user]);
+  },[user,IsLoggedIn]);
   return (      
     <div>
       <div className=" min-h-[100vh] bg-[#00040F] relative" >
