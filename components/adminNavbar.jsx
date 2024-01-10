@@ -33,6 +33,7 @@ const NavBar = () => {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
       Cookies.remove('token');
+      Cookies.set("IsLoggedIn", false);
       router.push('/');
     }
   }

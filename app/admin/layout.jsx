@@ -1,6 +1,7 @@
 "use client";
 import AdminNavBar from "@/components/adminNavbar";
 import Footer from '@/components/footer';
+import Cookies from "js-cookie";
 import { redirect } from "next/navigation";
 import { useEffect } from "react"; 
 import { useSelector } from "react-redux";
@@ -10,8 +11,10 @@ import { useSelector } from "react-redux";
 
 const DashboardLayout = ({ children }) => {
   const {user} = useSelector(state=>state.profile);
+  
   useEffect(()=>{
-    if(!user){
+    const IsLoggedIn = Cookies.get("IsLoggedIn");
+    if(!IsLoggedIn){
       redirect("/");
     }
     if(user && user?.userType !=="admin"){
