@@ -15,7 +15,7 @@ export const eventCoordinators = [
                 name: "Piyush Priyadarshi",
                 email: "piyushjha.code@gmail.com",
                 linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-                instaId:"https://www.instagram.com/piyushjha",
+                instaId:"https://www.instagram.com/piyush._.priyadarshi",
                 pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
                 mobile: "9572165854"
             }     
@@ -393,7 +393,7 @@ export const eventCoordinators = [
             name: "Piyush Priyadarshi",
             email: "piyushjha.code@gmail.com",
             linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-            instaId:"https://www.instagram.com/piyushjha",
+            instaId:"https://www.instagram.com/piyush._.priyadarshi",
             pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
             mobile: "9572165854"
         },
@@ -697,7 +697,7 @@ export const eventCoordinators = [
             name: "Piyush Priyadarshi",
             email: "piyushjha.code@gmail.com",
             linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-            instaId:"https://www.instagram.com/piyushjha",
+            instaId:"https://www.instagram.com/piyush._.priyadarshi",
             pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
             mobile: "9572165854"
         },
@@ -742,7 +742,7 @@ export const coordinatordetails = [
         name: "Piyush Priyadarshi",
         email: "piyushjha.code@gmail.com",
         linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-        instaId:"https://www.instagram.com/piyushjha",
+        instaId:"https://www.instagram.com/piyush._.priyadarshi",
         pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
         mobile: "9572165854"
     },
