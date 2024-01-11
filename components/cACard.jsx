@@ -11,7 +11,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
 import { IoMdMail } from "react-icons/io";
 
-function CACard({ data, eventLabel }) {
+function CACard({ data }) {
   return (
     <Card className="mx-auto max-w-xl rounded-lg shadow-md overflow-hidden">
       <div className="p-6 text-center">

@@ -128,16 +128,16 @@ export const CAPage = () => {
                 </div>
                 {value && campusAmbassador ? campusAmbassador.college && (
                     <div className="coordinators">
-                        <h4 className="text-xl font-bold text-white mb-10 mt-4">TechFusion'24 Campus Ambassdor:</h4>
+                        <h4 className="text-xl font-bold text-white mb-10 mt-4">TechFusion&apos;24 Campus Ambassdor:</h4>
                             <div className="grid grid-cols-1">
-                                <CACard data={campusAmbassador} eventLabel={`TechFusion'24`}/>
+                                <CACard data={campusAmbassador}/>
                             </div>
                     </div>
                 ):(
                     <>
                     {value.length>0 && (
                         <div className="mt-8">
-                            <p className="text-white mb-4 mt-2"><span className="text-red-500">Oops!</span> We don't have our <span className="text-yellow-300">Torch Bearer</span> from you College Yet!</p>
+                            <p className="text-white mb-4 mt-2"><span className="text-red-500">Oops!</span> We don&apos;t have our <span className="text-yellow-300">Torch Bearer</span> from you College Yet!</p>
                             <p className="text-white mb-4 mt-8">Want to be our <span className="text-yellow-300">Torch Bearer</span> for your College ? contact:</p>
                             {selectedCP  && <CoordinatorCard data={selectedCP} eventLabel={"Contact Person"}/>}
                         </div>
