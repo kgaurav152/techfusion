@@ -16,7 +16,7 @@ export const eventCoordinators = [
                 email: "piyushjha.code@gmail.com",
                 linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
                 instaId:"https://www.instagram.com/piyushjha",
-                pictureUrl:"",
+                pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
                 mobile: "9572165854"
             }     
         ]
@@ -394,7 +394,7 @@ export const eventCoordinators = [
             email: "piyushjha.code@gmail.com",
             linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
             instaId:"https://www.instagram.com/piyushjha",
-            pictureUrl:"",
+            pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
             mobile: "9572165854"
         },
         {
@@ -698,7 +698,7 @@ export const eventCoordinators = [
             email: "piyushjha.code@gmail.com",
             linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
             instaId:"https://www.instagram.com/piyushjha",
-            pictureUrl:"",
+            pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
             mobile: "9572165854"
         },
 
@@ -743,7 +743,7 @@ export const coordinatordetails = [
         email: "piyushjha.code@gmail.com",
         linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
         instaId:"https://www.instagram.com/piyushjha",
-        pictureUrl:"",
+        pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
         mobile: "9572165854"
     },
     {
@@ -996,13 +996,13 @@ export const campusAmbassadors = [
   },
   {
     name: "Ashutosh Raj",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    email: "rajashutoshtechnomission@gmail.com",
+    linkedin:"https://www.linkedin.com/in/ashutosh-raj-950993215",
+    pictureUrl:"https://i.imgur.com/zSrGlDj.png",
+    mobile: "6201883418",
+    batch: "2K21",
+    branch: "Civil",
+    college: "Government Engineering College, Banka",
     caId: "KECTF24CA102",
   },
   {

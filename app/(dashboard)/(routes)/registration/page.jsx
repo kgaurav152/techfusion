@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge"
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronsUpDown, Check, MousePointerClick } from "lucide-react";
+import { ChevronsUpDown, Check, MousePointerClick, Search } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import {
@@ -706,7 +706,13 @@ const RegistrationForm = () => {
                       <FormControl>
                       <Input placeholder="Enter CA code" {...field} />
                       </FormControl>
-                      <FormDescription />
+                      <FormDescription>
+                        <Badge variant="outline" className=" bg-emerald-100">
+                          <a className="flex flex-row items-center underline decoration-double decoration-emerald-400" href='/torchbearers/campusambassador' target="_blank" rel="noopener noreferrer">
+                          find your college&apos;s CA<Search className="ml-2"/>
+                          </a>
+                        </Badge>
+                      </FormDescription>
                       <FormMessage />
                   </FormItem>
                 )}
