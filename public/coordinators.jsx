@@ -994,40 +994,30 @@ export const coordinatordetails = [
         pictureUrl:"",
         mobile: ""
     },
-
     {
-      "_id": "659be06ed82445ce80a42177",
-      "name": "Cinematography",
-      "eventType": "Cultural",
-      "eventId": "C08",
-      "participationMode": "Group",
-      "description": "The Cinematography  invites filmmakers to showcase their storytelling prowess through the lens of a camera. Participants create visually stunning and compelling short films, exploring the intersection of technology and storytelling in the world of cinema",
-      "ruleBook": "https://drive.google.com/file/d/1m-7ZO4ROr5JfMGXdZgIO9Di3meAmixEr/view?usp=drive_link",
-      "posterUrl": "https://i.imgur.com/WJn6oSd.png",
-      "__v": 0
-  },
-  {
-      "_id": "659bfb0ce9077200569bf82a",
-      "name": "Nrityakala",
-      "eventType": "Cultural",
-      "eventId": "C05",
-      "participationMode": "Individual",
-      "description": "Nrityakala, a captivating expression of culture and tradition through classical dance, takes center stage at our upcoming tech fest. This cultural extravaganza aims to celebrate the rich heritage of classical dance forms, showcasing the grace, rhythm, and storytelling embedded in these traditional art forms. Renowned dancers and choreographers will converge to demonstrate the nuances of Bharatanatyam, Kathak, Odissi, and other classical dances, captivating the audience with mesmerizing performances.",
-      "ruleBook": "https://drive.google.com/file/d/1szhr28t3v2iXf_SEyngNUU6x7D_XyF3t/view?usp=drive_link",
-      "posterUrl": "https://i.imgur.com/52IdDeU.png",
-      "__v": 0
-  },
-//   {
-//     "_id": "659d96d1ac9a8135acb6371b",
-//     "name": "Nukkad",
-//     "eventType": "Cultural",
-//     "eventId": "T14",
-//     "participationMode": "Group",
-//     "description": "Nukkad Natak is a street play that combines artistic expression with social messages. Participants create short, impactful performances that address societal issues, aiming to raise awareness and provoke thought among the audience. This dramatic and engaging form of storytelling allows participants to showcase their creativity, acting skills, and the ability to convey important messages in a compelling manner.",
-//     "ruleBook": "https://drive.google.com/file/d/1pOkWOQs9SQ6RgACrFVqt47S974mDhNpH/view?usp=drive_link",
-//     "posterUrl": "https://i.imgur.com/Isg5tWX.png",
-//     "__v": 0
-// },
+        name: "",
+        email: "",
+        linkedin:"",
+        instaId:"",
+        pictureUrl:"",
+        mobile: ""
+    },
+    {
+        name: "",
+        email: "",
+        linkedin:"",
+        instaId:"",
+        pictureUrl:"",
+        mobile: ""
+    },
+    {
+        name: "",
+        email: "",
+        linkedin:"",
+        instaId:"",
+        pictureUrl:"",
+        mobile: ""
+    }
 ];
 
 export const campusAmbassadors = [
@@ -1065,25 +1055,25 @@ export const campusAmbassadors = [
     caId: "KECTF24CA103",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Manish Kumar Yadav",
+    email: "manishkumar198438@gmail.com",
+    linkedin:"https://www.linkedin.com/in/manish-kumar-yadav-a3b320271",
+    pictureUrl:"https://i.imgur.com/Sh3u7Kr.jpg",
+    mobile: "9142595082",
+    batch: "2K22",
+    branch: "Mechanical Engineering",
+    college: "Bhagalpur College Of Engineering, Bhagalpur",
     caId: "KECTF24CA104",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Rohit Kumar",
+    email: "rohitkumarrajapakar1@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/jmQhwyN.png",
+    mobile: "6204019976",
+    batch: "2K21",
+    branch: "Electrical Engineering",
+    college: "Sitamarhi Institute of Technology, Sitamarhi",
     caId: "KECTF24CA105",
   },
   {
