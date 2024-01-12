@@ -907,6 +907,22 @@ export const coordinatordetails = [
         mobile: "8709691055"
     },
     {
+        name: "DEEP DARSHAN",
+        email: "deepdarshan9472@gmail.com",
+        linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
+        instaId:"https://instagram.com/deep.darshan_10",
+        pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
+        mobile: "9472924073"
+    },
+    {
+        name: "Rajlakshmi",
+        email: "rajlakshm8008@gmail.com",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://instagram.com/Its_me_rajbhardwaj",
+        pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
+        mobile: "7992398132"
+    },
+    {
         name: "",
         email: "",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
@@ -917,23 +933,7 @@ export const coordinatordetails = [
     {
         name: "",
         email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
         instaId:"",
         pictureUrl:"",
         mobile: ""
@@ -1006,14 +1006,14 @@ export const campusAmbassadors = [
     caId: "KECTF24CA102",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Suraj Kumar",
+    email: "kumarsurajsk843116@gmail.com",
+    linkedin:"https://www.linkedin.com/in/suraj-kumar-5a69ab26b",
+    pictureUrl:"https://i.imgur.com/DpswZz2.jpg",
+    mobile: "9508886079",
+    batch: "2K22",
+    branch: "Mechanical Engineering",
+    college: "Bhagalpur College of Engineering, Bhagalpur",
     caId: "KECTF24CA103",
   },
   {
