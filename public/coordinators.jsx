@@ -33,6 +33,14 @@ export const eventCoordinators = [
           pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
           mobile: "7700889658"
         },
+        {
+            name: "Rajlakshmi",
+            email: "rajlakshm8008@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/Its_me_rajbhardwaj",
+            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
+            mobile: null
+        },
 
       ]
     },
@@ -107,6 +115,14 @@ export const eventCoordinators = [
       eventName: "Nrityakala",
       eventId:"C05",
       coordinators: [
+        {
+            name: "Rajlakshmi",
+            email: "rajlakshm8008@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/Its_me_rajbhardwaj",
+            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
+            mobile: null
+        },
 
       ]
     },
@@ -114,6 +130,14 @@ export const eventCoordinators = [
       eventName: "Photography",
       eventId:"C06",
       coordinators: [
+      {
+          name: "DEEP DARSHAN",
+          email: "deepdarshan9472@gmail.com",
+          linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
+          instaId:"https://instagram.com/deep.darshan_10",
+          pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
+          mobile: "9472924073"
+      },
 
       ]
     },
@@ -143,6 +167,14 @@ export const eventCoordinators = [
       eventName: "Cinematography",
       eventId:"C08",
       coordinators: [
+        {
+            name: "Rajlakshmi",
+            email: "rajlakshm8008@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/Its_me_rajbhardwaj",
+            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
+            mobile: null
+        },
         {
             name: "Abhishek Kumar Gupta",
             email: "abhish1205@gmail.com",
@@ -200,6 +232,14 @@ export const eventCoordinators = [
             instaId:"https://instagram.com/Imsmaditya",
             pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
             mobile: "6206223238"
+        },
+        {
+            name: "DEEP DARSHAN",
+            email: "deepdarshan9472@gmail.com",
+            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
+            instaId:"https://instagram.com/deep.darshan_10",
+            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
+            mobile: "9472924073"
         },
       ]
     },
@@ -625,6 +665,14 @@ export const eventCoordinators = [
       eventName: "Armstong",
       eventId:"T19",
       coordinators: [
+        {
+            name: "DEEP DARSHAN",
+            email: "deepdarshan9472@gmail.com",
+            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
+            instaId:"https://instagram.com/deep.darshan_10",
+            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
+            mobile: "9472924073"
+        },
 
       ]
     },
