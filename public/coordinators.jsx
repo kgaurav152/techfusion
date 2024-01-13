@@ -1,25 +1,25 @@
 export const eventCoordinators = [
     {
-        eventName: "Website Development",
-        eventId:'WD',
-        coordinators: [
-            {
-            name: "Kumar Gaurav",
-            email: "kgaurav152@gmail.com",
-            linkedin:"https://www.linkedin.com/in/kgaurav152",
-            instaId:"https://www.instagram.com/kgaurav152",
-            pictureUrl:"https://i.imgur.com/vZkbfL0.png",
-            mobile: "7004174269"
-            },
-            {
-                name: "Piyush Priyadarshi",
-                email: "piyushjha.code@gmail.com",
-                linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-                instaId:"https://www.instagram.com/piyush._.priyadarshi",
-                pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
-                mobile: "9572165854"
-            }     
-        ]
+      eventName: "Website Development",
+      eventId:'WD',
+      coordinators: [
+        {
+        name: "Kumar Gaurav",
+        email: "kgaurav152@gmail.com",
+        linkedin:"https://www.linkedin.com/in/kgaurav152",
+        instaId:"https://www.instagram.com/kgaurav152",
+        pictureUrl:"https://i.imgur.com/vZkbfL0.png",
+        mobile: "7004174269"
+        },
+        {
+            name: "Piyush Priyadarshi",
+            email: "piyushjha.code@gmail.com",
+            linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
+            instaId:"https://www.instagram.com/piyush._.priyadarshi",
+            pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
+            mobile: "9572165854"
+        }   
+      ]
     },
     {
       eventName: "Quiz",
@@ -116,28 +116,43 @@ export const eventCoordinators = [
       eventId:"C05",
       coordinators: [
         {
+            name: "Sujit Kumar",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "9097668195"
+        },
+        {
             name: "Rajlakshmi",
             email: "rajlakshm8008@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
             instaId:"https://instagram.com/Its_me_rajbhardwaj",
             pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
             mobile: null
-        },
-
+        }
       ]
     },
     {
       eventName: "Photography",
       eventId:"C06",
       coordinators: [
-      {
-          name: "DEEP DARSHAN",
-          email: "deepdarshan9472@gmail.com",
-          linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
-          instaId:"https://instagram.com/deep.darshan_10",
-          pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
-          mobile: "9472924073"
-      },
+        {
+            name: "Aditya Kumar",
+            email: "smadityakumar22@gmail.com",
+            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
+            instaId:"https://instagram.com/Imsmaditya",
+            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
+            mobile: "6206223238"
+        },
+        {
+            name: "DEEP DARSHAN",
+            email: "deepdarshan9472@gmail.com",
+            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
+            instaId:"https://instagram.com/deep.darshan_10",
+            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
+            mobile: "9472924073"
+        },
 
       ]
     },
@@ -185,10 +200,18 @@ export const eventCoordinators = [
         },
       ]
     },
-    {
+    { 
       eventName: "Sanskriti",
       eventId:"C09",
       coordinators: [
+        {
+            name: "Ravi Kumar",
+            email: "rks22082022@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/rk_ravikumar21_",
+            pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
+            mobile: "9352216102"
+        },
         {
             name: "Bhawana Kumari",
             email: "bhawanakumari694@gmail.com",
@@ -255,6 +278,14 @@ export const eventCoordinators = [
             pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
             mobile: "7257827104"
         },
+        {
+            name: "Shafque Afrin",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: null
+        }
       ]
     },
     {
@@ -315,7 +346,14 @@ export const eventCoordinators = [
         pictureUrl:"https://i.imgur.com/vZkbfL0.png",
         mobile: "7004174269"
         },
-
+        {
+            name: "Shafque Afrin",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: null
+        }
       ]
     },
     {
@@ -376,7 +414,14 @@ export const eventCoordinators = [
             pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
             mobile: "9352216102"
         },
-
+        {
+            name: "Nancy Kumari",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: ""
+        }
       ]
     },
     {
@@ -630,20 +675,43 @@ export const eventCoordinators = [
       eventId:"T16",
       coordinators: [
         {
+            name: "Sujit Kumar",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "9097668195"
+        },
+        {
             name: "Prakash Ranjan",
             email: "Prakashranjan710@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
             instaId:"https://instagram.com/pranjan_09",
             pictureUrl:"https://i.imgur.com/Btu5oV8.jpg",
             mobile: "7070979750"
-        },
+        }
       ]
     },
     {
       eventName: "Bot A Maze",
       eventId:"T17",
       coordinators: [
-
+        {
+            name: "Sujit Kumar",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "9097668195"
+        },
+        {
+            name: "Surbhi kumari",
+            email: "naturalisticsurbhi@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/naturalistic_surbhi",
+            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
+            mobile: null
+        }
       ]
     },
     {
@@ -681,7 +749,14 @@ export const eventCoordinators = [
             pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
             mobile: "9472924073"
         },
-
+        {
+            name: "Kavi Azad",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "6207542778"
+        }
       ]
     },
     {
@@ -742,7 +817,14 @@ export const eventCoordinators = [
           pictureUrl:"https://i.imgur.com/X4LuNUq.jpg",
           mobile: null
         },
-
+        {
+            name: "Kavi Azad",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "6207542778"
+        }
       ]
     },
     {
@@ -757,7 +839,14 @@ export const eventCoordinators = [
             pictureUrl:"https://i.imgur.com/IymjlZl.jpg",
             mobile: "9572165854"
         },
-
+        {
+            name: "Shashi Bhushan",
+            email: "",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://instagram.com/keckatihar",
+            pictureUrl:"",
+            mobile: "7274093132"
+        }
       ]
     },
     {
@@ -987,42 +1076,42 @@ export const coordinatordetails = [
         mobile: "7992398132"
     },
     {
-        name: "",
+        name: "Kavi Azad",
         email: "",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"",
+        instaId:"https://instagram.com/keckatihar",
         pictureUrl:"",
-        mobile: ""
+        mobile: "6207542778"
     },
     {
-        name: "",
+        name: "Shafque Afrin",
         email: "",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"",
+        instaId:"https://instagram.com/keckatihar",
         pictureUrl:"",
         mobile: ""
     },
     {
-        name: "",
+        name: "Sujit Kumar",
         email: "",
-        linkedin:"",
-        instaId:"",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://instagram.com/keckatihar",
         pictureUrl:"",
-        mobile: ""
+        mobile: "9097668195"
     },
     {
-        name: "",
+        name: "Shashi Bhushan",
         email: "",
-        linkedin:"",
-        instaId:"",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://instagram.com/keckatihar",
         pictureUrl:"",
-        mobile: ""
+        mobile: "7274093132"
     },
     {
-        name: "",
+        name: "Nancy Kumari",
         email: "",
-        linkedin:"",
-        instaId:"",
+        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        instaId:"https://instagram.com/keckatihar",
         pictureUrl:"",
         mobile: ""
     },

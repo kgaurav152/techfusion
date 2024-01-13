@@ -57,6 +57,7 @@
     "react-day-picker": "^8.8.1",
     "react-dom": "^18",
     "react-export-table-to-excel": "^1.0.6",
+    "react-ga": "^3.3.1",
     "react-hook-form": "^7.45.4",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
