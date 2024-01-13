@@ -143,13 +143,23 @@ const LandingPage = () => {
       <section className="mb-5">
         <div>
           <h2 className=" text-5xl mb-10">Sponsors</h2>
-          <div className="flex justify-center">
+          <div className="flex items-center">
+            <h2 className="text-5xl mt-2 mb-4">Title Sponsor</h2>
             <Image
+              src="/assets/sponsor/techvein_logo.png"
+              width={900}
+              height={200}
+              alt="TechVein It Solutions Pvt. Ltd. Logo"
+            />
+          </div>
+          <div className="flex justify-center">
+            {/* <Image
               src="/comingSoon.svg"
               width={900}
               height={200}
               alt="TechFusion'24 Coming Soon"
-            />
+            /> */}
+            <p></p>
           </div>
         </div>
       </section>
