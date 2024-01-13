@@ -149,8 +149,8 @@ const LandingPage = () => {
             </h2>
             <Image
               src="/assets/sponsor/techvein_logo.png"
-              width={450}
-              height={80}
+              width={250}
+              height={40}
               alt="TechVein It Solutions Pvt. Ltd. Logo"
             />
           </div>
