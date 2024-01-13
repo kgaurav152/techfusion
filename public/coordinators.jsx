@@ -751,12 +751,12 @@ export const eventCoordinators = [
         },
         {
             name: "Kavi Azad",
-            email: "",
+            email: "kaviazad123@gamil.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            instaId:"https://instagram.com/kaviazad30",
+            pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
             mobile: "6207542778"
-        }
+        },
       ]
     },
     {
@@ -819,12 +819,12 @@ export const eventCoordinators = [
         },
         {
             name: "Kavi Azad",
-            email: "",
+            email: "kaviazad123@gamil.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            instaId:"https://instagram.com/kaviazad30",
+            pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
             mobile: "6207542778"
-        }
+        },
       ]
     },
     {
@@ -841,10 +841,10 @@ export const eventCoordinators = [
         },
         {
             name: "Shashi Bhushan",
-            email: "",
+            email: "shashi1842@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
             instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            pictureUrl:"https://i.imgur.com/CHCursZ.jpg",
             mobile: "7274093132"
         }
       ]
@@ -1077,10 +1077,10 @@ export const coordinatordetails = [
     },
     {
         name: "Kavi Azad",
-        email: "",
+        email: "kaviazad123@gamil.com",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"",
+        instaId:"https://instagram.com/kaviazad30",
+        pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
         mobile: "6207542778"
     },
     {
@@ -1101,10 +1101,10 @@ export const coordinatordetails = [
     },
     {
         name: "Shashi Bhushan",
-        email: "",
+        email: "shashi1842@gmail.com",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
         instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"",
+        pictureUrl:"https://i.imgur.com/CHCursZ.jpg",
         mobile: "7274093132"
     },
     {
