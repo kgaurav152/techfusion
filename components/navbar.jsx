@@ -89,6 +89,9 @@ const NavBar = () => {
           >
             Brochure
           </Link>
+          <Link href="/torchbearers/campusambassador" className="text-white hover:text-[#e11d48]">
+            Campus Ambassador
+          </Link>
           <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
@@ -198,6 +201,15 @@ const NavBar = () => {
               className="text-white z-50 hover:text-[#e11d48]"
             >
               Brochure
+            </Link>
+            <Link
+              href="/torchbearers/campusambassador"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+              className="text-white z-50 hover:text-[#e11d48]"
+            >
+              Campus Ambassador
             </Link>
             <Link
               href="/contact-us"

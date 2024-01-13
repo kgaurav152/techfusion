@@ -227,7 +227,7 @@ export const ContactUsPage = () => {
                 {value.value  && eventCoordinator.coordinators && (
                     <div className="coordinators">
                         <h4 className="text-xl font-bold text-white mb-10 mt-4">Event Coordinators:</h4>
-                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                            <div className="flex flex-col lg:flex-row items-center gap-8">
                                 {eventCoordinator.coordinators.map((coordinator, index) => (
                                     <CoordinatorCard key={index} data={coordinator} eventLabel={value.label}/>
                                 ))}

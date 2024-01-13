@@ -32,17 +32,20 @@ export const CAPage = () => {
     const [loading, setLoading] = useState(false);
     const [openPop, setOpenPop] = useState(false);  
     const [value, setValue] = useState({});
-    const [campusAmbassador, setCampusAmbassador] = useState();
+    const [campusAmbassador, setCampusAmbassador] = useState([]);
     const [caContactPerson, setCaContactPerson] = useState({});
 
     const mapCADetails = () => {
         if (value) {
-            const selectedCA = campusAmbassadors.find(
+            const selectedCA = campusAmbassadors.filter(
                 (ca) => ca.college === value
             );
-            if (selectedCA) {
-                // console.log(selectedCA)
+            if (selectedCA.length > 0) {
+                console.log(selectedCA)
                 setCampusAmbassador(selectedCA);
+                
+            } else {
+                setCampusAmbassador([]);
             }
         }
     };
@@ -66,8 +69,6 @@ export const CAPage = () => {
     //     mapCAContactDetails();
     //     console.log(caContactPerson);
     // }, []);
-
-
 
     return (
         <div className="flex flex-col items-center mt-2 mb-8 text-center">
@@ -126,11 +127,15 @@ export const CAPage = () => {
                         </PopoverContent>
                     </Popover>
                 </div>
-                {value && campusAmbassador ? campusAmbassador.college && (
-                    <div className="coordinators">
+                {value && campusAmbassador.length > 0 ? (
+                    <div className="campusAmbassadors">
                         <h4 className="text-xl font-bold text-white mb-10 mt-4">TechFusion&apos;24 Campus Ambassdor:</h4>
-                            <div className="grid grid-cols-1">
-                                <CACard data={campusAmbassador}/>
+                            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                {campusAmbassador.length>0 && campusAmbassador.map((ca,index)=>
+                                 <CACard key={index} data={ca}/>
+                                )
+
+                                }
                             </div>
                     </div>
                 ):(

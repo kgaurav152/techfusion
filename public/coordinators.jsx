@@ -498,6 +498,14 @@ export const eventCoordinators = [
       eventId:"T10",
       coordinators: [
         {
+            name: "Vishal Kumar Singh",
+            email: "vishalkrsinghmsk@gmail.com",
+            linkedin:"https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
+            instaId:"https://www.instagram.com/vksrajputt",
+            pictureUrl:"https://i.imgur.com/AGMOOtM.jpg",
+            mobile: "8178572536"
+        },
+        {
             name: "Abhishek Raj",
             email: "abhisinghal276@gmail.com",
             linkedin:"https://www.linkedin.com/in/abhishek-raj",
@@ -795,6 +803,14 @@ export const coordinatordetails = [
         mobile: "9572165854"
     },
     {
+        name: "Vishal Kumar Singh",
+        email: "vishalkrsinghmsk@gmail.com",
+        linkedin:"https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
+        instaId:"https://www.instagram.com/vksrajputt",
+        pictureUrl:"https://i.imgur.com/AGMOOtM.jpg",
+        mobile: "8178572536"
+    },
+    {
         name: "Aashish Kumar",
         email: "ashishkumar24603@gmail.com",
         linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
@@ -1062,7 +1078,7 @@ export const campusAmbassadors = [
     mobile: "9142595082",
     batch: "2K22",
     branch: "Mechanical Engineering",
-    college: "Bhagalpur College Of Engineering, Bhagalpur",
+    college: "Bhagalpur College of Engineering, Bhagalpur",
     caId: "KECTF24CA104",
   },
   {
@@ -1077,14 +1093,14 @@ export const campusAmbassadors = [
     caId: "KECTF24CA105",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Shubham Kumar Singh",
+    email: "shubhamkr10singh10@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/k80N6Ln.jpg",
+    mobile: "7323072186",
+    batch: "2K20",
+    branch: "Electrical Engineering",
+    college: "Government Engineering College, Gopalganj",
     caId: "KECTF24CA106",
   },
   {
