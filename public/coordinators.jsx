@@ -117,10 +117,10 @@ export const eventCoordinators = [
       coordinators: [
         {
             name: "Sujit Kumar",
-            email: "",
+            email: "sujitkumar5305@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            instaId:"https://instagram.com/Talent_sadda_sujit",
+            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
             mobile: "9097668195"
         },
         {
@@ -279,13 +279,13 @@ export const eventCoordinators = [
             mobile: "7257827104"
         },
         {
-            name: "Shafque Afrin",
-            email: "",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            name: "Shafaque Afrin",
+            email: "afrinshafaque@gmail.com",
+            linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
             instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            pictureUrl:"https://i.imgur.com/AwlTbme.png",
             mobile: null
-        }
+        },
       ]
     },
     {
@@ -347,13 +347,13 @@ export const eventCoordinators = [
         mobile: "7004174269"
         },
         {
-            name: "Shafque Afrin",
-            email: "",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            name: "Shafaque Afrin",
+            email: "afrinshafaque@gmail.com",
+            linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
             instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            pictureUrl:"https://i.imgur.com/AwlTbme.png",
             mobile: null
-        }
+        },
       ]
     },
     {
@@ -676,10 +676,10 @@ export const eventCoordinators = [
       coordinators: [
         {
             name: "Sujit Kumar",
-            email: "",
+            email: "sujitkumar5305@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            instaId:"https://instagram.com/Talent_sadda_sujit",
+            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
             mobile: "9097668195"
         },
         {
@@ -698,10 +698,10 @@ export const eventCoordinators = [
       coordinators: [
         {
             name: "Sujit Kumar",
-            email: "",
+            email: "sujitkumar5305@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
+            instaId:"https://instagram.com/Talent_sadda_sujit",
+            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
             mobile: "9097668195"
         },
         {
@@ -1084,19 +1084,19 @@ export const coordinatordetails = [
         mobile: "6207542778"
     },
     {
-        name: "Shafque Afrin",
-        email: "",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
+        name: "Shafaque Afrin",
+        email: "afrinshafaque@gmail.com",
+        linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
         instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"",
-        mobile: ""
+        pictureUrl:"https://i.imgur.com/AwlTbme.png",
+        mobile: "6202167228"
     },
     {
         name: "Sujit Kumar",
-        email: "",
+        email: "sujitkumar5305@gmail.com",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"",
+        instaId:"https://instagram.com/Talent_sadda_sujit",
+        pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
         mobile: "9097668195"
     },
     {
@@ -1193,25 +1193,25 @@ export const campusAmbassadors = [
     caId: "KECTF24CA106",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Aditya Prakash",
+    email: "adityaprakash698@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/QlTNHqN.jpg",
+    mobile: "7691807122",
+    batch: "2K21",
+    branch: "EEE",
+    college: "Gaya College of Engineering, Gaya",
     caId: "KECTF24CA107",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Devanshu Raj",
+    email: "devanshurajofficial@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/qBjum7h.jpg",
+    mobile: "7909091809",
+    batch: "2K22",
+    branch: "Civil Engineering",
+    college: "Government Engineering College, Munger",
     caId: "KECTF24CA108",
   },
   {
