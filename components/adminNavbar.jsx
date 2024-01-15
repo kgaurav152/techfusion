@@ -97,9 +97,9 @@ const NavBar = () => {
                 {" "}
                 <Avatar>              
                   {user.gender === 'female' ? (
-                    <AvatarImage src="../avatar_01.png" />
+                    <AvatarImage src="/avatar_01.png" />
                   ) : (
-                    <AvatarImage src="../avatar_02.png" />
+                    <AvatarImage src="/avatar_02.png" />
                   )}
                   <AvatarFallback className="bg-slate-800">
                     {user.name[0]} 
