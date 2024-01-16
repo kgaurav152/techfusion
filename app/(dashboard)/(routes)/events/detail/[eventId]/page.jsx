@@ -97,6 +97,12 @@ export const EventDetailPage = () => {
           <h2 className="font-bold leading-tight text-2xl md:text-4xl">
             Event Id: {eventDetail.eventId}
           </h2>
+          <h2 className="font-bold leading-tight text-2xl md:text-4xl">
+            Event Type: {event.eventType}
+          </h2>
+          <h2 className="font-bold leading-tight text-2xl md:text-4xl">
+            Participation Type: {event.participationMode}
+          </h2>
         </div>
         <div className="dark:text-gray-100 prose lg:prose-xl">
           <ReactMarkdown remarkPlugins={[remarkGfm]}>

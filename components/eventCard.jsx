@@ -24,6 +24,10 @@ const EventCard = ({event}) => {
             {event.name} 
             <br/>
             <p className="text-base">Event Id: {event.eventId}</p>
+            <br/>
+            <p className="text-base">Event Type: {event.eventType}</p>
+            <br/>
+            <p className="text-base">Participation Type: {event.participationMode}</p>
           </div>
           <p className="text-gray-300 text-base line-clamp-5">
             {event.description}

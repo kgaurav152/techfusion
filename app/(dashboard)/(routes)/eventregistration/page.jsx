@@ -187,11 +187,11 @@ const EventRegistrationForm = () => {
   useEffect(() => {
     if (selectedEvent.participationMode=== 'Group') {
       if(selectedEvent.eventId==="C14"){
-      setInstruction('nukkad');
+      setInstruction('For team with more than 4 members needs to fill the form attached below, for any enquiry contact event co-ordinator, details available at event page');
       setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
       }
       else if(selectedEvent.eventId==="C07"){
-      setInstruction('curtain raiser.');
+      setInstruction('For team with more than 4 members needs to fill the form attached below, for any enquiry contact event co-ordinator, details available at event page');
       setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
       }
       else{        
