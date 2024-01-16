@@ -98,10 +98,10 @@ export const EventDetailPage = () => {
             Event Id: {eventDetail.eventId}
           </h2>
           <h2 className="font-bold leading-tight text-2xl md:text-4xl">
-            Event Type: {event.eventType}
+            Event Type: {eventDetail.eventType}
           </h2>
           <h2 className="font-bold leading-tight text-2xl md:text-4xl">
-            Participation Type: {event.participationMode}
+            Participation Type: {eventDetail.participationMode}
           </h2>
         </div>
         <div className="dark:text-gray-100 prose lg:prose-xl">
