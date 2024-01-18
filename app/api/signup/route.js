@@ -26,19 +26,19 @@ export async function POST(request) {
     const transaction_id = reqBody.get("transaction_id");
     const ca_no = reqBody.get("ca_no");
     const registrationFee = reqBody.get("registrationFee");
-    const screenshot = reqBody.get("screenshot")
+    const screenshot = reqBody.get("screenshot");
     // console.log("Raw Screenshot",screenshot);
     // Converting Image to Array Buffer
     const screenshotBuffer = await screenshot.arrayBuffer();
     let mime = screenshot.type;
-    let encoding = 'base64'
-    let base64Data = Buffer.from(screenshotBuffer).toString('base64');
-    // const screenshotBufferObj = Buffer.from(screenshotBuffer); 
+    let encoding = "base64";
+    let base64Data = Buffer.from(screenshotBuffer).toString("base64");
+    // const screenshotBufferObj = Buffer.from(screenshotBuffer);
     // console.log("ScreenShot Buffer",base64Data);
     // const tempFileDirectory = path.join(__dirname,"temp"  );
-    // console.log(tempFileDirectory); 
+    // console.log(tempFileDirectory);
     // const tempFilePath = tempWrite.sync(screenshotBufferObj,"screenshot");
-    let fileUrl = 'data:'+mime+';'+encoding+','+base64Data;
+    let fileUrl = "data:" + mime + ";" + encoding + "," + base64Data;
     // console.log("file temp path",fileUrl);
 
     // , { dir: "../../../upload" }
@@ -54,13 +54,15 @@ export async function POST(request) {
         message: "User already exists",
       });
     }
-    
-    const transaction = await User.findOne({ transactionId : transaction_id});
-    if (user) {
-      return NextResponse.json({
-        success: false,
-        message: "This transactionId is already Present",
-      });
+
+    if (transaction_id) {
+      const transaction = await User.findOne({ transactionId: transaction_id });
+      if (transaction) {
+        return NextResponse.json({
+          success: false,
+          message: "This transactionId is already Present",
+        });
+      }
     }
 
     // //hash passwordscreensscreenshot
@@ -70,8 +72,8 @@ export async function POST(request) {
     const screenshotImage = await uploadImageToCloudinary(
       fileUrl,
       process.env.FOLDER_NAME
-      );
-      // console.log("Clodinary screenshot Image", screenshotImage);
+    );
+    // console.log("Clodinary screenshot Image", screenshotImage);
 
     // fs.unlink(tempFilePath, (err) => {
     //   if (err) {
