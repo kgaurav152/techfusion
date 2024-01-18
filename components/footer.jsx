@@ -34,7 +34,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/keckatihar" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/techfusion_kec" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="text-white hover:text-red-500" size={24} />
                 </a>
               </li>
@@ -46,7 +46,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='flex flex-row items-center mt-6'>
-            Made with<FaHeart className="text-[#ff8787] ml-2 mr-2" />by C.S.E Dept., KEC, Katihar
+            <a href="/torchbearers/developer" className="flex flex-row items-center hover:text-[#e11d48]">Made with<FaHeart className="text-[#ff8787] ml-2 mr-2" />by C.S.E Dept., KEC, Katihar</a>
           </div>
         </div>
 
@@ -85,7 +85,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="https://www.instagram.com/keckatihar" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.instagram.com/techfusion_kec" target="_blank" rel="noopener noreferrer">
                   <FaInstagram className="text-white hover:text-red-500" size={24} />
                 </a>
               </li>
@@ -97,7 +97,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className='flex flex-row items-center mt-4'>
-            Made with<FaHeart className="text-[#ff8787] ml-1 mr-1" />by C.S.E Dept., KEC, Katihar
+            <a href="/torchbearers/developer" className="flex flex-row items-center hover:text-[#e11d48]">Made with<FaHeart className="text-[#ff8787] ml-1 mr-1" />by C.S.E Dept., KEC, Katihar</a>
           </div>
         </div>
       </div>

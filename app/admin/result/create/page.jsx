@@ -3,9 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { apiConnector } from '@/helpers/apiConnector';
 import toast from "react-hot-toast";
-import { format } from "date-fns"
 import { Button } from "@/components/ui/button";
-import { ChevronsUpDown, Check, Calendar as CalendarIcon, Plus, Trash2 } from "lucide-react";
+import { ChevronsUpDown, Check, Plus, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
 Command,
@@ -19,8 +18,16 @@ Popover,
 PopoverContent,
 PopoverTrigger,
 } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Calendar } from "@/components/ui/calendar";
 import { Input } from '@/components/ui/input';
 
 export const CustomParticipantSelector = ({ value, onChange, participantData }) => {
@@ -77,10 +84,10 @@ export const CustomParticipantSelector = ({ value, onChange, participantData }) 
 export const CreateResultPage = () => {
 
     const [loading, setLoading] = useState(false);
-    const [openPop, setOpenPop] = useState(false);  
+    const [openPop, setOpenPop] = useState(false);
     const [openCalPop, setOpenCalPop] = useState(false);  
-    const [value, setValue] = React.useState("");
-    const [date, setDate] = React.useState();
+    const [value, setValue] = React.useState(""); 
+    const [round, setRound] = useState("");
     const [eventData, setEventData] = useState([]);
     const [participantData, setParticipantData] = useState([]);
     const [rows, setRows] = useState([{ participant: '', rank: '', score: '', description: '' }]);
@@ -171,7 +178,7 @@ export const CreateResultPage = () => {
 
     const submissionObj = {
       event_id: value,
-      event_date: date,
+      event_round: round,
       result: resultArray,
     };
 
@@ -236,33 +243,20 @@ export const CreateResultPage = () => {
                     </Command>
                 </PopoverContent>
             </Popover>
-            <Popover open={openCalPop} onOpenChange={setOpenCalPop} className="mt-4 mb-2">
-                <PopoverTrigger asChild>
-                    <Button
-                    variant={"outline"}
-                    className={cn(
-                        "w-[280px] justify-start text-left font-normal",
-                        !date && "text-muted-foreground"
-                    )}
-                    >
-                    <CalendarIcon className="mr-2 h-4 w-4" />
-                    {date ? format(date, "PPP") : <span>Select date</span>}
-                    </Button>
-                </PopoverTrigger>
-                <PopoverContent className="w-auto p-0">
-                    <Calendar
-                    mode="single"
-                    selected={date}
-                    onSelect={(d) => {
-                    setDate(d);                        
-                    setOpenCalPop(false);                        
-                    }}
-                    initialFocus
-                    />
-                </PopoverContent>
-            </Popover>
+            <Select onValueChange={(v) => {setRound(v);}}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select round" />
+              </SelectTrigger>
+              <SelectContent>
+                  <SelectItem value="Round 1">Round 1</SelectItem>
+                  <SelectItem value="Round 2">Round 2</SelectItem>
+                  <SelectItem value="Round 3">Round 3</SelectItem>
+                  <SelectItem value="Round 4">Round 4</SelectItem>
+                  <SelectItem value="Final">Final</SelectItem>
+              </SelectContent>
+            </Select>
         </div>
-        {date && participantData.length>0 && rows.map((row, index) => (
+        {round && participantData.length>0 && rows.map((row, index) => (
             <div key={index} className='flex flex-row gap-3 mt-2 mb-2'>
                 <CustomParticipantSelector
                 value={row.participant}
@@ -287,7 +281,7 @@ export const CreateResultPage = () => {
                 <Button onClick={() => handleDeleteRow(index)} className="ml-2" ><Trash2 className=" text-red-600"/></Button>
             </div>
         ))}
-        {date && participantData.length>0 && 
+        {round && participantData.length>0 && 
           <>              
             <Button onClick={handleAddRow} className="mt-5 mb-4" ><Plus className=" text-green-400"/></Button>
             <Button onClick={handleSubmit} className="mt-10 mb-10">Submit</Button>
