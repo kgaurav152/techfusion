@@ -54,6 +54,14 @@ export async function POST(request) {
         message: "User already exists",
       });
     }
+    
+    const transaction = await User.findOne({ transactionId : transaction_id});
+    if (user) {
+      return NextResponse.json({
+        success: false,
+        message: "This transactionId is already Present",
+      });
+    }
 
     // //hash passwordscreensscreenshot
     const salt = await bcryptjs.genSalt(10);
