@@ -54,6 +54,9 @@ const DashboardLayout = ({ children }) => {
       <div className=" min-h-[100vh] bg-[#00040F] relative" >
         <StarsCanvas/>
         <NavBar />
+        <div className="w-full p-2 text-white text-center bg-blue-950">
+        <span className="text-yellow-200">Registration deadline</span>: January 21, 2024, by 10:00 PM
+        </div>
         {children}
         <Footer />
       </div>

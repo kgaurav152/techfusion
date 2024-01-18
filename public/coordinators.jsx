@@ -292,7 +292,7 @@ export const eventCoordinators = [
             name: "Shafaque Afrin",
             email: "afrinshafaque@gmail.com",
             linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-            instaId:"https://instagram.com/keckatihar",
+            instaId:"https://instagram.com/maahi____naaz",
             pictureUrl:"https://i.imgur.com/AwlTbme.png",
             mobile: null
         },
@@ -360,7 +360,7 @@ export const eventCoordinators = [
             name: "Shafaque Afrin",
             email: "afrinshafaque@gmail.com",
             linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-            instaId:"https://instagram.com/keckatihar",
+            instaId:"https://instagram.com/maahi____naaz",
             pictureUrl:"https://i.imgur.com/AwlTbme.png",
             mobile: null
         },
@@ -1097,7 +1097,7 @@ export const coordinatordetails = [
         name: "Shafaque Afrin",
         email: "afrinshafaque@gmail.com",
         linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-        instaId:"https://instagram.com/keckatihar",
+        instaId:"https://instagram.com/maahi____naaz",
         pictureUrl:"https://i.imgur.com/AwlTbme.png",
         mobile: "6202167228"
     },
