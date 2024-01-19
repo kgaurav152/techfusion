@@ -55,12 +55,18 @@ export async function POST(request) {
       });
     }
 
-    if (transaction_id) {
+    if (paymentMethod === "ba") {
+      if (!transaction_id) {
+        return NextResponse.json({
+          success: false,
+          message: "Please Enter Valid Payment Transaction ID",
+        });
+      }
       const transaction = await User.findOne({ transactionId: transaction_id });
       if (transaction) {
         return NextResponse.json({
           success: false,
-          message: "This transactionId is already Present",
+          message: `This transaction ID is already Used by ${transaction.festId}`,
         });
       }
     }
