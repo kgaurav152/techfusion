@@ -48,8 +48,9 @@ const SignInPage = () => {
 
   const onSubmit = async (formData) => {
     setLoading(true);
+    var toastId;
     try {
-      const toastId = toast.loading("Logging ....")
+      toastId = toast.loading("Logging ....")
       const { data } = await apiConnector("POST","/api/login",formData);
       setLoading(false);
       toast.dismiss(toastId);
@@ -67,6 +68,8 @@ const SignInPage = () => {
       }
     } catch (err) {
       console.log(err);
+      setLoading(false);
+      toast.dismiss(toastId);
     }
   };
 
