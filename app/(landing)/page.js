@@ -160,6 +160,17 @@ const LandingPage = () => {
               alt="TechVein It Solutions Pvt. Ltd. Logo"
             />
           </div>
+          <div className="flex flex-col items-center">
+            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              Associated With
+            </h2>
+            <Image
+              src="/assets/sponsor/ipg_mall_logo.jpg"
+              width={250}
+              height={40}
+              alt="IPG Mall The Pride of Katihar"
+            />
+          </div>
           <div className="flex justify-center">
             {/* <Image
               src="/comingSoon.svg"
