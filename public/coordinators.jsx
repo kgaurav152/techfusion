@@ -426,11 +426,11 @@ export const eventCoordinators = [
         },
         {
             name: "Nancy Kumari",
-            email: "",
+            email: "nancysingh2808@gmail.com",
             linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"",
-            mobile: ""
+            instaId:"https://instagram.com/nan__ciee",
+            pictureUrl:"https://i.imgur.com/uH45K39.jpg",
+            mobile: null
         }
       ]
     },
@@ -1119,11 +1119,11 @@ export const coordinatordetails = [
     },
     {
         name: "Nancy Kumari",
-        email: "",
+        email: "nancysingh2808@gmail.com",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"",
-        mobile: ""
+        instaId:"https://instagram.com/nan__ciee",
+        pictureUrl:"https://i.imgur.com/uH45K39.jpg",
+        mobile: "8789931070"
     },
     {
         name: "",
@@ -1225,25 +1225,25 @@ export const campusAmbassadors = [
     caId: "KECTF24CA108",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Prashant Kumar",
+    email: "prashantkeshav97092@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/SdzT6Fd.jpg",
+    mobile: "9709220970",
+    batch: "2K20",
+    branch: "Mechanical",
+    college: "Shri Phanishwar Nath Renu Engineering College, Araria",
     caId: "KECTF24CA109",
   },
   {
-    name: "",
-    email: "",
-    linkedin:"",
-    pictureUrl:"",
-    mobile: "",
-    batch: "",
-    branch: "",
-    college: "",
+    name: "Nisha Kumari",
+    email: "nishamuz2004@gmail.com",
+    linkedin:"https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl:"https://i.imgur.com/wFkYVJP.jpg",
+    mobile: "9508801718",
+    batch: "2K21",
+    branch: "CSE",
+    college: "Rashtrakavi Ramdhari Singh Dinkar College of Engineering, Begusarai",
     caId: "KECTF24CA110",
   },
   {
