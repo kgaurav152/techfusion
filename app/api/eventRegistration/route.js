@@ -56,7 +56,8 @@ export async function POST(req) {
           success: false,
           message: `You already enrolled in ${technical_max_limit} Technical events`,
         });
-      } else if (
+      }
+      if (
         event.eventType === "Cultural" &&
         user.cultural.length == cultural_max_limit
       ) {
@@ -73,14 +74,26 @@ export async function POST(req) {
         teamName: team_name,
         participants: [user._id],
       });
-      await User.findByIdAndUpdate(user._id, {
-        $push: { participatedIn: newParticipation._id },
-      });
-      return NextResponse.json({
-        success: true,
-        message: "Registered for Event Successfully!",
-        data: newParticipation,
-      });
+      if (event.event.eventType === "Cultural") {
+        await User.findByIdAndUpdate(user._id, {
+          $push: { cultural: newParticipation._id },
+        });
+        return NextResponse.json({
+          success: true,
+          message: "Registered for Event Successfully!",
+          data: newParticipation,
+        });
+      }
+      if (event.event.eventType === "Technical") {
+        await User.findByIdAndUpdate(user._id, {
+          $push: { technical: newParticipation._id },
+        });
+        return NextResponse.json({
+          success: true,
+          message: "Registered for Event Successfully!",
+          data: newParticipation,
+        });
+      }
     }
     let user1 = null;
     let user2 = null;
