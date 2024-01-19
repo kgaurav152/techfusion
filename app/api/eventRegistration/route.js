@@ -74,7 +74,7 @@ export async function POST(req) {
         teamName: team_name,
         participants: [user._id],
       });
-      if (event.event.eventType === "Cultural") {
+      if (event.eventType === "Cultural") {
         await User.findByIdAndUpdate(user._id, {
           $push: { cultural: newParticipation._id },
         });
@@ -84,7 +84,7 @@ export async function POST(req) {
           data: newParticipation,
         });
       }
-      if (event.event.eventType === "Technical") {
+      if (event.eventType === "Technical") {
         await User.findByIdAndUpdate(user._id, {
           $push: { technical: newParticipation._id },
         });
