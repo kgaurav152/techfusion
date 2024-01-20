@@ -503,7 +503,7 @@ export const eventCoordinators = [
       ]
     },
     {
-      eventName: "BGMI",
+      eventName: "BGMI - SQUAD",
       eventId:"T08",
       coordinators: [
         {
@@ -870,6 +870,29 @@ export const eventCoordinators = [
           instaId:"https://instagram.com/r.tanu",
           pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
           mobile: null
+        },
+        {
+            name: "Aman Kumar",
+            email: "bittukumar9206@gmail.com",
+            linkedin:"https://linkedin.com/company/tpo-keckatihar",
+            instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+            pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
+            mobile: "9319154498"
+        },
+
+      ]
+    },
+    {
+      eventName: "BGMI - SOLO",
+      eventId:"T25",
+      coordinators: [
+        {
+            name: "Aditya Kumar",
+            email: "smadityakumar22@gmail.com",
+            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
+            instaId:"https://instagram.com/Imsmaditya",
+            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
+            mobile: "6206223238"
         },
         {
             name: "Aman Kumar",
