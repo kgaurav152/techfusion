@@ -133,7 +133,7 @@ const AdminDashboard = () => {
       {stats && (
         <div className="my-10">
           <div>
-            <div className=" hidden lg:flex flex-col gap-y-2 items-center justify-center">
+            <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
               <h5 className="font-semibold text-2xl">Colleges</h5>
               <Bar data={colleges} options={options} />
             </div>
