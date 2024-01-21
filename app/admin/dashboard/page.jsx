@@ -7,6 +7,15 @@ import { Chart, registerables } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { Bar } from "react-chartjs-2";
 // import Link from "next/link";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+
 import Footer from "@/components/footer";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -55,12 +64,12 @@ const AdminDashboard = () => {
     ],
   };
   const colleges = {
-    labels: stats?.collegeParticipation.map((col) => col.college),
+    labels: stats?.collegeParticipation.map((col) => col?.college),
     datasets: [
       {
         label: "Student By Colleges",
         data: stats?.collegeParticipation.map(
-          (college) => college.totalStudent
+          (college) => college?.totalStudent
         ),
         backgroundColor: generateRandomColors(
           stats?.collegeParticipation?.length
@@ -80,6 +89,51 @@ const AdminDashboard = () => {
           {user?.name}
         </span>
       </p>
+      {
+        stats && <div className="grid grid-cols-3 gap-3 mt-4">
+        <Card>
+          <CardHeader>
+            <CardTitle>Participants</CardTitle>
+            {/* <CardDescription>Card Description</CardDescription> */}
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-4">
+              <span className="col-span-2">Approved Participant</span>
+              <span>:</span>
+              <span className="font-semibold">{stats.allParticipants.approved}</span>
+            </div>
+            <div className="grid grid-cols-4">
+              <span className="col-span-2">Pending Participant</span>
+              <span>:</span>
+              <span className="font-semibold">{stats.allParticipants.pending}</span>
+            </div>
+            <div className="grid grid-cols-4">
+              <span className="col-span-2">Total Participant</span>
+              <span>:</span>
+              <span className="font-semibold">{stats.allParticipants.total}</span>
+            </div>
+          </CardContent>
+          {/* <CardFooter>
+            <p>Card Footer</p>
+          </CardFooter> */}
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Total Amount Collected</CardTitle>
+            {/* <CardDescription>Card Description</CardDescription> */}
+          </CardHeader>
+          <CardContent>
+             
+            <div className="text-5xl text-center">
+              {"₹"}{stats.totalAmount}
+            </div>
+          </CardContent>
+          {/* <CardFooter>
+            <p>Card Footer</p>
+          </CardFooter> */}
+        </Card>
+      </div>
+      }
       {stats && (
         <div className="my-10">
           <div>
