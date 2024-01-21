@@ -90,7 +90,7 @@ const AdminDashboard = () => {
         </span>
       </p>
       {
-        stats && <div className="grid lg:grid-cols-3 grid-cols-2 gap-3 mt-4">
+        stats && <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
         <Card>
           <CardHeader>
             <CardTitle>Participants Count</CardTitle>
