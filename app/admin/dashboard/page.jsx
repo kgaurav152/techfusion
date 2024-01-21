@@ -117,21 +117,17 @@ const AdminDashboard = () => {
             <p>Card Footer</p>
           </CardFooter> */}
         </Card>
-        <Card>
+        {/* <Card>
           <CardHeader>
-            <CardTitle>Total Amount Collected</CardTitle>
-            {/* <CardDescription>Card Description</CardDescription> */}
+            <CardTitle>Total Amount Collected</CardTitle> 
           </CardHeader>
           <CardContent>
              
             <div className="text-5xl text-center">
               {"₹"}{stats.totalAmount}
             </div>
-          </CardContent>
-          {/* <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter> */}
-        </Card>
+          </CardContent> 
+        </Card> */}
       </div>
       }
       {stats && (
