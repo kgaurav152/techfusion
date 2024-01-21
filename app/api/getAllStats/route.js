@@ -24,6 +24,12 @@ export async function POST(req){
             no : data.length - accomodationYes.length,
 
         }
+        const pending = data.filter((user) => user.status === "pending");
+        const allParticipants = {
+            pending : pending.length,
+            approved : data.length - pending.length,
+            total : data.length
+        }
         const tShirtNo = data.filter((user) => user.tShirtSize === "No");
         const tshirt = {
             yes : data.length - tShirtNo.length,
@@ -32,10 +38,13 @@ export async function POST(req){
         }
         const collegeParticipation = colleges.map((col)=>{
             const temp = data.filter((user) => user.college === col.value)
-            return{
-                college : col.label,
-                totalStudent : temp.length,
+            if(temp.length >= 0) {
+                return{
+                    college : col.label,
+                    totalStudent : temp.length,
+                }
             }
+            
         }) 
         let sum = 0;
         data.map((user)=>{
@@ -50,7 +59,8 @@ export async function POST(req){
                 accomodation,
                 tshirt,
                 collegeParticipation,
-                totalAmount
+                totalAmount,
+                allParticipants,
 
             }
         })
