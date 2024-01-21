@@ -93,7 +93,7 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
       userId: data.user.value,
       roomAllocation: true,
       roomNo:
-        data.user?.gender == "female" ? "A" + data.room_no : "N" + data.room_no,
+        data.user?.gender == "Female" ? "A" + data.room_no : "N" + data.room_no,
       noOfDays: data.day,
       roomAmount: data.amount,
     };
@@ -221,7 +221,7 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
                         </p>
                         <p className="font-mono mt-4 mb-2">
                           Hostel To be Allocated:{" "}
-                          {form.watch("user")?.gender === "female"
+                          {form.watch("user")?.gender === "Female"
                             ? "Girls Hostel Alaknanda"
                             : "Boys Hostel Nilgiri"}
                         </p>

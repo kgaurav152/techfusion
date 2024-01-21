@@ -34,7 +34,7 @@ const LandingPage = () => {
       {!user && (
         <div className="w-full p-2 text-white text-center bg-blue-950">
           <span className="text-yellow-200">Registration deadline</span>:
-          January 21, 2024, by 10:00 PM
+          January 22, 2024, by 06:00 PM
         </div>
       )}
       <div className="relative text-center mb-8 lg:min-h-[80vh]">
@@ -149,7 +149,7 @@ const LandingPage = () => {
       <section className="mb-5">
         <div>
           <h2 className=" text-5xl mb-10">Sponsors</h2>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-8">
             <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               Title Sponsor
             </h2>
@@ -160,7 +160,7 @@ const LandingPage = () => {
               alt="TechVein It Solutions Pvt. Ltd. Logo"
             />
           </div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-center mb-8">
             <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               Associated With
             </h2>
@@ -169,6 +169,17 @@ const LandingPage = () => {
               width={250}
               height={40}
               alt="IPG Mall The Pride of Katihar"
+            />
+          </div>
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              Beverage Partner
+            </h2>
+            <Image
+              src="/assets/sponsor/tork_swadesi.jpg"
+              width={250}
+              height={40}
+              alt="Tork Swadesi"
             />
           </div>
           <div className="flex justify-center">
