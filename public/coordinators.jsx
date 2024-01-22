@@ -59,12 +59,12 @@ export const eventCoordinators = [
       eventId:"C02",
       coordinators: [
         {
-            name: "Vani Jha",
-            email: "vanijh09@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/_vani_jha_",
-            pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
-            mobile: null
+            name: "Himanshu Rai",
+            email: "himanshurai8765@gmail.com",
+            linkedin:"https://www.linkedin.com/in/himanshu-rai-052b14262",
+            instaId:"https://instagram.com/himanshurai9170",
+            pictureUrl:"https://i.imgur.com/CY8Tm9q.jpg",
+            mobile: "8765171237"
         },
         {
             name: "Shambhu Kumar",
@@ -93,7 +93,7 @@ export const eventCoordinators = [
           name: "Tanya Rani",
           email: "ranitanya60@gmail.com",
           linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu",
+          instaId:"https://instagram.com/r.tanu_",
           pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
           mobile: null
         },
@@ -179,12 +179,12 @@ export const eventCoordinators = [
           mobile: "9504654584"
         },
         {
-            name: "Vani Jha",
-            email: "vanijh09@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/_vani_jha_",
-            pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
-            mobile: null
+            name: "CHIRANJEEV MANI",
+            email: "chiranjeevmani17@gmail.com",
+            linkedin:"https://www.linkedin.com/in/chiranjeev-mani-p1217",
+            instaId:"https://instagram.com/rajmani.0001",
+            pictureUrl:"https://i.imgur.com/zT41ipB.jpg",
+            mobile: "7004355424"
         },
       ]
     },
@@ -397,7 +397,7 @@ export const eventCoordinators = [
           name: "Tanya Rani",
           email: "ranitanya60@gmail.com",
           linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu",
+          instaId:"https://instagram.com/r.tanu_",
           pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
           mobile: null
         },
@@ -867,7 +867,7 @@ export const eventCoordinators = [
           name: "Tanya Rani",
           email: "ranitanya60@gmail.com",
           linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu",
+          instaId:"https://instagram.com/r.tanu_",
           pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
           mobile: null
         },
@@ -1000,7 +1000,7 @@ export const coordinatordetails = [
         name: "Tanya Rani",
         email: "ranitanya60@gmail.com",
         linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/r.tanu",
+        instaId:"https://instagram.com/r.tanu_",
         pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
         mobile: "9693278406"
     },
@@ -1147,6 +1147,30 @@ export const coordinatordetails = [
         instaId:"https://instagram.com/nan__ciee",
         pictureUrl:"https://i.imgur.com/uH45K39.jpg",
         mobile: "8789931070"
+    },
+    {
+        name: "Himanshu Rai",
+        email: "himanshurai8765@gmail.com",
+        linkedin:"https://www.linkedin.com/in/himanshu-rai-052b14262",
+        instaId:"https://instagram.com/himanshurai9170",
+        pictureUrl:"https://i.imgur.com/CY8Tm9q.jpg",
+        mobile: "8765171237"
+    },
+    {
+        name: "CHIRANJEEV MANI",
+        email: "chiranjeevmani17@gmail.com",
+        linkedin:"https://www.linkedin.com/in/chiranjeev-mani-p1217",
+        instaId:"https://instagram.com/rajmani.0001",
+        pictureUrl:"https://i.imgur.com/zT41ipB.jpg",
+        mobile: "7004355424"
+    },
+    {
+        name: "",
+        email: "",
+        linkedin:"",
+        instaId:"",
+        pictureUrl:"",
+        mobile: ""
     },
     {
         name: "",
