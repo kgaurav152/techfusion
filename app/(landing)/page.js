@@ -31,12 +31,12 @@ const LandingPage = () => {
 
   return (
     <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative">
-      {!user && (
+      {/* {!user && (
         <div className="w-full p-2 text-white text-center bg-blue-950">
           <span className="text-yellow-200">Registration deadline</span>:
           January 22, 2024, by 06:00 PM
         </div>
-      )}
+      )} */}
       <div className="relative text-center mb-8 lg:min-h-[80vh]">
         <div className="z-0">
           <img
