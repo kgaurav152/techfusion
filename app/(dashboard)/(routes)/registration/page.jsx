@@ -92,7 +92,6 @@ const RegistrationForm = () => {
     batch: z.string({ message: "Must be a valid batch"}),
     knowAbout: z.string({ message: "Select a valid option"}),
     accomodation: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
-    tShirt: z.enum(['Yes', 'No'], { message: "Select a valid option"} ),
     tShirtSize: z.string().optional(),
     paymentMethod: z.enum(['ca', 'ba'], { message: "Select a valid option"} ),  
     otherCollege: z.string().optional(),
@@ -152,13 +151,17 @@ const RegistrationForm = () => {
       data.otherCollege=null;
     };
 
-    const conditionalAmount = data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
-    ? 200
-    : data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'
-    ? 500
-    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
-    ? 300
-    : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'? 600: 300 ;
+    
+    // const conditionalAmount = data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
+    // ? 200
+    // : data.college === 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'
+    // ? 500
+    // : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'No'
+    // ? 300
+    // : data.college != 'Katihar Engineering College, Katihar' && data.tShirt === 'Yes'? 600: 300 ;
+
+    const conditionalAmount = data.college === 'Katihar Engineering College, Katihar'
+    ? 200 : 300 ;
 
     const formData = new FormData();
     formData.append("name",data.name);
@@ -171,7 +174,7 @@ const RegistrationForm = () => {
     formData.append("batch",data.batch);
     formData.append("knowAbout",data.knowAbout);
     formData.append("accomodation",data.accomodation);
-    formData.append("tShirtSize",data.tShirtSize || "No");
+    formData.append("tShirtSize", "No");
     formData.append("paymentMethod",data.paymentMethod);
     formData.append("ca_no",data.ca_no_ba == null ? data.ca_no_ca : data.ca_no_ba);
     formData.append("transaction_id",data.trx_id == null ? data.ca_no_ca : data.trx_id);
@@ -543,7 +546,7 @@ const RegistrationForm = () => {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
                 control={form.control}
                 name="tShirt"
                 render={({ field }) => (
@@ -564,8 +567,8 @@ const RegistrationForm = () => {
                     <FormMessage />
                 </FormItem>
               )}
-            />
-            {form.watch('tShirt') === "Yes" && (
+            /> */}
+            {/* {form.watch('tShirt') === "Yes" && (
               <FormField
                 control={form.control}
                 name="tShirtSize"
@@ -592,7 +595,7 @@ const RegistrationForm = () => {
                   </FormItem>
                 )}
               />
-            )}
+            )} */}
             <FormField
                 control={form.control}
                 name="paymentMethod"
@@ -625,13 +628,15 @@ const RegistrationForm = () => {
                   <p className="font-semibold font-mono">
                       Participant needs to pay registration fee of{' '}
                       <span className="font-bold"> 
-                        {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                        {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
                           ? 'Rs. 200/-'
                           : form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'
                           ? 'Rs. 500/-'
                           : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 300/-'
-                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'}
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'} */}
+                          {form.watch('college') === 'Katihar Engineering College, Katihar'
+                          ? 'Rs. 200/-': 'Rs. 300/-'}
                       </span>{' '}
                       on below mentioned bank account and upload the screenshot of payment.
                     <p className="mt-2">Note: This is one time payment and after this user can participate in upto 5 Technical and 3 Cultural events.</p>
@@ -687,13 +692,15 @@ const RegistrationForm = () => {
                     <div className="flex items-center pt-4">
                     <p className="font-semibold font-mono">Participant can pay registration fee of{' '}
                       <span className="font-bold">
-                      {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
+                      {/* {form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 200/-'
                           : form.watch('college') === 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'
                           ? 'Rs. 500/-'
                           : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'No'
                           ? 'Rs. 300/-'
-                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'}
+                          : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'} */}
+                          {form.watch('college') === 'Katihar Engineering College, Katihar'
+                          ? 'Rs. 200/-': 'Rs. 300/-'}
                       </span>{' '}
                       to Campus Ambassador of their college.
                     <p className="mt-2">Note: This is one time payment and after this user can participate in upto 5 Technical and 3 Cultural events.</p></p>
