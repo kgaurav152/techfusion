@@ -1,4 +1,22 @@
-<div className="text-center mb-4 text-border flex-col">
+import React from 'react'
+import {
+    Card,
+    CardHeader,
+    CardFooter,
+    CardTitle,
+    CardDescription,
+    CardContent
+  } from "@/components/ui/card";
+  import { 
+    Avatar,
+    AvatarFallback,
+    AvatarImage 
+  } from "@/components/ui/avatar"
+  
+const page = () => {
+  return (
+    <div>
+        <div className="text-center mb-4 text-border flex-col">
         <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
         <Card className="mx-auto w-4/5 max-w-xl mb-8 text-center bg-emerald-100">
           <CardHeader>
@@ -52,3 +70,8 @@
           </CardContent>
         </Card>
       </div>
+    </div>
+  )
+}
+
+export default page
