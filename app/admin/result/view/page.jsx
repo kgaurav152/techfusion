@@ -147,7 +147,7 @@ export const ViewResultPage = () => {
               <SelectContent>
                 {
                   data.map((item)=>(
-                    <SelectItem value={item._id}>{item.round}</SelectItem>
+                    <SelectItem key={item._id} value={item._id}>{item.round}</SelectItem>
 
                   ))
                 } 

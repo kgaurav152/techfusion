@@ -35,14 +35,6 @@ import { Button } from '@/components/ui/button';import { useRouter } from 'next/
     <div>
         <div className="text-center mb-4 text-border flex-col">
         <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
-        <Card className="mx-auto w-4/5 max-w-xl mb-8 text-center bg-emerald-100">
-          <CardHeader>
-            <CardTitle>Already Registered ?</CardTitle>
-          </CardHeader>
-          <CardContent>
-                <Button className='justify-center' variant="" onClick={()=>{router.push('/sign-in')}}>Sign In Now</Button>
-          </CardContent>
-        </Card>
         <Card className="mx-auto w-4/5 max-w-xl mt-2 mb-2 text-left">
           <CardHeader>
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
