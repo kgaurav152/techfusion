@@ -148,7 +148,6 @@ export const ViewResultPage = () => {
                 {
                   data.map((item)=>(
                     <SelectItem key={item._id} value={item._id}>{item.round}</SelectItem>
-
                   ))
                 } 
               </SelectContent>

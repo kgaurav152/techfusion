@@ -13,12 +13,11 @@ import {
     AvatarFallback,
     AvatarImage 
   } from "@/components/ui/avatar"
-import { Button } from '@/components/ui/button';import { useRouter } from 'next/navigation';
- ;
+import { Button } from '@/components/ui/button'; 
+ 
 
  const page = () => {
-     
-     const router = useRouter();
+      
   const neonTextStyle = {
     marginTop: '5vh',
     marginBottom: '5vh',
