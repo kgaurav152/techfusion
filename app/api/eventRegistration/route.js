@@ -6,8 +6,8 @@ import Event from "@/models/Event";
 import Participation from "@/models/Participation";
 import { previousDay } from "date-fns";
 
-const technical_max_limit = 5;
-const cultural_max_limit = 3;
+const technical_max_limit = 20;
+const cultural_max_limit = 20;
 export async function POST(req) {
   const {
     token,

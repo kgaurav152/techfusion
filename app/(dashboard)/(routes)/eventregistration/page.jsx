@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import {
     Card,
@@ -12,8 +13,24 @@ import {
     AvatarFallback,
     AvatarImage 
   } from "@/components/ui/avatar"
-  
-const page = () => {
+import { Button } from '@/components/ui/button';import { useRouter } from 'next/navigation';
+ ;
+
+ const page = () => {
+     
+     const router = useRouter();
+  const neonTextStyle = {
+    marginTop: '5vh',
+    marginBottom: '5vh',
+    fontFamily: 'Helvetica Neue, sans-serif',
+    // backgroundColor: '#010a01',
+    // textTransform: 'uppercase',
+    textAlign: 'center',
+    fontWeight: 100,
+    textShadow: '0 0 4px #fff, 0 0 11px #fff, 0 0 19px #fff, 0 0 40px #0fa, 0 0 80px #0fa, 0 0 90px #0fa, 0 0 100px #0fa, 0 0 150px #0fa',
+    animation: 'flicker 1.5s infinite alternate',
+    color: '#fff',
+  };
   return (
     <div>
         <div className="text-center mb-4 text-border flex-col">
