@@ -8,6 +8,15 @@ import { previousDay } from "date-fns";
 
 const technical_max_limit = 20;
 const cultural_max_limit = 20;
+
+function alreadyRegistered(user,event_id){
+  const technical = user.technical.find((item) => item.event.toString() === event_id.toString())
+  const cultural = user.cultural.find((item) => item.event.toString() === event_id.toString());
+
+   return technical || cultural;
+
+
+}
 export async function POST(req) {
   const {
     token,
@@ -21,7 +30,7 @@ export async function POST(req) {
   connect();
   try {
     const userID = await getDataFromToken(token);
-    const user = await User.findById(userID);
+    const user = await User.findById(userID).populate("technical").populate("cultural");
     if (!user) {
       return NextResponse.json({
         success: false,
@@ -66,6 +75,14 @@ export async function POST(req) {
           message: `You already enrolled in ${cultural_max_limit} cultural events`,
         });
       }
+
+      if(alreadyRegistered(user,event._id)){
+        return NextResponse.json({
+          success: false,
+          message: `You already registered in this event`, 
+        });
+      }
+
     }
 
     if (event.participationMode == "Individual") {
@@ -100,7 +117,7 @@ export async function POST(req) {
     let user3 = null;
     let userArray = [user._id];
     if (team_member_1) {
-      user1 = await User.findOne({ festId: team_member_1.toUpperCase() });
+      user1 = await User.findOne({ festId: team_member_1.toUpperCase() }).populate("technical").populate("cultural");
       if (!user1) {
         return NextResponse.json({
           success: false,
@@ -130,10 +147,22 @@ export async function POST(req) {
           message: `${user1.festId} already enrolled in ${cultural_max_limit} Cultural events`,
         });
       }
+      if(alreadyRegistered(user1,event._id)){
+        return NextResponse.json({
+          success: false,
+          message: `${user1.festId} already registered in this event`, 
+        });
+      }
+      if(userArray.find((item)=> item.toString() === user1._id.toString())){
+        return NextResponse.json({
+          success: false,
+          message: `Two Member techfest ID is same Please verify`,
+        });
+      }
       userArray.push(user1._id);
     }
     if (team_member_2) {
-      user2 = await User.findOne({ festId: team_member_2.toUpperCase() });
+      user2 = await User.findOne({ festId: team_member_2.toUpperCase() }).populate("technical").populate("cultural");
       if (!user2) {
         return NextResponse.json({
           success: false,
@@ -163,10 +192,22 @@ export async function POST(req) {
           message: `${user2.festId} already enrolled in ${cultural_max_limit} cultural events`,
         });
       }
+      if(alreadyRegistered(user2,event._id)){
+        return NextResponse.json({
+          success: false,
+          message: `${user2.festId} already registered in this event`, 
+        });
+      }
+      if(userArray.find((item)=> item.toString() === user2._id.toString())){
+        return NextResponse.json({
+          success: false,
+          message: `Two Member techfest ID is same Please verify`,
+        });
+      }
       userArray.push(user2._id);
     }
     if (team_member_3) {
-      user3 = await User.findOne({ festId: team_member_3.toUpperCase() });
+      user3 = await User.findOne({ festId: team_member_3.toUpperCase() }).populate("technical").populate("cultural");
       if (!user3) {
         return NextResponse.json({
           success: false,
@@ -194,6 +235,18 @@ export async function POST(req) {
         return NextResponse.json({
           success: false,
           message: `${user3.festId} already participated in ${cultural_max_limit} cultural events`,
+        });
+      }
+      if(alreadyRegistered(user3,event._id)){
+        return NextResponse.json({
+          success: false,
+          message: `${user3.festId} already registered in this event`, 
+        });
+      }
+      if(userArray.find((item)=> item.toString() === user3._id.toString())){
+        return NextResponse.json({
+          success: false,
+          message: `Two Member techfest ID is same Please verify`,
         });
       }
       userArray.push(user3._id);
