@@ -64,10 +64,9 @@ export const ViewResultPage = () => {
       const obj = {
           event_id: event_id
       }
-      try {
-        console.log(" api call")
+      try { 
         const { data } = await apiConnector("POST","/api/result/view",obj);
-        console.log(data)
+        // console.log(data)
         setLoading(false);
         if (data.success) {
           toast.success("Result Fetched Successfully!");
@@ -81,8 +80,19 @@ export const ViewResultPage = () => {
     }
 
     const setParticipants = (id) =>{
-      const temp = data.find( (data)=> data.id === id);
-      setParticipantData(temp.result)
+      const temp = data.find((data)=> data._id === id);
+      // temp._id chahiye delete ke lie
+      //isko ek variable me set krke table me pass kr dena table me delte me use kr lena
+      // {
+          // _id
+      //   event : ,
+      //   round : ,
+      //   result:[]
+      // }
+    
+      setParticipantData(temp.result);
+      // result me jo array hai object ka id hai wo ek particular participation ka 
+      // jis object to delete krege uska id 
     }
 
 
