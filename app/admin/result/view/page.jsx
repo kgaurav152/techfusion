@@ -22,6 +22,7 @@ PopoverTrigger,
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Calendar } from "@/components/ui/calendar";
 import { Input } from '@/components/ui/input';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 export const ViewResultPage = () => {
 
@@ -29,9 +30,10 @@ export const ViewResultPage = () => {
     const [openPop, setOpenPop] = useState(false);  
     const [openCalPop, setOpenCalPop] = useState(false);  
     const [value, setValue] = React.useState("");
-    const [date, setDate] = React.useState();
+    const [round, setRound] = React.useState();
     const [eventData, setEventData] = useState([]);
     const [participantData, setParticipantData] = useState([]);
+    const [data,setData] = useState([])
 
     
     const fetchEvents = async () => {
@@ -56,16 +58,20 @@ export const ViewResultPage = () => {
       fetchEvents();
     }, []);
 
-    const fetchEventResult= async (event_id) => {
+    const fetchEventResult = async (event_id) => {
+      console.log(" api call")
       setLoading(true);
       const obj = {
           event_id: event_id
       }
       try {
-        const { data } = await apiConnector("POST","/api/getParticipantsByEvent",obj);
+        console.log(" api call")
+        const { data } = await apiConnector("POST","/api/result/view",obj);
+        console.log(data)
         setLoading(false);
         if (data.success) {
-          toast.success("Data Fetched Successfully!");
+          toast.success("Result Fetched Successfully!");
+          setData(data.data);
         } else {
           toast.error(data.message);
         }
@@ -74,9 +80,14 @@ export const ViewResultPage = () => {
       }
     }
 
+    const setParticipants = (id) =>{
+      const temp = data.find( (data)=> data.id === id);
+      setParticipantData(temp.result)
+    }
+
 
     return (
-      <div className="flex flex-col items-center mt-2 text-center">
+      <div className="flex flex-col items-center mt-2 text-center min-h-screen">
         <h1 className='text-3xl text-white font-bold mb-8 mt-4'>View Result by Event</h1>
         <div className='container flex lg:flex-row flex-col justify-center mt-4 mb-5 w-full gap-4'>
             <Popover open={openPop} onOpenChange={setOpenPop} className="mt-4 mb-2">
@@ -129,6 +140,19 @@ export const ViewResultPage = () => {
                     </Command>
                 </PopoverContent>
             </Popover>
+            <Select onValueChange={(v) => {setRound(v); setParticipants(v) }}>
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Select Round" />
+              </SelectTrigger>
+              <SelectContent>
+                {
+                  data.map((item)=>(
+                    <SelectItem value={item._id}>{item.round}</SelectItem>
+
+                  ))
+                } 
+              </SelectContent>
+            </Select>
             {/* <Popover open={openCalPop} onOpenChange={setOpenCalPop} className="mt-4 mb-2">
                 <PopoverTrigger asChild>
                     <Button
@@ -155,8 +179,8 @@ export const ViewResultPage = () => {
                 </PopoverContent>
             </Popover> */}
         </div>
-        {date && participantData.length>0 && 
-            <div>
+        {round && participantData.length>0 && 
+            <div className='text-white'>
                 Hello Result !
             </div>
         }

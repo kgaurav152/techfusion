@@ -5,10 +5,14 @@ const ResultSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: "Event",
   }, 
-  participant: [
+  round :{
+    type:String,
+    required:true,
+  },
+  result: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "ResultDetail",
     }
   ],
 });

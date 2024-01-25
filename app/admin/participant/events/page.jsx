@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react'
-import axios from "axios";
+import axios, { all } from "axios";
 import toast from "react-hot-toast";
 // import { Button } from '@/components/ui/button';
 import {columns} from '@/app/admin/participant/events/columns'
@@ -139,6 +139,9 @@ export const AllEventParticipants = () => {
                 </Popover>
             </div>
             <div className='container mt-4 mb-20 w-4/5'>
+                {
+                    allEventParticipantsData.length>0 && <p className='text-white text-lg font-semibold'>Totol Participants : {allEventParticipantsData.length}</p>
+                }
                 <DataTable columns={columns(setActionSuccess)} data={allEventParticipantsData} />
             </div>
         </div>

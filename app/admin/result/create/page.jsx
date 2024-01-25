@@ -182,15 +182,21 @@ export const CreateResultPage = () => {
       result: resultArray,
     };
 
-    console.log(submissionObj);
+    // console.log(submissionObj);
+    const { data } = await apiConnector("POST", "/api/result/create", submissionObj);
+
+    if(data.success){
+      toast.success("Result Created Successfully!");
+    }
 
     } catch (error) {
+      toast.error(data?.message);
     }
   };
 
 
     return (
-      <div className="flex flex-col items-center mt-2 text-center">
+      <div className="flex flex-col items-center mt-2 text-center min-h-screen">
         <h1 className='text-3xl text-white font-bold mb-8 mt-4'>Create Result by Event</h1>
         <div className='container flex lg:flex-row flex-col justify-center mt-4 mb-5 w-full gap-4'>
             <Popover open={openPop} onOpenChange={setOpenPop} className="mt-4 mb-2">
