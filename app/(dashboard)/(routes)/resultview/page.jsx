@@ -62,10 +62,10 @@ export const ViewResultPage = () => {
     }, []);
 
     const fetchEventResult = async (event_id) => { 
-      setLoading(true);
       setData([]);
       setParticipantData([]);
       setRound();
+      setLoading(true);
       const obj = {
           event_id: event_id
       }
@@ -74,8 +74,14 @@ export const ViewResultPage = () => {
         // console.log(data)
         setLoading(false);
         if (data.success) {
+            console.log(data.data)
+            if(data.data.length==0){
+                toast.error("Result is not Created Yet !!!");
+                return;
+              }
           toast.success("Result Fetched Successfully!");
           setData(data.data);
+          
         } else {
           toast.error(data.message);
         }

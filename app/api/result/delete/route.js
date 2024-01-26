@@ -21,8 +21,15 @@ export async function POST(req){
         await ResultDetail.findByIdAndDelete(user_result_id);
         const result = await Result.findByIdAndUpdate(result_id,{
             $pull:{result:user_result_id}
-        })
-        
+        }).populate({
+            path:"result",
+            populate: {
+                path: "participant",
+                populate:{
+                    path:"participants"
+                }
+              },
+        }); 
         return NextResponse.json({
             success: true,
             message:"Result Delete Successfully",

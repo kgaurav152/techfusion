@@ -86,6 +86,9 @@ const NavBar = () => {
           <Link href="/admin/participant/events" className="text-white hover:text-[#e11d48]">
             Event Participants
           </Link>
+          <Link href="/admin/result" className="text-white hover:text-[#e11d48]">
+            Result
+          </Link>
           {user && 
           <Link href="/admin/profile" className="text-white hover:text-[#e11d48]">
             Profile

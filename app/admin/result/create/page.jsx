@@ -187,6 +187,7 @@ export const CreateResultPage = () => {
 
     if(data.success){
       toast.success("Result Created Successfully!");
+      setRows([{ participant: '', rank: '', score: '', description: '' }]);
     }
 
     } catch (error) {
@@ -262,7 +263,7 @@ export const CreateResultPage = () => {
               </SelectContent>
             </Select>
         </div>
-        {round && participantData.length>0 && rows.map((row, index) => (
+        {round && participantData.length>0 && rows && rows.map((row, index) => (
             <div key={index} className='flex flex-row gap-3 mt-2 mb-2'>
                 <CustomParticipantSelector
                 value={row.participant}
