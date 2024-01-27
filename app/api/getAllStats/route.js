@@ -38,7 +38,7 @@ export async function POST(req){
         }
         const collegeParticipation = colleges.map((col)=>{
             const temp = data.filter((user) => user.college === col.value)
-            if(temp.length >= 0) {
+            if(temp.length > 0) {
                 return{
                     college : col.label,
                     totalStudent : temp.length,
