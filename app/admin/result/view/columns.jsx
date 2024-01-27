@@ -25,20 +25,6 @@ export const columns = (setParticipantData,allResultId) => [
       },
   }, 
   {
-    accessorKey: 'Team Leader Name',
-    header: "Team  Leader Name",
-    cell: ({ row }) => {
-        const  {participant}= row.original
-        
-        return (
-          <div>
-            <p>
-            <span>{participant.participants[0].name}</span></p> 
-          </div>
-        )
-      },
-  },
-  {
     accessorKey: 'Team Name',
     header: "Team Name",
     cell: ({ row }) => {
@@ -49,6 +35,30 @@ export const columns = (setParticipantData,allResultId) => [
             <p>
             <span>{participant.teamName}</span></p> 
           </div>
+        )
+      },
+  },
+  {
+    accessorKey: 'Team Member Name',
+    header: "Team  Member Name",
+    cell: ({ row }) => {
+        const  {participant}= row.original
+        
+        return (
+          <div>
+          <p>
+            <span>{participant.participants[0]?.name}</span>
+          </p>
+          <p>
+            <span>{participant.participants[1]?.name}</span>
+          </p>
+          <p>
+            <span>{participant.participants[2]?.name}</span>
+          </p>
+          <p>
+            <span>{participant.participants[3]?.name}</span>
+          </p>
+        </div>
         )
       },
   },
