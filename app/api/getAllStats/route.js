@@ -39,13 +39,19 @@ export async function POST(req){
         const collegeParticipation = colleges.map((col)=>{
             const temp = data.filter((user) => user.college === col.value)
             if(temp.length > 0) {
-                return{
+                return {
                     college : col.label,
                     totalStudent : temp.length,
                 }
             }
+            return null;
             
-        }) 
+        });
+
+        const collegeData = collegeParticipation.filter((college) => college !== null);
+        
+
+        
         let sum = 0;
         data.map((user)=>{
             sum = sum + parseInt(user.registrationFee);
@@ -58,7 +64,7 @@ export async function POST(req){
             data :{
                 accomodation,
                 tshirt,
-                collegeParticipation,
+                collegeParticipation :collegeData,
                 totalAmount,
                 allParticipants,
 
