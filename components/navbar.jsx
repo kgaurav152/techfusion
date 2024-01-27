@@ -95,13 +95,20 @@ const NavBar = () => {
           <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          {user && (
+          {user && (<>
             <Link
               href="/eventregistration"
               className="text-white hover:text-[#e11d48]"
             >
               Event Registration
             </Link>
+            <Link
+              href="/resultview"
+              className="text-white hover:text-[#e11d48]"
+            >
+              Result
+            </Link>
+            </>
           )}
           {user && (
             <Link href="/profile" className="text-white hover:text-[#e11d48]">
