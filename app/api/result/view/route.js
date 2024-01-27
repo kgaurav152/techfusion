@@ -10,14 +10,14 @@ connect();
 export async function POST(req){
     const {token,event_id} = await req.json()
     try{
-        const userID = await getDataFromToken(token);
-        const user = await User.findById(userID);
-        if(user?.userType!=="admin"){
-            return NextResponse.json({
-                success: false,
-                message:"This is protected route for Admin access"
-            })
-        }
+        // const userID = await getDataFromToken(token);
+        // const user = await User.findById(userID);
+        // if(user?.userType!=="admin"){
+        //     return NextResponse.json({
+        //         success: false,
+        //         message:"This is protected route for Admin access"
+        //     })
+        // }
         const data = await Result.find({event:event_id}).populate({
             path:"result",
             populate: {
