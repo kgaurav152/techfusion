@@ -61,6 +61,20 @@ const LandingPage = () => {
             {live ? (
               <div>
                 {user ? (
+                  // <Button
+                  //   className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                  //   onMouseEnter={() => {
+                  //     setIsHovered(true);
+                  //   }}
+                  //   onMouseLeave={() => {
+                  //     setIsHovered(false);
+                  //   }}
+                  //   onClick={(e) => handleClick(e, "/eventregistration")}
+                  // >
+                  //   <div className="flex items-center">
+                  //     <span className="ml-3">Event Registration</span>
+                  //   </div>
+                  // </Button>
                   <Button
                     className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
                     onMouseEnter={() => {
@@ -69,10 +83,10 @@ const LandingPage = () => {
                     onMouseLeave={() => {
                       setIsHovered(false);
                     }}
-                    onClick={(e) => handleClick(e, "/eventregistration")}
+                    onClick={(e) => handleClick(e, "/resultview")}
                   >
                     <div className="flex items-center">
-                      <span className="ml-3">Event Registration</span>
+                      <span className="ml-3">View Result</span>
                     </div>
                   </Button>
                 ) : (
