@@ -13,6 +13,7 @@ import RiveAnimationComponent from "@/components/riveAnimation";
 import EventCarousel from "@/components/eventCarousel";
 // import AboutUs from "@/components/aboutUs";
 import About from "@/components/about";
+import CertDownloader from "@/components/certificateDownload";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -75,20 +76,23 @@ const LandingPage = () => {
                   //     <span className="ml-3">Event Registration</span>
                   //   </div>
                   // </Button>
-                  <Button
-                    className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                    onMouseEnter={() => {
-                      setIsHovered(true);
-                    }}
-                    onMouseLeave={() => {
-                      setIsHovered(false);
-                    }}
-                    onClick={(e) => handleClick(e, "/resultview")}
-                  >
-                    <div className="flex items-center">
-                      <span className="ml-3">View Result</span>
-                    </div>
-                  </Button>
+                  <div className="flex flex-row gap-4 z-20">
+                    <Button
+                      className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                      onMouseEnter={() => {
+                        setIsHovered(true);
+                      }}
+                      onMouseLeave={() => {
+                        setIsHovered(false);
+                      }}
+                      onClick={(e) => handleClick(e, "/resultview")}
+                    >
+                      <div className="flex items-center">
+                        <span className="ml-3">View Result</span>
+                      </div>
+                    </Button>
+                    <CertDownloader user={user} />
+                  </div>
                 ) : (
                   <Button
                     className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
@@ -183,6 +187,17 @@ const LandingPage = () => {
               width={250}
               height={40}
               alt="IPG Mall The Pride of Katihar"
+            />
+          </div>
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              Beverage Partner
+            </h2>
+            <Image
+              src="/assets/sponsor/tork_swadesi.jpg"
+              width={250}
+              height={40}
+              alt="Tork Swadesi"
             />
           </div>
           <div className="flex flex-col items-center mb-8">

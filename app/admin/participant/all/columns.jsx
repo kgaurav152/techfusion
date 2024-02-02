@@ -8,6 +8,12 @@ import { Checkbox } from "@/components/ui/checkbox"
   
 // import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
 
+  
+const paymentMethodMapping={
+  ba: 'Bank Account',
+  ca: 'Campus Ambassador'
+};
+
 export const columns = (setAllParticipantsData) => [
   {
     accessorKey: 'festId',
@@ -63,6 +69,39 @@ export const columns = (setAllParticipantsData) => [
       )
     },
   },
+  // {
+  //   accessorKey: 'paymentMethod',
+  //   header: 'Payment Method',
+  //   cell: ({ row }) => {
+
+  //     const paymentMethodValue = row.getValue('paymentMethod');
+  //     const paymentMethodName = paymentMethodMapping[paymentMethodValue];
+
+  //     return (
+        
+  //       `${paymentMethodName}` || 'Unknown'
+  //     );
+  //   },
+  // },
+  // {
+  //   accessorKey: 'registrationFee',
+  //   // header: 'Registration Fee'
+  //   header: ({ column }) => {
+  //     return (
+  //       <Button
+  //         variant="ghost"
+  //         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+  //       >
+  //         Registration Fee
+  //         <ArrowUpDown className="ml-2 h-4 w-4" />
+  //       </Button>
+  //     )
+  //   },
+  // },
+  // {
+  //   accessorKey: 'transactionId',
+  //   header: 'Payment Id'
+  // },
   {
     accessorKey: 'Event Count',
     header: ({ column }) => {
