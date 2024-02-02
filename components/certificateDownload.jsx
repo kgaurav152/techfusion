@@ -1,6 +1,7 @@
 import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { saveAs } from 'file-saver';
+import QRCode from 'qrcode';
 import toast from 'react-hot-toast';
 import { Button } from '@/components/ui/button';
 
@@ -10,6 +11,14 @@ const CertDownloader = ({user}) => {
     (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
       match.toUpperCase()
     );
+
+    const generateQRCode = async (text) => {
+      try {
+        return await QRCode.toDataURL(text);
+      } catch (error) {
+        console.error('Error generating QR Code:', error);
+      }
+    };
 
   const generatePDF = async (name) => {
     try {
@@ -21,7 +30,7 @@ const CertDownloader = ({user}) => {
       const pdfDoc = await PDFDocument.load(existingPdfBytes);
       pdfDoc.registerFontkit(fontkit);
 
-      const fontBytes = await fetch('/ProductSans-Regular.ttf').then((res) =>
+      const fontBytes = await fetch('/ProductSans-Bold.ttf').then((res) =>
         res.arrayBuffer()
       );
 
@@ -30,7 +39,43 @@ const CertDownloader = ({user}) => {
 
       const pages = pdfDoc.getPages();
       const firstPage = pages[0];
-      // console.log(firstPage.length);
+      // console.log(firstPage.length); 
+
+      const verificationURL = `https://techfusion.org.in/verifycertificate/${user.festId}`;
+      const qrCodeDataURL = await generateQRCode(verificationURL);
+
+      const qrCodeImage = await pdfDoc.embedPng(qrCodeDataURL);
+
+      const qrCodeWidth = 70;
+      const qrCodeHeight = 70;
+      // const qrCodeX = (firstPage.getWidth() - qrCodeWidth) / 2;
+      // const qrCodeY = firstPage.getHeight() - qrCodeHeight - 20;
+      
+      const qrCodeX = 105;
+      const qrCodeY = 122;
+
+      firstPage.drawImage(qrCodeImage, {
+        x: qrCodeX,
+        y: qrCodeY,
+        width: qrCodeWidth,
+        height: qrCodeHeight,
+      });
+      
+      // Add certificate ID below QR Code
+      const certificateIdText = `${user.festId}`;
+      const certificateIdTextWidth = ProductSansFont.widthOfTextAtSize(certificateIdText,10);
+      const certificateIdTextX = qrCodeX - 5;
+      const certificateIdTextY = qrCodeY - 10;
+
+      firstPage.drawText(certificateIdText, {
+        x: certificateIdTextX,
+        y: certificateIdTextY,
+        size: 10,
+        font: ProductSansFont,
+        // color: rgb(107 / 255, 105 / 255, 105 / 255),
+        color: rgb(0, 0, 0),
+      });
+
       const { width, height } = firstPage.getSize();
       const textWidth = ProductSansFont.widthOfTextAtSize(name, 26);
 
@@ -43,6 +88,7 @@ const CertDownloader = ({user}) => {
         size: 26,
         font: ProductSansFont,
         color: rgb(107/255, 105/255, 105/255),
+        // color: rgb(0, 0, 0),
       });
 
       const pdfBytes = await pdfDoc.save();
