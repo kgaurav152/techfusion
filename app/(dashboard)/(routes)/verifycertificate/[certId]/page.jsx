@@ -46,6 +46,7 @@ export const CertificateDetailPage = () => {
                 <Card className="mx-auto w-4/5 lg:w-2/5 max-w-xl mb-8 mt-20 text-left">
                     <CardContent>    
                         <div className="mb-8 mt-8 text-center"><h2 className="font-bold">Certificate Verified!</h2></div>
+                        <div className='text-white my-10'>Certificate Id- {certId}</div>
                     </CardContent>
                 </Card>
             </div>
