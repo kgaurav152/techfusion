@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { saveAs } from 'file-saver';
@@ -59,14 +58,10 @@ const CertDownloader = ({user}) => {
   };
 
   const handleDownload = () => {
-    if(user.gender === 'male') {
-      const val = capitalize(user?.name?.trim());
-    }else{
-
-    }
+    const val = capitalize(user?.name?.trim());
 
     if (val !== '' && user?.name) {
-      generatePDF(val);
+      generatePDF(user.gender==="Male"?"Mr. "+val:"Mrs. "+val);
     } else {
       toast.error("Unable to generate certificate!");
     }
