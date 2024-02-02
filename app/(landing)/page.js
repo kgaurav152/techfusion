@@ -94,6 +94,31 @@ const LandingPage = () => {
                     <CertDownloader user={user} />
                   </div>
                 ) : (
+                  // <Button
+                  //   className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                  //   onMouseEnter={() => {
+                  //     setIsHovered(true);
+                  //   }}
+                  //   onMouseLeave={() => {
+                  //     setIsHovered(false);
+                  //   }}
+                  //   onClick={(e) => handleClick(e, "/registration")}
+                  // >
+                  //   <div className="flex items-center">
+                  //     <div
+                  //       className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
+                  //         isHovered ? "bg-purple-500" : "bg-white"
+                  //       }`}
+                  //     >
+                  //       <MoveUpRight
+                  //         className={`w-4 h-4 ${
+                  //           isHovered ? "text-white" : "text-gray-700"
+                  //         }`}
+                  //       />
+                  //     </div>
+                  //     <span className="ml-3">Register Now</span>
+                  //   </div>
+                  // </Button>
                   <Button
                     className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
                     onMouseEnter={() => {
@@ -102,7 +127,7 @@ const LandingPage = () => {
                     onMouseLeave={() => {
                       setIsHovered(false);
                     }}
-                    onClick={(e) => handleClick(e, "/registration")}
+                    onClick={(e) => handleClick(e, "/sign-in")}
                   >
                     <div className="flex items-center">
                       <div
@@ -116,7 +141,7 @@ const LandingPage = () => {
                           }`}
                         />
                       </div>
-                      <span className="ml-3">Register Now</span>
+                      <span className="ml-3">Sign In</span>
                     </div>
                   </Button>
                 )}
@@ -190,7 +215,7 @@ const LandingPage = () => {
             />
           </div>
           <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               Beverage Partner
             </h2>
             <Image
@@ -201,25 +226,58 @@ const LandingPage = () => {
             />
           </div>
           <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Beverage Partner
+            <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              Skill Partner
             </h2>
-            <Image
-              src="/assets/sponsor/tork_swadesi.jpg"
-              width={250}
-              height={40}
-              alt="Tork Swadesi"
-            />
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
+              <Image
+                src="/assets/sponsor/nds.jpg"
+                width={250}
+                height={40}
+                alt="NDS"
+              />
+              <Image
+                src="/assets/sponsor/skilldarpan.png"
+                width={250}
+                height={40}
+                alt="Skill Darpan"
+              />
+            </div>
           </div>
-          <div className="flex justify-center">
-            {/* <Image
+          <div className="flex flex-col items-center mb-8">
+            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              Food Partner
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-5 lg:gap-12 sm:items-center">
+              <Image
+                src="/assets/sponsor/dominos.png"
+                width={250}
+                height={40}
+                alt="Dominos"
+              />
+              <Image
+                src="/assets/sponsor/thegardenkitchen.png"
+                width={250}
+                height={25}
+                alt="The Garden Kitchen"
+              />
+              <Image
+                src="/assets/sponsor/gameoffoods.jpg"
+                width={250}
+                height={40}
+                alt="Game of Foods"
+              />
+            </div>
+          </div>
+          {/* <div className="flex justify-center">
+            <Image
               src="/comingSoon.svg"
               width={900}
               height={200}
               alt="TechFusion'24 Coming Soon"
-            /> */}
+            />
             <p></p>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>
