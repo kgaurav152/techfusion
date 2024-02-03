@@ -112,7 +112,7 @@ const CertDownloader = ({user}) => {
     toastId = toast.loading('Generating Certificate...');
 
     if (val !== '' && user?.name) {
-      generatePDF(user.gender==="Male"?"Mr. "+val:"Mrs. "+val);
+      generatePDF(user.gender==="Male"?"Mr. "+val:"Miss. "+val);
     } else {
       toast.error("Unable to generate certificate!");
     }
