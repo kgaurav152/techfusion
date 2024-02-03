@@ -16,6 +16,9 @@ const Footer = () => {
               <li><a href="/#aboutus" className="hover:text-[#e11d48]">About Us</a></li>
               <li><a href="/events" className="hover:text-[#e11d48]">Events</a></li>
               <li><a href="/contact-us" className="hover:text-[#e11d48]">Contact Us</a></li>
+              <li><a href="/torchbearers/developer" className="hover:text-[#e11d48]">About Developer</a></li>
+
+              
               {/* <li><a href="/sign-in" className="hover:text-[#e11d48]">Login</a></li> */}
             </ul>
           </nav>
