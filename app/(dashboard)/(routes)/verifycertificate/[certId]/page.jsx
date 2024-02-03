@@ -49,9 +49,9 @@ export const CertificateDetailPage = () => {
                 <Card className="mx-auto w-4/5 lg:w-2/5 max-w-xl mb-8 mt-20 text-left min-h-[400px] flex items-center justify-center">
                     <CardContent>    
                    {
-                    loading ? <div className="flex items-center justify-center">
+                    loading ?  
                     <SkeletonCard/>
-            </div> : certificateDetails ? 
+            : certificateDetails ? 
                     <>
                     <div className="mb-8 mt-8 text-center"><h2 className="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Certificate Verified!</h2></div>
                     <div className='grid grid-cols-8'><span className="col-span-2">Certificate ID</span> <span>-</span> <span className="font-semibold col-span-5">{certificateDetails.certId}</span> </div>
