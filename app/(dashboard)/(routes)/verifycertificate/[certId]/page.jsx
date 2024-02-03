@@ -53,11 +53,14 @@ export const CertificateDetailPage = () => {
                     <SkeletonCard/>
             : certificateDetails ? 
                     <>
-                    <div className="mb-8 mt-8 text-center"><h2 className="font-bold text-3xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Certificate Verified!</h2></div>
-                    <div className='grid grid-cols-8'><span className="col-span-2">Certificate ID</span> <span>-</span> <span className="font-semibold col-span-5">{certificateDetails.certId}</span> </div>
-                    <div  className='grid grid-cols-8'><span className="col-span-2">Name</span> - <span className="font-semibold col-span-5">{certificateDetails.name}</span> </div>
-                    <div  className='grid grid-cols-8'><span className="col-span-2">College</span> - <span className="font-semibold col-span-5">{certificateDetails.college}</span> </div>
-                    <div className='mt-3'>
+                    <div className="mb-8 mt-8 text-center"><h2 className="font-bold lg:text-3xl text-2xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">Certificate Verified!</h2></div>
+                   <div className="max-w-[450px]">
+                   <div className='grid grid-cols-10'><span className="col-span-4">Certificate ID</span> <span>-</span> <span className="font-semibold col-span-5">{certificateDetails.certId}</span> </div>
+                    <div  className='grid grid-cols-10'><span className="col-span-4">Name</span> - <span className="font-semibold col-span-5">{certificateDetails.name}</span> </div>
+                    <div  className='grid grid-cols-10'><span className="col-span-4">College</span> - <span className="font-semibold col-span-5">{certificateDetails.college}</span> </div>
+                  
+                   </div>
+                     <div className='mt-3'>
                         <p className="text-2xl">Participated In :</p>
                          <ul className="list-disc ml-10">
                             {
