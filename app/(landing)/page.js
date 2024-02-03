@@ -14,6 +14,8 @@ import EventCarousel from "@/components/eventCarousel";
 // import AboutUs from "@/components/aboutUs";
 import About from "@/components/about";
 import CertDownloader from "@/components/certificateDownload";
+import { eventCoordinators } from "@/public/coordinators";
+import DeveloperCard from "../(dashboard)/(routes)/torchbearers/developer/devCard";
 
 const LandingPage = () => {
   const router = useRouter();
@@ -21,6 +23,7 @@ const LandingPage = () => {
   // const dispatch = useDispatch();
 
   const [live, setLive] = useState(true);
+  const developer = eventCoordinators.find((coordinator) => coordinator.eventId === 'WD');
   // const [clampAbout, setClampAbout] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -159,6 +162,7 @@ const LandingPage = () => {
           </div>
         </div>
       </div>
+    
       {/*Star Wars Animation*/}
       <RiveAnimationComponent live={live} />
       {/* Events Section */}
@@ -280,6 +284,13 @@ const LandingPage = () => {
           </div> */}
         </div>
       </section>
+      {/* <div className="flex flex-row flex-wrap my-5 max-w-[800px]">
+        { developer.coordinators.map((dev)=>(
+
+          <DeveloperCard data = {dev} /> 
+        ))
+        }
+      </div> */}
     </div>
   );
 };
