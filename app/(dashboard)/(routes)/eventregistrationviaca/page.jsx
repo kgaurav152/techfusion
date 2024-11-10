@@ -4,7 +4,7 @@
 // import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useForm } from "react-hook-form";
+import { useForm, useFieldArray } from "react-hook-form";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
 // import * as z from "zod";
@@ -49,9 +49,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { apiConnector } from "@/helpers/apiConnector";
 
 const EventRegistrationForm = () => {
-  const router = useRouter();
-  const { user } = useSelector((state) => state.profile);
-
   const neonTextStyle = {
     marginTop: "5vh",
     marginBottom: "5vh",
@@ -66,78 +63,100 @@ const EventRegistrationForm = () => {
     color: "#fff",
   };
 
+  const router = useRouter();
+
+  const { user } = useSelector((state) => state.profile);
+  const { event } = useSelector((state) => state.event);
+
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
   const [eventData, setEventData] = useState([]);
-  const { event } = useSelector((state) => state.event);
   const [selectedEvent, setSelectedEvent] = useState({});
-  const [instruction, setInstruction] = useState('');
-  const [formLink, setFormLink] = useState(null);
+  const [selectedForEventDetail, setSelectedForEventDetail] = useState({});
 
   const form = useForm({
     mode: "onChange",
   });
 
-  // const fetchEvents = async () => {
-  //   setIsLoading(true);
-  //   try {
-  // const { data } = await apiConnector("POST","/api/event/getAllEvent")
-  // setIsLoading(false);
-  // if (data.success) {
+  const { control, handleSubmit, setValue, watch } = form;
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: "teamMembers",
+  });
 
-  // }
-  //  else {
-  // toast.error(data.message);
-  // }
-  //   } catch (err) {
-  //       console.log(err);
-  //   }
-  // }
+  useEffect(() => {
+    const restructuredEvents = event.map((ev) => ({
+      label: `${ev.eventId} - ${ev.name}`,
+      value: ev._id,
+      minParticipants: ev.min,
+      maxParticipants: ev.max,
+    }));
+    setEventData(restructuredEvents);
+  }, [event]);
 
-  // useEffect(()=>{
-  //   fetchEvents();
-  // },[])
+  useEffect(() => {
+    const eventId = watch("event");
+    const selected = eventData.find((ev) => ev.value === eventId);
+    setSelectedEvent(selected);
+    const selectedForDetail = event.find((ev) => ev._id === eventId);
+    setSelectedForEventDetail(selectedForDetail);
+    if (selected) {
+      form.setValue("teamMembers", [
+        { festId: user.festId, role: "Team Lead" },
+      ]);
+      for (let i = 1; i < selected.minParticipants; i++) {
+        append({ festId: "", role: "Team Member" });
+      }
+    }
+  }, [watch("event")]);
 
-  useEffect(()=>{
-  const unRestructuredEvents = event;
-  const restructuredEvents = unRestructuredEvents.map((event) => ({
-    label: `${event.eventId} - ${event.name}`,
-    value: `${event._id}@${event.participationMode}`,
-    // participationMode:event.participationMode
-  }));
-  setEventData(restructuredEvents);
+  const handleAddMember = (e) => {
+    e.preventDefault();
+    if (fields.length < selectedEvent.maxParticipants) {
+      append({ festId: "", role: "Team Member" });
+    } else {
+      toast.error(
+        `Maximum team members allowed is ${selectedEvent.maxParticipants}.`
+      );
+    }
+  };
 
-  },[event])
-  
+  const validateFestIds = (teamMembers) => {
+    const festIds = teamMembers.map((member) => member.festId);
+    const uniqueFestIds = new Set(festIds);
+    if (festIds.includes("") || uniqueFestIds.size !== festIds.length) {
+      toast.error("All TechFusion IDs must be unique and non-empty.");
+      return false;
+    }
+    return true;
+  };
 
   const onSubmit = async (data) => {
+    if (fields.length < selectedEvent.minParticipants) {
+      toast.error(
+        `Minimum team members required is ${selectedEvent.minParticipants}.`
+      );
+      return;
+    }
+
+    if (!validateFestIds(data.teamMembers)) return;
+
     setIsLoading(true);
-    const tempObj =
-      data.event?.split("@")[1] === "Individual"
-        ? {
-            event_id: data.event?.split("@")[0],
-            team_name: user.name,
-            team_lead: user.festId,
-            team_member_1: null,
-            team_member_2: null,
-            team_member_3: null,
-          }
-        : {
-            event_id: data.event?.split("@")[0],
-            team_name: data.teamName,
-            team_lead: user.festId,
-            team_member_1: data.tmOne,
-            team_member_2: data.tmTwo ? data.tmTwo : null,
-            team_member_3: data.tmThree ? data.tmThree : null,
-          };
-    const obj = tempObj;
+    const payload = {
+      event_id: selectedEvent.value,
+      team_lead: user.festId,
+      team_name:
+        selectedEvent.maxParticipants === 1 ? user.name : data.teamName,
+      team_members: data.teamMembers
+        .filter((member) => member.festId !== user.festId) // Exclude team lead from team members
+        .map((member) => ({ festId: member.festId })),
+    };
 
     const timeoutError = setTimeout(() => {
       toast.error("Request timed out. Please try again later.");
       setIsLoading(false);
     }, 120000);
 
-    // console.log(obj);
     var toastId;
 
     try {
@@ -145,7 +164,7 @@ const EventRegistrationForm = () => {
       const { data } = await apiConnector(
         "POST",
         "/api/eventRegistration",
-        obj
+        payload
       );
       toast.dismiss(toastId);
       clearTimeout(timeoutError);
@@ -156,7 +175,7 @@ const EventRegistrationForm = () => {
       } else {
         toast.error(data.message);
       }
-    } catch (err) {
+    } catch (error) {
       clearTimeout(timeoutError);
       toast.error("Something went wrong. Please try again later.");
       toast.dismiss(toastId);
@@ -164,45 +183,6 @@ const EventRegistrationForm = () => {
       console.log(err);
     }
   };
-
-  const mapEventDetails = () => {
-    if (form.watch('event')) {
-        // console.log(value.label.split(' - ')[0])
-        console.log(form.watch('event').split('@')[0])
-        const e = event.find(
-            (event) => event._id === form.watch('event').split('@')[0]
-        );
-        if (e) {
-          console.log(e)
-            setSelectedEvent(e);
-            console.log(selectedEvent)
-        }
-    }
-};
-
-  useEffect(() => {
-    mapEventDetails();
-  }, [form.watch('event')]);
-
-  useEffect(() => {
-    if (selectedEvent.participationMode=== 'Group') {
-      if(selectedEvent.eventId==="C14"){
-      setInstruction('For team with more than 4 members needs to fill the form attached below, for any enquiry contact event co-ordinator, details available at event page');
-      setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
-      }
-      else if(selectedEvent.eventId==="C07"){
-      setInstruction('For team with more than 4 members needs to fill the form attached below, for any enquiry contact event co-ordinator, details available at event page');
-      setFormLink("https://forms.gle/t9isDvhCmP4rKk5t8")
-      }
-      else{        
-      setFormLink(null);
-      setInstruction('Participant Count: Min. 2 and Max. 4 members (Including Team Leader).');
-      }
-    } else if (selectedEvent.participationMode === 'Individual') {
-      setFormLink(null);
-      setInstruction('Participant Count: Individual Participant');
-    }
-  }, [selectedEvent]);
 
   const handleClick = (e, path) => {
     e.preventDefault();
@@ -353,22 +333,44 @@ const EventRegistrationForm = () => {
                   )}
                 />
               </div>
-              {selectedEvent && selectedEvent?._id && (
+              {selectedForEventDetail && selectedForEventDetail?._id && (
                 <div className=" mb-4 text-border flex-col w-11/12 mx-auto">
                   <Card className="mx-auto max-w-xl rounded-lg shadow-md overflow-hidden">
                     <CardContent className="flex flex-col lg:flex-row items-center justify-center">
                       <div className="lg:w-1/3 mt-3">
-                        <p  className="text-2xl font-bold mb-2">{selectedEvent.name}</p>
-                        <img src={selectedEvent.posterUrl} alt={selectedEvent.name} className="w-full h-auto" />
+                        <p className="text-2xl font-bold mb-2">
+                          {selectedForEventDetail.name}
+                        </p>
+                        <img
+                          src={selectedForEventDetail.posterUrl}
+                          alt={selectedForEventDetail.name}
+                          className="w-full h-auto"
+                        />
                       </div>
                       <div className="lg:w-2/3 py-4 mt-3">
-                        <CardTitle/>
+                        <CardTitle />
                         <CardContent>
-                          <p className="text-lg mb-1">Mode of Participation: {selectedEvent.participationMode}</p>
-                          <p className="text-lg mb-1">Type of Event: {selectedEvent.eventType}</p>
-                          <p className="text-lg mb-4">{instruction}</p>
-                          {formLink && (<p className="text-lg mb-4">Form Link: <a href={formLink} target="_blank" className="text-blue-800 underline">{formLink}</a></p>)}
-                          <button onClick={(e) => handleClick(e, `/events/detail/${selectedEvent._id}`)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                          <p className="text-lg mb-1">
+                            Type of Event: {selectedForEventDetail.eventType}
+                          </p>
+                          <div className="flex flex-row gap-2">
+                            <p className="text-lg mb-1">Participant Allowed-</p>
+                            <p className="text-lg mb-1">
+                              min: {selectedForEventDetail.min},
+                            </p>
+                            <p className="text-lg mb-1">
+                              max: {selectedForEventDetail.max}
+                            </p>
+                          </div>
+                          <button
+                            onClick={(e) =>
+                              handleClick(
+                                e,
+                                `/events/detail/${selectedForEventDetail._id}`
+                              )
+                            }
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                          >
                             View Details
                           </button>
                         </CardContent>
@@ -376,131 +378,84 @@ const EventRegistrationForm = () => {
                     </CardContent>
                   </Card>
                 </div>
-              )
-              }
+              )}
               <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
-                {form.watch("event")?.split("@")[1] === "Group" && (
-                  <>
-                    <FormField
-                      control={form.control}
-                      name="teamLead"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">
-                            Team Leader Id*
-                          </FormLabel>
-                          <FormControl>
-                            <Input disabled defaultValue={user.festId} />
-                          </FormControl>
-                          <FormDescription>
-                            If you want other member of your team to be a leader
-                            ask them to register for the event instead.
-                          </FormDescription>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <div>
+                {selectedEvent && selectedEvent.maxParticipants > 1 && (
+                  // <div className="w-3/5 md:w-1/5 mb-4">
+                  <FormField
+                    control={control}
+                    name="teamName"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel className="text-white">Team Name*</FormLabel>
+                        <FormControl>
+                          <Input placeholder="Enter team name" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  // </div>
+                )}
+                <div className="team-members-section mb-4">
+                  <h3>Team Members</h3>
+                  {fields.map((member, index) => (
+                    <div key={member.id} className="mb-2">
                       <FormField
                         control={form.control}
-                        name="teamName"
+                        name={`teamMembers.${index}.festId`}
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-white">
-                              Team Name*
+                              {`${
+                                index === 0
+                                  ? "Team Lead"
+                                  : `Team Member ${index + 1}`
+                              }`}
                             </FormLabel>
                             <FormControl>
-                              <Input placeholder="Enter Team Name" {...field} />
+                              {index === 0 ? (
+                                <Input disabled defaultValue={user.festId} />
+                              ) : (
+                                <Input
+                                  placeholder="Enter Team Member's TechFusion Id"
+                                  {...field}
+                                />
+                              )}
                             </FormControl>
-                            <FormDescription />
+                            {index === 0 ? (
+                              <FormDescription>
+                                If you want other member of your team to be a
+                                leader ask them to register for the event
+                                instead.
+                              </FormDescription>
+                            ) : (
+                              <FormDescription />
+                            )}
                             <FormMessage />
                           </FormItem>
                         )}
                       />
+                      {index >= selectedEvent.minParticipants && (
+                        <Button
+                          type="button"
+                          onClick={() => remove(index)}
+                          className="text-red-500"
+                        >
+                          Remove
+                        </Button>
+                      )}
                     </div>
-                    <FormField
-                      control={form.control}
-                      name="tmOne"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">
-                            Team Member 1*
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Enter Team Member's TechFusion Id"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormDescription />
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="tmTwo"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">
-                            Team Member 2
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Enter Team Member's TechFusion Id"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormDescription />
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="tmThree"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">
-                            Team Member 3
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              placeholder="Enter Team Member's TechFusion Id"
-                              {...field}
-                            />
-                          </FormControl>
-                          <FormDescription />
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </>
-                )}
-                {form.watch("event")?.split("@")[1] === "Individual" && (
-                  <>
-                    <FormField
-                      control={form.control}
-                      name="teamLeadIndividial"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-white">
-                            Participant&apos;s TechFusion Id
-                          </FormLabel>
-                          <FormControl>
-                            <Input disabled defaultValue={user.festId} />
-                          </FormControl>
-                          <FormDescription />
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </>
-                )}
+                  ))}
+                  {selectedEvent &&
+                    fields.length < selectedEvent.maxParticipants && (
+                      <Button onClick={handleAddMember}>Add Team Member</Button>
+                    )}
+                </div>
               </div>
               <Button
                 type="submit"
-                disabled={isLoading}
+                disabled={isLoading || !selectedEvent}
                 className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
               >
                 Enroll
