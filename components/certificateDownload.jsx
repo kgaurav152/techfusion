@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 
 const CertDownloader = ({user}) => {
 
+  let toastId;
   const capitalize = (str, lower = false) =>
     (lower ? str.toLowerCase() : str).replace(/(?:^|\s|["'([{])+\S/g, (match) =>
       match.toUpperCase()
@@ -87,7 +88,9 @@ const CertDownloader = ({user}) => {
         y,
         size: 26,
         font: ProductSansFont,
-        color: rgb(107/255, 105/255, 105/255),
+        color: rgb(75/255, 75/255, 75/255),
+        // color: rgb(107/255, 105/255, 105/255),
+
         // color: rgb(0, 0, 0),
         // 31, 31, 31
       });
@@ -99,6 +102,7 @@ const CertDownloader = ({user}) => {
       });
 
       saveAs(file);
+     toast.dismiss(toastId);
     } catch (error) {
       console.error('Error generating Certificate:', error);
     }
@@ -106,9 +110,10 @@ const CertDownloader = ({user}) => {
 
   const handleDownload = () => {
     const val = capitalize(user?.name?.trim());
+    toastId = toast.loading('Generating Certificate...');
 
     if (val !== '' && user?.name) {
-      generatePDF(user.gender==="Male"?"Mr. "+val:"Mrs. "+val);
+      generatePDF(user.gender==="Male"?"Mr. "+val:"Miss. "+val);
     } else {
       toast.error("Unable to generate certificate!");
     }
