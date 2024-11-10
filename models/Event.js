@@ -1,21 +1,21 @@
 import mongoose from "mongoose";
 
 const EventSchema = new mongoose.Schema({
-name: {
+  name: {
     type: String,
     required: true,
     trim: true,
   },
-  eventType:{
-    type:String,
+  eventType: {
+    type: String,
     required: true,
   },
-  eventId:{
-    type:String,
+  eventId: {
+    type: String,
     required: true,
   },
-  participationMode:{
-    type:String,
+  participationMode: {
+    type: String,
     required: true,
   },
   description: {
@@ -23,13 +23,30 @@ name: {
     required: true,
     trim: true,
   },
-  ruleBook:{
-    type:String,
+  ruleBook: {
+    type: String,
     required: true,
   },
-  posterUrl:{
-    type:String,
+  posterUrl: {
+    type: String,
     required: true,
+  },
+  min: {
+    type: Number,
+    required: true,
+    min: [1, "Minimum participants must be at least 1"],
+  },
+  max: {
+    type: Number,
+    required: true,
+    min: [1, "Maximum participants must be at least 1"],
+    validate: {
+      validator: function (value) {
+        return value >= this.min;
+      },
+      message:
+        "Maximum participants should be equal to or greater than minimum participants",
+    },
   },
 });
 

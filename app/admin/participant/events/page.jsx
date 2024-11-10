@@ -140,7 +140,7 @@ export const AllEventParticipants = () => {
             </div>
             <div className='container mt-4 mb-20 w-4/5'>
                 {
-                    allEventParticipantsData.length>0 && <p className='text-white text-lg font-semibold'>Totol Participants : {allEventParticipantsData.length}</p>
+                    allEventParticipantsData.length>0 && <p className='text-white text-lg font-semibold'>Total Participants : {allEventParticipantsData.length}</p>
                 }
                 <DataTable columns={columns(setActionSuccess)} data={allEventParticipantsData} />
             </div>
