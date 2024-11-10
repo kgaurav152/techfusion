@@ -408,8 +408,10 @@ const EventRegistrationForm = () => {
                           <FormItem>
                             <FormLabel className="text-white">
                               {`${
-                                index === 0
+                                index === 0 && selectedEvent.maxParticipants > 1
                                   ? "Team Lead"
+                                  : selectedEvent.maxParticipants === 1
+                                  ? "Participant"
                                   : `Team Member ${index + 1}`
                               }`}
                             </FormLabel>
@@ -423,11 +425,22 @@ const EventRegistrationForm = () => {
                                 />
                               )}
                             </FormControl>
-                            {index === 0 ? (
+                            {index === 0 &&
+                            selectedEvent.maxParticipants > 1 ? (
                               <FormDescription>
+                                <span className="text-teal-300">
+                                  {user?.name}
+                                </span>
+                                <br />
                                 If you want other member of your team to be a
                                 leader ask them to register for the event
                                 instead.
+                              </FormDescription>
+                            ) : selectedEvent.maxParticipants === 1 ? (
+                              <FormDescription>
+                                <span className="text-teal-300">
+                                  {user?.name}
+                                </span>
                               </FormDescription>
                             ) : (
                               <FormDescription />
