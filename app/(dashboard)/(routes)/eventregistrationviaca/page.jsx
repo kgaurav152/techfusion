@@ -65,8 +65,8 @@ const EventRegistrationForm = () => {
 
   const router = useRouter();
 
-  const { user } = useSelector((state) => state.profile);
-  const { event } = useSelector((state) => state.event);
+  const { user } = useSelector((state) => state?.profile);
+  const { event } = useSelector((state) => state?.event);
 
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
@@ -85,113 +85,113 @@ const EventRegistrationForm = () => {
   });
 
   useEffect(() => {
-    const restructuredEvents = event.map((ev) => ({
-      label: `${ev.eventId} - ${ev.name}`,
-      value: ev._id,
-      minParticipants: ev.min,
-      maxParticipants: ev.max,
+    const restructuredEvents = event?.map((ev) => ({
+      label: `${ev?.eventId} - ${ev?.name}`,
+      value: ev?._id,
+      minParticipants: ev?.min,
+      maxParticipants: ev?.max,
     }));
     setEventData(restructuredEvents);
   }, [event]);
 
   useEffect(() => {
     const eventId = watch("event");
-    const selected = eventData.find((ev) => ev.value === eventId);
+    const selected = eventData?.find((ev) => ev?.value === eventId);
     setSelectedEvent(selected);
-    const selectedForDetail = event.find((ev) => ev._id === eventId);
+    const selectedForDetail = event?.find((ev) => ev?._id === eventId);
     setSelectedForEventDetail(selectedForDetail);
     if (selected) {
-      form.setValue("teamMembers", [
-        { festId: user.festId, role: "Team Lead" },
+      form?.setValue("teamMembers", [
+        { festId: user?.festId, role: "Team Lead" },
       ]);
-      for (let i = 1; i < selected.minParticipants; i++) {
+      for (let i = 1; i < selected?.minParticipants; i++) {
         append({ festId: "", role: "Team Member" });
       }
     }
   }, [watch("event")]);
 
   const handleAddMember = (e) => {
-    e.preventDefault();
-    if (fields.length < selectedEvent.maxParticipants) {
+    e?.preventDefault();
+    if (fields?.length < selectedEvent?.maxParticipants) {
       append({ festId: "", role: "Team Member" });
     } else {
-      toast.error(
-        `Maximum team members allowed is ${selectedEvent.maxParticipants}.`
+      toast?.error(
+        `Maximum team members allowed is ${selectedEvent?.maxParticipants}.`
       );
     }
   };
 
   const validateFestIds = (teamMembers) => {
-    const festIds = teamMembers.map((member) => member.festId);
+    const festIds = teamMembers?.map((member) => member?.festId);
     const uniqueFestIds = new Set(festIds);
-    if (festIds.includes("") || uniqueFestIds.size !== festIds.length) {
-      toast.error("All TechFusion IDs must be unique and non-empty.");
+    if (festIds?.includes("") || uniqueFestIds?.size !== festIds?.length) {
+      toast?.error("All TechFusion IDs must be unique and non-empty.");
       return false;
     }
     return true;
   };
 
   const onSubmit = async (data) => {
-    if (fields.length < selectedEvent.minParticipants) {
-      toast.error(
-        `Minimum team members required is ${selectedEvent.minParticipants}.`
+    if (fields?.length < selectedEvent?.minParticipants) {
+      toast?.error(
+        `Minimum team members required is ${selectedEvent?.minParticipants}.`
       );
       return;
     }
 
-    if (!validateFestIds(data.teamMembers)) return;
+    if (!validateFestIds(data?.teamMembers)) return;
 
     setIsLoading(true);
     const payload = {
-      event_id: selectedEvent.value,
-      team_lead: user.festId,
+      event_id: selectedEvent?.value,
+      team_lead: user?.festId,
       team_name:
-        selectedEvent.maxParticipants === 1 ? user.name : data.teamName,
-      team_members: data.teamMembers
-        .filter((member) => member.festId !== user.festId) // Exclude team lead from team members
-        .map((member) => ({ festId: member.festId })),
+        selectedEvent?.maxParticipants === 1 ? user?.name : data?.teamName,
+      team_members: data?.teamMembers
+        ?.filter((member) => member?.festId !== user?.festId) // Exclude team lead from team members
+        ?.map((member) => ({ festId: member?.festId })),
     };
 
     const timeoutError = setTimeout(() => {
-      toast.error("Request timed out. Please try again later.");
+      toast?.error("Request timed out. Please try again later.");
       setIsLoading(false);
     }, 120000);
 
     var toastId;
 
     try {
-      toastId = toast.loading("Registering Event...");
+      toastId = toast?.loading("Registering Event...");
       const { data } = await apiConnector(
         "POST",
         "/api/eventRegistration",
         payload
       );
-      toast.dismiss(toastId);
+      toast?.dismiss(toastId);
       clearTimeout(timeoutError);
       setIsLoading(false);
-      if (data.success) {
-        toast.success("Registered for Event Successfully!");
-        form.reset();
+      if (data?.success) {
+        toast?.success("Registered for Event Successfully!");
+        form?.reset();
       } else {
-        toast.error(data.message);
+        toast?.error(data?.message);
       }
     } catch (error) {
       clearTimeout(timeoutError);
-      toast.error("Something went wrong. Please try again later.");
-      toast.dismiss(toastId);
+      toast?.error("Something went wrong. Please try again later.");
+      toast?.dismiss(toastId);
       setIsLoading(false);
-      console.log(err);
+      console?.log(err);
     }
   };
 
   const handleClick = (e, path) => {
-    e.preventDefault();
-    router.push(path);
+    e?.preventDefault();
+    router?.push(path);
   };
 
   return (
     <React.Fragment>
-      {user && user.status === "approved" ? (
+      {user && user?.status === "approved" ? (
         <>
           <div className="text-center mb-4 text-border flex-col">
             <h1
@@ -339,11 +339,11 @@ const EventRegistrationForm = () => {
                     <CardContent className="flex flex-col lg:flex-row items-center justify-center">
                       <div className="lg:w-1/3 mt-3">
                         <p className="text-2xl font-bold mb-2">
-                          {selectedForEventDetail.name}
+                          {selectedForEventDetail?.name}
                         </p>
                         <img
-                          src={selectedForEventDetail.posterUrl}
-                          alt={selectedForEventDetail.name}
+                          src={selectedForEventDetail?.posterUrl}
+                          alt={selectedForEventDetail?.name}
                           className="w-full h-auto"
                         />
                       </div>
@@ -351,22 +351,22 @@ const EventRegistrationForm = () => {
                         <CardTitle />
                         <CardContent>
                           <p className="text-lg mb-1">
-                            Type of Event: {selectedForEventDetail.eventType}
+                            Type of Event: {selectedForEventDetail?.eventType}
                           </p>
                           <div className="flex flex-row gap-2">
                             <p className="text-lg mb-1">Participant Allowed-</p>
                             <p className="text-lg mb-1">
-                              min: {selectedForEventDetail.min},
+                              min: {selectedForEventDetail?.min},
                             </p>
                             <p className="text-lg mb-1">
-                              max: {selectedForEventDetail.max}
+                              max: {selectedForEventDetail?.max}
                             </p>
                           </div>
                           <button
                             onClick={(e) =>
                               handleClick(
                                 e,
-                                `/events/detail/${selectedForEventDetail._id}`
+                                `/events/detail/${selectedForEventDetail?._id}`
                               )
                             }
                             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
@@ -380,7 +380,7 @@ const EventRegistrationForm = () => {
                 </div>
               )}
               <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
-                {selectedEvent && selectedEvent.maxParticipants > 1 && (
+                {selectedEvent && selectedEvent?.maxParticipants > 1 && (
                   // <div className="w-3/5 md:w-1/5 mb-4">
                   <FormField
                     control={control}
@@ -399,25 +399,26 @@ const EventRegistrationForm = () => {
                 )}
                 <div className="team-members-section mb-4">
                   <h3>Team Members</h3>
-                  {fields.map((member, index) => (
-                    <div key={member.id} className="mb-2">
+                  {fields?.map((member, index) => (
+                    <div key={member?.id} className="mb-2">
                       <FormField
                         control={form.control}
-                        name={`teamMembers.${index}.festId`}
+                        name={`teamMembers?.${index}?.festId`}
                         render={({ field }) => (
                           <FormItem>
                             <FormLabel className="text-white">
                               {`${
-                                index === 0 && selectedEvent.maxParticipants > 1
+                                index === 0 &&
+                                selectedEvent?.maxParticipants > 1
                                   ? "Team Lead"
-                                  : selectedEvent.maxParticipants === 1
+                                  : selectedEvent?.maxParticipants === 1
                                   ? "Participant"
                                   : `Team Member ${index + 1}`
                               }`}
                             </FormLabel>
                             <FormControl>
                               {index === 0 ? (
-                                <Input disabled defaultValue={user.festId} />
+                                <Input disabled defaultValue={user?.festId} />
                               ) : (
                                 <Input
                                   placeholder="Enter Team Member's TechFusion Id"
@@ -426,7 +427,7 @@ const EventRegistrationForm = () => {
                               )}
                             </FormControl>
                             {index === 0 &&
-                            selectedEvent.maxParticipants > 1 ? (
+                            selectedEvent?.maxParticipants > 1 ? (
                               <FormDescription>
                                 <span className="text-teal-300">
                                   {user?.name}
@@ -436,7 +437,7 @@ const EventRegistrationForm = () => {
                                 leader ask them to register for the event
                                 instead.
                               </FormDescription>
-                            ) : selectedEvent.maxParticipants === 1 ? (
+                            ) : selectedEvent?.maxParticipants === 1 ? (
                               <FormDescription>
                                 <span className="text-teal-300">
                                   {user?.name}
@@ -449,7 +450,7 @@ const EventRegistrationForm = () => {
                           </FormItem>
                         )}
                       />
-                      {index >= selectedEvent.minParticipants && (
+                      {index >= selectedEvent?.minParticipants && (
                         <Button
                           type="button"
                           onClick={() => remove(index)}
@@ -461,7 +462,7 @@ const EventRegistrationForm = () => {
                     </div>
                   ))}
                   {selectedEvent &&
-                    fields.length < selectedEvent.maxParticipants && (
+                    fields?.length < selectedEvent?.maxParticipants && (
                       <Button onClick={handleAddMember}>Add Team Member</Button>
                     )}
                 </div>
