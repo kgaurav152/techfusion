@@ -2,7 +2,6 @@ import { connect } from "@/config/dbconfig";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
 import User from "@/models/User";
-import multer from "multer";
 import { uploadImageToCloudinary } from "@/lib/imageUploader";
 import { sendOnboardingEmail } from "@/helpers/mailService";
 import tempWrite from "temp-write";

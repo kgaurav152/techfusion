@@ -92,6 +92,7 @@ const CertDownloader = ({user}) => {
         // color: rgb(107/255, 105/255, 105/255),
 
         // color: rgb(0, 0, 0),
+        // 31, 31, 31
       });
 
       const pdfBytes = await pdfDoc.save();
