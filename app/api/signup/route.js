@@ -1,12 +1,9 @@
 import { connect } from "@/config/dbconfig";
 import { NextRequest, NextResponse } from "next/server";
 import bcryptjs from "bcryptjs";
-import User from "@/models/User";
-import multer from "multer";
+import User from "@/models/User"; 
 import { uploadImageToCloudinary } from "@/lib/imageUploader";
-import tempWrite from "temp-write";
-import path from "path";
-import fs from "fs";
+
 connect();
 export async function POST(request) {
   try {
