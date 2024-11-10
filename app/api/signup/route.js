@@ -4,6 +4,7 @@ import bcryptjs from "bcryptjs";
 import User from "@/models/User";
 import multer from "multer";
 import { uploadImageToCloudinary } from "@/lib/imageUploader";
+import { sendOnboardingEmail } from "@/helpers/mailService";
 import tempWrite from "temp-write";
 import path from "path";
 import fs from "fs";
@@ -108,6 +109,9 @@ export async function POST(request) {
       screenshotImage: screenshotImage.secure_url,
     });
     const savedUser = await newUser.save();
+
+    // Send onboarding email
+    const emailResult = await sendOnboardingEmail(user.email, name);
 
     return NextResponse.json({
       message: "User created successfully",
