@@ -17,6 +17,7 @@ const EventSchema = new mongoose.Schema({
   participationMode: {
     type: String,
     required: true,
+    enum : ["Individual","Group"]
   },
   description: {
     type: String,

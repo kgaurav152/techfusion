@@ -142,6 +142,7 @@ const EventRegistrationForm = () => {
     if (!validateFestIds(data?.teamMembers)) return;
 
     setIsLoading(true);
+    
     const payload = {
       event_id: selectedEvent?.value,
       team_lead: user?.festId,

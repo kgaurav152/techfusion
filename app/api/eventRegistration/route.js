@@ -4,33 +4,47 @@ import { NextResponse } from "next/server";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 import Event from "@/models/Event";
 import Participation from "@/models/Participation";
-import { previousDay } from "date-fns";
 
 const technical_max_limit = 20;
 const cultural_max_limit = 20;
 
-function alreadyRegistered(user,event_id){
-  const technical = user.technical.find((item) => item.event.toString() === event_id.toString())
-  const cultural = user.cultural.find((item) => item.event.toString() === event_id.toString());
+function alreadyRegistered(user, event_id) {
+  const technical = user.technical.find(
+    (item) => item.event.toString() === event_id.toString()
+  );
+  const cultural = user.cultural.find(
+    (item) => item.event.toString() === event_id.toString()
+  );
 
-   return technical || cultural;
-
-
+  return technical || cultural;
 }
+
+function checkPaymentPending(user) {
+  return user.status === "pending";
+}
+
+function checkTechnicalLimit(user, event) {
+  return (
+    event.eventType === "Technical" &&
+    user.technical.length >= technical_max_limit
+  );
+}
+
+function checkCulturalLimit(user, event) {
+  return (
+    event.eventType === "Cultural" && user.cultural.length == cultural_max_limit
+  );
+}
+
 export async function POST(req) {
-  const {
-    token,
-    event_id,
-    team_name,
-    team_lead,
-    team_member_1,
-    team_member_2,
-    team_member_3,
-  } = await req.json();
+  const { token, event_id, team_name, team_members } = await req.json();
   connect();
   try {
     const userID = await getDataFromToken(token);
-    const user = await User.findById(userID).populate("technical").populate("cultural");
+    const user = await User.findById(userID)
+      .populate("technical")
+      .populate("cultural");
+
     if (!user) {
       return NextResponse.json({
         success: false,
@@ -50,39 +64,33 @@ export async function POST(req) {
         message: "Team name is Required",
       });
     }
+
     if (user) {
-      if (user.status == "pending") {
+      if (checkPaymentPending(user)) {
         return NextResponse.json({
           success: false,
           message: `Your Payment status is Pending right now`,
         });
       }
-      if (
-        event.eventType === "Technical" &&
-        user.technical.length >= technical_max_limit
-      ) {
+      if (checkTechnicalLimit(user, event)) {
         return NextResponse.json({
           success: false,
           message: `You already enrolled in ${technical_max_limit} Technical events`,
         });
       }
-      if (
-        event.eventType === "Cultural" &&
-        user.cultural.length == cultural_max_limit
-      ) {
+      if (checkCulturalLimit(user, event)) {
         return NextResponse.json({
           success: false,
           message: `You already enrolled in ${cultural_max_limit} cultural events`,
         });
       }
 
-      if(alreadyRegistered(user,event._id)){
+      if (alreadyRegistered(user, event._id)) {
         return NextResponse.json({
           success: false,
-          message: `You already registered in this event`, 
+          message: `You already registered in this event`,
         });
       }
-
     }
 
     if (event.participationMode == "Individual") {
@@ -95,167 +103,71 @@ export async function POST(req) {
         await User.findByIdAndUpdate(user._id, {
           $push: { cultural: newParticipation._id },
         });
-        return NextResponse.json({
-          success: true,
-          message: "Registered for Event Successfully!",
-          data: newParticipation,
-        });
-      }
-      if (event.eventType === "Technical") {
+      } 
+      else if (event.eventType === "Technical") {
         await User.findByIdAndUpdate(user._id, {
           $push: { technical: newParticipation._id },
         });
-        return NextResponse.json({
-          success: true,
-          message: "Registered for Event Successfully!",
-          data: newParticipation,
-        });
       }
-    }
-    let user1 = null;
-    let user2 = null;
-    let user3 = null;
-    let userArray = [user._id];
-    if (team_member_1) {
-      user1 = await User.findOne({ festId: team_member_1.toUpperCase() }).populate("technical").populate("cultural");
-      if (!user1) {
-        return NextResponse.json({
-          success: false,
-          message: `Team Member 1 Fest Id is Not Found, Pease Verify!!`,
-        });
-      }
-      if (user1.status == "pending") {
-        return NextResponse.json({
-          success: false,
-          message: `${user1.festId} Payment status is Pending right now`,
-        });
-      }
-      if (
-        event.eventType === "Technical" &&
-        user1.technical.length >= technical_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user1.festId} already enrolled in ${technical_max_limit} Technical events`,
-        });
-      } else if (
-        event.eventType === "Cultural" &&
-        user1.cultural.length == cultural_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user1.festId} already enrolled in ${cultural_max_limit} Cultural events`,
-        });
-      }
-      if(alreadyRegistered(user1,event._id)){
-        return NextResponse.json({
-          success: false,
-          message: `${user1.festId} already registered in this event`, 
-        });
-      }
-      if(userArray.find((item)=> item.toString() === user1._id.toString())){
-        return NextResponse.json({
-          success: false,
-          message: `Two Member techfest ID is same Please verify`,
-        });
-      }
-      userArray.push(user1._id);
-    }
-    if (team_member_2) {
-      user2 = await User.findOne({ festId: team_member_2.toUpperCase() }).populate("technical").populate("cultural");
-      if (!user2) {
-        return NextResponse.json({
-          success: false,
-          message: `Team Member 2 Fest Id is Not Found, Please Verify !!`,
-        });
-      }
-      if (user2.status == "pending") {
-        return NextResponse.json({
-          success: false,
-          message: `${user2.festId} Payment status is Pending right now`,
-        });
-      }
-      if (
-        event.eventType === "Technical" &&
-        user2.technical.length >= technical_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user2.festId} already enrolled in ${technical_max_limit} technical events`,
-        });
-      } else if (
-        event.eventType === "Cultural" &&
-        user2.cultural.length == cultural_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user2.festId} already enrolled in ${cultural_max_limit} cultural events`,
-        });
-      }
-      if(alreadyRegistered(user2,event._id)){
-        return NextResponse.json({
-          success: false,
-          message: `${user2.festId} already registered in this event`, 
-        });
-      }
-      if(userArray.find((item)=> item.toString() === user2._id.toString())){
-        return NextResponse.json({
-          success: false,
-          message: `Two Member techfest ID is same Please verify`,
-        });
-      }
-      userArray.push(user2._id);
-    }
-    if (team_member_3) {
-      user3 = await User.findOne({ festId: team_member_3.toUpperCase() }).populate("technical").populate("cultural");
-      if (!user3) {
-        return NextResponse.json({
-          success: false,
-          message: `Team Member 3 Fest Id is Not Found, Please Verify!!`,
-        });
-      }
-      if (user3.status == "pending") {
-        return NextResponse.json({
-          success: false,
-          message: `${user3.festId} Payment status is Pending right now`,
-        });
-      }
-      if (
-        event.eventType === "Technical" &&
-        user3.technical.length >= technical_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user3.festId} already enrolled in ${technical_max_limit} technical events`,
-        });
-      } else if (
-        event.eventType === "Cultural" &&
-        user3.cultural.length == cultural_max_limit
-      ) {
-        return NextResponse.json({
-          success: false,
-          message: `${user3.festId} already participated in ${cultural_max_limit} cultural events`,
-        });
-      }
-      if(alreadyRegistered(user3,event._id)){
-        return NextResponse.json({
-          success: false,
-          message: `${user3.festId} already registered in this event`, 
-        });
-      }
-      if(userArray.find((item)=> item.toString() === user3._id.toString())){
-        return NextResponse.json({
-          success: false,
-          message: `Two Member techfest ID is same Please verify`,
-        });
-      }
-      userArray.push(user3._id);
+      return NextResponse.json({
+        success: true,
+        message: "Registered for Event Successfully!",
+        data: newParticipation,
+      });
     }
 
-    if (userArray.length < 2) {
+    let userArray = [user._id];
+
+    for (let i = 0; i < team_members.length; i++) {
+      const member = await User.findOne({
+        festId: team_members[i].festId.toUpperCase(),
+      })
+        .populate("technical")
+        .populate("cultural");
+
+      if (!member) {
+        return NextResponse.json({
+          success: false,
+          message: `Team Member with ${member?.festId} is Not Found, Pease Verify!!`,
+        });
+      }
+      if (checkPaymentPending(member)) {
+        return NextResponse.json({
+          success: false,
+          message: `${member.festId} - ${member.name} Payment status is Pending right now`,
+        });
+      }
+
+      if (checkTechnicalLimit(member, event)) {
+        return NextResponse.json({
+          success: false,
+          message: `${member.festId} - ${member.name} already enrolled in ${technical_max_limit} Technical events`,
+        });
+      } else if (checkCulturalLimit(member, event)) {
+        return NextResponse.json({
+          success: false,
+          message: `${member.festId} - ${member.name} already enrolled in ${cultural_max_limit} Cultural events`,
+        });
+      }
+      if (alreadyRegistered(member, event._id)) {
+        return NextResponse.json({
+          success: false,
+          message: `${member.festId} - ${member.name} already registered in this event`,
+        });
+      }
+      if (userArray.find((item) => item.toString() === member._id.toString())) {
+        return NextResponse.json({
+          success: false,
+          message: `Two Member techfest ID is same Please verify`,
+        });
+      }
+      userArray.push(member._id);
+    }
+
+    if (userArray.length >= event?.min && userArray.length <= event?.max) {
       return NextResponse.json({
         success: false,
-        message: `This is Group event minimum 2 Participant Required`,
+        message: `This group event requires a minimum of ${event.min} participants and can accommodate up to a maximum of ${event.max} participants.`,
       });
     }
 
