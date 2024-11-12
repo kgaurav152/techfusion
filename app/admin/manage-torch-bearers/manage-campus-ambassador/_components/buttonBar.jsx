@@ -446,15 +446,15 @@ export function CampusAmbassadorEditForm({
     resolver: zodResolver(CampusAmbassadorCreationFormSchema),
     mode: "onChange",
     defaultValues: {
-      id: selectedAmbassador.caId,
-      name: selectedAmbassador.name,
-      email: selectedAmbassador.email,
-      mobile: selectedAmbassador.mobile,
-      college: selectedAmbassador.college,
-      branch: selectedAmbassador.branch,
-      batch: selectedAmbassador.batch,
-      linkedin: selectedAmbassador.linkedin,
-      pictureUrl: selectedAmbassador.pictureUrl,
+      id: selectedAmbassador?.caId,
+      name: selectedAmbassador?.name,
+      email: selectedAmbassador?.email,
+      mobile: selectedAmbassador?.mobile,
+      college: selectedAmbassador?.college,
+      branch: selectedAmbassador?.branch,
+      batch: selectedAmbassador?.batch,
+      linkedin: selectedAmbassador?.linkedin,
+      pictureUrl: selectedAmbassador?.pictureUrl,
     },
   });
 
@@ -462,8 +462,8 @@ export function CampusAmbassadorEditForm({
     setIsLoading(true);
 
     const updatedData = {
-      id: selectedAmbassador._id,
-      caId: data.id,
+      id: selectedAmbassador?._id,
+      caId: selectedAmbassador?.id,
       name: data.name,
       email: data.email != null ? data.email : "admin@techfusion.org.in",
       linkedin:
@@ -516,7 +516,8 @@ export function CampusAmbassadorEditForm({
                 <FormItem>
                   <FormLabel className="text-white">CA Id*</FormLabel>
                   <FormControl>
-                    <Input disabled placeholder="Enter Id of Ca" {...field} />
+                    {/* <Input disabled placeholder="Enter Id of Ca" {...field} /> */}
+                    <p className="text-white">{selectedAmbassador?.caId}</p>
                   </FormControl>
                   <FormDescription />
                   <FormMessage />
@@ -528,7 +529,7 @@ export function CampusAmbassadorEditForm({
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Name of CA*</FormLabel>
+                  <FormLabel className="text-white">Name of CA*</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter Name" {...field} />
                   </FormControl>
@@ -541,7 +542,7 @@ export function CampusAmbassadorEditForm({
               name="mobile"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Mobile of CA*</FormLabel>
+                  <FormLabel className="text-white">Mobile of CA*</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter Mobile" {...field} />
                   </FormControl>
