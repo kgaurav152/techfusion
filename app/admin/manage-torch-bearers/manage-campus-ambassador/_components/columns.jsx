@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpDown, Eye, Image } from "lucide-react";
+import { FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -70,8 +71,7 @@ export const columns = (setCampusAmbassadorData) => [
             target="_blank"
             className="flex justify-center"
           >
-            <Eye className="h-4 w-4 text-violet-500" />{" "}
-            {/* change to linkedin icon */}
+            <FaLinkedin className="text-3xl hover:text-blue-600" />
           </Link>
         );
       } else {
