@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import { useRef, useEffect, useState } from "react";
 import { useReactToPrint } from "react-to-print";
-import { useDownloadExcel } from 'react-export-table-to-excel';
+import { useDownloadExcel } from "react-export-table-to-excel";
 
 import {
   ColumnDef,
@@ -14,7 +14,7 @@ import {
   getSortedRowModel,
   getFilteredRowModel,
   useReactTable,
-} from "@tanstack/react-table"
+} from "@tanstack/react-table";
 
 import {
   Table,
@@ -23,79 +23,85 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from "@/components/ui/table";
 
 import { Button } from "@/components/ui/button";
 import {
-    DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
-    DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
-import {ArrowLeft, ArrowRight, Settings2} from "lucide-react";
+import { ArrowLeft, ArrowRight, Settings2 } from "lucide-react";
 
-export const DataTable = ({
-  columns,
-  data, 
-}) => {
+export const DataTable = ({ columns, data }) => {
+  const [sorting, setSorting] = useState([]);
+  const [columnFilters, setColumnFilters] = useState([]);
+  const [columnVisibility, setColumnVisibility] = useState({});
+  const [rowSelection, setRowSelection] = useState({});
 
-    const [sorting, setSorting] = useState([]);
-    const [columnFilters, setColumnFilters] = useState([]);
-    const [columnVisibility, setColumnVisibility] = useState({});
-    const [rowSelection, setRowSelection] = useState({});
-    
-    const printAreaRef = useRef(null);
-    const handlePrint = useReactToPrint({
-      content: () => printAreaRef.current,
-    });
+  const printAreaRef = useRef(null);
+  const handlePrint = useReactToPrint({
+    content: () => printAreaRef.current,
+  });
 
-    const tableRef = useRef(null);
-    const { onDownload } = useDownloadExcel({
-        currentTableRef: tableRef.current,
-        filename: 'List of all events',
-        sheet: 'Events'
-    })
+  const tableRef = useRef(null);
+  const { onDownload } = useDownloadExcel({
+    currentTableRef: tableRef.current,
+    filename: "List of all events",
+    sheet: "Events",
+  });
 
   const table = useReactTable({
-  data,
-  columns,
-  state: {
+    data,
+    columns,
+    state: {
       sorting,
       columnFilters,
       columnVisibility,
-      rowSelection
-  },
-  onSortingChange: setSorting,
-  onColumnFiltersChange: setColumnFilters,
-  getCoreRowModel: getCoreRowModel(),
-  getFilteredRowModel: getFilteredRowModel(),
-  onColumnVisibilityChange: setColumnVisibility,
-  onRowSelectionChange: setRowSelection,
-  getSortedRowModel: getSortedRowModel(),
-  // getPaginationRowModel: getPaginationRowModel(),
-  })
+      rowSelection,
+    },
+    onSortingChange: setSorting,
+    onColumnFiltersChange: setColumnFilters,
+    getCoreRowModel: getCoreRowModel(),
+    getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
+    onRowSelectionChange: setRowSelection,
+    getSortedRowModel: getSortedRowModel(),
+    // getPaginationRowModel: getPaginationRowModel(),
+  });
 
   return (
     <>
-        <div className="text-center text-white mt-8 mb-10">
-          <Button onClick={handlePrint} className="text-white mr-6">
-            Print
-          </Button>
-          <Button onClick={onDownload}> Export excel </Button>
-        </div>
-        <div className="flex items-center justify-between">
-            <div className="flex items-center py-4">
-            <Input
+      <div className="text-center text-white mt-8 mb-10">
+        <Button onClick={handlePrint} className="text-white mr-6">
+          Print
+        </Button>
+        <Button onClick={onDownload}> Export excel </Button>
+      </div>
+      <div className="flex items-center justify-between">
+        <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+          <Input
             placeholder="Filter Name..."
-            value={(table.getColumn("name")?.getFilterValue()) ?? ""}
+            value={table.getColumn("name")?.getFilterValue() ?? ""}
             onChange={(event) =>
-                table.getColumn("name")?.setFilterValue(event.target.value)
+              table.getColumn("name")?.setFilterValue(event.target.value)
             }
             className="max-w-sm"
-            />
-            </div>
-            <DropdownMenu>
+          />
+        </div>
+        <div className="flex items-center py-2 lg:py-4 mr-1 lg:mr-4">
+          <Input
+            placeholder="Filter College..."
+            value={table.getColumn("college")?.getFilterValue() ?? ""}
+            onChange={(event) =>
+              table.getColumn("college")?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        </div>
+        <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
               <Settings2 /> View
@@ -104,9 +110,7 @@ export const DataTable = ({
           <DropdownMenuContent align="end">
             {table
               .getAllColumns()
-              .filter(
-                (column) => column.getCanHide()
-              )
+              .filter((column) => column.getCanHide())
               .map((column) => {
                 return (
                   <DropdownMenuCheckboxItem
@@ -119,57 +123,66 @@ export const DataTable = ({
                   >
                     {column.id}
                   </DropdownMenuCheckboxItem>
-                )
+                );
               })}
           </DropdownMenuContent>
         </DropdownMenu>
-        </div>
-        <div className="rounded-md border text-white print:m-10 print:text-black" ref={printAreaRef}>
-          <Table ref={tableRef}>
-            <TableHeader>
+      </div>
+      <div
+        className="rounded-md border text-white print:m-10 print:text-black"
+        ref={printAreaRef}
+      >
+        <Table ref={tableRef}>
+          <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
-                <TableRow key={headerGroup.id}>
+              <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
-                    return (
+                  return (
                     <TableHead key={header.id} className="text-center">
-                        {header.isPlaceholder
+                      {header.isPlaceholder
                         ? null
                         : flexRender(
                             header.column.columnDef.header,
                             header.getContext()
-                            )}
+                          )}
                     </TableHead>
-                    )
+                  );
                 })}
-                </TableRow>
+              </TableRow>
             ))}
-            </TableHeader>
-            <TableBody>
+          </TableHeader>
+          <TableBody>
             {table.getRowModel().rows?.length ? (
-                table.getRowModel().rows.map((row) => (
+              table.getRowModel().rows.map((row) => (
                 <TableRow
-                    key={row.id}
-                    data-state={row.getIsSelected() && "selected"}
+                  key={row.id}
+                  data-state={row.getIsSelected() && "selected"}
                 >
-                    {row.getVisibleCells().map((cell) => (
+                  {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      {flexRender(
+                        cell.column.columnDef.cell,
+                        cell.getContext()
+                      )}
                     </TableCell>
-                    ))}
+                  ))}
                 </TableRow>
-                ))
+              ))
             ) : (
-                <TableRow>
-                <TableCell colSpan={columns.length} className="h-24 text-center">
-                    No results.
+              <TableRow>
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center"
+                >
+                  No results.
                 </TableCell>
-                </TableRow>
+              </TableRow>
             )}
-            </TableBody>
-          </Table>
-        </div>
+          </TableBody>
+        </Table>
+      </div>
     </>
-  )
-}
+  );
+};
 
 export default DataTable;
