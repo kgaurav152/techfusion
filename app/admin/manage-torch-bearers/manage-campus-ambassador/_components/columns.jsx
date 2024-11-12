@@ -4,7 +4,7 @@ import { ArrowUpDown, Eye, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 import {
-  EditButton,
+  EditCampusAmbassadorButton,
   DeleteButton,
 } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/buttonBar";
 import Link from "next/link";
@@ -99,18 +99,18 @@ export const columns = (setCampusAmbassadorData) => [
       }
     },
   },
-  // {
-  //   id: "editButton",
-  //   cell: ({ row }) => {
-  //     const ca = row.original;
-  //     return (
-  //       <EditButton
-  //         CampusAmbassadorId={ca._id}
-  //         setCampusAmbassadorData={setCampusAmbassadorData}
-  //       />
-  //     );
-  //   },
-  // },
+  {
+    id: "editButton",
+    cell: ({ row }) => {
+      const ca = row.original;
+      return (
+        <EditCampusAmbassadorButton
+          selectedAmbassador={ca}
+          setCampusAmbassadorData={setCampusAmbassadorData}
+        />
+      );
+    },
+  },
   {
     id: "deleteButton",
     cell: ({ row }) => {
