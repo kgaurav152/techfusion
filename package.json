@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "cross-env NODE_OPTIONS='--inspect' next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -40,7 +40,6 @@
     "cloudinary": "^1.41.1",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.0",
-    "cross-env": "^7.0.3",
     "date-fns": "^2.30.0",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.16",
@@ -81,6 +80,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
+    "cross-env": "^7.0.3",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "postcss": "^8",
