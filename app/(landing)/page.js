@@ -22,8 +22,10 @@ const LandingPage = () => {
   const { user } = useSelector((state) => state.profile);
   // const dispatch = useDispatch();
 
-  const [live, setLive] = useState(true);
-  const developer = eventCoordinators.find((coordinator) => coordinator.eventId === 'WD');
+  const [live, setLive] = useState(false);
+  const developer = eventCoordinators.find(
+    (coordinator) => coordinator.eventId === "WD"
+  );
   // const [clampAbout, setClampAbout] = useState(true);
 
   const [isHovered, setIsHovered] = useState(false);
@@ -57,10 +59,11 @@ const LandingPage = () => {
           />
           <div className="flex flex-col items-center mt-20">
             <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              TechFusion&apos;24
+              {/* TechFusion&apos;24 */} TechFusion&apos;2.0
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              25-28 January 2024
+              {/* 31 Nov-03 December 2024 */} Tentative Dates- Last Week of Nov
+              2024
             </p>
             {live ? (
               <div>
@@ -152,23 +155,23 @@ const LandingPage = () => {
             ) : (
               <div className="flex justify-center">
                 <Image
-                  src="/registrationStartsFrom.svg"
+                  src="/registrationStartsFrom_19_nov.svg"
                   width={850}
                   height={200}
-                  alt="TechFusion'24 Registration from 6th jan"
+                  alt="TechFusion 2.0 Registration from 19th nov"
                 />
               </div>
             )}
           </div>
         </div>
       </div>
-    
+
       {/*Star Wars Animation*/}
       <RiveAnimationComponent live={live} />
       {/* Events Section */}
       <section className="mb-10">
         <div>
-          {/* {live ? (
+          {live ? (
             <EventCarousel />
           ) : (
             <>
@@ -182,8 +185,8 @@ const LandingPage = () => {
                 />
               </div>
             </>
-          )} */}
-          <EventCarousel />
+          )}
+          {/* <EventCarousel /> */}
         </div>
       </section>
       <section className="mb-5">
@@ -196,7 +199,7 @@ const LandingPage = () => {
       <section className="mb-5">
         <div>
           <h2 className=" text-5xl mb-10">Sponsors</h2>
-          <div className="flex flex-col items-center mb-8">
+          {/* <div className="flex flex-col items-center mb-8">
             <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
               Title Sponsor
             </h2>
@@ -271,17 +274,17 @@ const LandingPage = () => {
                 height={40}
                 alt="Game of Foods"
               />
-            </div>
-          </div>
-          {/* <div className="flex justify-center">
+            </div> 
+          </div> */}
+          <div className="flex justify-center">
             <Image
               src="/comingSoon.svg"
               width={900}
               height={200}
-              alt="TechFusion'24 Coming Soon"
+              alt="TechFusion 2.0 Coming Soon"
             />
             <p></p>
-          </div> */}
+          </div>
         </div>
       </section>
       {/* <div className="flex flex-row flex-wrap my-5 max-w-[800px]">
