@@ -1,6 +1,6 @@
 # TechFusion - [Live Website](https://techfusion.org.in)
 
-TechFusion is a [Next.js](https://nextjs.org/) based  user-friendly web platform developed for the Technical Cum Cultural Festival of Katihar Engineering College, Katihar, designed to deliver a dynamic and efficient user experience using React, NextJs, Tailwind CSS, Cloudinary and MongoDB. The platform features integrated user registration, hospitality management, admin panel and coordinator panel ensuring streamlined event management.
+TechFusion is a [Next.js](https://nextjs.org/) based  user-friendly web platform developed for the Technical Cum Cultural Festival of [Katihar Engineering College, Katihar](http://keck.ac.in), designed to deliver a dynamic and efficient user experience using React, NextJs, Tailwind CSS, Cloudinary and MongoDB. The platform features integrated user registration, hospitality management, admin panel and coordinator panel ensuring streamlined event management.
 
 
 ## Features
