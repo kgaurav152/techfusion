@@ -1,7 +1,6 @@
 # TechFusion - [Live Website](https://techfusion.org.in)
 
-TechFusion is a [Next.js](https://nextjs.org/) based  user-friendly web platform developed for the Technical Cum Cultural Festival of [Katihar Engineering College, Katihar](http://keck.ac.in), designed to deliver a dynamic and efficient user experience using React, NextJs, Tailwind CSS, Cloudinary and MongoDB. The platform features integrated user registration, hospitality management, admin panel and coordinator panel ensuring streamlined event management.
-
+TechFusion is a [Next.js](https://nextjs.org/) based user-friendly web platform developed for the Technical Cum Cultural Festival of [Katihar Engineering College, Katihar](http://keck.ac.in), designed to deliver a dynamic and efficient user experience using React, NextJs, Tailwind CSS, Cloudinary and MongoDB. The platform features integrated user registration, hospitality management, admin panel and coordinator panel ensuring streamlined event management.
 
 ## Features
 
@@ -35,7 +34,7 @@ Run the following command on your local environment:
 ```shell
 git clone https://github.com/kgaurav152/techfusion.git
 
-cd techfestkec
+cd techfusion
 ```
 
 ### Install requirements
@@ -47,10 +46,11 @@ yarn install
 # or
 pnpm install
 ```
+
 ### Setup env variables
 
 - Create a `.env.local` file in root of the project. Check out [.env.example](./.env.example) to know what values are required.
-  
+
 ### Run in dev mode
 
 - Then, you can run locally in development mode with live reload:
@@ -70,7 +70,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
 
 ### Build for production
 
