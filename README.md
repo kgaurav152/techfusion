@@ -1,20 +1,34 @@
-# This is a [Next.js](https://nextjs.org/) based Website for Technical Cum Cultural Festival of Katihar Engineering College, Katihar
+# TechFusion - [Live Website](https://techfusion.org.in)
 
-A PWA (Progressive WebApp) based webApp for Technical Cum Cultural Festival 2023. TechStack used:
+TechFusion is a [Next.js](https://nextjs.org/) based  user-friendly web platform developed for the Technical Cum Cultural Festival of Katihar Engineering College, Katihar, designed to deliver a dynamic and efficient user experience using React, NextJs, Tailwind CSS, Cloudinary and MongoDB. The platform features integrated user registration, hospitality management, admin panel and coordinator panel ensuring streamlined event management.
 
-- 🚀 [**Next.js 14**](https://nextjs.org/blog/next-13)
-- 🍓 **JavaScript**
+
+## Features
+
+- Dynamic, responsive user interface
+- Powered by NextJS, Tailwind CSS, MongoDB and Cloudinary
+- Integrated hospitality and event management
+
+#### A PWA (Progressive WebApp) based webApp for Technical Cum Cultural Fest. TechStack used:
+
+- 🚀 [**Next.js 14**](https://nextjs.org/blog/next-14) - The React Framework for the Web
 - ⚙️ [**Tailwind CSS 3**](https://tailwindcss.com/) - A utility-first CSS framework
-- ⚙️ [**shadcn-ui**](https://ui.shadcn.com/) - An awesome component library
+- 🍓 [**shadcn-ui**](https://ui.shadcn.com/) - An awesome component library
 - 📏 [**ESLint**](https://nextjs.org/docs/app/building-your-application/configuring/eslint) — Pluggable JavaScript linter
 - 🐶 [**next-pwa**](https://www.npmjs.com/package/next-pwa) — Zero Config PWA Plugin for Next.js
+- ☁️ [**cloudinary**](https://cloudinary.com/) — Image and Video API Platform
+- 🗄️ [**MongoDB**](https://www.mongodb.com/) — Database
 - 🗂 **Absolute import** - Import folders and files using the `@` prefix
 
-### Requirements
-
-- Node.js 16+
-
 ## Getting Started
+
+These instructions will help you set up the project on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- Node.js v18.17+ and npm
+
+### Clone the repository
 
 Run the following command on your local environment:
 
@@ -22,15 +36,24 @@ Run the following command on your local environment:
 git clone https://github.com/kgaurav152/techfestkec.git
 
 cd techfestkec
+```
 
-npm install
+### Install requirements
+
+```bash
+❯ npm install
 # or
 yarn install
 # or
 pnpm install
 ```
+### Setup env variables
 
-Then, you can run locally in development mode with live reload:
+- Create a `.env.local` file in root of the project. Check out [.env.example](./.env.example) to know what values are required.
+  
+### Run in dev mode
+
+- Then, you can run locally in development mode with live reload:
 
 ```bash
 npm run dev
@@ -48,6 +71,13 @@ You can start editing the page by modifying `app/page.js`. The page auto-updates
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+
+### Build for production
+
+```bash
+❯ npm run build
+```
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -55,4 +85,6 @@ To learn more about Next.js, take a look at the following resources:
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
+
+Contributions are welcome! Feel free to submit a pull request or open an issue to improve the project.
