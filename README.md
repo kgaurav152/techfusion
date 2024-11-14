@@ -33,7 +33,7 @@ These instructions will help you set up the project on your local machine for de
 Run the following command on your local environment:
 
 ```shell
-git clone https://github.com/kgaurav152/techfestkec.git
+git clone https://github.com/kgaurav152/techfusion.git
 
 cd techfestkec
 ```
