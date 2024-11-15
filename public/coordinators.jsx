@@ -1,1193 +1,1183 @@
 export const eventCoordinators = [
-    {
-      eventName: "Website Development",
-      eventId:'WD',
-      coordinators: [
-        {
+  {
+    eventName: "Website Development",
+    eventId: "WD",
+    coordinators: [
+      {
         name: "Kumar Gaurav",
         email: "kgaurav152@gmail.com",
-        linkedin:"https://www.linkedin.com/in/kgaurav152",
-        instaId:"https://www.instagram.com/kgaurav152",
-        github:"https://github.com/kgaurav152",
-        pictureUrl:"https://i.imgur.com/vZkbfL0.png",
+        linkedin: "https://www.linkedin.com/in/kgaurav152",
+        instaId: "https://www.instagram.com/kgaurav152",
+        github: "https://github.com/kgaurav152",
+        pictureUrl: "https://i.imgur.com/vZkbfL0.png",
         mobile: "7004174269",
-        knowMoreUrl:"https://linktr.ee/kgaurav152",
-        label:"Frontend UI/UX",
-        batch:"2K21",
-        branch:"C.S.E"
-        },
-        {
-            name: "Piyush Priyadarshi",
-            email: "piyushjha.code@gmail.com",
-            linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-            instaId:"https://www.instagram.com/piyush._.priyadarshi",
-            github:"https://github.com/thePiyushPriyadarshi",
-            pictureUrl:"https://i.imgur.com/MKEKWpC.jpg",
-            mobile: "9572165854",
-            knowMoreUrl:"https://www.instagram.com/piyush._.priyadarshi",
-            label:"Backend",
-            batch:"2K20",
-            branch:"C.S.E"
-        }   
-      ]
-    },
-    {
-      eventName: "Quiz",
-      eventId:"C01",
-      coordinators: [
-        {
-          name: "Aashish Kumar",
-          email: "ashishkumar24603@gmail.com",
-          linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
-          instaId:"https://www.instagram.com/btw_itsaashish",
-          pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
-          mobile: "7700889658"
-        },
-        {
-            name: "Rajlakshmi",
-            email: "rajlakshm8008@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Its_me_rajbhardwaj",
-            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
-            mobile: null
-        },
-
-      ]
-    },
-    {
-      eventName: "Rap Battle",
-      eventId:"C02",
-      coordinators: [
-        {
-            name: "Himanshu Rai",
-            email: "himanshurai8765@gmail.com",
-            linkedin:"https://www.linkedin.com/in/himanshu-rai-052b14262",
-            instaId:"https://instagram.com/himanshurai9170",
-            pictureUrl:"https://i.imgur.com/CY8Tm9q.jpg",
-            mobile: "8765171237"
-        },
-        {
-            name: "Shambhu Kumar",
-            email: "shambhukr62849@gmail.com",
-            linkedin:"https://www.linkedin.com/in/shambhu-kumar-284709215/",
-            instaId:"https://www.instagram.com/ransa_17",
-            pictureUrl:"https://i.imgur.com/izxmD9w.jpg",
-            mobile: "7070407423"
-        },
-
-      ]
-    },
-    {
-      eventName: "Instrumental",
-      eventId:"C03",
-      coordinators: [
-        {
-            name: "Ravi Kumar",
-            email: "rks22082022@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/rk_ravikumar21_",
-            pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
-            mobile: "9352216102"
-        },
-        {
-          name: "Tanya Rani",
-          email: "ranitanya60@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu_",
-          pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
-          mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Voice of Solo",
-      eventId:"C04",
-      coordinators: [
-        {
-          name: "Aashish Kumar",
-          email: "ashishkumar24603@gmail.com",
-          linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
-          instaId:"https://www.instagram.com/btw_itsaashish",
-          pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
-          mobile: "7700889658"
-        },
-        {
-            name: "Surbhi kumari",
-            email: "naturalisticsurbhi@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/naturalistic_surbhi",
-            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Nrityakala",
-      eventId:"C05",
-      coordinators: [
-        {
-            name: "Sujit Kumar",
-            email: "sujitkumar5305@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Talent_sadda_sujit",
-            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
-            mobile: "9097668195"
-        },
-        {
-            name: "Rajlakshmi",
-            email: "rajlakshm8008@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Its_me_rajbhardwaj",
-            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
-            mobile: null
-        }
-      ]
-    },
-    {
-      eventName: "Photography",
-      eventId:"C06",
-      coordinators: [
-        {
-            name: "Aditya Kumar",
-            email: "smadityakumar22@gmail.com",
-            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
-            instaId:"https://instagram.com/Imsmaditya",
-            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
-            mobile: "6206223238"
-        },
-        {
-            name: "DEEP DARSHAN",
-            email: "deepdarshan9472@gmail.com",
-            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
-            instaId:"https://instagram.com/deep.darshan_10",
-            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
-            mobile: "9472924073"
-        },
-
-      ]
-    },
-    {
-      eventName: "Curtain Raiser",
-      eventId:"C07",
-      coordinators: [
-        {
-          name: "Ashish Kumar",
-          email: "aashishsharmamrh@gmail.com",
-          linkedin:"https://www.linkedin.com/in/ashish-kumar-709213248",
-          instaId:"https://instagram.com/ashishh_007",
-          pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
-          mobile: "9504654584"
-        },
-        {
-            name: "CHIRANJEEV MANI",
-            email: "chiranjeevmani17@gmail.com",
-            linkedin:"https://www.linkedin.com/in/chiranjeev-mani-p1217",
-            instaId:"https://instagram.com/rajmani.0001",
-            pictureUrl:"https://i.imgur.com/zT41ipB.jpg",
-            mobile: "7004355424"
-        },
-      ]
-    },
-    {
-      eventName: "Cinematography",
-      eventId:"C08",
-      coordinators: [
-        {
-            name: "Rajlakshmi",
-            email: "rajlakshm8008@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Its_me_rajbhardwaj",
-            pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
-            mobile: null
-        },
-        {
-            name: "Abhishek Kumar Gupta",
-            email: "abhish1205@gmail.com",
-            linkedin:"https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
-            instaId:"https://instagram.com/Abhinav_Kumar_1205",
-            pictureUrl:"https://i.imgur.com/4v01ugZ.png",
-            mobile: "8235774254"
-        },
-      ]
-    },
-    { 
-      eventName: "Sanskriti",
-      eventId:"C09",
-      coordinators: [
-        {
-            name: "Ravi Kumar",
-            email: "rks22082022@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/rk_ravikumar21_",
-            pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
-            mobile: "9352216102"
-        },
-        {
-            name: "Bhawana Kumari",
-            email: "bhawanakumari694@gmail.com",
-            linkedin:"https://www.linkedin.com/in/bhawana-kumari-768947282",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"https://i.imgur.com/bKJYqvv.jpg",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Extempore",
-      eventId:"C10",
-      coordinators: [
-        {
-            name: "Abhishek Singh",
-            email: "thakurabhisheksingh0310@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
-            pictureUrl:"https://i.imgur.com/JNnv3nx.jpg",
-            mobile: "7672929694"
-        },
-        {
-            name: "JAYRAJ",
-            email: "ayushkumar192010@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/ayush_aj1920",
-            pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
-            mobile: "7004857357"
-        },
-      ]
-    },
-    {
-      eventName: "Graphic War",
-      eventId:"C11",
-      coordinators: [
-        {
-            name: "Aditya Kumar",
-            email: "smadityakumar22@gmail.com",
-            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
-            instaId:"https://instagram.com/Imsmaditya",
-            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
-            mobile: "6206223238"
-        },
-        {
-            name: "DEEP DARSHAN",
-            email: "deepdarshan9472@gmail.com",
-            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
-            instaId:"https://instagram.com/deep.darshan_10",
-            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
-            mobile: "9472924073"
-        },
-      ]
-    },
-    {
-      eventName: "True Shades",
-      eventId:"C12",
-      coordinators: [
-        {
-            name: "Mohit Kumar",
-            email: "mohitjnv360@gmail.com",
-            linkedin:" https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
-            instaId:"https://instagram.com/the_mohit.kumar",
-            pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
-            mobile: "7257827104"
-        },
-        {
-            name: "Shafaque Afrin",
-            email: "afrinshafaque@gmail.com",
-            linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-            instaId:"https://instagram.com/maahi____naaz",
-            pictureUrl:"https://i.imgur.com/AwlTbme.png",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Arz Kiya Hai",
-      eventId:"C13",
-      coordinators: [
-        {
-            name: "Adarsh Kumar",
-            email: "adarshjeedbg@gmail.com",
-            linkedin:"8434912483",
-            instaId:"https://www.instagram.com/adarshjee__0007",
-            pictureUrl:"https://i.imgur.com/RFsUuO1.jpg",
-            mobile: "8434912483"
-        },
-        {
-            name: "Abhishek Singh",
-            email: "thakurabhisheksingh0310@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
-            pictureUrl:"https://i.imgur.com/JNnv3nx.jpg",
-            mobile: "7672929694"
-        },
-
-      ]
-    },
-    {
-      eventName: "Nukkad",
-      eventId:"C14",
-      coordinators: [
-        {
-          name: "Ashish Kumar",
-          email: "aashishsharmamrh@gmail.com",
-          linkedin:"https://www.linkedin.com/in/ashish-kumar-709213248",
-          instaId:"https://instagram.com/ashishh_007",
-          pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
-          mobile: "9504654584"
-        },
-        {
-            name: "Mohit Kumar",
-            email: "mohitjnv360@gmail.com",
-            linkedin:" https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
-            instaId:"https://instagram.com/the_mohit.kumar",
-            pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
-            mobile: "7257827104"
-        },
-
-      ]
-    },
-    {
-      eventName: "Line Following Robot (LFR)",
-      eventId:"T01",
-      coordinators: [
-        {
+        knowMoreUrl: "https://linktr.ee/kgaurav152",
+        label: "Frontend UI/UX, Backend",
+        batch: "2K21",
+        branch: "C.S.E",
+      },
+      {
+        name: "Piyush Priyadarshi",
+        email: "piyushjha.code@gmail.com",
+        linkedin: "https://www.linkedin.com/in/thepiyushpriyadarshi",
+        instaId: "https://www.instagram.com/piyush._.priyadarshi",
+        github: "https://github.com/thePiyushPriyadarshi",
+        pictureUrl: "https://i.imgur.com/MKEKWpC.jpg",
+        mobile: "9572165854",
+        knowMoreUrl: "https://www.instagram.com/piyush._.priyadarshi",
+        label: "Backend",
+        batch: "2K20",
+        branch: "C.S.E",
+      },
+    ],
+  },
+  {
+    eventName: "Quiz",
+    eventId: "C01",
+    coordinators: [
+      {
+        name: "Aashish Kumar",
+        email: "ashishkumar24603@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aashish-kumar-4332b9272",
+        instaId: "https://www.instagram.com/btw_itsaashish",
+        pictureUrl: "https://i.imgur.com/NfS3cg2.jpg",
+        mobile: "7700889658",
+      },
+      {
+        name: "Rajlakshmi",
+        email: "rajlakshm8008@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Its_me_rajbhardwaj",
+        pictureUrl: "https://i.imgur.com/fZ7BCDa.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Rap Battle",
+    eventId: "C02",
+    coordinators: [
+      {
+        name: "Himanshu Rai",
+        email: "himanshurai8765@gmail.com",
+        linkedin: "https://www.linkedin.com/in/himanshu-rai-052b14262",
+        instaId: "https://instagram.com/himanshurai9170",
+        pictureUrl: "https://i.imgur.com/CY8Tm9q.jpg",
+        mobile: "8765171237",
+      },
+      {
+        name: "Shambhu Kumar",
+        email: "shambhukr62849@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shambhu-kumar-284709215/",
+        instaId: "https://www.instagram.com/ransa_17",
+        pictureUrl: "https://i.imgur.com/izxmD9w.jpg",
+        mobile: "7070407423",
+      },
+    ],
+  },
+  {
+    eventName: "Instrumental",
+    eventId: "C03",
+    coordinators: [
+      {
+        name: "Ravi Kumar",
+        email: "rks22082022@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/rk_ravikumar21_",
+        pictureUrl: "https://i.imgur.com/n3KPkWy.jpg",
+        mobile: "9352216102",
+      },
+      {
+        name: "Tanya Rani",
+        email: "ranitanya60@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/r.tanu_",
+        pictureUrl: "https://i.imgur.com/MLUBOwK.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Voice of Solo",
+    eventId: "C04",
+    coordinators: [
+      {
+        name: "Aashish Kumar",
+        email: "ashishkumar24603@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aashish-kumar-4332b9272",
+        instaId: "https://www.instagram.com/btw_itsaashish",
+        pictureUrl: "https://i.imgur.com/NfS3cg2.jpg",
+        mobile: "7700889658",
+      },
+      {
+        name: "Surbhi kumari",
+        email: "naturalisticsurbhi@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/naturalistic_surbhi",
+        pictureUrl: "https://i.imgur.com/7I4mldp.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Nrityakala",
+    eventId: "C05",
+    coordinators: [
+      {
+        name: "Sujit Kumar",
+        email: "sujitkumar5305@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Talent_sadda_sujit",
+        pictureUrl: "https://i.imgur.com/V7B7kpU.jpg",
+        mobile: "9097668195",
+      },
+      {
+        name: "Rajlakshmi",
+        email: "rajlakshm8008@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Its_me_rajbhardwaj",
+        pictureUrl: "https://i.imgur.com/fZ7BCDa.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Photography",
+    eventId: "C06",
+    coordinators: [
+      {
+        name: "Aditya Kumar",
+        email: "smadityakumar22@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aditya-kumar-a69448211",
+        instaId: "https://instagram.com/Imsmaditya",
+        pictureUrl: "https://i.imgur.com/Rhncpbr.jpg",
+        mobile: "6206223238",
+      },
+      {
+        name: "DEEP DARSHAN",
+        email: "deepdarshan9472@gmail.com",
+        linkedin: "https://www.linkedin.com/in/deep-darshan-34992a212",
+        instaId: "https://instagram.com/deep.darshan_10",
+        pictureUrl: "https://i.imgur.com/9DwNjVP.jpg",
+        mobile: "9472924073",
+      },
+    ],
+  },
+  {
+    eventName: "Curtain Raiser",
+    eventId: "C07",
+    coordinators: [
+      {
+        name: "Ashish Kumar",
+        email: "aashishsharmamrh@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ashish-kumar-709213248",
+        instaId: "https://instagram.com/ashishh_007",
+        pictureUrl: "https://i.imgur.com/WNZd5gv.jpg",
+        mobile: "9504654584",
+      },
+      {
+        name: "CHIRANJEEV MANI",
+        email: "chiranjeevmani17@gmail.com",
+        linkedin: "https://www.linkedin.com/in/chiranjeev-mani-p1217",
+        instaId: "https://instagram.com/rajmani.0001",
+        pictureUrl: "https://i.imgur.com/zT41ipB.jpg",
+        mobile: "7004355424",
+      },
+    ],
+  },
+  {
+    eventName: "Cinematography",
+    eventId: "C08",
+    coordinators: [
+      {
+        name: "Rajlakshmi",
+        email: "rajlakshm8008@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Its_me_rajbhardwaj",
+        pictureUrl: "https://i.imgur.com/fZ7BCDa.jpg",
+        mobile: null,
+      },
+      {
+        name: "Abhishek Kumar Gupta",
+        email: "abhish1205@gmail.com",
+        linkedin: "https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
+        instaId: "https://instagram.com/Abhinav_Kumar_1205",
+        pictureUrl: "https://i.imgur.com/4v01ugZ.png",
+        mobile: "8235774254",
+      },
+    ],
+  },
+  {
+    eventName: "Sanskriti",
+    eventId: "C09",
+    coordinators: [
+      {
+        name: "Ravi Kumar",
+        email: "rks22082022@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/rk_ravikumar21_",
+        pictureUrl: "https://i.imgur.com/n3KPkWy.jpg",
+        mobile: "9352216102",
+      },
+      {
+        name: "Bhawana Kumari",
+        email: "bhawanakumari694@gmail.com",
+        linkedin: "https://www.linkedin.com/in/bhawana-kumari-768947282",
+        instaId: "https://instagram.com/keckatihar",
+        pictureUrl: "https://i.imgur.com/bKJYqvv.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Extempore",
+    eventId: "C10",
+    coordinators: [
+      {
+        name: "Abhishek Singh",
+        email: "thakurabhisheksingh0310@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId:
+          "https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
+        pictureUrl: "https://i.imgur.com/JNnv3nx.jpg",
+        mobile: "7672929694",
+      },
+      {
+        name: "JAYRAJ",
+        email: "ayushkumar192010@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/ayush_aj1920",
+        pictureUrl: "https://i.imgur.com/jhEhqgZ.jpg",
+        mobile: "7004857357",
+      },
+    ],
+  },
+  {
+    eventName: "Graphic War",
+    eventId: "C11",
+    coordinators: [
+      {
+        name: "Aditya Kumar",
+        email: "smadityakumar22@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aditya-kumar-a69448211",
+        instaId: "https://instagram.com/Imsmaditya",
+        pictureUrl: "https://i.imgur.com/Rhncpbr.jpg",
+        mobile: "6206223238",
+      },
+      {
+        name: "DEEP DARSHAN",
+        email: "deepdarshan9472@gmail.com",
+        linkedin: "https://www.linkedin.com/in/deep-darshan-34992a212",
+        instaId: "https://instagram.com/deep.darshan_10",
+        pictureUrl: "https://i.imgur.com/9DwNjVP.jpg",
+        mobile: "9472924073",
+      },
+    ],
+  },
+  {
+    eventName: "True Shades",
+    eventId: "C12",
+    coordinators: [
+      {
+        name: "Mohit Kumar",
+        email: "mohitjnv360@gmail.com",
+        linkedin: " https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
+        instaId: "https://instagram.com/the_mohit.kumar",
+        pictureUrl: "https://i.imgur.com/9IMalkv.jpg",
+        mobile: "7257827104",
+      },
+      {
+        name: "Shafaque Afrin",
+        email: "afrinshafaque@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shafaque-afrin-55117026a",
+        instaId: "https://instagram.com/maahi____naaz",
+        pictureUrl: "https://i.imgur.com/AwlTbme.png",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Arz Kiya Hai",
+    eventId: "C13",
+    coordinators: [
+      {
+        name: "Adarsh Kumar",
+        email: "adarshjeedbg@gmail.com",
+        linkedin: "8434912483",
+        instaId: "https://www.instagram.com/adarshjee__0007",
+        pictureUrl: "https://i.imgur.com/RFsUuO1.jpg",
+        mobile: "8434912483",
+      },
+      {
+        name: "Abhishek Singh",
+        email: "thakurabhisheksingh0310@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId:
+          "https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
+        pictureUrl: "https://i.imgur.com/JNnv3nx.jpg",
+        mobile: "7672929694",
+      },
+    ],
+  },
+  {
+    eventName: "Nukkad",
+    eventId: "C14",
+    coordinators: [
+      {
+        name: "Ashish Kumar",
+        email: "aashishsharmamrh@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ashish-kumar-709213248",
+        instaId: "https://instagram.com/ashishh_007",
+        pictureUrl: "https://i.imgur.com/WNZd5gv.jpg",
+        mobile: "9504654584",
+      },
+      {
+        name: "Mohit Kumar",
+        email: "mohitjnv360@gmail.com",
+        linkedin: " https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
+        instaId: "https://instagram.com/the_mohit.kumar",
+        pictureUrl: "https://i.imgur.com/9IMalkv.jpg",
+        mobile: "7257827104",
+      },
+    ],
+  },
+  {
+    eventName: "Line Following Robot (LFR)",
+    eventId: "T01",
+    coordinators: [
+      {
         name: "Kumar Gaurav",
         email: "kgaurav152@gmail.com",
-        linkedin:"https://www.linkedin.com/in/kgaurav152",
-        instaId:"https://www.instagram.com/kgaurav152",
-        pictureUrl:"https://i.imgur.com/vZkbfL0.png",
-        mobile: "7004174269"
-        },
-        {
-            name: "Shafaque Afrin",
-            email: "afrinshafaque@gmail.com",
-            linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-            instaId:"https://instagram.com/maahi____naaz",
-            pictureUrl:"https://i.imgur.com/AwlTbme.png",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Competitive Programming",
-      eventId:"T02",
-      coordinators: [
-        {
-          name: "Pallavi Krishnan",
-          email: "pallavikrishnan01@gmail.com",
-          linkedin:"https://www.linkedin.com/in/pallavi-krishnan-453291239",
-          instaId:"https://instagram.com/pallavikrishnan19",
-          pictureUrl:"https://i.imgur.com/X4LuNUq.jpg",
-          mobile: null
-        },
-        {
-            name: "Abhishek Raj",
-            email: "abhisinghal276@gmail.com",
-            linkedin:"https://www.linkedin.com/in/abhishek-raj",
-            instaId:"https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
-            pictureUrl:"https://i.imgur.com/RP2Jrrx.jpg",
-            mobile: "9835037718"
-        },
-
-      ]
-    },
-    {
-      eventName: "Crossword & Suduko",
-      eventId:"T03",
-      coordinators: [
-        {
-          name: "Tanya Rani",
-          email: "ranitanya60@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu_",
-          pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
-          mobile: null
-        },
-        {
-            name: "Shambhu Kumar",
-            email: "shambhukr62849@gmail.com",
-            linkedin:"https://www.linkedin.com/in/shambhu-kumar-284709215/",
-            instaId:"https://www.instagram.com/ransa_17",
-            pictureUrl:"https://i.imgur.com/izxmD9w.jpg",
-            mobile: "7070407423"
-        },
-
-      ]
-    },
-    {
-      eventName: "Seismic Design",
-      eventId:"T04",
-      coordinators: [
-        {
-            name: "Ravi Kumar",
-            email: "rks22082022@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/rk_ravikumar21_",
-            pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
-            mobile: "9352216102"
-        },
-        {
-            name: "Nancy Kumari",
-            email: "nancysingh2808@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/nan__ciee",
-            pictureUrl:"https://i.imgur.com/uH45K39.jpg",
-            mobile: null
-        }
-      ]
-    },
-    {
-      eventName: "Robo Race",
-      eventId:"T05",
-      coordinators: [
-        {
-          name: "Krishan Raj",
-          email: "krishanraj883@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/krishanraj8833",
-          pictureUrl:"https://i.imgur.com/m6v7FtY.jpg",
-          mobile: "6207366692"
-        },
-        {
-          name: "Ashish Kumar",
-          email: "aashishsharmamrh@gmail.com",
-          linkedin:"https://www.linkedin.com/in/ashish-kumar-709213248",
-          instaId:"https://instagram.com/ashishh_007",
-          pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
-          mobile: "9504654584"
-        },
-
-      ]
-    },
-    {
-      eventName: "E-Chess",
-      eventId:"T06",
-      coordinators: [
-        {
-            name: "Adarsh Kumar",
-            email: "adarshjeedbg@gmail.com",
-            linkedin:"8434912483",
-            instaId:"https://www.instagram.com/adarshjee__0007",
-            pictureUrl:"https://i.imgur.com/RFsUuO1.jpg",
-            mobile: "8434912483"
-        },
-        {
-            name: "JAYRAJ",
-            email: "ayushkumar192010@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/ayush_aj1920",
-            pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
-            mobile: "7004857357"
-        },
-
-      ]
-    },
-    {
-      eventName: "Blind Coding",
-      eventId:"T07",
-      coordinators: [
-        {
-            name: "Piyush Priyadarshi",
-            email: "piyushjha.code@gmail.com",
-            linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-            instaId:"https://www.instagram.com/piyush._.priyadarshi",
-            pictureUrl:"https://i.imgur.com/MKEKWpC.jpg",
-            mobile: "9572165854"
-        },
-        {
-          name: "Rishav Anand",
-          email: "anandrishav772@gmail.com",
-          linkedin:"www.linkedin.com/in/rishav-anand-7a16232a8",
-          instaId:"https://www.instagram.com/rishavanand659",
-          pictureUrl:"https://i.imgur.com/j3FzFuE.png",
-          mobile: "7909023293"
-        },
-      ]
-    },
-    {
-      eventName: "BGMI - SQUAD",
-      eventId:"T08",
-      coordinators: [
-        {
-            name: "Aditya Kumar",
-            email: "smadityakumar22@gmail.com",
-            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
-            instaId:"https://instagram.com/Imsmaditya",
-            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
-            mobile: "6206223238"
-        },
-        {
-            name: "Aman Kumar",
-            email: "bittukumar9206@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
-            pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
-            mobile: "9319154498"
-        },
-
-      ]
-    },
-    {
-      eventName: "Forensic Hackathon",
-      eventId:"T09",
-      coordinators: [
-        {
+        linkedin: "https://www.linkedin.com/in/kgaurav152",
+        instaId: "https://www.instagram.com/kgaurav152",
+        pictureUrl: "https://i.imgur.com/vZkbfL0.png",
+        mobile: "7004174269",
+      },
+      {
+        name: "Shafaque Afrin",
+        email: "afrinshafaque@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shafaque-afrin-55117026a",
+        instaId: "https://instagram.com/maahi____naaz",
+        pictureUrl: "https://i.imgur.com/AwlTbme.png",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Competitive Programming",
+    eventId: "T02",
+    coordinators: [
+      {
+        name: "Pallavi Krishnan",
+        email: "pallavikrishnan01@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pallavi-krishnan-453291239",
+        instaId: "https://instagram.com/pallavikrishnan19",
+        pictureUrl: "https://i.imgur.com/X4LuNUq.jpg",
+        mobile: null,
+      },
+      {
+        name: "Abhishek Raj",
+        email: "abhisinghal276@gmail.com",
+        linkedin: "https://www.linkedin.com/in/abhishek-raj",
+        instaId:
+          "https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
+        pictureUrl: "https://i.imgur.com/RP2Jrrx.jpg",
+        mobile: "9835037718",
+      },
+    ],
+  },
+  {
+    eventName: "Crossword & Suduko",
+    eventId: "T03",
+    coordinators: [
+      {
+        name: "Tanya Rani",
+        email: "ranitanya60@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/r.tanu_",
+        pictureUrl: "https://i.imgur.com/MLUBOwK.jpg",
+        mobile: null,
+      },
+      {
+        name: "Shambhu Kumar",
+        email: "shambhukr62849@gmail.com",
+        linkedin: "https://www.linkedin.com/in/shambhu-kumar-284709215/",
+        instaId: "https://www.instagram.com/ransa_17",
+        pictureUrl: "https://i.imgur.com/izxmD9w.jpg",
+        mobile: "7070407423",
+      },
+    ],
+  },
+  {
+    eventName: "Seismic Design",
+    eventId: "T04",
+    coordinators: [
+      {
+        name: "Ravi Kumar",
+        email: "rks22082022@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/rk_ravikumar21_",
+        pictureUrl: "https://i.imgur.com/n3KPkWy.jpg",
+        mobile: "9352216102",
+      },
+      {
+        name: "Nancy Kumari",
+        email: "nancysingh2808@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/nan__ciee",
+        pictureUrl: "https://i.imgur.com/uH45K39.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Robo Race",
+    eventId: "T05",
+    coordinators: [
+      {
+        name: "Krishan Raj",
+        email: "krishanraj883@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/krishanraj8833",
+        pictureUrl: "https://i.imgur.com/m6v7FtY.jpg",
+        mobile: "6207366692",
+      },
+      {
+        name: "Ashish Kumar",
+        email: "aashishsharmamrh@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ashish-kumar-709213248",
+        instaId: "https://instagram.com/ashishh_007",
+        pictureUrl: "https://i.imgur.com/WNZd5gv.jpg",
+        mobile: "9504654584",
+      },
+    ],
+  },
+  {
+    eventName: "E-Chess",
+    eventId: "T06",
+    coordinators: [
+      {
+        name: "Adarsh Kumar",
+        email: "adarshjeedbg@gmail.com",
+        linkedin: "8434912483",
+        instaId: "https://www.instagram.com/adarshjee__0007",
+        pictureUrl: "https://i.imgur.com/RFsUuO1.jpg",
+        mobile: "8434912483",
+      },
+      {
+        name: "JAYRAJ",
+        email: "ayushkumar192010@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/ayush_aj1920",
+        pictureUrl: "https://i.imgur.com/jhEhqgZ.jpg",
+        mobile: "7004857357",
+      },
+    ],
+  },
+  {
+    eventName: "Blind Coding",
+    eventId: "T07",
+    coordinators: [
+      {
+        name: "Piyush Priyadarshi",
+        email: "piyushjha.code@gmail.com",
+        linkedin: "https://www.linkedin.com/in/thepiyushpriyadarshi",
+        instaId: "https://www.instagram.com/piyush._.priyadarshi",
+        pictureUrl: "https://i.imgur.com/MKEKWpC.jpg",
+        mobile: "9572165854",
+      },
+      {
+        name: "Rishav Anand",
+        email: "anandrishav772@gmail.com",
+        linkedin: "www.linkedin.com/in/rishav-anand-7a16232a8",
+        instaId: "https://www.instagram.com/rishavanand659",
+        pictureUrl: "https://i.imgur.com/j3FzFuE.png",
+        mobile: "7909023293",
+      },
+    ],
+  },
+  {
+    eventName: "BGMI - SQUAD",
+    eventId: "T08",
+    coordinators: [
+      {
+        name: "Aditya Kumar",
+        email: "smadityakumar22@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aditya-kumar-a69448211",
+        instaId: "https://instagram.com/Imsmaditya",
+        pictureUrl: "https://i.imgur.com/Rhncpbr.jpg",
+        mobile: "6206223238",
+      },
+      {
+        name: "Aman Kumar",
+        email: "bittukumar9206@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+        pictureUrl: "https://i.imgur.com/ZgduAxW.jpg",
+        mobile: "9319154498",
+      },
+    ],
+  },
+  {
+    eventName: "Forensic Hackathon",
+    eventId: "T09",
+    coordinators: [
+      {
         name: "Kumar Gaurav",
         email: "kgaurav152@gmail.com",
-        linkedin:"https://www.linkedin.com/in/kgaurav152",
-        instaId:"https://www.instagram.com/kgaurav152",
-        pictureUrl:"https://i.imgur.com/vZkbfL0.png",
-        mobile: "7004174269"
-        },
-        {
-          name: "Pallavi Krishnan",
-          email: "pallavikrishnan01@gmail.com",
-          linkedin:"https://www.linkedin.com/in/pallavi-krishnan-453291239",
-          instaId:"https://instagram.com/pallavikrishnan19",
-          pictureUrl:"https://i.imgur.com/X4LuNUq.jpg",
-          mobile: null
-        },
-
-      ]
-    },
-    {
-      eventName: "Hackathon",
-      eventId:"T10",
-      coordinators: [
-        {
-            name: "Vishal Kumar Singh",
-            email: "vishalkrsinghmsk@gmail.com",
-            linkedin:"https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
-            instaId:"https://www.instagram.com/vksrajputt",
-            pictureUrl:"https://i.imgur.com/AGMOOtM.jpg",
-            mobile: "8178572536"
-        },
-        {
-            name: "Abhishek Raj",
-            email: "abhisinghal276@gmail.com",
-            linkedin:"https://www.linkedin.com/in/abhishek-raj",
-            instaId:"https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
-            pictureUrl:"https://i.imgur.com/RP2Jrrx.jpg",
-            mobile: "9835037718"
-        },
-      ]
-    },
-    {
-      eventName: "Hurdle Mania",
-      eventId:"T11",
-      coordinators: [
-        {
-            name: "Abhishek Raj",
-            email: "abhisinghal276@gmail.com",
-            linkedin:"https://www.linkedin.com/in/abhishek-raj",
-            instaId:"https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
-            pictureUrl:"https://i.imgur.com/RP2Jrrx.jpg",
-            mobile: "9835037718"
-        },
-        {
-            name: "Bhawana Kumari",
-            email: "bhawanakumari694@gmail.com",
-            linkedin:"https://www.linkedin.com/in/bhawana-kumari-768947282",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"https://i.imgur.com/bKJYqvv.jpg",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Sankalp",
-      eventId:"T12",
-      coordinators: [
-        {
-          name: "Aashish Kumar",
-          email: "ashishkumar24603@gmail.com",
-          linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
-          instaId:"https://www.instagram.com/btw_itsaashish",
-          pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
-          mobile: "7700889658"
-        },
-        {
-            name: "Mohit Kumar",
-            email: "mohitjnv360@gmail.com",
-            linkedin:" https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
-            instaId:"https://instagram.com/the_mohit.kumar",
-            pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
-            mobile: "7257827104"
-        },
-      ]
-    },
-    {
-      eventName: "Robo Soccer",
-      eventId:"T13",
-      coordinators: [
-        {
-            name: "Mohit Kumar",
-            email: "mohitjnv360@gmail.com",
-            linkedin:" https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
-            instaId:"https://instagram.com/the_mohit.kumar",
-            pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
-            mobile: "7257827104"
-        },
-        {
-          name: "Rishav Anand",
-          email: "anandrishav772@gmail.com",
-          linkedin:"www.linkedin.com/in/rishav-anand-7a16232a8",
-          instaId:"https://www.instagram.com/rishavanand659",
-          pictureUrl:"https://i.imgur.com/j3FzFuE.png",
-          mobile: "7909023293"
-        },
-      ]
-    },
-    {
-      eventName: "Robo War",
-      eventId:"T14",
-      coordinators: [
-        {
-          name: "Krishan Raj",
-          email: "krishanraj883@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/krishanraj8833",
-          pictureUrl:"https://i.imgur.com/m6v7FtY.jpg",
-          mobile: "6207366692"
-        },
-        {
-          name: "Aashish Kumar",
-          email: "ashishkumar24603@gmail.com",
-          linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
-          instaId:"https://www.instagram.com/btw_itsaashish",
-          pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
-          mobile: "7700889658"
-        },
-      ]
-    },
-    {
-      eventName: "Tricky Circuit",
-      eventId:"T15",
-      coordinators: [
-        {
-            name: "Prakash Ranjan",
-            email: "Prakashranjan710@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/pranjan_09",
-            pictureUrl:"https://i.imgur.com/Btu5oV8.jpg",
-            mobile: "7070979750"
-        },
-        {
-            name: "Surbhi kumari",
-            email: "naturalisticsurbhi@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/naturalistic_surbhi",
-            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
-            mobile: null
-        },
-      ]
-    },
-    {
-      eventName: "Thrust",
-      eventId:"T16",
-      coordinators: [
-        {
-            name: "Sujit Kumar",
-            email: "sujitkumar5305@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Talent_sadda_sujit",
-            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
-            mobile: "9097668195"
-        },
-        {
-            name: "Prakash Ranjan",
-            email: "Prakashranjan710@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/pranjan_09",
-            pictureUrl:"https://i.imgur.com/Btu5oV8.jpg",
-            mobile: "7070979750"
-        }
-      ]
-    },
-    {
-      eventName: "Bot A Maze",
-      eventId:"T17",
-      coordinators: [
-        {
-            name: "Sujit Kumar",
-            email: "sujitkumar5305@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/Talent_sadda_sujit",
-            pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
-            mobile: "9097668195"
-        },
-        {
-            name: "Surbhi kumari",
-            email: "naturalisticsurbhi@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/naturalistic_surbhi",
-            pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
-            mobile: null
-        }
-      ]
-    },
-    {
-      eventName: "Surveying",
-      eventId:"T18",
-      coordinators: [
-        {
-          name: "Krishan Raj",
-          email: "krishanraj883@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/krishanraj8833",
-          pictureUrl:"https://i.imgur.com/m6v7FtY.jpg",
-          mobile: "6207366692"
-        },
-        {
-            name: "Abhishek Singh",
-            email: "thakurabhisheksingh0310@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
-            pictureUrl:"https://i.imgur.com/JNnv3nx.jpg",
-            mobile: "7672929694"
-        },
-
-      ]
-    },
-    {
-      eventName: "Armstong",
-      eventId:"T19",
-      coordinators: [
-        {
-            name: "DEEP DARSHAN",
-            email: "deepdarshan9472@gmail.com",
-            linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
-            instaId:"https://instagram.com/deep.darshan_10",
-            pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
-            mobile: "9472924073"
-        },
-        {
-            name: "Kavi Azad",
-            email: "kaviazad123@gamil.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/kaviazad30",
-            pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
-            mobile: "6207542778"
-        },
-      ]
-    },
-    {
-      eventName: "Arduino Effect",
-      eventId:"T20",
-      coordinators: [
-        {
-            name: "Abhishek Kumar Gupta",
-            email: "abhish1205@gmail.com",
-            linkedin:"https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
-            instaId:"https://instagram.com/Abhinav_Kumar_1205",
-            pictureUrl:"https://i.imgur.com/4v01ugZ.png",
-            mobile: "8235774254"
-        },
-        {
-          name: "Ashish Kumar",
-          email: "aashishsharmamrh@gmail.com",
-          linkedin:"https://www.linkedin.com/in/ashish-kumar-709213248",
-          instaId:"https://instagram.com/ashishh_007",
-          pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
-          mobile: "9504654584"
-        },
-
-      ]
-    },
-    {
-      eventName: "Auto Cad",
-      eventId:"T21",
-      coordinators: [
-        {
-            name: "Adarsh Kumar",
-            email: "adarshjeedbg@gmail.com",
-            linkedin:"8434912483",
-            instaId:"https://www.instagram.com/adarshjee__0007",
-            pictureUrl:"https://i.imgur.com/RFsUuO1.jpg",
-            mobile: "8434912483"
-        },
-        {
-            name: "Aman Kumar",
-            email: "bittukumar9206@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
-            pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
-            mobile: "9319154498"
-        },
-
-      ]
-    },
-    {
-      eventName: "Prastuti",
-      eventId:"T22",
-      coordinators: [
-        {
-          name: "Pallavi Krishnan",
-          email: "pallavikrishnan01@gmail.com",
-          linkedin:"https://www.linkedin.com/in/pallavi-krishnan-453291239",
-          instaId:"https://instagram.com/pallavikrishnan19",
-          pictureUrl:"https://i.imgur.com/X4LuNUq.jpg",
-          mobile: null
-        },
-        {
-            name: "Kavi Azad",
-            email: "kaviazad123@gamil.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/kaviazad30",
-            pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
-            mobile: "6207542778"
-        },
-      ]
-    },
-    {
-      eventName: "Bug Hunting",
-      eventId:"T23",
-      coordinators: [
-        {
-            name: "Piyush Priyadarshi",
-            email: "piyushjha.code@gmail.com",
-            linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-            instaId:"https://www.instagram.com/piyush._.priyadarshi",
-            pictureUrl:"https://i.imgur.com/MKEKWpC.jpg",
-            mobile: "9572165854"
-        },
-        {
-            name: "Shashi Bhushan",
-            email: "shashi1842@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://instagram.com/keckatihar",
-            pictureUrl:"https://i.imgur.com/CHCursZ.jpg",
-            mobile: "7274093132"
-        }
-      ]
-    },
-    {
-      eventName: "Bridge Making",
-      eventId:"T24",
-      coordinators: [
-        {
-          name: "Tanya Rani",
-          email: "ranitanya60@gmail.com",
-          linkedin:"https://linkedin.com/company/tpo-keckatihar",
-          instaId:"https://instagram.com/r.tanu_",
-          pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
-          mobile: null
-        },
-        {
-            name: "Aman Kumar",
-            email: "bittukumar9206@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
-            pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
-            mobile: "9319154498"
-        },
-
-      ]
-    },
-    {
-      eventName: "BGMI - SOLO",
-      eventId:"T25",
-      coordinators: [
-        {
-            name: "Aditya Kumar",
-            email: "smadityakumar22@gmail.com",
-            linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
-            instaId:"https://instagram.com/Imsmaditya",
-            pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
-            mobile: "6206223238"
-        },
-        {
-            name: "Aman Kumar",
-            email: "bittukumar9206@gmail.com",
-            linkedin:"https://linkedin.com/company/tpo-keckatihar",
-            instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
-            pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
-            mobile: "9319154498"
-        },
-
-      ]
-    },
+        linkedin: "https://www.linkedin.com/in/kgaurav152",
+        instaId: "https://www.instagram.com/kgaurav152",
+        pictureUrl: "https://i.imgur.com/vZkbfL0.png",
+        mobile: "7004174269",
+      },
+      {
+        name: "Pallavi Krishnan",
+        email: "pallavikrishnan01@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pallavi-krishnan-453291239",
+        instaId: "https://instagram.com/pallavikrishnan19",
+        pictureUrl: "https://i.imgur.com/X4LuNUq.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Hackathon",
+    eventId: "T10",
+    coordinators: [
+      {
+        name: "Vishal Kumar Singh",
+        email: "vishalkrsinghmsk@gmail.com",
+        linkedin: "https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
+        instaId: "https://www.instagram.com/vksrajputt",
+        pictureUrl: "https://i.imgur.com/AGMOOtM.jpg",
+        mobile: "8178572536",
+      },
+      {
+        name: "Abhishek Raj",
+        email: "abhisinghal276@gmail.com",
+        linkedin: "https://www.linkedin.com/in/abhishek-raj",
+        instaId:
+          "https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
+        pictureUrl: "https://i.imgur.com/RP2Jrrx.jpg",
+        mobile: "9835037718",
+      },
+    ],
+  },
+  {
+    eventName: "Hurdle Mania",
+    eventId: "T11",
+    coordinators: [
+      {
+        name: "Abhishek Raj",
+        email: "abhisinghal276@gmail.com",
+        linkedin: "https://www.linkedin.com/in/abhishek-raj",
+        instaId:
+          "https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
+        pictureUrl: "https://i.imgur.com/RP2Jrrx.jpg",
+        mobile: "9835037718",
+      },
+      {
+        name: "Bhawana Kumari",
+        email: "bhawanakumari694@gmail.com",
+        linkedin: "https://www.linkedin.com/in/bhawana-kumari-768947282",
+        instaId: "https://instagram.com/keckatihar",
+        pictureUrl: "https://i.imgur.com/bKJYqvv.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Sankalp",
+    eventId: "T12",
+    coordinators: [
+      {
+        name: "Aashish Kumar",
+        email: "ashishkumar24603@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aashish-kumar-4332b9272",
+        instaId: "https://www.instagram.com/btw_itsaashish",
+        pictureUrl: "https://i.imgur.com/NfS3cg2.jpg",
+        mobile: "7700889658",
+      },
+      {
+        name: "Mohit Kumar",
+        email: "mohitjnv360@gmail.com",
+        linkedin: " https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
+        instaId: "https://instagram.com/the_mohit.kumar",
+        pictureUrl: "https://i.imgur.com/9IMalkv.jpg",
+        mobile: "7257827104",
+      },
+    ],
+  },
+  {
+    eventName: "Robo Soccer",
+    eventId: "T13",
+    coordinators: [
+      {
+        name: "Mohit Kumar",
+        email: "mohitjnv360@gmail.com",
+        linkedin: " https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
+        instaId: "https://instagram.com/the_mohit.kumar",
+        pictureUrl: "https://i.imgur.com/9IMalkv.jpg",
+        mobile: "7257827104",
+      },
+      {
+        name: "Rishav Anand",
+        email: "anandrishav772@gmail.com",
+        linkedin: "www.linkedin.com/in/rishav-anand-7a16232a8",
+        instaId: "https://www.instagram.com/rishavanand659",
+        pictureUrl: "https://i.imgur.com/j3FzFuE.png",
+        mobile: "7909023293",
+      },
+    ],
+  },
+  {
+    eventName: "Robo War",
+    eventId: "T14",
+    coordinators: [
+      {
+        name: "Krishan Raj",
+        email: "krishanraj883@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/krishanraj8833",
+        pictureUrl: "https://i.imgur.com/m6v7FtY.jpg",
+        mobile: "6207366692",
+      },
+      {
+        name: "Aashish Kumar",
+        email: "ashishkumar24603@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aashish-kumar-4332b9272",
+        instaId: "https://www.instagram.com/btw_itsaashish",
+        pictureUrl: "https://i.imgur.com/NfS3cg2.jpg",
+        mobile: "7700889658",
+      },
+    ],
+  },
+  {
+    eventName: "Tricky Circuit",
+    eventId: "T15",
+    coordinators: [
+      {
+        name: "Prakash Ranjan",
+        email: "Prakashranjan710@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/pranjan_09",
+        pictureUrl: "https://i.imgur.com/Btu5oV8.jpg",
+        mobile: "7070979750",
+      },
+      {
+        name: "Surbhi kumari",
+        email: "naturalisticsurbhi@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/naturalistic_surbhi",
+        pictureUrl: "https://i.imgur.com/7I4mldp.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Thrust",
+    eventId: "T16",
+    coordinators: [
+      {
+        name: "Sujit Kumar",
+        email: "sujitkumar5305@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Talent_sadda_sujit",
+        pictureUrl: "https://i.imgur.com/V7B7kpU.jpg",
+        mobile: "9097668195",
+      },
+      {
+        name: "Prakash Ranjan",
+        email: "Prakashranjan710@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/pranjan_09",
+        pictureUrl: "https://i.imgur.com/Btu5oV8.jpg",
+        mobile: "7070979750",
+      },
+    ],
+  },
+  {
+    eventName: "Bot A Maze",
+    eventId: "T17",
+    coordinators: [
+      {
+        name: "Sujit Kumar",
+        email: "sujitkumar5305@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/Talent_sadda_sujit",
+        pictureUrl: "https://i.imgur.com/V7B7kpU.jpg",
+        mobile: "9097668195",
+      },
+      {
+        name: "Surbhi kumari",
+        email: "naturalisticsurbhi@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/naturalistic_surbhi",
+        pictureUrl: "https://i.imgur.com/7I4mldp.jpg",
+        mobile: null,
+      },
+    ],
+  },
+  {
+    eventName: "Surveying",
+    eventId: "T18",
+    coordinators: [
+      {
+        name: "Krishan Raj",
+        email: "krishanraj883@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/krishanraj8833",
+        pictureUrl: "https://i.imgur.com/m6v7FtY.jpg",
+        mobile: "6207366692",
+      },
+      {
+        name: "Abhishek Singh",
+        email: "thakurabhisheksingh0310@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId:
+          "https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
+        pictureUrl: "https://i.imgur.com/JNnv3nx.jpg",
+        mobile: "7672929694",
+      },
+    ],
+  },
+  {
+    eventName: "Armstong",
+    eventId: "T19",
+    coordinators: [
+      {
+        name: "DEEP DARSHAN",
+        email: "deepdarshan9472@gmail.com",
+        linkedin: "https://www.linkedin.com/in/deep-darshan-34992a212",
+        instaId: "https://instagram.com/deep.darshan_10",
+        pictureUrl: "https://i.imgur.com/9DwNjVP.jpg",
+        mobile: "9472924073",
+      },
+      {
+        name: "Kavi Azad",
+        email: "kaviazad123@gamil.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/kaviazad30",
+        pictureUrl: "https://i.imgur.com/uhOoRQ7.jpg",
+        mobile: "6207542778",
+      },
+    ],
+  },
+  {
+    eventName: "Arduino Effect",
+    eventId: "T20",
+    coordinators: [
+      {
+        name: "Abhishek Kumar Gupta",
+        email: "abhish1205@gmail.com",
+        linkedin: "https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
+        instaId: "https://instagram.com/Abhinav_Kumar_1205",
+        pictureUrl: "https://i.imgur.com/4v01ugZ.png",
+        mobile: "8235774254",
+      },
+      {
+        name: "Ashish Kumar",
+        email: "aashishsharmamrh@gmail.com",
+        linkedin: "https://www.linkedin.com/in/ashish-kumar-709213248",
+        instaId: "https://instagram.com/ashishh_007",
+        pictureUrl: "https://i.imgur.com/WNZd5gv.jpg",
+        mobile: "9504654584",
+      },
+    ],
+  },
+  {
+    eventName: "Auto Cad",
+    eventId: "T21",
+    coordinators: [
+      {
+        name: "Adarsh Kumar",
+        email: "adarshjeedbg@gmail.com",
+        linkedin: "8434912483",
+        instaId: "https://www.instagram.com/adarshjee__0007",
+        pictureUrl: "https://i.imgur.com/RFsUuO1.jpg",
+        mobile: "8434912483",
+      },
+      {
+        name: "Aman Kumar",
+        email: "bittukumar9206@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+        pictureUrl: "https://i.imgur.com/ZgduAxW.jpg",
+        mobile: "9319154498",
+      },
+    ],
+  },
+  {
+    eventName: "Prastuti",
+    eventId: "T22",
+    coordinators: [
+      {
+        name: "Pallavi Krishnan",
+        email: "pallavikrishnan01@gmail.com",
+        linkedin: "https://www.linkedin.com/in/pallavi-krishnan-453291239",
+        instaId: "https://instagram.com/pallavikrishnan19",
+        pictureUrl: "https://i.imgur.com/X4LuNUq.jpg",
+        mobile: null,
+      },
+      {
+        name: "Kavi Azad",
+        email: "kaviazad123@gamil.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/kaviazad30",
+        pictureUrl: "https://i.imgur.com/uhOoRQ7.jpg",
+        mobile: "6207542778",
+      },
+    ],
+  },
+  {
+    eventName: "Bug Hunting",
+    eventId: "T23",
+    coordinators: [
+      {
+        name: "Piyush Priyadarshi",
+        email: "piyushjha.code@gmail.com",
+        linkedin: "https://www.linkedin.com/in/thepiyushpriyadarshi",
+        instaId: "https://www.instagram.com/piyush._.priyadarshi",
+        pictureUrl: "https://i.imgur.com/MKEKWpC.jpg",
+        mobile: "9572165854",
+      },
+      {
+        name: "Shashi Bhushan",
+        email: "shashi1842@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/keckatihar",
+        pictureUrl: "https://i.imgur.com/CHCursZ.jpg",
+        mobile: "7274093132",
+      },
+    ],
+  },
+  {
+    eventName: "Bridge Making",
+    eventId: "T24",
+    coordinators: [
+      {
+        name: "Tanya Rani",
+        email: "ranitanya60@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://instagram.com/r.tanu_",
+        pictureUrl: "https://i.imgur.com/MLUBOwK.jpg",
+        mobile: null,
+      },
+      {
+        name: "Aman Kumar",
+        email: "bittukumar9206@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+        pictureUrl: "https://i.imgur.com/ZgduAxW.jpg",
+        mobile: "9319154498",
+      },
+    ],
+  },
+  {
+    eventName: "BGMI - SOLO",
+    eventId: "T25",
+    coordinators: [
+      {
+        name: "Aditya Kumar",
+        email: "smadityakumar22@gmail.com",
+        linkedin: "https://www.linkedin.com/in/aditya-kumar-a69448211",
+        instaId: "https://instagram.com/Imsmaditya",
+        pictureUrl: "https://i.imgur.com/Rhncpbr.jpg",
+        mobile: "6206223238",
+      },
+      {
+        name: "Aman Kumar",
+        email: "bittukumar9206@gmail.com",
+        linkedin: "https://linkedin.com/company/tpo-keckatihar",
+        instaId: "https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+        pictureUrl: "https://i.imgur.com/ZgduAxW.jpg",
+        mobile: "9319154498",
+      },
+    ],
+  },
 ];
 
 export const coordinatordetails = [
-    {
+  {
     name: "Kumar Gaurav",
     email: "kgaurav152@gmail.com",
-    linkedin:"https://www.linkedin.com/in/kgaurav152",
-    instaId:"https://www.instagram.com/kgaurav152",
-    pictureUrl:"https://i.imgur.com/vZkbfL0.png",
-    mobile: "7004174269"
-    },
-    {
-        name: "Piyush Priyadarshi",
-        email: "piyushjha.code@gmail.com",
-        linkedin:"https://www.linkedin.com/in/thepiyushpriyadarshi",
-        instaId:"https://www.instagram.com/piyush._.priyadarshi",
-        pictureUrl:"https://i.imgur.com/MKEKWpC.jpg",
-        mobile: "9572165854"
-    },
-    {
-        name: "Vishal Kumar Singh",
-        email: "vishalkrsinghmsk@gmail.com",
-        linkedin:"https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
-        instaId:"https://www.instagram.com/vksrajputt",
-        pictureUrl:"https://i.imgur.com/AGMOOtM.jpg",
-        mobile: "8178572536"
-    },
-    {
-        name: "Aashish Kumar",
-        email: "ashishkumar24603@gmail.com",
-        linkedin:"https://www.linkedin.com/in/aashish-kumar-4332b9272",
-        instaId:"https://www.instagram.com/btw_itsaashish",
-        pictureUrl:"https://i.imgur.com/NfS3cg2.jpg",
-        mobile: "7700889658"
-    },
-    {
-        name: "Shambhu Kumar",
-        email: "shambhukr62849@gmail.com",
-        linkedin:"https://www.linkedin.com/in/shambhu-kumar-284709215/",
-        instaId:"https://www.instagram.com/ransa_17",
-        pictureUrl:"https://i.imgur.com/izxmD9w.jpg",
-        mobile: "7070407423"
-    },
-    {
-        name: "Rishav Anand",
-        email: "anandrishav772@gmail.com",
-        linkedin:"www.linkedin.com/in/rishav-anand-7a16232a8",
-        instaId:"https://www.instagram.com/rishavanand659",
-        pictureUrl:"https://i.imgur.com/j3FzFuE.png",
-        mobile: "7909023293"
-    },
-    {
-        name: "Adarsh Kumar",
-        email: "adarshjeedbg@gmail.com",
-        linkedin:"8434912483",
-        instaId:"https://www.instagram.com/adarshjee__0007",
-        pictureUrl:"https://i.imgur.com/RFsUuO1.jpg",
-        mobile: "8434912483"
-    },
-    {
-        name: "Pallavi Krishnan",
-        email: "pallavikrishnan01@gmail.com",
-        linkedin:"https://www.linkedin.com/in/pallavi-krishnan-453291239",
-        instaId:"https://instagram.com/pallavikrishnan19",
-        pictureUrl:"https://i.imgur.com/X4LuNUq.jpg",
-        mobile: "9334383571"
-    },
-    {
-        name: "Bhawana Kumari",
-        email: "bhawanakumari694@gmail.com",
-        linkedin:"https://www.linkedin.com/in/bhawana-kumari-768947282",
-        instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"https://i.imgur.com/bKJYqvv.jpg",
-        mobile: "9534426911"
-    },
-    {
-        name: "Abhishek Raj",
-        email: "abhisinghal276@gmail.com",
-        linkedin:"https://www.linkedin.com/in/abhishek-raj",
-        instaId:"https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
-        pictureUrl:"https://i.imgur.com/RP2Jrrx.jpg",
-        mobile: "9835037718"
-    },
-    {
-        name: "Krishan Raj",
-        email: "krishanraj883@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/krishanraj8833",
-        pictureUrl:"https://i.imgur.com/m6v7FtY.jpg",
-        mobile: "6207366692"
-    },
-    {
-        name: "Tanya Rani",
-        email: "ranitanya60@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/r.tanu_",
-        pictureUrl:"https://i.imgur.com/MLUBOwK.jpg",
-        mobile: "9693278406"
-    },
-    {
-        name: "Abhishek Kumar Gupta",
-        email: "abhish1205@gmail.com",
-        linkedin:"https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
-        instaId:"https://instagram.com/Abhinav_Kumar_1205",
-        pictureUrl:"https://i.imgur.com/4v01ugZ.png",
-        mobile: "8235774254"
-    },
-    {
-        name: "Mohit Kumar",
-        email: "mohitjnv360@gmail.com",
-        linkedin:" https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
-        instaId:"https://instagram.com/the_mohit.kumar",
-        pictureUrl:"https://i.imgur.com/9IMalkv.jpg",
-        mobile: "7257827104"
-    },
-    {
-        name: "Abhishek Singh",
-        email: "thakurabhisheksingh0310@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
-        pictureUrl:"https://i.imgur.com/JNnv3nx.jpg",
-        mobile: "7672929694"
-    },
-    {
-        name: "Aditya Kumar",
-        email: "smadityakumar22@gmail.com",
-        linkedin:"https://www.linkedin.com/in/aditya-kumar-a69448211",
-        instaId:"https://instagram.com/Imsmaditya",
-        pictureUrl:"https://i.imgur.com/Rhncpbr.jpg",
-        mobile: "6206223238"
-    },
-    {
-        name: "Prakash Ranjan",
-        email: "Prakashranjan710@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/pranjan_09",
-        pictureUrl:"https://i.imgur.com/Btu5oV8.jpg",
-        mobile: "7070979750"
-    },
-    {
-        name: "Ashish Kumar",
-        email: "aashishsharmamrh@gmail.com",
-        linkedin:"https://www.linkedin.com/in/ashish-kumar-709213248/",
-        instaId:"https://instagram.com/ashishh_007",
-        pictureUrl:"https://i.imgur.com/WNZd5gv.jpg",
-        mobile: "9504654584"
-    },
-    {
-        name: "Aman Kumar",
-        email: "bittukumar9206@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
-        pictureUrl:"https://i.imgur.com/ZgduAxW.jpg",
-        mobile: "9319154498"
-    },
-    {
-        name: "Ravi Kumar",
-        email: "rks22082022@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/rk_ravikumar21_",
-        pictureUrl:"https://i.imgur.com/n3KPkWy.jpg",
-        mobile: "9352216102"
-    },
-    {
-        name: "JAYRAJ",
-        email: "ayushkumar192010@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/ayush_aj1920",
-        pictureUrl:"https://i.imgur.com/jhEhqgZ.jpg",
-        mobile: "7004857357"
-    },
-    {
-        name: "Surbhi kumari",
-        email: "naturalisticsurbhi@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/naturalistic_surbhi",
-        pictureUrl:"https://i.imgur.com/7I4mldp.jpg",
-        mobile: "6202945303"
-    },
-    {
-        name: "Vani Jha",
-        email: "vanijh09@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://www.instagram.com/_vani_jha_",
-        pictureUrl:"https://i.imgur.com/WC8HOAl.jpg",
-        mobile: "8709691055"
-    },
-    {
-        name: "DEEP DARSHAN",
-        email: "deepdarshan9472@gmail.com",
-        linkedin:"https://www.linkedin.com/in/deep-darshan-34992a212",
-        instaId:"https://instagram.com/deep.darshan_10",
-        pictureUrl:"https://i.imgur.com/9DwNjVP.jpg",
-        mobile: "9472924073"
-    },
-    {
-        name: "Rajlakshmi",
-        email: "rajlakshm8008@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/Its_me_rajbhardwaj",
-        pictureUrl:"https://i.imgur.com/fZ7BCDa.jpg",
-        mobile: "7992398132"
-    },
-    {
-        name: "Kavi Azad",
-        email: "kaviazad123@gamil.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/kaviazad30",
-        pictureUrl:"https://i.imgur.com/uhOoRQ7.jpg",
-        mobile: "6207542778"
-    },
-    {
-        name: "Shafaque Afrin",
-        email: "afrinshafaque@gmail.com",
-        linkedin:"https://www.linkedin.com/in/shafaque-afrin-55117026a",
-        instaId:"https://instagram.com/maahi____naaz",
-        pictureUrl:"https://i.imgur.com/AwlTbme.png",
-        mobile: "6202167228"
-    },
-    {
-        name: "Sujit Kumar",
-        email: "sujitkumar5305@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/Talent_sadda_sujit",
-        pictureUrl:"https://i.imgur.com/V7B7kpU.jpg",
-        mobile: "9097668195"
-    },
-    {
-        name: "Shashi Bhushan",
-        email: "shashi1842@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/keckatihar",
-        pictureUrl:"https://i.imgur.com/CHCursZ.jpg",
-        mobile: "7274093132"
-    },
-    {
-        name: "Nancy Kumari",
-        email: "nancysingh2808@gmail.com",
-        linkedin:"https://linkedin.com/company/tpo-keckatihar",
-        instaId:"https://instagram.com/nan__ciee",
-        pictureUrl:"https://i.imgur.com/uH45K39.jpg",
-        mobile: "8789931070"
-    },
-    {
-        name: "Himanshu Rai",
-        email: "himanshurai8765@gmail.com",
-        linkedin:"https://www.linkedin.com/in/himanshu-rai-052b14262",
-        instaId:"https://instagram.com/himanshurai9170",
-        pictureUrl:"https://i.imgur.com/CY8Tm9q.jpg",
-        mobile: "8765171237"
-    },
-    {
-        name: "CHIRANJEEV MANI",
-        email: "chiranjeevmani17@gmail.com",
-        linkedin:"https://www.linkedin.com/in/chiranjeev-mani-p1217",
-        instaId:"https://instagram.com/rajmani.0001",
-        pictureUrl:"https://i.imgur.com/zT41ipB.jpg",
-        mobile: "7004355424"
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    },
-    {
-        name: "",
-        email: "",
-        linkedin:"",
-        instaId:"",
-        pictureUrl:"",
-        mobile: ""
-    }
+    linkedin: "https://www.linkedin.com/in/kgaurav152",
+    instaId: "https://www.instagram.com/kgaurav152",
+    pictureUrl: "https://i.imgur.com/vZkbfL0.png",
+    mobile: "7004174269",
+  },
+  {
+    name: "Piyush Priyadarshi",
+    email: "piyushjha.code@gmail.com",
+    linkedin: "https://www.linkedin.com/in/thepiyushpriyadarshi",
+    instaId: "https://www.instagram.com/piyush._.priyadarshi",
+    pictureUrl: "https://i.imgur.com/MKEKWpC.jpg",
+    mobile: "9572165854",
+  },
+  {
+    name: "Vishal Kumar Singh",
+    email: "vishalkrsinghmsk@gmail.com",
+    linkedin: "https://www.linkedin.com/in/vishal-kumar-singh-bab818180/",
+    instaId: "https://www.instagram.com/vksrajputt",
+    pictureUrl: "https://i.imgur.com/AGMOOtM.jpg",
+    mobile: "8178572536",
+  },
+  {
+    name: "Aashish Kumar",
+    email: "ashishkumar24603@gmail.com",
+    linkedin: "https://www.linkedin.com/in/aashish-kumar-4332b9272",
+    instaId: "https://www.instagram.com/btw_itsaashish",
+    pictureUrl: "https://i.imgur.com/NfS3cg2.jpg",
+    mobile: "7700889658",
+  },
+  {
+    name: "Shambhu Kumar",
+    email: "shambhukr62849@gmail.com",
+    linkedin: "https://www.linkedin.com/in/shambhu-kumar-284709215/",
+    instaId: "https://www.instagram.com/ransa_17",
+    pictureUrl: "https://i.imgur.com/izxmD9w.jpg",
+    mobile: "7070407423",
+  },
+  {
+    name: "Rishav Anand",
+    email: "anandrishav772@gmail.com",
+    linkedin: "www.linkedin.com/in/rishav-anand-7a16232a8",
+    instaId: "https://www.instagram.com/rishavanand659",
+    pictureUrl: "https://i.imgur.com/j3FzFuE.png",
+    mobile: "7909023293",
+  },
+  {
+    name: "Adarsh Kumar",
+    email: "adarshjeedbg@gmail.com",
+    linkedin: "8434912483",
+    instaId: "https://www.instagram.com/adarshjee__0007",
+    pictureUrl: "https://i.imgur.com/RFsUuO1.jpg",
+    mobile: "8434912483",
+  },
+  {
+    name: "Pallavi Krishnan",
+    email: "pallavikrishnan01@gmail.com",
+    linkedin: "https://www.linkedin.com/in/pallavi-krishnan-453291239",
+    instaId: "https://instagram.com/pallavikrishnan19",
+    pictureUrl: "https://i.imgur.com/X4LuNUq.jpg",
+    mobile: "9334383571",
+  },
+  {
+    name: "Bhawana Kumari",
+    email: "bhawanakumari694@gmail.com",
+    linkedin: "https://www.linkedin.com/in/bhawana-kumari-768947282",
+    instaId: "https://instagram.com/keckatihar",
+    pictureUrl: "https://i.imgur.com/bKJYqvv.jpg",
+    mobile: "9534426911",
+  },
+  {
+    name: "Abhishek Raj",
+    email: "abhisinghal276@gmail.com",
+    linkedin: "https://www.linkedin.com/in/abhishek-raj",
+    instaId: "https://www.instagram.com/abhishek_singh1_?igsh=OGQ5ZDc2ODk2ZA==",
+    pictureUrl: "https://i.imgur.com/RP2Jrrx.jpg",
+    mobile: "9835037718",
+  },
+  {
+    name: "Krishan Raj",
+    email: "krishanraj883@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/krishanraj8833",
+    pictureUrl: "https://i.imgur.com/m6v7FtY.jpg",
+    mobile: "6207366692",
+  },
+  {
+    name: "Tanya Rani",
+    email: "ranitanya60@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/r.tanu_",
+    pictureUrl: "https://i.imgur.com/MLUBOwK.jpg",
+    mobile: "9693278406",
+  },
+  {
+    name: "Abhishek Kumar Gupta",
+    email: "abhish1205@gmail.com",
+    linkedin: "https://www.linkedin.com/in/abhishek-kumar-gupta-04a7b8255",
+    instaId: "https://instagram.com/Abhinav_Kumar_1205",
+    pictureUrl: "https://i.imgur.com/4v01ugZ.png",
+    mobile: "8235774254",
+  },
+  {
+    name: "Mohit Kumar",
+    email: "mohitjnv360@gmail.com",
+    linkedin: " https://www.linkedin.com/in/mohit-kumar-b42b6a22b",
+    instaId: "https://instagram.com/the_mohit.kumar",
+    pictureUrl: "https://i.imgur.com/9IMalkv.jpg",
+    mobile: "7257827104",
+  },
+  {
+    name: "Abhishek Singh",
+    email: "thakurabhisheksingh0310@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/abhishek__0311?igsh=emI4aWdwZmEybWFo",
+    pictureUrl: "https://i.imgur.com/JNnv3nx.jpg",
+    mobile: "7672929694",
+  },
+  {
+    name: "Aditya Kumar",
+    email: "smadityakumar22@gmail.com",
+    linkedin: "https://www.linkedin.com/in/aditya-kumar-a69448211",
+    instaId: "https://instagram.com/Imsmaditya",
+    pictureUrl: "https://i.imgur.com/Rhncpbr.jpg",
+    mobile: "6206223238",
+  },
+  {
+    name: "Prakash Ranjan",
+    email: "Prakashranjan710@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/pranjan_09",
+    pictureUrl: "https://i.imgur.com/Btu5oV8.jpg",
+    mobile: "7070979750",
+  },
+  {
+    name: "Ashish Kumar",
+    email: "aashishsharmamrh@gmail.com",
+    linkedin: "https://www.linkedin.com/in/ashish-kumar-709213248/",
+    instaId: "https://instagram.com/ashishh_007",
+    pictureUrl: "https://i.imgur.com/WNZd5gv.jpg",
+    mobile: "9504654584",
+  },
+  {
+    name: "Aman Kumar",
+    email: "bittukumar9206@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/aman93915?igsh=cXR5M2Fpb2NtMDI0",
+    pictureUrl: "https://i.imgur.com/ZgduAxW.jpg",
+    mobile: "9319154498",
+  },
+  {
+    name: "Ravi Kumar",
+    email: "rks22082022@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/rk_ravikumar21_",
+    pictureUrl: "https://i.imgur.com/n3KPkWy.jpg",
+    mobile: "9352216102",
+  },
+  {
+    name: "JAYRAJ",
+    email: "ayushkumar192010@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/ayush_aj1920",
+    pictureUrl: "https://i.imgur.com/jhEhqgZ.jpg",
+    mobile: "7004857357",
+  },
+  {
+    name: "Surbhi kumari",
+    email: "naturalisticsurbhi@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/naturalistic_surbhi",
+    pictureUrl: "https://i.imgur.com/7I4mldp.jpg",
+    mobile: "6202945303",
+  },
+  {
+    name: "Vani Jha",
+    email: "vanijh09@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://www.instagram.com/_vani_jha_",
+    pictureUrl: "https://i.imgur.com/WC8HOAl.jpg",
+    mobile: "8709691055",
+  },
+  {
+    name: "DEEP DARSHAN",
+    email: "deepdarshan9472@gmail.com",
+    linkedin: "https://www.linkedin.com/in/deep-darshan-34992a212",
+    instaId: "https://instagram.com/deep.darshan_10",
+    pictureUrl: "https://i.imgur.com/9DwNjVP.jpg",
+    mobile: "9472924073",
+  },
+  {
+    name: "Rajlakshmi",
+    email: "rajlakshm8008@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/Its_me_rajbhardwaj",
+    pictureUrl: "https://i.imgur.com/fZ7BCDa.jpg",
+    mobile: "7992398132",
+  },
+  {
+    name: "Kavi Azad",
+    email: "kaviazad123@gamil.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/kaviazad30",
+    pictureUrl: "https://i.imgur.com/uhOoRQ7.jpg",
+    mobile: "6207542778",
+  },
+  {
+    name: "Shafaque Afrin",
+    email: "afrinshafaque@gmail.com",
+    linkedin: "https://www.linkedin.com/in/shafaque-afrin-55117026a",
+    instaId: "https://instagram.com/maahi____naaz",
+    pictureUrl: "https://i.imgur.com/AwlTbme.png",
+    mobile: "6202167228",
+  },
+  {
+    name: "Sujit Kumar",
+    email: "sujitkumar5305@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/Talent_sadda_sujit",
+    pictureUrl: "https://i.imgur.com/V7B7kpU.jpg",
+    mobile: "9097668195",
+  },
+  {
+    name: "Shashi Bhushan",
+    email: "shashi1842@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/keckatihar",
+    pictureUrl: "https://i.imgur.com/CHCursZ.jpg",
+    mobile: "7274093132",
+  },
+  {
+    name: "Nancy Kumari",
+    email: "nancysingh2808@gmail.com",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    instaId: "https://instagram.com/nan__ciee",
+    pictureUrl: "https://i.imgur.com/uH45K39.jpg",
+    mobile: "8789931070",
+  },
+  {
+    name: "Himanshu Rai",
+    email: "himanshurai8765@gmail.com",
+    linkedin: "https://www.linkedin.com/in/himanshu-rai-052b14262",
+    instaId: "https://instagram.com/himanshurai9170",
+    pictureUrl: "https://i.imgur.com/CY8Tm9q.jpg",
+    mobile: "8765171237",
+  },
+  {
+    name: "CHIRANJEEV MANI",
+    email: "chiranjeevmani17@gmail.com",
+    linkedin: "https://www.linkedin.com/in/chiranjeev-mani-p1217",
+    instaId: "https://instagram.com/rajmani.0001",
+    pictureUrl: "https://i.imgur.com/zT41ipB.jpg",
+    mobile: "7004355424",
+  },
+  {
+    name: "",
+    email: "",
+    linkedin: "",
+    instaId: "",
+    pictureUrl: "",
+    mobile: "",
+  },
+  {
+    name: "",
+    email: "",
+    linkedin: "",
+    instaId: "",
+    pictureUrl: "",
+    mobile: "",
+  },
 ];
 
 export const campusAmbassadors = [
   {
     name: "Kumar Gaurav",
     email: "kgaurav152@gmail.com",
-    linkedin:"https://www.linkedin.com/in/kgaurav152",
-    pictureUrl:"https://i.imgur.com/vZkbfL0.png",
+    linkedin: "https://www.linkedin.com/in/kgaurav152",
+    pictureUrl: "https://i.imgur.com/vZkbfL0.png",
     mobile: "7004174269",
     batch: "2K21",
     branch: "CSE",
@@ -1197,8 +1187,8 @@ export const campusAmbassadors = [
   {
     name: "Ashutosh Raj",
     email: "rajashutoshtechnomission@gmail.com",
-    linkedin:"https://www.linkedin.com/in/ashutosh-raj-950993215",
-    pictureUrl:"https://i.imgur.com/zSrGlDj.png",
+    linkedin: "https://www.linkedin.com/in/ashutosh-raj-950993215",
+    pictureUrl: "https://i.imgur.com/zSrGlDj.png",
     mobile: "6201883418",
     batch: "2K21",
     branch: "Civil",
@@ -1208,8 +1198,8 @@ export const campusAmbassadors = [
   {
     name: "Suraj Kumar",
     email: "kumarsurajsk843116@gmail.com",
-    linkedin:"https://www.linkedin.com/in/suraj-kumar-5a69ab26b",
-    pictureUrl:"https://i.imgur.com/DpswZz2.jpg",
+    linkedin: "https://www.linkedin.com/in/suraj-kumar-5a69ab26b",
+    pictureUrl: "https://i.imgur.com/DpswZz2.jpg",
     mobile: "9508886079",
     batch: "2K22",
     branch: "Mechanical Engineering",
@@ -1219,8 +1209,8 @@ export const campusAmbassadors = [
   {
     name: "Manish Kumar Yadav",
     email: "manishkumar198438@gmail.com",
-    linkedin:"https://www.linkedin.com/in/manish-kumar-yadav-a3b320271",
-    pictureUrl:"https://i.imgur.com/Sh3u7Kr.jpg",
+    linkedin: "https://www.linkedin.com/in/manish-kumar-yadav-a3b320271",
+    pictureUrl: "https://i.imgur.com/Sh3u7Kr.jpg",
     mobile: "9142595082",
     batch: "2K22",
     branch: "Mechanical Engineering",
@@ -1230,8 +1220,8 @@ export const campusAmbassadors = [
   {
     name: "Rohit Kumar",
     email: "rohitkumarrajapakar1@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/jmQhwyN.png",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/jmQhwyN.png",
     mobile: "6204019976",
     batch: "2K21",
     branch: "Electrical Engineering",
@@ -1241,8 +1231,8 @@ export const campusAmbassadors = [
   {
     name: "Shubham Kumar Singh",
     email: "shubhamkr10singh10@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/k80N6Ln.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/k80N6Ln.jpg",
     mobile: "7323072186",
     batch: "2K20",
     branch: "Electrical Engineering",
@@ -1252,8 +1242,8 @@ export const campusAmbassadors = [
   {
     name: "Aditya Prakash",
     email: "adityaprakash698@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/QlTNHqN.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/QlTNHqN.jpg",
     mobile: "7691807122",
     batch: "2K21",
     branch: "EEE",
@@ -1263,8 +1253,8 @@ export const campusAmbassadors = [
   {
     name: "Devanshu Raj",
     email: "devanshurajofficial@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/qBjum7h.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/qBjum7h.jpg",
     mobile: "7909091809",
     batch: "2K22",
     branch: "Civil Engineering",
@@ -1274,8 +1264,8 @@ export const campusAmbassadors = [
   {
     name: "SHEKHAR SANDILYA",
     email: "sandilyashekhar0@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/ghR2HsM.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/ghR2HsM.jpg",
     mobile: "7808697623",
     batch: "2K20",
     branch: "ELECTRICAL ENGINEERING",
@@ -1285,19 +1275,20 @@ export const campusAmbassadors = [
   {
     name: "Nisha Kumari",
     email: "nishamuz2004@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/wFkYVJP.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/wFkYVJP.jpg",
     mobile: "9508801718",
     batch: "2K21",
     branch: "CSE",
-    college: "Rashtrakavi Ramdhari Singh Dinkar College of Engineering, Begusarai",
+    college:
+      "Rashtrakavi Ramdhari Singh Dinkar College of Engineering, Begusarai",
     caId: "KECTF24CA110",
   },
   {
     name: "Laxman Kumar",
     email: "laxmansharma848204@gmail.com",
-    linkedin:"https://www.linkedin.com/in/laxman-kumar-a09332250",
-    pictureUrl:"https://i.imgur.com/YTaQpOz.jpg",
+    linkedin: "https://www.linkedin.com/in/laxman-kumar-a09332250",
+    pictureUrl: "https://i.imgur.com/YTaQpOz.jpg",
     mobile: "7903885975",
     batch: "2K21",
     branch: "Civil Engineering",
@@ -1307,8 +1298,8 @@ export const campusAmbassadors = [
   {
     name: "Ravi Raushan Kumar",
     email: "kumarraviraushan20@gmail.com",
-    linkedin:"https://linkedin.com/company/tpo-keckatihar",
-    pictureUrl:"https://i.imgur.com/zBuh6W6.jpg",
+    linkedin: "https://linkedin.com/company/tpo-keckatihar",
+    pictureUrl: "https://i.imgur.com/zBuh6W6.jpg",
     mobile: "6201636690",
     batch: "2K21",
     branch: "CSE",
@@ -1318,8 +1309,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1329,8 +1320,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1340,8 +1331,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1351,8 +1342,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1362,8 +1353,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1373,8 +1364,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1384,8 +1375,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1395,8 +1386,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1406,8 +1397,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1417,8 +1408,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1428,8 +1419,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1439,8 +1430,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",
@@ -1450,8 +1441,8 @@ export const campusAmbassadors = [
   {
     name: "",
     email: "",
-    linkedin:"",
-    pictureUrl:"",
+    linkedin: "",
+    pictureUrl: "",
     mobile: "",
     batch: "",
     branch: "",

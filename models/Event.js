@@ -17,7 +17,7 @@ const EventSchema = new mongoose.Schema({
   participationMode: {
     type: String,
     required: true,
-    enum : ["Individual","Group"]
+    enum: ["Individual", "Group"],
   },
   description: {
     type: String,
@@ -49,6 +49,12 @@ const EventSchema = new mongoose.Schema({
         "Maximum participants should be equal to or greater than minimum participants",
     },
   },
+  coordinators: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
 });
 
 const Event = mongoose.models.Event || mongoose.model("Event", EventSchema);
