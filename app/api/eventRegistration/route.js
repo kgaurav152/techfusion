@@ -84,7 +84,6 @@ export async function POST(req) {
           message: `You already enrolled in ${cultural_max_limit} cultural events`,
         });
       }
-
       if (alreadyRegistered(user, event._id)) {
         return NextResponse.json({
           success: false,
@@ -93,7 +92,7 @@ export async function POST(req) {
       }
     }
 
-    if (event.participationMode == "Individual") {
+    if (event.max === 1) {
       const newParticipation = await Participation.create({
         event: event_id,
         teamName: team_name,
@@ -103,8 +102,7 @@ export async function POST(req) {
         await User.findByIdAndUpdate(user._id, {
           $push: { cultural: newParticipation._id },
         });
-      } 
-      else if (event.eventType === "Technical") {
+      } else if (event.eventType === "Technical") {
         await User.findByIdAndUpdate(user._id, {
           $push: { technical: newParticipation._id },
         });
@@ -167,7 +165,7 @@ export async function POST(req) {
     if (userArray.length >= event?.min && userArray.length <= event?.max) {
       return NextResponse.json({
         success: false,
-        message: `This group event requires a minimum of ${event.min} participants and can accommodate up to a maximum of ${event.max} participants.`,
+        message: `This event requires a minimum of ${event.min} participants and can accommodate up to a maximum of ${event.max} participants.`,
       });
     }
 
