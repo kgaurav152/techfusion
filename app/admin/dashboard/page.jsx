@@ -22,6 +22,7 @@ import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
+import PageMenubar from "@/components/pageMenuBar";
 Chart.register(...registerables);
 const AdminDashboard = () => {
   const { user } = useSelector((state) => state.profile);
@@ -81,6 +82,24 @@ const AdminDashboard = () => {
   const options = {
     maintainAspectRatio: true,
   };
+
+  const menuButtons = [
+    {
+      buttonTitle: "Manage Torch Bearers",
+      redirectUrl: "/admin/manage-torch-bearers",
+    },
+    {
+      buttonTitle: "Manage Coordinator",
+      redirectUrl: "/admin/manage-torch-bearers/manage-coordinator",
+    },
+    {
+      buttonTitle: "Manage CA",
+      redirectUrl: "/admin/manage-torch-bearers/manage-campus-ambassador",
+    },
+    // { buttonTitle: "Manage ", redirectUrl: "/products" },
+    // { buttonTitle: "Contact", redirectUrl: "/contact" },
+  ];
+
   return (
     <div className="text-white w-11/12 mx-auto min-h-[100vh] relative">
       <p className="text-white text-2xl">
@@ -89,35 +108,42 @@ const AdminDashboard = () => {
           {user?.name}
         </span>
       </p>
-      {
-        stats && <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
-        <Card>
-          <CardHeader>
-            <CardTitle>Participants Count</CardTitle>
-            {/* <CardDescription>Card Description</CardDescription> */}
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-4">
-              <span className="col-span-2">Approved Participant</span>
-              <span>:</span>
-              <span className="font-semibold">{stats.allParticipants.approved}</span>
-            </div>
-            <div className="grid grid-cols-4">
-              <span className="col-span-2">Pending Participant</span>
-              <span>:</span>
-              <span className="font-semibold">{stats.allParticipants.pending}</span>
-            </div>
-            <div className="grid grid-cols-4">
-              <span className="col-span-2">Total Participant</span>
-              <span>:</span>
-              <span className="font-semibold">{stats.allParticipants.total}</span>
-            </div>
-          </CardContent>
-          {/* <CardFooter>
+      <PageMenubar buttons={menuButtons} />
+      {stats && (
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
+          <Card>
+            <CardHeader>
+              <CardTitle>Participants Count</CardTitle>
+              {/* <CardDescription>Card Description</CardDescription> */}
+            </CardHeader>
+            <CardContent>
+              <div className="grid grid-cols-4">
+                <span className="col-span-2">Approved Participant</span>
+                <span>:</span>
+                <span className="font-semibold">
+                  {stats.allParticipants.approved}
+                </span>
+              </div>
+              <div className="grid grid-cols-4">
+                <span className="col-span-2">Pending Participant</span>
+                <span>:</span>
+                <span className="font-semibold">
+                  {stats.allParticipants.pending}
+                </span>
+              </div>
+              <div className="grid grid-cols-4">
+                <span className="col-span-2">Total Participant</span>
+                <span>:</span>
+                <span className="font-semibold">
+                  {stats.allParticipants.total}
+                </span>
+              </div>
+            </CardContent>
+            {/* <CardFooter>
             <p>Card Footer</p>
           </CardFooter> */}
-        </Card>
-        {/* <Card>
+          </Card>
+          {/* <Card>
           <CardHeader>
             <CardTitle>Total Amount Collected</CardTitle> 
           </CardHeader>
@@ -128,8 +154,8 @@ const AdminDashboard = () => {
             </div>
           </CardContent> 
         </Card> */}
-      </div>
-      }
+        </div>
+      )}
       {stats && (
         <div className="my-10">
           <div>
