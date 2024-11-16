@@ -14,6 +14,12 @@ const ManageTorchBearerPage = () => {
       redirectUrl: "/admin/manage-torch-bearers/manage-coordinator",
       cardInfo: "View, Add and manage Coordinator",
     },
+    {
+      cardTitle: "Manage Event Coordinator Assignment",
+      redirectUrl:
+        "/admin/manage-torch-bearers/manage-event-coordinator-assignment",
+      cardInfo: "View, Add and manage Coordinator-Event relationship",
+    },
   ];
 
   return (

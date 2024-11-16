@@ -47,7 +47,7 @@ const EventSchema = new mongoose.Schema({
   coordinators: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Coordinator",
     },
   ],
 });
