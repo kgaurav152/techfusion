@@ -2,6 +2,7 @@ import { connect } from "@/config/dbconfig";
 import { NextResponse } from "next/server";
 import Event from "@/models/Event";
 import Coordinator from "@/models/Coordinator";
+import User from "@/models/User";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 export async function POST(req) {
