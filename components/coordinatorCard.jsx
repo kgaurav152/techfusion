@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
-import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 function CoordinatorCard({ data, eventLabel }) {
@@ -23,30 +23,36 @@ function CoordinatorCard({ data, eventLabel }) {
             className="w-32 h-32 rounded-full object-cover mb-2"
           /> */}
           <Avatar className="w-32 h-32">
-              <AvatarImage src={data.pictureUrl} 
-            alt={data.name[0]} 
-            className="rounded-full object-cover mb-2"/>
-              <AvatarFallback>{data.name}</AvatarFallback>
+            <AvatarImage
+              src={data.pictureUrl}
+              alt={data.name[0]}
+              className="rounded-full object-cover mb-2"
+            />
+            <AvatarFallback>{data.name}</AvatarFallback>
           </Avatar>
         </div>
         <div className="mb-4">
           <p className="text-lg font-semibold mb-2">{data.name}</p>
           <div className="flex justify-center items-center mb-4">
-            {data.mobile ? (
-              <a href={`tel:${data.mobile}`} className="flex items-center text-blue-800 hover:underline">
+            {data.gender == "Male" ? (
+              <a
+                href={`tel:${data.mobile}`}
+                className="flex items-center text-blue-800 hover:underline"
+              >
                 <FaPhoneAlt className="mr-2" />
                 {data.mobile}
               </a>
             ) : (
               <span className="flex items-center hover:underline">
-              <FaPhoneAlt className="mr-2" /> not available</span>
+                <FaPhoneAlt className="mr-2" /> not available
+              </span>
             )}
           </div>
         </div>
-        <div className="flex justify-center items-center mb-5">
-          <a href={`mailto:${data.email}`} className="hover:underline mr-4">
+        <div className="flex justify-center items-center gap-6 mb-5">
+          {/* <a href={`mailto:${data.email}`} className="hover:underline mr-4">
             <IoMdMail className="text-3xl hover:text-purple-600" />
-          </a>
+          </a> */}
           <a
             href={data.instaId}
             target="_blank"
