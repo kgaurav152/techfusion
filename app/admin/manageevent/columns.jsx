@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 
 import { ApproveButton, DeleteButton } from "@/app/admin/manageevent/buttonBar";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 export const columns = (setEventData) => [
   {
@@ -115,6 +117,29 @@ export const columns = (setEventData) => [
     cell: ({ row }) => {
       const event = row.original;
       return <p className="w-20 md:w-32 lg:w-40 truncate">{event.max}</p>;
+    },
+  },
+  {
+    accessorKey: "coordinators",
+    header: "Coordinators",
+    cell: ({ row }) => {
+      const ev = row.original;
+      if (ev?.coordinators?.length > 0) {
+        return (
+          <ScrollArea className="h-20 w-48 rounded-md border">
+            {ev?.coordinators?.map((co) => (
+              <>
+                <div key={co} className="text-sm">
+                  {co.name}
+                </div>
+                <Separator className="my-1" />
+              </>
+            ))}
+          </ScrollArea>
+        );
+      } else {
+        return <p>Not Available</p>;
+      }
     },
   },
   {
