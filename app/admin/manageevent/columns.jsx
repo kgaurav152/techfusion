@@ -52,20 +52,6 @@ export const columns = (setEventData) => [
     },
   },
   {
-    accessorKey: "participationMode",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Participation Type
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-  },
-  {
     accessorKey: "description",
     header: "Description",
     cell: ({ row }) => {

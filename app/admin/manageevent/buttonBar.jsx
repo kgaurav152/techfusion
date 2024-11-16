@@ -59,9 +59,6 @@ export function EventCreationForm({ setOpen, setEventData }) {
           invalid_type_error: "Name must be a string",
         })
         .min(2, { message: "Name must be 2 or more characters long" }),
-      participationMode: z.enum(["Individual", "Group"], {
-        message: "Select a valid option",
-      }),
       description: z.string({ message: "Description can't be empty!" }),
       rulebookLink: z.string().url(),
       posterUrl: z.string().url(),
@@ -100,7 +97,6 @@ export function EventCreationForm({ setOpen, setEventData }) {
       eventType: data.eventType,
       eventId: data.eventType == "Cultural" ? "C" + data.id : "T" + data.id,
       name: data.name,
-      participationMode: data.participationMode,
       description: data.description,
       ruleBook: data.rulebookLink,
       posterUrl: data.posterUrl,
@@ -203,33 +199,6 @@ export function EventCreationForm({ setOpen, setEventData }) {
                   <FormControl>
                     <Input placeholder="Enter Name of Event" {...field} />
                   </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="participationMode"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">
-                    Event Participation Type*
-                  </FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select One" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Individual">Individual</SelectItem>
-                      <SelectItem value="Group">Group</SelectItem>
-                    </SelectContent>
-                  </Select>
                   <FormDescription />
                   <FormMessage />
                 </FormItem>

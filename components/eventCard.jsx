@@ -1,11 +1,10 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
-import {useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-const EventCard = ({event}) => {
-    
+const EventCard = ({ event }) => {
   const { user } = useSelector((state) => state.profile);
 
   return (
@@ -21,11 +20,15 @@ const EventCard = ({event}) => {
         />
         <div className="px-6 py-4">
           <div className="text-white font-bold text-xl mb-3">
-            {event.name} 
-            <br/>
+            {event.name}
+            <br />
             <p className="text-base">Event Id: {event.eventId}</p>
             <p className="text-base">Event Type: {event.eventType}</p>
-            <p className="text-base">Participation Type: {event.participationMode}</p>
+            <div className="flex flex-row gap-2">
+              <p className="text-lg mb-1">Participant Allowed-</p>
+              <p className="text-lg mb-1">min: {event?.min},</p>
+              <p className="text-lg mb-1">max: {event?.max}</p>
+            </div>
           </div>
           <p className="text-gray-300 text-base line-clamp-5">
             {event.description}
@@ -49,6 +52,6 @@ const EventCard = ({event}) => {
       </div>
     </div>
   );
-}
+};
 
 export default EventCard;
