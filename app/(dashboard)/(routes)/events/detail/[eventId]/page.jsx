@@ -19,26 +19,9 @@ export const EventDetailPage = () => {
   const pathname = usePathname();
   const parts = pathname.split("/");
   const eventId = parts[parts.length - 1];
-  // const [eventList, setEventList] = useState([]);
   const [eventDetail, setEventDetail] = useState(null);
-  const [eventCoordinator, setEventCoordinator] = useState({});
 
   const { event } = useSelector((state) => state.event);
-
-  // const fetchEventList = async () => {
-  //     try{
-  //         const toastId = toast.loading("Loading ....")
-  //         const { data } = await apiConnector("POST", "/api/event/getAllEvent");
-  //         toast.dismiss(toastId);
-  //         if (data.success) {
-  //         setEventList(data.data);
-  //         } else {
-  //         toast.error(data.message);
-  //         }
-  //     } catch (err) {
-  //         console.log(err);
-  //     }
-  // };
 
   const filterByEventId = (eventId) => {
     if (event.length > 0) {
@@ -46,33 +29,9 @@ export const EventDetailPage = () => {
     }
   };
 
-  const mapCoordinatorsDetails = () => {
-    setEventCoordinator({});
-    if (eventDetail && eventDetail.eventId) {
-      // console.log(value.label.split(' - ')[0])
-      const selectedEvent = eventCoordinators.find(
-        (event) => event.eventId === eventDetail.eventId
-      );
-      if (selectedEvent) {
-        setEventCoordinator(selectedEvent);
-      }
-    }
-  };
-
-  useEffect(() => {
-    mapCoordinatorsDetails();
-  }, [eventDetail]);
-
-  // useEffect(() => {
-  //     fetchEventList();
-  //   }, []);
-
   useEffect(() => {
     filterByEventId(eventId);
   }, [event, eventId]);
-
-  // console.log(eventId)
-  // console.log(event)
 
   return (
     <section>
@@ -100,8 +59,8 @@ export const EventDetailPage = () => {
             </h2>
             <p className="flex flex-row gap-2 font-bold leading-tight text-2xl md:text-4xl">
               <h2 className="text-lg mb-1">Participant Allowed-</h2>
-              <p className="text-lg mb-1">min: {event?.min},</p>
-              <p className="text-lg mb-1">max: {event?.max}</p>
+              <p className="text-lg mb-1">min: {eventDetail?.min},</p>
+              <p className="text-lg mb-1">max: {eventDetail?.max}</p>
             </p>
           </div>
           <div className="dark:text-gray-100 prose lg:prose-xl">
@@ -127,24 +86,22 @@ export const EventDetailPage = () => {
               </Link>
             </div>
           </div>
-          {eventDetail &&
-            eventDetail.eventId &&
-            eventCoordinator.coordinators && (
-              <div className="coordinators mt-10">
-                <h4 className="text-2xl text-center font-bold text-white mb-10 mt-4">
-                  Event Coordinators:
-                </h4>
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                  {eventCoordinator.coordinators.map((coordinator, index) => (
-                    <CoordinatorCard
-                      key={index}
-                      data={coordinator}
-                      eventLabel={`${eventDetail.eventId} - ${eventDetail.name}`}
-                    />
-                  ))}
-                </div>
+          {eventDetail && eventDetail?.coordinators && (
+            <div className="coordinators mt-10">
+              <h4 className="text-2xl text-center font-bold text-white mb-10 mt-4">
+                Event Coordinators:
+              </h4>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {eventDetail?.coordinators.map((coordinator, index) => (
+                  <CoordinatorCard
+                    key={index}
+                    data={coordinator}
+                    eventLabel={`${eventDetail.eventId} - ${eventDetail.name}`}
+                  />
+                ))}
               </div>
-            )}
+            </div>
+          )}
         </article>
       )}
     </section>
