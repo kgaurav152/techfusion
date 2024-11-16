@@ -9,6 +9,8 @@ import {
   DeleteButton,
 } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/buttonBar";
 import Link from "next/link";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
 
 export const columns = (setCoordinatorData) => [
   // {
@@ -109,6 +111,29 @@ export const columns = (setCoordinatorData) => [
           >
             <Image className="h-6 w-6 text-emerald-400" />
           </Link>
+        );
+      } else {
+        return <p>Not Available</p>;
+      }
+    },
+  },
+  {
+    accessorKey: "events",
+    header: "Events",
+    cell: ({ row }) => {
+      const co = row.original;
+      if (co?.events?.length > 0) {
+        return (
+          <ScrollArea className="h-20 w-48 rounded-md border">
+            {co?.events?.map((event) => (
+              <>
+                <div key={event} className="text-sm">
+                  {event.name}
+                </div>
+                <Separator className="my-1" />
+              </>
+            ))}
+          </ScrollArea>
         );
       } else {
         return <p>Not Available</p>;
