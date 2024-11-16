@@ -61,6 +61,8 @@ export async function POST(req) {
       instaId,
       pictureUrl,
       mobile,
+      branch,
+      batch,
       events: [],
     });
 

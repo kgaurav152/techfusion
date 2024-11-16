@@ -37,6 +37,14 @@ const CoordinatorSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  branch: {
+    type: String,
+    required: true,
+  },
+  batch: {
+    type: String,
+    required: true,
+  },
   events: [
     {
       type: mongoose.Schema.Types.ObjectId,

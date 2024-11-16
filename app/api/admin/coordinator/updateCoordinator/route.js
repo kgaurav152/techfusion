@@ -1,10 +1,12 @@
 import { connect } from "@/config/dbconfig";
 import { NextResponse } from "next/server";
 import Coordinator from "@/models/Coordinator";
+import User from "@/models/User";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 export async function PUT(req) {
   const { token, coordinatorId, updateData } = await req.json();
+  console.log(token, coordinatorId, updateData);
   connect();
 
   try {
