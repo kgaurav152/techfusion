@@ -14,7 +14,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useRouter, useSearchParams } from "next/navigation";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 
 const ResetPasswordPage = () => {
   return (

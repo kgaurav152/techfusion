@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { apiConnector } from "@/helpers/apiConnector";
 
 import { Button } from "@/components/ui/button";

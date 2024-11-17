@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { apiConnector } from "@/helpers/apiConnector";
 
 import { Button } from "@/components/ui/button";
@@ -51,7 +51,7 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export function EventView({
+function EventView({
   loading,
   eventData,
   coordinatorData,
@@ -271,7 +271,7 @@ export function EventView({
   );
 }
 
-export function CoordinatorView({
+function CoordinatorView({
   loading,
   eventData,
   coordinatorData,

@@ -2,7 +2,7 @@
 
 import React, {useState, useEffect} from "react";
 import { usePathname } from 'next/navigation';
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { apiConnector } from '@/helpers/apiConnector';
 import {
   Card,

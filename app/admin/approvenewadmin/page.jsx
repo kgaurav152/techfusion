@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 // import Network from "@/components/network";
 // import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import {columns} from '@/app/admin/approvenewadmin/columns'
 import { DataTable } from '@/app/admin/approvenewadmin/data-table'
 import { apiConnector } from '@/helpers/apiConnector';
@@ -48,7 +48,7 @@ export const PendingParticipants = () => {
   return (
         <div className="flex flex-col items-center mt-2 text-center">
             <h1 className='text-3xl text-white font-bold'>Pending Participants of KEC</h1>
-            <div className='container mt-4 mb-20 w-4/5'>
+            <div className='w-full'>
                 <DataTable columns={columns(setPendingParticipantsData)} data={pendingParticipantsData} />
             </div>
         </div>

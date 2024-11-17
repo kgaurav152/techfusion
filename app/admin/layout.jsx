@@ -1,31 +1,12 @@
-"use client";
 import AdminNavBar from "@/components/adminNavbar";
-import Footer from '@/components/footer';
-import Cookies from "js-cookie";
-import { redirect } from "next/navigation";
-import { useEffect } from "react"; 
-import { useSelector } from "react-redux";
-
-// import { useEffect } from "react";
-// import Network from "@/components/network";
+import Footer from "@/components/footer";
 
 const DashboardLayout = ({ children }) => {
-  const {user} = useSelector(state=>state.profile);
-  
-  const IsLoggedIn = Cookies.get("IsLoggedIn");
-  useEffect(()=>{
-    if(!IsLoggedIn){
-      redirect("/");
-    }
-    if(user && user?.userType !=="admin"){
-      redirect("/");
-    }
-  },[user,IsLoggedIn]);
-  return (      
+  return (
     <div>
-      <div className=" min-h-[100vh] bg-[#00040F] relative" >
+      <div className="bg-[#00040F] relative">
         <AdminNavBar />
-        {children}
+        <main className="w-11/12 min-h-screen mx-auto">{children}</main>
         <Footer />
       </div>
     </div>

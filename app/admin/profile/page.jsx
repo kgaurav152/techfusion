@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import Cookies from 'js-cookie';
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";

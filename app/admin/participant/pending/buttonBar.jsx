@@ -1,11 +1,7 @@
 "use client"
 
-import React, { useState } from "react";
-import axios from "axios";
-import Link from "next/link";
-
-
-import Network from "@/components/network";
+import React, { useState } from "react"; 
+ 
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -17,7 +13,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Trash2, Image } from "lucide-react";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { apiConnector } from "@/helpers/apiConnector";
 
 

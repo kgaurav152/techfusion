@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { columns } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/columns";
 import { DataTable } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/data-table";
 import { CreateCoordinatorButton } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/buttonBar";
@@ -48,7 +48,7 @@ export const CoordinatorManagement = () => {
       <h1 className="text-3xl text-white font-bold mt-8">
         List of All Coordinators
       </h1>
-      <div className="container mt-4 mb-20 w-4/5">
+      <div className="w-full">
         <DataTable
           columns={columns(setCoordinatorData)}
           data={coordinatorData}

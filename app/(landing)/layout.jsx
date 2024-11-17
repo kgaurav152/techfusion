@@ -5,6 +5,7 @@ import NavBar from "@/components/navbar";
 import Footer from '@/components/footer';
 import GetStartedButton from "@/app/(landing)/getStartedButton";
 import StarsCanvas from "@/components/StarCanvas";
+import BottomBar from "@/components/bottom-bar";
 
 const DashboardLayout = ({ children }) => {
 
@@ -56,6 +57,7 @@ const DashboardLayout = ({ children }) => {
         <NavBar />
         {children}
         <Footer />
+        <BottomBar/>
       </div>
       )}
     </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 // import axios from "axios";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from '@/components/ui/textarea';
+import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
@@ -35,54 +35,67 @@ import {
   CardFooter,
   CardTitle,
   CardDescription,
-  CardContent
+  CardContent,
 } from "@/components/ui/card";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { apiConnector } from "@/helpers/apiConnector";
+import { useSelector } from "react-redux";
 
-export function DeleteEventForm({ setOpen,  participationId, setParticipatingEventsData }) {
+export function DeleteEventAlert({
+  setOpen,
+  participationId,
+  setParticipatingEventsData,
+}) {
   const handleParticipationDeletion = async () => {
-    const obj = { 
-      participation_id: participationId
-    }; 
+    const obj = {
+      participation_id: participationId,
+    };
 
-  try {
-    const toastId = toast.loading("Loading...");
-      const { data } = await apiConnector("POST","/api/deleteParticipation",obj);
-      console.log(data)
-      toast.dismiss(toastId); 
+    try {
+      const toastId = toast.loading("Loading...");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/deleteParticipation",
+        obj
+      );
+      console.log(data);
+      toast.dismiss(toastId);
       if (data.success) {
-          toast.success("Participation to the event deleted!");
-          setOpen(false);
-          setParticipatingEventsData([...data.data?.technical,...data.data?.cultural]);
+        toast.success("Participation to the event deleted!");
+        setOpen(false);
+        setParticipatingEventsData([
+          ...data.data?.technical,
+          ...data.data?.cultural,
+        ]);
       } else {
-      toast.error(data.message);
+        toast.error(data.message);
       }
-  } catch (err) {
+    } catch (err) {
       console.log(err);
-  }
+    }
   };
 
   return (
-    <div className="bg-white text-center">
+    <div>
       <p className="mb-4">Are you sure you want to delete?</p>
-      <Button
-        className="mr-8"
-        variant="destructive"
-        type="button"
-        onClick={handleParticipationDeletion}
-      >
-        Confirm
-      </Button>
-      <Button variant="outline" type="button" onClick={() => setOpen(false)}>
-        Cancel
-      </Button>
+      <div className="flex gap-4 justify-end">
+        <Button
+          variant="destructive"
+          type="button"
+          onClick={handleParticipationDeletion}
+        >
+          Confirm
+        </Button>
+        <Button variant="secondary" type="button" onClick={() => setOpen(false)}>
+          Cancel
+        </Button>
+      </div>
     </div>
   );
 }
@@ -93,7 +106,7 @@ export function DeleteButton({ participationId, setParticipatingEventsData }) {
   return (
     <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline" className="text-red-500">
+        <Button variant="ghost" className="text-rose-500">
           <Trash2 className="h-4 w-4" />
         </Button>
       </DialogTrigger>
@@ -101,7 +114,11 @@ export function DeleteButton({ participationId, setParticipatingEventsData }) {
         <DialogHeader>
           <DialogTitle>Delete Participation</DialogTitle>
         </DialogHeader>
-        <DeleteEventForm setOpen={setOpen} participationId={participationId} setParticipatingEventsData={setParticipatingEventsData} />
+        <DeleteEventAlert
+          setOpen={setOpen}
+          participationId={participationId}
+          setParticipatingEventsData={setParticipatingEventsData}
+        />
       </DialogContent>
     </Dialog>
   );

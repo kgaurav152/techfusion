@@ -7,7 +7,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { useForm } from "react-hook-form";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";

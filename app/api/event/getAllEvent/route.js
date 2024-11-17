@@ -6,7 +6,7 @@ connect();
 export async function POST() {
   try {
     // const data = await Event.find();
-    const data = await Event.find().populate("coordinators");
+    const data = await Event.find();
     return NextResponse.json({
       success: true,
       message: "All Event Fetched Successfully",

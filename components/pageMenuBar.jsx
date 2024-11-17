@@ -11,7 +11,7 @@ export default function PageMenubar({ buttons }) {
           <Link
             key={index}
             href={button.redirectUrl}
-            className="w-2/5 md:w-auto"
+            className="md:w-auto"
           >
             <Button
               className="w-full md:w-auto text-gray-800"

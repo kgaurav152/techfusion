@@ -2,7 +2,7 @@ import { PDFDocument, rgb } from 'pdf-lib';
 import fontkit from '@pdf-lib/fontkit';
 import { saveAs } from 'file-saver';
 import QRCode from 'qrcode';
-import toast from 'react-hot-toast';
+import {toast} from 'sonner';
 import { Button } from '@/components/ui/button';
 
 const CertDownloader = ({user}) => {

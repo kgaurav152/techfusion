@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { apiConnector } from '@/helpers/apiConnector';
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { format } from "date-fns"
 import { Button } from "@/components/ui/button";
 import { ChevronsUpDown, Check, Calendar as CalendarIcon, Plus, Trash2 } from "lucide-react";
@@ -195,7 +195,7 @@ export const ViewResultPage = () => {
             </Popover> */}
         </div>
         {round && participantData.length>0 && 
-            <div className='text-white'>
+            <div className='w-full'>
                 <DataTable columns={columns(setParticipantData,allResultId)} data={participantData}/>
             </div>
         }

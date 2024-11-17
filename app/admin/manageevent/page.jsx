@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 // import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import {columns} from '@/app/admin/manageevent/columns'
 import { DataTable } from '@/app/admin/manageevent/data-table'
 import { CreateEventButton } from '@/app/admin/manageevent/buttonBar'
@@ -10,16 +10,15 @@ import { apiConnector } from '@/helpers/apiConnector';
 
 export const EventManagement = () => {
 
-    const [loading, setLoading] = useState(false);
-    const [actionSuccess, setActionSuccess] = useState(false);
+    const [loading, setLoading] = useState(false); 
 
     const [eventData, setEventData] = useState([]);
 
     const fetchEventData = async () => {
         
+        const toastId = toast.loading("Loading ...")
         setLoading(true);
         try {
-            const toastId = toast.loading("Loading ....")
             const { data } = await apiConnector("POST","/api/event/getAllEvent");
             setLoading(false);
             toast.dismiss(toastId);
@@ -43,7 +42,7 @@ export const EventManagement = () => {
         <div className="flex flex-col items-center mt-2 text-center">
             <CreateEventButton className="flex items-center" setEventData={setEventData}/>
             <h1 className='text-3xl text-white font-bold mt-8'>List of All Events</h1>
-            <div className='container mt-4 mb-20 w-4/5'>
+            <div className='w-full'>
                 <DataTable columns={columns(setEventData)} data={eventData} />
             </div>
         </div>

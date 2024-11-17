@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { columns } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/columns";
 import { DataTable } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/data-table";
 import { CreateCampusAmbassadorButton } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/buttonBar";
@@ -49,7 +49,7 @@ export const CampusAmbassadorManagement = () => {
       <h1 className="text-3xl text-white font-bold mt-8">
         List of All Campus Ambassadors
       </h1>
-      <div className="container mt-4 mb-20 w-4/5">
+      <div className="w-full">
         <DataTable
           columns={columns(setCampusAmbassadorData)}
           data={campusAmbassadorData}
