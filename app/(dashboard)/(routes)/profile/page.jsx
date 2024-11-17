@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
@@ -68,47 +68,45 @@ export const ProfilePage = () => {
       {user && (
         <Card className="mx-auto max-w-xl mb-4 shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
           <CardContent>
-            <div className="flex flex-col text-left pt-4">
-              <span className="pr-12">
-                <h1 className="font-extrabold text-center text-xlmb-4">
-                  Welcome !
-                </h1>
-                <h2 className="font-bold font-mono text-lg mb-3 flex flex-row">
-                  {user.name || "No Name Found"}
-                </h2>
-                <p className="font-semibold font-mono mb-1 flex flex-row">
-                  <Mail className="h-5 w-5 mr-3" />
-                  {user.email || "Not Available"}
-                </p>
-                <p className="font-semibold font-mono mb-1 flex flex-row">
-                  <Phone className="h-5 w-5 mr-3" />
-                  {user.mobile || "Not Available"}
-                </p>
-                <p className="font-semibold font-mono mb-1 flex flex-row">
-                  <Building className="h-5 w-5 mr-3" />
-                  {user.college || "Not Available"}
-                </p>
-                <p className="font-semibold font-mono mb-1 flex flex-row">
-                  TechFusion Id: {user.festId || "Not Available"}
-                </p>
-                <p className="font-semibold font-mono mb-1 flex flex-row">
-                  Payment Status:{"  "}
-                  <span
-                    className={
-                      user.status === "pending"
-                        ? "text-rose-500"
-                        : "text-green-500"
-                    }
-                  >
-                    {user.status}
-                  </span>{" "}
-                </p>
-              </span>
+            <div className="flex flex-col p-5">
+              <h1 className="font-extrabold text-center text-2xl mb-4">
+                Welcome !
+              </h1>
+              <h2 className="font-bold font-mono text-lg mb-3 flex flex-row">
+                {user.name || "No Name Found"}
+              </h2>
+              <p className="font-semibold font-mono mb-1 flex flex-row">
+                <Mail className="h-5 w-5 mr-3" />
+                {user.email || "Not Available"}
+              </p>
+              <p className="font-semibold font-mono mb-1 flex flex-row">
+                <Phone className="h-5 w-5 mr-3" />
+                {user.mobile || "Not Available"}
+              </p>
+              <p className="font-semibold font-mono mb-1 flex flex-row">
+                <Building className="h-5 w-5 mr-3" />
+                {user.college || "Not Available"}
+              </p>
+              <p className="font-semibold font-mono mb-1 flex flex-row">
+                TechFusion Id: {user.festId || "Not Available"}
+              </p>
+              <p className="font-semibold font-mono mb-1 flex flex-row">
+                Payment Status:{"  "}
+                <span
+                  className={
+                    user.status === "pending"
+                      ? "text-rose-500"
+                      : "text-green-500"
+                  }
+                >
+                  {user.status}
+                </span>{" "}
+              </p>
             </div>
           </CardContent>
-          <CardFooter className="flex gap-2 items-center">
+          <CardFooter className="flex gap-2 items-center justify-center">
             <Link href="/participation" className="w-full">
-              <Button>View Enrolled Events</Button>
+              <Button className="w-full">My Events</Button>
             </Link>
             <Button
               variant="destructive"

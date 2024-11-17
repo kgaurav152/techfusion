@@ -3,6 +3,8 @@ import { apiConnector } from "@/helpers/apiConnector";
 import React, { useEffect, useState } from "react";
 import ParticipationCard from "./participation-card";
 import Loader from "@/components/custom/loader";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 const neonTextStyle = {
   marginTop: "5vh",
@@ -42,7 +44,7 @@ const ParticipationPage = () => {
   };
 
   useEffect(() => {
-    fetchParticipatingEventsData();
+    // fetchParticipatingEventsData();
   }, []);
 
   return (
@@ -56,10 +58,17 @@ const ParticipationPage = () => {
       <div className="space-y-3">
         {loading ? (
           <Loader />
-        ) : (
+        ) : participatingEventsData.length > 0 ? (
           participatingEventsData.map((data) => (
             <ParticipationCard key={data?._id} data={data} />
           ))
+        ) : (
+          <div className="text-white text-2xl text-center">
+          <p className="my-5">It seems you’re not enrolled in any events yet.</p>
+          <Link href="/eventregistration" className="bg-white text-base p-3 rounded-lg text-black">
+            Enroll in an Event Now
+          </Link>
+        </div>
         )}
       </div>
     </div>

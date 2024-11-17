@@ -51,7 +51,7 @@ import {
 } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-export function EventView({
+function EventView({
   loading,
   eventData,
   coordinatorData,
@@ -271,7 +271,7 @@ export function EventView({
   );
 }
 
-export function CoordinatorView({
+function CoordinatorView({
   loading,
   eventData,
   coordinatorData,
