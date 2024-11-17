@@ -105,12 +105,12 @@ export async function POST(request) {
       transactionId: transaction_id,
       ca_no,
       registrationFee,
-      screenshotImage: screenshotImage.secure_url,
+      screenshotImage: screenshotImage.secure_url 
     });
     const savedUser = await newUser.save();
 
     // Send onboarding email
-    const emailResult = await sendOnboardingEmail(user.email, name);
+    const emailResult = await sendOnboardingEmail(savedUser.email, name);
 
     return NextResponse.json({
       message: "User created successfully",

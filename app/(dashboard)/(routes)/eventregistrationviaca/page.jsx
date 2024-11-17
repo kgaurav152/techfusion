@@ -1,15 +1,11 @@
 "use client";
-
-// import { useRouter } from "next/navigation";
-// import { zodResolver } from "@hookform/resolvers/zod";
+ 
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
-// import * as z from "zod";
+import toast from "react-hot-toast"; 
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -44,11 +40,11 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+} from "@/components/ui/popover"; 
 import { apiConnector } from "@/helpers/apiConnector";
 import QueryCard from "./query-card";
 import SelectedEventCard from "./selected-event-card";
+import { Button } from "@/components/ui/button";
 
 const EventRegistrationForm = () => {
   const neonTextStyle = {
