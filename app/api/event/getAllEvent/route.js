@@ -5,8 +5,7 @@ import Event from "@/models/Event";
 connect();
 export async function POST() {
   try {
-    // const data = await Event.find();
-    const data = await Event.find();
+    const data = await Event.find().populate("coordinators");
     return NextResponse.json({
       success: true,
       message: "All Event Fetched Successfully",
