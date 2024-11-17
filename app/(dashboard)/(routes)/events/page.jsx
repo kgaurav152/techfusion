@@ -2,37 +2,35 @@
 
 import React, { useState, useEffect } from "react";
 // import Link from "next/link";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 
 import EventCard from "@/components/eventCard";
-import { apiConnector } from '@/helpers/apiConnector'; 
+import { apiConnector } from "@/helpers/apiConnector";
 import { useSelector } from "react-redux";
 
 export const EventList = () => {
-
-  const {event} = useSelector((state)=>state.event);
+  const { event } = useSelector((state) => state.event);
   // const [eventList, setEventList] = useState(event);
 
-
   // console.log("Redux",event)
-    // const fetchEventList = async () => {
-    //     try{
-    //         const toastId = toast.loading("Loading ....")
-    //         const { data } = await apiConnector("POST", "/api/event/getAllEvent");
-    //         toast.dismiss(toastId);
-    //         if (data.success) {
-    //         setEventList(data.data);
-    //         } else {
-    //         toast.error(data.message);
-    //         }
-    //     } catch (err) {
-    //         console.log(err);
-    //     }
-    // };
-    
-    // useEffect(() => {
-    // // fetchEventList();
-    // }, []);
+  // const fetchEventList = async () => {
+  //     try{
+  //         const toastId = toast.loading("Loading ....")
+  //         const { data } = await apiConnector("POST", "/api/event/getAllEvent");
+  //         toast.dismiss(toastId);
+  //         if (data.success) {
+  //         setEventList(data.data);
+  //         } else {
+  //         toast.error(data.message);
+  //         }
+  //     } catch (err) {
+  //         console.log(err);
+  //     }
+  // };
+
+  // useEffect(() => {
+  // // fetchEventList();
+  // }, []);
 
   return (
     <div>
@@ -49,19 +47,14 @@ export const EventList = () => {
           </div>
           <br />
           <div className="flex flex-wrap justify-center mt-6">
-            {event.map((e) => {
-              return (
-                <EventCard
-                  key={e._id}
-                  event={e}
-                />
-              );
+            {event?.map((e) => {
+              return <EventCard key={e._id} event={e} />;
             })}
           </div>
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default EventList;
