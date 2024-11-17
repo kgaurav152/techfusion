@@ -27,18 +27,15 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux";
-import { setLoading, setToken } from "@/redux/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux"; 
 import toast from "react-hot-toast";
-import { apiConnector } from "@/helpers/apiConnector";
-import Cookies from "js-cookie";
+import { apiConnector } from "@/helpers/apiConnector"; 
 import ForgotPassword from "@/app/(auth)/(routes)/sign-in/forgot-password";
 
-const SignInPage = () => {
-  const [isLoading, setIsLoading] = useState(false);
+const SignInPage = () => { 
 
-  const form = useForm({ mode: "onChange" });
-  // const {token} = useSelector((state)=>state.auth)
+  const [loading,setLoading] = useState(false);
+  const form = useForm({ mode: "onChange" }); 
   const router = useRouter();
   // const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
@@ -52,8 +49,7 @@ const SignInPage = () => {
       setLoading(false);
       toast.dismiss(toastId);
       if (data.success) {
-        toast.success("Login Successful");
-        Cookies.set("IsLoggedIn", true);
+        toast.success("Login Successful"); 
         if (data?.data?.userType == "admin") {
           router.push("/admin/dashboard");
         } else {
@@ -71,7 +67,7 @@ const SignInPage = () => {
 
   return (
     <>
-      <div className="p-4 lg:p-8">
+      <div className="p-4 lg:p-8 min-h-screen">
         <div className="mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[350px]">
           <div className="flex flex-col space-y-2 text-center">
             <h1 className="text-2xl font-semibold tracking-tight">
@@ -85,7 +81,7 @@ const SignInPage = () => {
             <Form {...form}>
               <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="space-y-4"
+                className="space-y-5"
               >
                 <FormField
                   control={form.control}
@@ -117,7 +113,9 @@ const SignInPage = () => {
                     </FormItem>
                   )}
                 />
-                <Button type="submit">Submit</Button>
+                <Button disabled={loading} className="w-full" type="submit">
+                  Submit
+                  </Button>
               </form>
             </Form>
             <div className="relative">

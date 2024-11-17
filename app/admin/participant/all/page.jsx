@@ -39,7 +39,7 @@ export const AllParticipants = () => {
   return (
         <div className="flex flex-col items-center mt-2 text-center">
             <h1 className='text-3xl text-white font-bold'>All Participants</h1>
-            <div className='container mt-4 mb-20 w-4/5'>
+            <div className='w-full'>
                 <DataTable columns={columns(setAllParticipantsData)} data={allParticipantsData} />
             </div>
         </div>

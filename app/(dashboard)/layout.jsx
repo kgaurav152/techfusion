@@ -1,16 +1,12 @@
-"use client";
 import NavBar from "@/components/navbar";
-import Footer from '@/components/footer';
-// import Sidebar from "@/components/Sidebar";
-
-import { useEffect } from "react";
-import Network from "@/components/network";
+import Footer from '@/components/footer'; 
+ 
 
 const DashboardLayout = ({ children }) => {
 
   return (      
     <div>
-      <div className=" min-h-[100vh] bg-[#00040F] relative" >
+      <div className="min-h-[100vh] bg-[#00040F] relative" >
         <NavBar />
         {children}
         <Footer />

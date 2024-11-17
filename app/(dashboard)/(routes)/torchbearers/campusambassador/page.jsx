@@ -32,7 +32,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 
 export const CAPage = () => {
   const dispatch = useDispatch();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
   const [value, setValue] = useState({});
   const [selectedCampusAmbassador, setSelectedCampusAmbassador] = useState([]);
@@ -94,25 +94,25 @@ export const CAPage = () => {
   }
 
   return (
-    <div className="flex flex-col items-center mt-2 mb-8 text-center">
+    <div className="flex flex-col min-h-screen items-center mt-2 mb-8 text-center">
       <div
-        className="flex flex-col items-center mt-4 p-4 w-4/5 text-center"
+        className="flex flex-col items-center mt-4 p-4 text-center"
         id="campusAmbassdors"
       >
-        <h3 className="text-xl text-white font-bold mb-4">
+        <h3 className="text-lg md:text-xl text-white max-w-xl font-bold mb-4">
           Select your College below to get contact details of your
           college&apos;s <span className="">TechFusion&apos;24</span> Campus
           Ambassador:
         </h3>
-        <div className="container mt-4 mb-5">
-          <Popover open={openPop} onOpenChange={setOpenPop}>
+        <div className="mt-4 w-full mb-5">
+          <Popover open={openPop} className="w-full" onOpenChange={setOpenPop}>
             <PopoverTrigger asChild>
               <Button
                 variant="outline"
                 role="combobox"
                 aria-expanded={openPop}
                 className={cn(
-                  "justify-between",
+                  "w-full max-w-sm justify-between",
                   !value && "text-muted-foreground"
                 )}
               >
@@ -122,7 +122,7 @@ export const CAPage = () => {
                 <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-[200px] p-0">
+            <PopoverContent className="max-w-full p-0">
               <Command>
                 <CommandInput placeholder="Search College..." />
                 <CommandEmpty>No College found.</CommandEmpty>

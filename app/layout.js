@@ -27,7 +27,9 @@ export default function RootLayout({ children }) {
         <title>TechFusion&apos;24</title>
       </head>
       <body className={inter.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <main className="min-h-[100vh]">{children}</main>
+        </Providers>
         <Analytics />
         <Toaster />
       </body>

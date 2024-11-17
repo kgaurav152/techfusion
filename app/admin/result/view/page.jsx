@@ -195,7 +195,7 @@ export const ViewResultPage = () => {
             </Popover> */}
         </div>
         {round && participantData.length>0 && 
-            <div className='text-white'>
+            <div className='w-full'>
                 <DataTable columns={columns(setParticipantData,allResultId)} data={participantData}/>
             </div>
         }

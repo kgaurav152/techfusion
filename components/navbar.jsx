@@ -17,6 +17,7 @@ import toast from "react-hot-toast";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
 import { setEvent } from "@/redux/slices/eventSlice";
+import { LogOutIcon } from "lucide-react";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,14 +34,14 @@ const NavBar = () => {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
       Cookies.remove("token");
-      Cookies.set("IsLoggedIn", false);
+      Cookies.remove("userType");
       router.push("/");
     }
   };
 
   useEffect(() => {
     const fetchUserDetails = async () => {
-      const { data } = await apiConnector("POST", "/api/userDetails"); 
+      const { data } = await apiConnector("POST", "/api/userDetails");
       dispatch(setUserDetails(data?.data));
     };
 
@@ -89,28 +90,35 @@ const NavBar = () => {
           >
             Brochure
           </Link>
-          <Link href="/verifycertificate" className="text-white hover:text-[#e11d48]">
+          <Link
+            href="/verifycertificate"
+            className="text-white hover:text-[#e11d48]"
+          >
             Verify Certificate
           </Link>
-          <Link href="/torchbearers/campusambassador" className="text-white hover:text-[#e11d48]">
+          <Link
+            href="/torchbearers/campusambassador"
+            className="text-white hover:text-[#e11d48]"
+          >
             Campus Ambassador
           </Link>
           <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
             Contact Us
           </Link>
-          {user && (<>
-            <Link
-              href="/eventregistration"
-              className="text-white hover:text-[#e11d48]"
-            >
-              Event Registration
-            </Link>
-            <Link
-              href="/resultview"
-              className="text-white hover:text-[#e11d48]"
-            >
-              Result
-            </Link>
+          {user && (
+            <>
+              <Link
+                href="/eventregistration"
+                className="text-white hover:text-[#e11d48]"
+              >
+                Event Registration
+              </Link>
+              <Link
+                href="/resultview"
+                className="text-white hover:text-[#e11d48]"
+              >
+                Result
+              </Link>
             </>
           )}
           {user && (
@@ -133,8 +141,14 @@ const NavBar = () => {
                   </AvatarFallback>
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                <Button variant="destructive" onClick={logoutHandler}>
+              <PopoverContent className="w-fit py-1 px-2">
+                <Button
+                  className="flex text-rose-500 hover:text-rose-700 items-center justify-center gap-3"
+                  variant="ghost"
+                  onClick={logoutHandler}
+                >
+                  {" "}
+                  <LogOutIcon className="w-5 h-5" />
                   Logout
                 </Button>
               </PopoverContent>

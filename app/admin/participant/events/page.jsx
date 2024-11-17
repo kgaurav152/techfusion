@@ -138,7 +138,7 @@ export const AllEventParticipants = () => {
                     </PopoverContent>
                 </Popover>
             </div>
-            <div className='container mt-4 mb-20 w-4/5'>
+            <div className='w-full'>
                 {
                     allEventParticipantsData.length>0 && <p className='text-white text-lg font-semibold'>Total Participants : {allEventParticipantsData.length}</p>
                 }
