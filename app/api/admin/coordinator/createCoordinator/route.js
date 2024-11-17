@@ -1,6 +1,7 @@
 import { connect } from "@/config/dbconfig";
 import { NextResponse } from "next/server";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
+import bcryptjs from "bcryptjs";
 
 import User from "@/models/User";
 import Coordinator from "@/models/Coordinator";
@@ -32,12 +33,29 @@ export async function POST(req) {
       });
     }
 
+    const existingUser = await User.findOne({
+      $or: [
+        { email: email.toLowerCase() },
+        { mobile: "000" + mobile.substring(0, 7) },
+      ],
+    });
+
+    if (existingUser) {
+      return NextResponse.json({
+        success: false,
+        message: "Coordinator already exists",
+      });
+    }
+
+    const salt = await bcryptjs.genSalt(10);
+    const hashPassword = await bcryptjs.hash(password, salt);
+
     const user = await User.create({
       name,
-      festId: "TCO" + mobile,
-      mobile,
-      email,
-      password,
+      festId: "TCO111" + mobile.substring(0, 7),
+      mobile: "000" + mobile.substring(0, 7),
+      email: email.toLowerCase(),
+      password: hashPassword,
       gender,
       college: "Katihar Engineering College, Katihar",
       branch,
@@ -55,7 +73,7 @@ export async function POST(req) {
     const coordinator = await Coordinator.create({
       userId: user._id,
       name,
-      email,
+      email: email.toLowerCase(),
       gender,
       linkedin,
       instaId,
