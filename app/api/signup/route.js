@@ -101,11 +101,11 @@ export async function POST(request) {
       paymentMethod,
       accomodation,
       batch,
-      festId: "KEC" + mobile,
+      festId: "KEC000" + mobile.substring(0, 7),
       transactionId: transaction_id,
       ca_no,
       registrationFee,
-      screenshotImage: screenshotImage.secure_url 
+      screenshotImage: screenshotImage.secure_url,
     });
     const savedUser = await newUser.save();
 
