@@ -28,7 +28,7 @@ import {
 } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux"; 
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { apiConnector } from "@/helpers/apiConnector"; 
 import ForgotPassword from "@/app/(auth)/(routes)/sign-in/forgot-password";
 

@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
 import { LogOutIcon } from "lucide-react";
@@ -69,7 +69,7 @@ const NavBar = () => {
         </div>
 
         {/* Menu for large screens */}
-        <div className="hidden md:flex md:space-x-8 mr-4">
+        <div className="hidden md:flex items-center justify-center md:space-x-8 mr-4">
           <Link
             href="/admin/dashboard"
             className="text-white hover:text-[#e11d48]"

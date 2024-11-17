@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
 import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { useDispatch, useSelector } from "react-redux";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
@@ -23,29 +23,29 @@ export const ProfilePage = () => {
   const [loading, setLoading] = useState(false);
 
   const { user } = useSelector((state) => state.profile);
-  const [participatingEventsData, setParticipatingEventsData] = useState([]);
+  // const [participatingEventsData, setParticipatingEventsData] = useState([]);
 
-  const fetchParticipatingEventsData = async () => {
-    setLoading(true);
-    try {
-      const { data } = await apiConnector("POST", "/api/myEventDetails");
-      setLoading(false);
-      if (data.success) {
-        setParticipatingEventsData([
-          ...data.data?.technical,
-          ...data.data?.cultural,
-        ]);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const fetchParticipatingEventsData = async () => {
+  //   setLoading(true);
+  //   try {
+  //     const { data } = await apiConnector("POST", "/api/myEventDetails");
+  //     setLoading(false);
+  //     if (data.success) {
+  //       setParticipatingEventsData([
+  //         ...data.data?.technical,
+  //         ...data.data?.cultural,
+  //       ]);
+  //     } else {
+  //       toast.error(data.message);
+  //     }
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchParticipatingEventsData();
-  }, []);
+  // useEffect(() => {
+  //   fetchParticipatingEventsData();
+  // }, []);
 
   // if(actionSuccess){
   //     fetchParticipatingEventsData();
@@ -64,7 +64,7 @@ export const ProfilePage = () => {
   };
 
   return (
-    <div className="min-h-[100vh] flex flex-col items-center mt-2 text-center">
+    <div className="min-h-[100vh] flex w-11/12 mx-auto flex-col items-center mt-2 text-center">
       {user && (
         <Card className="mx-auto max-w-xl mb-4 shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
           <CardContent>

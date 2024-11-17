@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -137,242 +137,204 @@ export function CoordinatorCreationForm({ setOpen, setCoordinatorData }) {
   };
 
   return (
-    <React.Fragment>
-      <div className="text-center mb-4 text-border flex-col">
-        <h1 className="font-bold text-[3rem] text-border-white">
-          Create New Coordinator
-        </h1>
-        <Card className="mx-auto w-4/5 max-w-xl mb-8 mt-3 text-left">
-          <CardContent>
-            <div className="flex items-center pt-4">
-              <p className="font-semibold font-mono">
-                Fill details below carefully!
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="mx-auto flex flex-col items-center mb-8"
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Name of Coordinator*</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Name of Coordinator" {...field} />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="mobile"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">
+                Mobile of Coordinator*
+              </FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Mobile of Coordinator" {...field} />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Email</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Email of Coordinator" {...field} />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="password"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Password*</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Password for Coordinator"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="gender"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Gender*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Gender" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  <SelectItem value="Female">Female</SelectItem>
+                  <SelectItem value="Male">Male</SelectItem>
+                </SelectContent>
+              </Select>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="linkedin"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Linkedin</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter linkedin url of Coordinator"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="instaId"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Instagram</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter instagram url of Coordinator"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="pictureUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Picture URL*</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Picture URL of Coordinator"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="branch"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Branch*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Branch" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {branches &&
+                    branches.map((item, index) => (
+                      <SelectItem
+                        key={index}
+                        value={item.value}
+                      >{`${item.label}`}</SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="batch"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Batch*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Batch" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {batches &&
+                    batches.map((item, index) => (
+                      <SelectItem key={index} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
         >
-          <div className="mx-auto gap-2 max-w-xl mb-4">
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">
-                    Name of Coordinator*
-                  </FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter Name of Coordinator" {...field} />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="mobile"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">
-                    Mobile of Coordinator*
-                  </FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Mobile of Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Email of Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Password*</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Password for Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="gender"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Gender*</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Gender" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      <SelectItem value="Female">Female</SelectItem>
-                      <SelectItem value="Male">Male</SelectItem>
-                    </SelectContent>
-                  </Select>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="linkedin"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Linkedin</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter linkedin url of Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="instaId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Instagram</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter instagram url of Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="pictureUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Picture URL*</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Picture URL of Coordinator"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="branch"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Branch*</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Branch" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {branches &&
-                        branches.map((item, index) => (
-                          <SelectItem
-                            key={index}
-                            value={item.value}
-                          >{`${item.label}`}</SelectItem>
-                        ))}
-                    </SelectContent>
-                  </Select>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="batch"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Batch*</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Batch" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {batches &&
-                        batches.map((item, index) => (
-                          <SelectItem key={index} value={item.value}>
-                            {item.label}
-                          </SelectItem>
-                        ))}
-                    </SelectContent>
-                  </Select>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
-          >
-            Create Coordinator
-          </Button>
-        </form>
-      </Form>
-    </React.Fragment>
+          Create Coordinator
+        </Button>
+      </form>
+    </Form>
   );
 }
 
@@ -384,11 +346,12 @@ export function CreateCoordinatorButton({ setCoordinatorData }) {
       <DialogTrigger asChild>
         <Button variant="outline">Create New Coordinator</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-[#00040F]">
+      <DialogContent className="max-w-2xl bg-[#00040F]">
         <DialogHeader>
-          <DialogTitle className="text-white">
+          <DialogTitle className="text-white text-2xl text-center">
             Create New Coordinator
           </DialogTitle>
+          <DialogDescription className="text-lg text-center">Fill details below carefully!</DialogDescription>
         </DialogHeader>
         <CoordinatorCreationForm
           setOpen={setOpen}

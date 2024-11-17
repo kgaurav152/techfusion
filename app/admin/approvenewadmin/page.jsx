@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react'
 // import Network from "@/components/network";
 // import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import {columns} from '@/app/admin/approvenewadmin/columns'
 import { DataTable } from '@/app/admin/approvenewadmin/data-table'
 import { apiConnector } from '@/helpers/apiConnector';

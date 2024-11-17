@@ -1,8 +1,8 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
-import { Toaster } from "react-hot-toast";
+import { Inter } from "next/font/google"; 
 import { Analytics } from "@vercel/analytics/react";
 import { Providers } from "@/redux/providers";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,7 +31,7 @@ export default function RootLayout({ children }) {
           <main className="min-h-[100vh]">{children}</main>
         </Providers>
         <Analytics />
-        <Toaster />
+        <Toaster richColors  position="top-center" />
       </body>
     </html>
   );

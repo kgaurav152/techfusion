@@ -1,5 +1,6 @@
 import NavBar from "@/components/navbar";
 import Footer from '@/components/footer'; 
+import BottomBar from "@/components/bottom-bar";
  
 
 const DashboardLayout = ({ children }) => {
@@ -10,6 +11,7 @@ const DashboardLayout = ({ children }) => {
         <NavBar />
         {children}
         <Footer />
+        <BottomBar/>
       </div>
     </div>
   );

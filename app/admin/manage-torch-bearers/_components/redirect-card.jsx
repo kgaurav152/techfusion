@@ -21,7 +21,7 @@ export function RedirectCard({ cardTitle, redirectUrl, cardInfo }) {
   };
 
   return (
-    <Card className="w-[350px]">
+    <Card>
       <CardHeader>
         <CardTitle>{cardTitle}</CardTitle>
         <CardDescription />

@@ -3,7 +3,7 @@ import { Trash2 } from 'lucide-react'
 import React, { useState } from 'react'
 
 import { apiConnector } from "@/helpers/apiConnector";
-import toast from 'react-hot-toast';
+import {toast} from 'sonner';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 export function DeleteEventForm({ setOpen,  resultId, allResultId,setParticipantData }) {

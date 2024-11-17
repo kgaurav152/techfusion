@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect, useState } from 'react';
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import {columns} from '@/app/admin/hospitality/details/columns'
 import { DataTable } from '@/app/admin/hospitality/details/data-table'
 import { apiConnector } from '@/helpers/apiConnector';

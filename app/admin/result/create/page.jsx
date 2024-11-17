@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { apiConnector } from '@/helpers/apiConnector';
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { Button } from "@/components/ui/button";
 import { ChevronsUpDown, Check, Plus, Trash2 } from "lucide-react";
 import { cn } from "@/lib/utils";

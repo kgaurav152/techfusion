@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import toast from "react-hot-toast"; 
+import {toast} from 'sonner' 
 
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";

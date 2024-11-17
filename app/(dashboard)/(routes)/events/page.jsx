@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 // import Link from "next/link";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 
 import EventCard from "@/components/eventCard";
 import { apiConnector } from '@/helpers/apiConnector'; 

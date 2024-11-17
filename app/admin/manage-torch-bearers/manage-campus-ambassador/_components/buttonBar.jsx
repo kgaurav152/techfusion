@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -136,27 +136,12 @@ export function CampusAmbassadorCreationForm({
   };
 
   return (
-    <React.Fragment>
-      <div className="text-center mb-4 text-border flex-col">
-        <h1 className="font-bold text-[3rem] text-border-white">
-          Create New CA
-        </h1>
-        <Card className="mx-auto w-4/5 max-w-xl mb-8 mt-3 text-left">
-          <CardContent>
-            <div className="flex items-center pt-4">
-              <p className="font-semibold font-mono">
-                Fill details below carefully!
-              </p>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
+    
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="mx-auto flex flex-col items-center mb-8"
-        >
-          <div className="mx-auto gap-2 max-w-xl mb-4">
+          className="space-y-5"
+        > 
             <FormField
               control={form.control}
               name="id"
@@ -376,18 +361,16 @@ export function CampusAmbassadorCreationForm({
                   <FormMessage />
                 </FormItem>
               )}
-            />
-          </div>
+            /> 
           <Button
             type="submit"
             disabled={isLoading}
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
+            className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
           >
             Create CA
           </Button>
         </form>
-      </Form>
-    </React.Fragment>
+      </Form> 
   );
 }
 
@@ -399,11 +382,14 @@ export function CreateCampusAmbassadorButton({ setCampusAmbassadorData }) {
       <DialogTrigger asChild>
         <Button variant="outline">Create New CA</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] bg-[#00040F]">
+      <DialogContent className="max-w-2xl bg-[#00040F]">
         <DialogHeader>
-          <DialogTitle className="text-white">
+          <DialogTitle className="text-white text-2xl text-center">
             Create New Campus Ambassador
           </DialogTitle>
+          <DialogDescription className="text-lg text-center">
+          Fill details below carefully!
+          </DialogDescription>
         </DialogHeader>
         <CampusAmbassadorCreationForm
           setOpen={setOpen}

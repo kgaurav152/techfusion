@@ -1,9 +1,7 @@
 'use client'
 
-import React, { useEffect, useState } from 'react'
-import Network from "@/components/network";
-import axios from "axios";
-import toast from "react-hot-toast";
+import React, { useEffect, useState } from 'react' 
+import {toast} from 'sonner'
 import {columns} from '@/app/admin/participant/pending/columns'
 import { DataTable } from '@/app/admin/participant/pending/data-table'
 import { apiConnector } from '@/helpers/apiConnector';

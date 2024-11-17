@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 // import axios from "axios";
-import toast from "react-hot-toast";
+import {toast} from 'sonner'
 import { columns } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/columns";
 import { DataTable } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/data-table";
 import { CreateCampusAmbassadorButton } from "@/app/admin/manage-torch-bearers/manage-campus-ambassador/_components/buttonBar";
