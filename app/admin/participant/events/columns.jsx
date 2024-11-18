@@ -1,31 +1,32 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox"
-  
+import { Checkbox } from "@/components/ui/checkbox";
+import { DeleteButton } from "@/app/admin/participant/events/buttonBar";
+import { ScrollArea } from "@/components/ui/scroll-area";
+import { Separator } from "@/components/ui/separator";
+
 // import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
 
 export const columns = (setActionSuccess) => [
   {
-    accessorKey: 'participants',
-    header: 'Leader TechFusion ID',
+    accessorKey: "participants",
+    header: "Leader TechFusion ID",
     cell: ({ row }) => {
-      const  {participants}= row.original
-      
+      const { participants } = row.original;
+
       return (
         <div>
-          <p>
-          {participants[0].festId}
-          </p>
+          <p>{participants[0].festId}</p>
         </div>
-      )
+      );
     },
   },
   {
-    accessorKey: 'team_leader_name',
+    accessorKey: "team_leader_name",
     header: ({ column }) => {
       return (
         <Button
@@ -35,22 +36,20 @@ export const columns = (setActionSuccess) => [
           Team Leader Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
     cell: ({ row }) => {
-      const  {participants}= row.original
-      
+      const { participants } = row.original;
+
       return (
         <div>
-          <p>
-          {participants[0].name}
-          </p>
+          <p>{participants[0].name}</p>
         </div>
-      )
+      );
     },
   },
   {
-    accessorKey: 'team_name',
+    accessorKey: "team_name",
     header: ({ column }) => {
       return (
         <Button
@@ -60,60 +59,56 @@ export const columns = (setActionSuccess) => [
           Team Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
     cell: ({ row }) => {
-      const  {teamName}= row.original
-      
+      const { teamName } = row.original;
+
       return (
         <div>
-          <p>
-          {teamName}
-          </p>
+          <p>{teamName}</p>
         </div>
-      )
+      );
     },
   },
   {
-    accessorKey: 'mobile',
-    header: 'Phone No.',
+    accessorKey: "mobile",
+    header: "Phone No.",
     cell: ({ row }) => {
-      const  {participants}= row.original
-      
+      const { participants } = row.original;
+
       return (
         <div>
-          <p>
-          {participants[0].mobile}
-          </p>
+          <p>{participants[0].mobile}</p>
         </div>
-      )
+      );
     },
   },
   {
-    accessorKey: 'teamMembers',
-    header: 'Team Members',
+    accessorKey: "teamMembers",
+    header: "Team Members",
     cell: ({ row }) => {
-      const  {participants}= row.original
-      
+      const { participants } = row.original;
+      if (!participants?.length) {
+        return <p>Not Available</p>;
+      }
+      const filteredParticipants = participants.slice(1);
       return (
-        <div>
-          <p>
-            { participants[1] ? (<>
-              {participants[1]?.name}<br/>
-              {participants[2]?.name}<br/>
-              {participants[3]?.name}
-              </>
-            ) :(
-              <div>-</div>
-            )}
-          
-          </p>
-        </div>
-      )
+        <ScrollArea className="h-20 w-48 rounded-md border">
+          {filteredParticipants.map((co) => (
+            <>
+              <div key={co} className="text-sm">
+                {co.name}
+              </div>
+              <Separator className="my-1" />
+            </>
+          ))}
+        </ScrollArea>
+      );
     },
   },
   {
-    accessorKey: 'college',
+    accessorKey: "college",
     header: ({ column }) => {
       return (
         <Button
@@ -123,18 +118,16 @@ export const columns = (setActionSuccess) => [
           College
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
     cell: ({ row }) => {
-      const  {participants}= row.original
-      
+      const { participants } = row.original;
+
       return (
         <div>
-          <p>
-          {participants[0].college}
-          </p>
+          <p>{participants[0].college}</p>
         </div>
-      )
+      );
     },
   },
   // {
@@ -152,7 +145,7 @@ export const columns = (setActionSuccess) => [
   //   },
   //   cell: ({ row }) => {
   //     const  {event}= row.original
-      
+
   //     return (
   //       <div>
   //         <p>
@@ -162,6 +155,4 @@ export const columns = (setActionSuccess) => [
   //     )
   //   },
   // },
-]
-
-  
+];
