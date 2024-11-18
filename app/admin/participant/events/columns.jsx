@@ -130,6 +130,18 @@ export const columns = (setActionSuccess) => [
       );
     },
   },
+  {
+    id: "deleteButton",
+    cell: ({ row }) => {
+      const pr = row.original;
+      return (
+        <DeleteButton
+          participationId={pr._id}
+          setActionSuccess={setActionSuccess}
+        />
+      );
+    },
+  },
   // {
   //   accessorKey: 'event',
   //   header: ({ column }) => {

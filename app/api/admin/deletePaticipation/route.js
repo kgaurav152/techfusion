@@ -8,21 +8,20 @@ import Participation from "@/models/Participation";
 
 connect();
 export async function POST(req) {
-  const { token, participation_id } = await req.json();
+  const { token, participationId } = await req.json();
   try {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
 
     if (user?.userType !== "admin") {
-        return NextResponse.json({
-          success: false,
-          message: "This is protected route for Admin access",
-        });
-      }
+      return NextResponse.json({
+        success: false,
+        message: "This is protected route for Admin access",
+      });
+    }
     const participation = await Participation.findById(
-      participation_id
+      participationId
     ).populate("event");
-
 
     if (participation.event.eventType === "Technical") {
       for (let i = 0; i < participation.participants.length; i++) {
