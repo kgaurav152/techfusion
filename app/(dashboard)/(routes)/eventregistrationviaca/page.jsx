@@ -42,8 +42,8 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { apiConnector } from "@/helpers/apiConnector";
-import QueryCard from "./query-card";
-import SelectedEventCard from "./selected-event-card";
+import QueryCard from "@/components/query-card";
+import SelectedEventCard from "@/components/selected-event-card";
 import { Button } from "@/components/ui/button";
 
 const EventRegistrationForm = () => {
