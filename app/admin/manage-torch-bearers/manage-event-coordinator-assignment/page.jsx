@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { apiConnector } from "@/helpers/apiConnector";
 
 import { Button } from "@/components/ui/button";
@@ -509,7 +509,7 @@ export default function EventCoordinatorAssignment() {
     try {
       // const toastId = toast.loading("Loading ....");
       const { data } = await apiConnector(
-        "GET",
+        "POST",
         "/api/admin/coordinator/getAllCoordinator"
       );
       setLoading(false);

@@ -2,7 +2,7 @@ import { connect } from "@/config/dbconfig";
 import { NextResponse } from "next/server";
 import Coordinator from "@/models/Coordinator";
 
-export async function GET() {
+export async function POST() {
   connect();
 
   try {

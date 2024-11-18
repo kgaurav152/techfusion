@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { columns } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/columns";
 import { DataTable } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/data-table";
 import { CreateCoordinatorButton } from "@/app/admin/manage-torch-bearers/manage-coordinator/_components/buttonBar";
@@ -19,7 +19,7 @@ export const CoordinatorManagement = () => {
     try {
       // const toastId = toast.loading("Loading ....");
       const { data } = await apiConnector(
-        "GET",
+        "POST",
         "/api/admin/coordinator/getAllCoordinator"
       );
       setLoading(false);
