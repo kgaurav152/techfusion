@@ -62,7 +62,7 @@ const LandingPage = () => {
               {/* TechFusion&apos;24 */} TechFusion&apos;2.0
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              {/* 31 Nov-03 December 2024 */} Tentative Dates- Last Week of Nov
+              {/*  24-27 December 2024 */} Tentative Dates- Last Week of Dec
               2024
             </p>
             {live ? (
@@ -155,7 +155,7 @@ const LandingPage = () => {
             ) : (
               <div className="flex justify-center">
                 <Image
-                  src="/registrationStartsFrom_19_nov.svg"
+                  src="/registrationStartsFrom_19_dec.svg"
                   width={850}
                   height={200}
                   alt="TechFusion 2.0 Registration from 19th nov"
