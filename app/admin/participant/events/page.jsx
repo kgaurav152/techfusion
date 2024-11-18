@@ -1,9 +1,8 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import axios, { all } from "axios";
+import Link from "next/link";
 import { toast } from "sonner";
-// import { Button } from '@/components/ui/button';
 import { columns } from "@/app/admin/participant/events/columns";
 import { DataTable } from "@/app/admin/participant/events/data-table";
 import { apiConnector } from "@/helpers/apiConnector";
@@ -87,6 +86,14 @@ export const AllEventParticipants = () => {
 
   return (
     <div className="flex flex-col items-center mt-2 text-center">
+      <Link
+        href="/admin/event-registration-via-admin"
+        className="md:w-auto my-4"
+      >
+        <Button className="w-full md:w-auto text-gray-800" variant="outline">
+          Register participant for an event
+        </Button>
+      </Link>
       <h1 className="text-3xl text-white font-bold">Participants by Event</h1>
       <div className="container mt-4 mb-5 w-full">
         <Popover open={openPop} onOpenChange={setOpenPop}>
