@@ -1,10 +1,10 @@
 "use client";
- 
+
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import {toast} from 'sonner' 
+import { toast } from "sonner";
 
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -40,7 +40,7 @@ import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"; 
+} from "@/components/ui/popover";
 import { apiConnector } from "@/helpers/apiConnector";
 import QueryCard from "./query-card";
 import SelectedEventCard from "./selected-event-card";
@@ -122,7 +122,7 @@ const EventRegistrationForm = () => {
   const validateFestIds = (teamMembers) => {
     const festIds = teamMembers?.map((member) => member?.festId);
     const uniqueFestIds = new Set(festIds);
-    if (festIds?.includes("") || uniqueFestIds?.size !== festIds?.length) {
+    if (festIds.some((id) => !id) || uniqueFestIds.size !== festIds.length) {
       toast?.error("All TechFusion IDs must be unique and non-empty.");
       return false;
     }
@@ -312,7 +312,7 @@ const EventRegistrationForm = () => {
                       <div>
                         <FormField
                           control={form.control}
-                          name={`teamMembers?.${index}?.festId`}
+                          name={`teamMembers.${index}.festId`}
                           render={({ field }) => (
                             <FormItem>
                               <FormLabel className="text-white">
