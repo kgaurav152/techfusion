@@ -70,6 +70,10 @@ const UserSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  idCardAllocation: {
+    type: Boolean,
+    default: false,
+  },
   roomNo: {
     type: String,
   },
