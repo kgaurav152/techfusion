@@ -11,10 +11,10 @@ export async function POST(req) {
   try {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
-    if (user?.userType !== "admin") {
+    if (user?.userType !== "admin" && user?.userType !== "hospitality") {
       return NextResponse.json({
         success: false,
-        message: "This is protected route for Admin access",
+        message: "This is protected route for Admin and Hospitality access",
       });
     }
     const data = await User.find({ userType: "participant" });
@@ -22,6 +22,18 @@ export async function POST(req) {
     const accomodation = {
       yes: accomodationYes.length,
       no: data.length - accomodationYes.length,
+    };
+
+    let allotedAccomodation = 0;
+    accomodationYes.map((user) => {
+      if (user.roomAllocation == true) {
+        allotedAccomodation++;
+      }
+    });
+    const totalAccomodation = {
+      total: accomodationYes.length,
+      alloted: allotedAccomodation,
+      pending: accomodationYes.length - allotedAccomodation,
     };
     const pending = data.filter((user) => user.status === "pending");
     const allParticipants = {
@@ -34,10 +46,23 @@ export async function POST(req) {
       yes: data.length - tShirtNo.length,
       no: tShirtNo.length,
     };
+
+    let allotedTshirt = 0;
+    data.map((user) => {
+      if (user.tshirtAllocation == true) {
+        allotedTshirt++;
+      }
+    });
+    const totalTshirtDetails = {
+      total: data.length - tShirtNo.length,
+      alloted: allotedTshirt,
+      pending: data.length - tShirtNo.length - allotedTshirt,
+    };
     const idCardAllocatedNo = data.filter(
       (user) => user.idCardAllocation === false
     );
     const idCardAllocation = {
+      total: data.length,
       yes: data.length - idCardAllocatedNo.length,
       no: idCardAllocatedNo.length,
     };
@@ -75,7 +100,9 @@ export async function POST(req) {
       message: "All Stats",
       data: {
         accomodation,
+        totalAccomodation,
         tshirt,
+        totalTshirtDetails,
         idCardAllocation,
         collegeParticipation: collegeData,
         totalAmount,
