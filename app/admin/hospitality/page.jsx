@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { apiConnector } from "@/helpers/apiConnector";
 
 import { Button } from "@/components/ui/button";
@@ -19,6 +19,20 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+} from "@/components/ui/command";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
   Form,
   FormControl,
   FormDescription,
@@ -27,13 +41,6 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-} from "@/components/ui/command";
 import {
   Popover,
   PopoverContent,
@@ -48,44 +55,95 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 
-export function Accomodation({allParticipantsData,fetchAllParticipants}) {
-  // const [allParticipantsData, setAllParticipantsData] = useState([]);
+export function ModifyAccomodationForm({
+  setOpen,
+  userId,
+  accomodationStatus,
+  fetchAllParticipants,
+}) {
+  const handleAccomodationModification = async () => {
+    const obj = {
+      userId: userId,
+      accomodation: accomodationStatus,
+    };
+
+    try {
+      const toastId = toast.loading("Loading...");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/hospitality/modifyAccomodationStatus",
+        obj
+      );
+      console.log(data);
+      toast.dismiss(toastId);
+      if (data.success) {
+        toast.success("Accomodation Status Modified!");
+        setOpen(false);
+        fetchAllParticipants();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <div className="bg-white text-center">
+      <p className="mb-4">
+        Are you sure you want to modify accomodation status?
+      </p>
+      <Button
+        className="mr-8"
+        variant="default"
+        type="button"
+        onClick={handleAccomodationModification}
+      >
+        Confirm
+      </Button>
+      <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+        Cancel
+      </Button>
+    </div>
+  );
+}
+
+export function ModifyAccomodationButton({
+  userId,
+  accomodationStatus,
+  fetchAllParticipants,
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button
+          variant="outline"
+          className="text-green-400 hover:text-green-500"
+        >
+          Is That a Mistake ?{/* <Trash2 className="h-4 w-4" /> */}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Modify Accomodation Status</DialogTitle>
+        </DialogHeader>
+        <ModifyAccomodationForm
+          setOpen={setOpen}
+          userId={userId}
+          accomodationStatus={accomodationStatus}
+          fetchAllParticipants={fetchAllParticipants}
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function Accomodation({ allParticipantsData, fetchAllParticipants }) {
   const [loading, setLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
-
-  // const fetchAllParticipants = async () => {
-  //   setLoading(true);
-  //   try {
-  //     const { data } = await apiConnector("POST", "/api/getAllParticipants");
-  //     setLoading(false);
-  //     if (data.success) {
-  //       const unRestructuredUsers = data.data;
-  //       const restructuredUsers = unRestructuredUsers.map((user) => ({
-  //         label: `${user.festId} - ${user.name}`,
-  //         value: user._id,
-  //         tShirtSize: user.tShirtSize,
-  //         paymentStatus: user.status,
-  //         accomodation: user.accomodation,
-  //         gender: user.gender,
-  //         tShirtAllocation: user.tShirtAllocation, //true,false/1,0
-  //         roomAllocation: user.roomAllocation, //true,false/1,0
-  //         roomNo: user.roomNo, //actual room no
-  //         noOfDays: user.noOfDays, //no of days
-  //       }));
-  //       setAllParticipantsData(restructuredUsers);
-  //     } else {
-  //       toast.error(data.message);
-  //     }
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchAllParticipants();
-  // }, []);
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -99,7 +157,11 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
     };
     try {
       const toastId = toast.loading("Allocating Room...");
-      const { data } = await apiConnector("POST", "/api/roomAllocation", obj);
+      const { data } = await apiConnector(
+        "POST",
+        "/api/hospitality/roomAllocation",
+        obj
+      );
       toast.dismiss(toastId);
       setLoading(false);
       if (data.success) {
@@ -195,6 +257,11 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
                   <p className="font-mono mt-4">
                     The Participant hasn&apos;t opted for accomodation.
                   </p>
+                  <ModifyAccomodationButton
+                    userId={form.watch("user").value}
+                    accomodationStatus={"Yes"}
+                    fetchAllParticipants={fetchAllParticipants}
+                  />
                 </>
               ) : (
                 <>
@@ -225,6 +292,11 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
                             ? "Girls Hostel Alaknanda"
                             : "Boys Hostel Nilgiri"}
                         </p>
+                        <ModifyAccomodationButton
+                          userId={form.watch("user").value}
+                          accomodationStatus={"No"}
+                          fetchAllParticipants={fetchAllParticipants}
+                        />
                         <FormField
                           control={form.control}
                           name="room_no"
@@ -273,6 +345,12 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
                             </FormItem>
                           )}
                         />
+                        {form.watch("day") && (
+                          <p className="font-mono mt-4 mb-2">
+                            Total Amount To be Collected:{" "}
+                            {parseInt(form.watch("day")) * 50}
+                          </p>
+                        )}
                         <FormField
                           control={form.control}
                           name="amount"
@@ -321,12 +399,10 @@ export function Accomodation({allParticipantsData,fetchAllParticipants}) {
   );
 }
 
-export function TShirt({fetchAllParticipants,allParticipantsData}) {
- 
+export function TShirt({ fetchAllParticipants, allParticipantsData }) {
   const [loading, setLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
 
- 
   const onSubmit = async (data) => {
     setLoading(true);
 
@@ -338,7 +414,11 @@ export function TShirt({fetchAllParticipants,allParticipantsData}) {
     // console.log(obj);
     try {
       const toastId = toast.loading("Alloting Tshirt...");
-      const { data } = await apiConnector("POST", "/api/tShirtAllocation", obj);
+      const { data } = await apiConnector(
+        "POST",
+        "/api/hospitality/tShirtAllocation",
+        obj
+      );
       toast.dismiss(toastId);
       setLoading(false);
       if (data.success) {
@@ -477,6 +557,226 @@ export function TShirt({fetchAllParticipants,allParticipantsData}) {
   );
 }
 
+export function ModifyIdCardAllocationForm({
+  setOpen,
+  userId,
+  fetchAllParticipants,
+}) {
+  const handleIdCardAllocationModification = async () => {
+    const obj = {
+      userId: userId,
+      idCardAllocation: false,
+    };
+
+    try {
+      const toastId = toast.loading("Loading...");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/hospitality/idCardAllocation",
+        obj
+      );
+      console.log(data);
+      toast.dismiss(toastId);
+      if (data.success) {
+        toast.success("Id Card Allocation Status Modified!");
+        setOpen(false);
+        fetchAllParticipants();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <div className="bg-white text-center">
+      <p className="mb-4">
+        Are you sure you want to modify id card allocation status?
+      </p>
+      <Button
+        className="mr-8"
+        variant="default"
+        type="button"
+        onClick={handleIdCardAllocationModification}
+      >
+        Confirm
+      </Button>
+      <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+        Cancel
+      </Button>
+    </div>
+  );
+}
+
+export function ModifyIdCardAllocationButton({ userId, fetchAllParticipants }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button
+          variant="outline"
+          className="text-green-400 hover:text-green-500"
+        >
+          Is That a Mistake ?{/* <Trash2 className="h-4 w-4" /> */}
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Modify Id Card Allocation Status</DialogTitle>
+        </DialogHeader>
+        <ModifyIdCardAllocationForm
+          setOpen={setOpen}
+          userId={userId}
+          fetchAllParticipants={fetchAllParticipants}
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function IdCard({ fetchAllParticipants, allParticipantsData }) {
+  const [loading, setLoading] = useState(false);
+  const [openPop, setOpenPop] = useState(false);
+
+  const onSubmit = async (data) => {
+    setLoading(true);
+
+    const obj = {
+      userId: data.user.value,
+      idCardAllocation: true,
+    };
+
+    try {
+      const toastId = toast.loading("Alloting Id Card...");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/hospitality/idCardAllocation",
+        obj
+      );
+      toast.dismiss(toastId);
+      setLoading(false);
+      if (data.success) {
+        toast.success("Id Card Alloted Successfully!");
+        fetchAllParticipants();
+        form.reset();
+      } else {
+        toast.error(data.message);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const form = useForm({
+    mode: "onChange",
+  });
+
+  return (
+    <div>
+      <div className="space-y-1">
+        <Form {...form}>
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            className="mx-auto flex flex-col items-center mb-4"
+          >
+            <div className="max-w-xl mb-4">
+              <FormField
+                control={form.control}
+                name="user"
+                render={({ field }) => (
+                  <FormItem className="flex flex-col">
+                    <FormLabel className="text-white">Select User</FormLabel>
+                    <Popover open={openPop} onOpenChange={setOpenPop}>
+                      <PopoverTrigger asChild>
+                        <FormControl>
+                          <Button
+                            variant="outline"
+                            role="combobox"
+                            className={cn(
+                              "justify-between w-[300px]",
+                              !field.value && "text-muted-foreground"
+                            )}
+                          >
+                            {field.value
+                              ? allParticipantsData.find(
+                                  (user) => user.value === field.value.value
+                                )?.label
+                              : "Select Participant"}
+                            <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                          </Button>
+                        </FormControl>
+                      </PopoverTrigger>
+                      <PopoverContent className="p-0">
+                        <Command>
+                          <CommandInput placeholder="Search User..." />
+                          <CommandEmpty>No User found.</CommandEmpty>
+                          <ScrollArea className="h-48 overflow-auto">
+                            <CommandGroup>
+                              {allParticipantsData.map((user) => (
+                                <CommandItem
+                                  value={user.label}
+                                  key={user.value}
+                                  onSelect={() => {
+                                    form.setValue("user", user);
+                                    setOpenPop(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      user.value === field.value
+                                        ? "opacity-100"
+                                        : "opacity-0"
+                                    )}
+                                  />
+                                  {user.label}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </ScrollArea>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
+                    <FormDescription />
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              {form.watch("user") &&
+                (form.watch("user")?.idCardAllocation === true ? (
+                  <>
+                    <p className="font-mono">
+                      Id Card have already been alloted to the User.
+                    </p>
+                    <ModifyIdCardAllocationButton
+                      userId={form.watch("user").value}
+                      fetchAllParticipants={fetchAllParticipants}
+                    />
+                  </>
+                ) : (
+                  <div className="flex flex-col gap-y-3 mt-4 px-2">
+                    <p className="font-mono">
+                      Id Card have not been alloted yet to the User.
+                    </p>
+                    <Button
+                      type="submit"
+                      disabled={loading}
+                      className="transition w-fit ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
+                    >
+                      Allot Id Card
+                    </Button>
+                  </div>
+                ))}
+            </div>
+          </form>
+        </Form>
+      </div>
+    </div>
+  );
+}
+
 export default function Hospitality() {
   const router = useRouter();
   const [allParticipantsData, setAllParticipantsData] = useState([]);
@@ -497,6 +797,7 @@ export default function Hospitality() {
           paymentStatus: user.status,
           accomodation: user.accomodation,
           tShirtAllocation: user.tShirtAllocation, //true,false/1,0
+          idCardAllocation: user.idCardAllocation,
           roomAllocation: user.roomAllocation, //true,false/1,0
           roomNo: user.roomNo, //actual room no
           noOfDays: user.noOfDays, //no of days
@@ -514,7 +815,6 @@ export default function Hospitality() {
     fetchAllParticipants();
   }, []);
 
-
   const handleClick = (e, path) => {
     e.preventDefault();
     router.push(path);
@@ -528,11 +828,30 @@ export default function Hospitality() {
         </Button>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
-        <Tabs defaultValue="accomodation" className="w-[400px] lg:w-[500px]">
-          <TabsList className="grid w-full grid-cols-2">
+        <Tabs defaultValue="idCard" className="max-w-[95%] lg:max-w-[95%]">
+          <TabsList className="grid w-full grid-cols-3">
+            <TabsTrigger value="idCard">Id Card</TabsTrigger>
             <TabsTrigger value="accomodation">Accomodation</TabsTrigger>
             <TabsTrigger value="tShirt">Sweat Shirt</TabsTrigger>
           </TabsList>
+          <TabsContent value="idCard">
+            <div>
+              <Card>
+                <CardHeader>
+                  <CardTitle>Id Card</CardTitle>
+                  <CardDescription>
+                    Allot Id Card and View Status.
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <IdCard
+                    allParticipantsData={allParticipantsData}
+                    fetchAllParticipants={fetchAllParticipants}
+                  />
+                </CardContent>
+              </Card>
+            </div>
+          </TabsContent>
           <TabsContent value="accomodation">
             <div>
               <Card>
@@ -543,7 +862,10 @@ export default function Hospitality() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <Accomodation allParticipantsData={allParticipantsData} fetchAllParticipants={fetchAllParticipants}/>
+                  <Accomodation
+                    allParticipantsData={allParticipantsData}
+                    fetchAllParticipants={fetchAllParticipants}
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -558,7 +880,10 @@ export default function Hospitality() {
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <TShirt allParticipantsData={allParticipantsData} fetchAllParticipants={fetchAllParticipants}/>
+                  <TShirt
+                    allParticipantsData={allParticipantsData}
+                    fetchAllParticipants={fetchAllParticipants}
+                  />
                 </CardContent>
               </Card>
             </div>

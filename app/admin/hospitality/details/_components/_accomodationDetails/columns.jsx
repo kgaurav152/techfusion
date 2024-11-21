@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import Link from 'next/link';
+import Link from "next/link";
 import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox"
-  
+import { Checkbox } from "@/components/ui/checkbox";
+
 // import { ApproveButton, RejectButton } from "@/app/admin/participant/all/buttonBar";
 
 export const columns = (setAllParticipantsData) => [
   {
-    accessorKey: 'festId',
-    header: 'TechFusion ID'
+    accessorKey: "festId",
+    header: "TechFusion ID",
   },
   {
-    accessorKey: 'name',
+    accessorKey: "name",
     header: ({ column }) => {
       return (
         <Button
@@ -24,15 +24,19 @@ export const columns = (setAllParticipantsData) => [
           Name
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
   {
-    accessorKey: 'mobile',
-    header: 'Phone No.'
+    accessorKey: "mobile",
+    header: "Phone No.",
   },
   {
-    accessorKey: 'accomodation',
+    accessorKey: "college",
+    header: "College",
+  },
+  {
+    accessorKey: "accomodation",
     header: ({ column }) => {
       return (
         <Button
@@ -42,11 +46,11 @@ export const columns = (setAllParticipantsData) => [
           Accomodation
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
   {
-    accessorKey: 'roomNo',
+    accessorKey: "roomNo",
     header: ({ column }) => {
       return (
         <Button
@@ -56,11 +60,11 @@ export const columns = (setAllParticipantsData) => [
           Allocated Room No.
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
   {
-    accessorKey: 'noOfDays',
+    accessorKey: "noOfDays",
     header: ({ column }) => {
       return (
         <Button
@@ -70,11 +74,11 @@ export const columns = (setAllParticipantsData) => [
           Days
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
   {
-    accessorKey: 'roomAmount',
+    accessorKey: "roomAmount",
     header: ({ column }) => {
       return (
         <Button
@@ -84,7 +88,7 @@ export const columns = (setAllParticipantsData) => [
           Amount Collected
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
-      )
+      );
     },
   },
-]
+];
