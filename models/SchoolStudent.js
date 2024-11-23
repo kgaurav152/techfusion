@@ -7,7 +7,7 @@ const SchoolStudentSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    class: {
+    studentClass: {
       type: String,
       required: true,
       trim: true,
