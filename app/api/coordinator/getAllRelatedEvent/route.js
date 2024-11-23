@@ -3,10 +3,11 @@ import { NextResponse } from "next/server";
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 import User from "@/models/User";
 import Coordinator from "@/models/Coordinator";
+import Event from "@/models/Event";
 
 connect();
 export async function POST(req) {
-  const { token, coordinatorId } = await req.json();
+  const { token } = await req.json();
   try {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
@@ -17,9 +18,9 @@ export async function POST(req) {
         message: "This is protected route for Coordinator's access",
       });
     }
-    const coordinator = await Coordinator.findById(coordinatorId).populate(
-      "events"
-    );
+    const coordinator = await Coordinator.findById(
+      user?.coordinatorDetails
+    ).populate("events");
     const data = coordinator.events;
     return NextResponse.json({
       success: true,
