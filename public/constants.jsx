@@ -266,6 +266,50 @@ export const colleges = [
   { label: "other", value: "other" },
 ];
 
+export const schools = [
+  {
+    label: "Colonels Academy, Katihar",
+    value: "Colonels Academy, Katihar",
+  },
+  {
+    label: "Don Bosco School, Katihar",
+    value: "Don Bosco School, Katihar",
+  },
+  {
+    label: "GD Goenka Public School, Purnia",
+    value: "GD Goenka Public School, Purnia",
+  },
+  {
+    label: "Jai Mala Shiksha Niketan, Katihar",
+    value: "Jai Mala Shiksha Niketan, Katihar",
+  },
+  {
+    label: "Mary Immaculate School, Katihar",
+    value: "Mary Immaculate School, Katihar",
+  },
+  {
+    label: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
+    value: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
+  },
+  {
+    label: "PM SHREE Kendriya Vidyalaya, Katihar",
+    value: "PM SHREE Kendriya Vidyalaya, Katihar",
+  },
+  {
+    label: "Scottish Public School, Katihar",
+    value: "Scottish Public School, Katihar",
+  },
+  {
+    label: "S.S. Public School, Katihar",
+    value: "S.S. Public School, Katihar",
+  },
+  // {
+  //   label: "",
+  //   value: "",
+  // },
+  { label: "other", value: "other" },
+];
+
 export const branches = [
   { label: "3-D Animation & Graphics", value: "3-D Animation & Graphics" },
   {
