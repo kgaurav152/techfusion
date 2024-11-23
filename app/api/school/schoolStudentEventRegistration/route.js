@@ -184,8 +184,8 @@ export async function POST(req) {
     }
 
     if (
-      schoolStudentArray.length >= schoolEvent?.min &&
-      schoolStudentArray.length <= schoolEvent?.max
+      schoolStudentArray.length < schoolEvent?.min ||
+      schoolStudentArray.length > schoolEvent?.max
     ) {
       return NextResponse.json({
         success: false,

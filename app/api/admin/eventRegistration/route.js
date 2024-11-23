@@ -177,7 +177,7 @@ export async function POST(req) {
       userArray.push(member._id);
     }
 
-    if (userArray.length >= event?.min && userArray.length <= event?.max) {
+    if (userArray.length < event?.min || userArray.length > event?.max) {
       return NextResponse.json({
         success: false,
         message: `This event requires a minimum of ${event.min} participants and can accommodate up to a maximum of ${event.max} participants.`,
