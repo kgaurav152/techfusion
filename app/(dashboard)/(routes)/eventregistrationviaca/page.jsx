@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
-import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 import { Input } from "@/components/ui/input";
@@ -60,8 +59,6 @@ const EventRegistrationForm = () => {
     animation: "flicker 1.5s infinite alternate",
     color: "#fff",
   };
-
-  const router = useRouter();
 
   const { user } = useSelector((state) => state?.profile);
   const { event } = useSelector((state) => state?.event);
@@ -181,11 +178,6 @@ const EventRegistrationForm = () => {
       setIsLoading(false);
       console?.log(err);
     }
-  };
-
-  const handleClick = (e, path) => {
-    e?.preventDefault();
-    router?.push(path);
   };
 
   return (
