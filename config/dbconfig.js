@@ -26,6 +26,9 @@ import Coordinator from "@/models/Coordinator";
 import ResetPasswordToken from "@/models/ResetPasswordToken";
 import Result from "@/models/Result";
 import ResultDetails from "@/models/ResultDetails";
+import SchoolStudent from "@/models/SchoolStudent";
+import SchoolEvent from "@/models/SchoolEvent";
+import SchoolParticipation from "@/models/SchoolParticipation";
 
 import mongoose from "mongoose";
 
