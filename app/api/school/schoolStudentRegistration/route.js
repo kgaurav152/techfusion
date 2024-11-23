@@ -25,10 +25,11 @@ export async function POST(request) {
     const school = reqBody.get("school");
     const section = reqBody.get("section");
     const parentPhoneNumber = reqBody.get("parentPhoneNumber");
-    const festId =
+    const festId = (
       "KEC001" +
       reqBody.get("school").trim().substring(0, 4) +
-      "3 digit randomNumber"; //randomNo or serially assigned number;
+      "3 digit randomNumber"
+    ).toUpperCase(); //randomNo or serially assigned number;
     const gender = reqBody.get("gender");
     const registrationFee = reqBody.get("registrationFee");
     const paymentReceivedBy = reqBody.get("paymentReceivedBy");
