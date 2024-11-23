@@ -11,10 +11,10 @@ export async function POST(req) {
   try {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
-    if (user?.userType !== "admin") {
+    if (user?.userType !== "admin" && user?.userType !== "hospitality") {
       return NextResponse.json({
         success: false,
-        message: "This is protected route for Admin access",
+        message: "This is protected route for Admin and hospitality access",
       });
     }
     const data = await User.find({
