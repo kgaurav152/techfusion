@@ -27,15 +27,14 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { useForm } from "react-hook-form";
-import { useDispatch, useSelector } from "react-redux"; 
-import {toast} from 'sonner'
-import { apiConnector } from "@/helpers/apiConnector"; 
+import { useDispatch, useSelector } from "react-redux";
+import { toast } from "sonner";
+import { apiConnector } from "@/helpers/apiConnector";
 import ForgotPassword from "@/app/(auth)/(routes)/sign-in/forgot-password";
 
-const SignInPage = () => { 
-
-  const [loading,setLoading] = useState(false);
-  const form = useForm({ mode: "onChange" }); 
+const SignInPage = () => {
+  const [loading, setLoading] = useState(false);
+  const form = useForm({ mode: "onChange" });
   const router = useRouter();
   // const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
@@ -49,9 +48,13 @@ const SignInPage = () => {
       setLoading(false);
       toast.dismiss(toastId);
       if (data.success) {
-        toast.success("Login Successful"); 
+        toast.success("Login Successful");
         if (data?.data?.userType == "admin") {
           router.push("/admin/dashboard");
+        } else if (data?.data?.userType == "coordinator") {
+          router.push("/coordinator/manage-event-participants");
+        } else if (data?.data?.userType == "hospitality") {
+          router.push("/hospitality/dashboard");
         } else {
           router.push("/");
         }
@@ -115,7 +118,7 @@ const SignInPage = () => {
                 />
                 <Button disabled={loading} className="w-full" type="submit">
                   Submit
-                  </Button>
+                </Button>
               </form>
             </Form>
             <div className="relative">
