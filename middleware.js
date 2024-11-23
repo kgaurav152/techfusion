@@ -6,24 +6,50 @@ export function middleware(request) {
   const userType = user?.value || "unauthorized";
 
   const url = request.nextUrl;
-  const pathname = url.pathname; 
+  const pathname = url.pathname;
   // Role-based access restrictions
   const restrictedPaths = {
     participant: ["/admin", "/hospitality", "/coordinator"],
-    hospitality: ["/admin", "/coordinator","/eventregistrationviaca","/eventregistration"],
-    coordinator: ["/admin", "/hospitality","/eventregistrationviaca","/eventregistration"],
-    unauthorized: ["/admin", "/hospitality", "/coordinator","/eventregistrationviaca","/eventregistration"],
+    hospitality: [
+      "/admin",
+      "/coordinator",
+      "/eventregistrationviaca",
+      "/eventregistration",
+    ],
+    coordinator: [
+      "/admin",
+      "/hospitality",
+      "/eventregistrationviaca",
+      "/eventregistration",
+    ],
+    unauthorized: [
+      "/admin",
+      "/hospitality",
+      "/coordinator",
+      "/eventregistrationviaca",
+      "/eventregistration",
+    ],
   };
-  
- 
+
   // Check if the user is trying to access a restricted path
   const isRestricted = restrictedPaths[userType]?.some((restrictedPath) =>
     pathname.startsWith(restrictedPath)
-  ); 
+  );
 
-  if (isRestricted) { 
+  if (isRestricted) {
+    if (userType == "admin") {
+      return NextResponse.redirect(new URL("/", request.url));
+    } else if (userType == "coordinator") {
+      return NextResponse.redirect(
+        new URL("/coordinator/manage-event-participants", request.url)
+      );
+    } else if (userType == "hospitality") {
+      return NextResponse.redirect(
+        new URL("/hospitality/dashboard", request.url)
+      );
+    }
     return NextResponse.redirect(new URL("/", request.url));
   }
- 
+
   return NextResponse.next();
 }
