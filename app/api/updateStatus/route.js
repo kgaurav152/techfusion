@@ -1,13 +1,11 @@
 import { connect } from "@/config/dbconfig";
-import User from "@/models/User";
-// import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
-// import jwt from "jsonwebtoken"
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 import {
   sendVerificationSuccessfulEmail,
   sendVerificationUnSuccessfulEmail,
 } from "@/helpers/mailService";
+import User from "@/models/User";
 
 connect();
 export async function POST(req) {
@@ -33,7 +31,7 @@ export async function POST(req) {
 
       // Send verification rejection email
       const emailResult = await sendVerificationUnSuccessfulEmail(
-        user.email,
+        participant.email,
         participant.name
       );
 
@@ -62,7 +60,7 @@ export async function POST(req) {
 
     // Send verification confirmation email
     const emailResult = await sendVerificationSuccessfulEmail(
-      user.email,
+      participant.email,
       participant.name,
       participant.festId
     );
