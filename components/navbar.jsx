@@ -27,7 +27,7 @@ const NavBar = () => {
   const router = useRouter();
   const dispatch = useDispatch();
 
-  const userType = Cookies.get("userType") || 'public';
+  const userType = Cookies.get("userType") || "public";
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -67,8 +67,9 @@ const NavBar = () => {
         {/* Menu for large screens */}
         <div className="hidden md:flex items-center justify-center md:space-x-8 mr-4">
           {navbarData.map(
-            (nav) => 
-              ((nav.userType === "public" && userType === 'participant') || nav.userType === userType) && (
+            (nav) =>
+              ((nav.userType === "public" && userType === "participant") ||
+                nav.userType === userType) && (
                 <Link
                   key={nav.href}
                   href={nav.href}
@@ -88,6 +89,7 @@ const NavBar = () => {
         </div>
       </div>
       <MobileNavbar />
+
     </nav>
   );
 };

@@ -13,10 +13,10 @@ const MobileNavbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const userType = Cookies.get("userType");
+  const userType = Cookies.get("userType") || "public";
 
   return (
-    <div className="relative">
+    <div>
       <div className="md:hidden absolute right-4 top-4">
         <button className="text-white focus:outline-none" onClick={toggleMenu}>
           <svg
@@ -45,11 +45,11 @@ const MobileNavbar = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="md:hidden mt-6 absolute top-6 left-0 right-0">
+        <div className="md:hidden mt-6 p-4 absolute z-50 left-0 right-0 top-8 bg-gray-900">
           <div className="flex flex-col space-y-4">
             {navbarData.map(
               (nav) =>
-                (nav.userType === "public" || nav.userType === userType) && (
+                ((nav.userType === "public" && userType === 'participant') || nav.userType === userType) && (
                   <Link
                     key={nav.href}
                     href={nav.href}
