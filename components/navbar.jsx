@@ -13,31 +13,21 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
 import { setEvent } from "@/redux/slices/eventSlice";
 import { LogOutIcon } from "lucide-react";
+import { navbarData } from "@/data/navbarData";
+import MobileNavbar from "./mobileNavbar";
+import UserAvatar from "./user-avatar";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
   const { user } = useSelector((state) => state.profile);
   const router = useRouter();
   const dispatch = useDispatch();
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
-  const logoutHandler = async () => {
-    const { data } = await apiConnector("GET", "/api/logout");
-    if (data.success) {
-      toast.success("Logout Successful");
-      dispatch(setUserDetails(null));
-      Cookies.remove("token");
-      Cookies.remove("userType");
-      router.push("/");
-    }
-  };
+  const userType = Cookies.get("userType") || 'public';
 
   useEffect(() => {
     const fetchUserDetails = async () => {
@@ -76,244 +66,28 @@ const NavBar = () => {
 
         {/* Menu for large screens */}
         <div className="hidden md:flex items-center justify-center md:space-x-8 mr-4">
-          <Link href="/" className="text-white hover:text-[#e11d48]">
-            Home
-          </Link>
-          <Link href="/events" className="text-white hover:text-[#e11d48]">
-            Events
-          </Link>
-          <Link
-            href="/kec_techfusion_brochure.pdf"
-            download={`kec_techfusion_brochure.pdf`}
-            target="_blank"
-            className="text-white hover:text-[#e11d48]"
-          >
-            Brochure
-          </Link>
-          <Link
-            href="/verifycertificate"
-            className="text-white hover:text-[#e11d48]"
-          >
-            Verify Certificate
-          </Link>
-          <Link
-            href="/torchbearers/campusambassador"
-            className="text-white hover:text-[#e11d48]"
-          >
-            Campus Ambassador
-          </Link>
-          <Link href="/contact-us" className="text-white hover:text-[#e11d48]">
-            Contact Us
-          </Link>
-          {user && (
-            <>
-              <Link
-                href="/eventregistration"
-                className="text-white hover:text-[#e11d48]"
-              >
-                Event Registration
-              </Link>
-              <Link
-                href="/resultview"
-                className="text-white hover:text-[#e11d48]"
-              >
-                Result
-              </Link>
-            </>
-          )}
-          {user && (
-            <Link href="/profile" className="text-white hover:text-[#e11d48]">
-              Profile
-            </Link>
+          {navbarData.map(
+            (nav) => 
+              ((nav.userType === "public" && userType === 'participant') || nav.userType === userType) && (
+                <Link
+                  key={nav.href}
+                  href={nav.href}
+                  className="text-white hover:text-[#e11d48]"
+                >
+                  {nav.label}
+                </Link>
+              )
           )}
           {user ? (
-            <Popover>
-              <PopoverTrigger>
-                {" "}
-                <Avatar>
-                  {user.gender === "female" ? (
-                    <AvatarImage src="avatar_01.png" />
-                  ) : (
-                    <AvatarImage src="avatar_02.png" />
-                  )}
-                  <AvatarFallback className="bg-slate-800 text-white">
-                    {user.name[0]}
-                  </AvatarFallback>
-                </Avatar>
-              </PopoverTrigger>
-              <PopoverContent className="w-fit py-1 px-2">
-                <Button
-                  className="flex text-rose-500 hover:text-rose-700 items-center justify-center gap-3"
-                  variant="ghost"
-                  onClick={logoutHandler}
-                >
-                  {" "}
-                  <LogOutIcon className="w-5 h-5" />
-                  Logout
-                </Button>
-              </PopoverContent>
-            </Popover>
+            <UserAvatar />
           ) : (
             <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
               Login
             </Link>
           )}
         </div>
-
-        {/* Menu icon for mobile screens */}
-        <div className="md:hidden mr-1">
-          <button
-            className="text-white focus:outline-none"
-            onClick={toggleMenu}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {isOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16m-7 6h7"
-                />
-              )}
-            </svg>
-          </button>
-        </div>
       </div>
-
-      {/* Responsive menu for mobile screens */}
-      {isOpen && (
-        <div className="md:hidden mt-4">
-          <div className="flex flex-col space-y-4">
-            <Link
-              href="/"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Home
-            </Link>
-            <Link
-              href="/events"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Events
-            </Link>
-            <Link
-              href="/kec_techfusion_brochure.pdf"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              download={`kec_techfusion_brochure.pdf`}
-              target="_blank"
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Brochure
-            </Link>
-            <Link
-              href="/verifycertificate"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Verify Certificate
-            </Link>
-            <Link
-              href="/torchbearers/campusambassador"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Campus Ambassador
-            </Link>
-            <Link
-              href="/contact-us"
-              onClick={() => {
-                setIsOpen(false);
-              }}
-              className="text-white z-50 hover:text-[#e11d48]"
-            >
-              Contact Us
-            </Link>
-            {user && (
-              <Link
-                href="/eventregistration"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                className="text-white z-50 hover:text-[#e11d48]"
-              >
-                Event Registration
-              </Link>
-            )}
-            {user && (
-              <Link
-                href="/profile"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                className="text-white z-50 hover:text-[#e11d48]"
-              >
-                Profile
-              </Link>
-            )}
-            {user ? (
-              <Popover>
-                <PopoverTrigger>
-                  {" "}
-                  <Avatar>
-                    {user.gender === "female" ? (
-                      <AvatarImage src="avatar_01.png" />
-                    ) : (
-                      <AvatarImage src="avatar_02.png" />
-                    )}
-                    <AvatarFallback className="bg-slate-800 text-white">
-                      {user?.name[0]}
-                    </AvatarFallback>
-                  </Avatar>
-                </PopoverTrigger>
-                <PopoverContent className="w-fit text-white bg-black/50 border-primary">
-                  <Button
-                    variant="destructive"
-                    onClick={logoutHandler}
-                    className="z-50"
-                  >
-                    Logout
-                  </Button>
-                </PopoverContent>
-              </Popover>
-            ) : (
-              <Link
-                href="/sign-in"
-                onClick={() => {
-                  setIsOpen(false);
-                }}
-                className="text-white z-50 hover:text-[#e11d48]"
-              >
-                Login
-              </Link>
-            )}
-          </div>
-        </div>
-      )}
+      <MobileNavbar />
     </nav>
   );
 };

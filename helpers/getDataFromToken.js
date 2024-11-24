@@ -1,6 +1,4 @@
-import jwt from "jsonwebtoken";
-import { NextResponse } from "next/server";
-import { NextRequest } from "next/server";
+import jwt from "jsonwebtoken"; 
 
 export const getDataFromToken =(token) => { 
   try {
@@ -8,5 +6,6 @@ export const getDataFromToken =(token) => {
     return decodedToken.id;
   } catch (err) { 
     throw new Error(err.message);
+    c
   }
 };

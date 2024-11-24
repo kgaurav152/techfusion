@@ -59,7 +59,7 @@ const ForgotPassword = () => {
   }, [email]);
 
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog open={open} cls onOpenChange={setOpen}>
       <DialogTrigger className="w-full">
         <Button variant="secondary" className="w-full mt-2">
           Forgot Password
