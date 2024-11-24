@@ -53,13 +53,11 @@ export default function HospitalityDetails() {
     }
   };
 
-  
-
+  const fetchData = () => {
+    fetchAllParticipants();
+    fetchStats();
+  };
   useEffect(() => {
-    const fetchData = () => {
-      fetchAllParticipants();
-      fetchStats();
-    };
     fetchData();
   }, []);
 
