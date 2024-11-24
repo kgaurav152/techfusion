@@ -44,7 +44,7 @@ const ParticipationPage = () => {
   };
 
   useEffect(() => {
-    // fetchParticipatingEventsData();
+    fetchParticipatingEventsData();
   }, []);
 
   return (
@@ -64,11 +64,16 @@ const ParticipationPage = () => {
           ))
         ) : (
           <div className="text-white text-2xl text-center">
-          <p className="my-5">It seems you’re not enrolled in any events yet.</p>
-          <Link href="/eventregistration" className="bg-white text-base p-3 rounded-lg text-black">
-            Enroll in an Event Now
-          </Link>
-        </div>
+            <p className="my-5">
+              It seems you’re not enrolled in any events yet.
+            </p>
+            <Link
+              href="/eventregistration"
+              className="bg-white text-base p-3 rounded-lg text-black"
+            >
+              Enroll in an Event Now
+            </Link>
+          </div>
         )}
       </div>
     </div>
