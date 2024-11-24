@@ -64,7 +64,7 @@ export const ProfilePage = () => {
   }
 
   return (
-        <div className="h-[100vh] flex flex-col items-center mt-2 text-center">
+        <div className="h-[100vh] w-11/12 mx-auto flex flex-col items-center mt-2 text-center">
             {user &&
                 <Card className="mx-auto max-w-xl mb-4 text-left shadow-lg bg-white/20 backdrop-blur-md ring-1 ring-black/5 text-white">
                     <CardContent>

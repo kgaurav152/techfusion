@@ -24,7 +24,7 @@ const ManageTorchBearerPage = () => {
 
   return (
     <React.Fragment>
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+      <div className="grid w-11/12 mx-auto grid-cols-1 gap-3 lg:grid-cols-3">
         {redirectArray.map((card, index) => (
           <RedirectCard
             key={index}

@@ -32,8 +32,8 @@ export const DeveloperPage = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center mt-2 mb-8 text-center">
-            <div className="flex flex-col items-center mt-4 p-4 w-4/5 text-center"  id="developers">
+        <div className="mt-2 mb-8 min-h-screen w-11/12 mx-auto text-center">
+            <div className="flex flex-wrap gap-5 items-center justify-center"  id="developers">
                 {developers.length>0 &&
                     <div className="developers">
                         <h4 className="text-2xl font-bold mb-10 mt-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">TechFusion&apos;24 Website Developers:</h4>

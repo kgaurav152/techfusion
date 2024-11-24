@@ -88,7 +88,7 @@ export const AllEventParticipants = () => {
   }
 
   return (
-    <div className="flex w-11/12 mx-auto flex-col items-center mt-2 text-center">
+    <div className="flex w-11/12 mx-auto flex-col items-center mt-2 mb-8 text-center">
       {/* <Link
         href="/admin/event-registration-via-admin"
         className="md:w-auto my-4"

@@ -62,8 +62,8 @@ export default function HospitalityDetails() {
   }, []);
 
   return (
-    <div className="flex justify-center mt-4 mb-8 p-2">
-      <Tabs defaultValue="idCardDetails" className="max-w-[95%]">
+    <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8 p-2">
+      <Tabs defaultValue="idCardDetails" className="max-w-full w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="idCardDetails">Id Card Details</TabsTrigger>
           <TabsTrigger value="accomodationDetails">
@@ -71,8 +71,7 @@ export default function HospitalityDetails() {
           </TabsTrigger>
           <TabsTrigger value="tShirtDetails">Sweat Shirt Details</TabsTrigger>
         </TabsList>
-        <TabsContent value="idCardDetails">
-          <div>
+        <TabsContent value="idCardDetails"> 
             <Card>
               <CardHeader>
                 <CardTitle>Id Card Related Details</CardTitle>
@@ -86,11 +85,9 @@ export default function HospitalityDetails() {
                   // fetchAllParticipants={fetchAllParticipants}
                 />
               </CardContent>
-            </Card>
-          </div>
+            </Card> 
         </TabsContent>
-        <TabsContent value="accomodationDetails">
-          <div>
+        <TabsContent value="accomodationDetails"> 
             <Card>
               <CardHeader>
                 <CardTitle>Accomodation Related Details</CardTitle>
@@ -104,11 +101,9 @@ export default function HospitalityDetails() {
                   fetchData={fetchData}
                 />
               </CardContent>
-            </Card>
-          </div>
+            </Card> 
         </TabsContent>
-        <TabsContent value="tShirtDetails">
-          <div>
+        <TabsContent value="tShirtDetails"> 
             <Card>
               <CardHeader>
                 <CardTitle>Sweat Shirt Related Details</CardTitle>
@@ -122,8 +117,7 @@ export default function HospitalityDetails() {
                   // fetchAllParticipants={fetchAllParticipants}
                 />
               </CardContent>
-            </Card>
-          </div>
+            </Card> 
         </TabsContent>
       </Tabs>
     </div>

@@ -109,7 +109,7 @@ export const ViewResultPage = () => {
 
 
     return (
-      <div className="flex flex-col items-center mt-2 text-center min-h-screen">
+      <div className="flex flex-col items-center w-11/12 mx-auto mt-2 text-center min-h-screen">
         <h1 className='text-3xl text-white font-bold mb-8 mt-4'>View Result by Event</h1>
         <div className='container flex lg:flex-row flex-col justify-center mt-4 mb-5 w-full gap-4'>
             <Popover open={openPop} onOpenChange={setOpenPop} className="mt-4 mb-2">

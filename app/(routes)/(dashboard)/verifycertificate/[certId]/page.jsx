@@ -43,10 +43,9 @@ export const CertificateDetailPage = () => {
     }, []);
  
   
-    return (
-        <React.Fragment>
-            <div className="text-center mb-4 text-border flex-col min-h-screen">
-                <Card className="mx-auto w-4/5 lg:w-2/5 max-w-xl mb-8 mt-20 text-left min-h-[400px] flex items-center justify-center">
+    return ( 
+            <div className="text-center mb-4 w-11/12 mx-auto text-border flex-col min-h-screen">
+                <Card className="mx-auto w-full max-w-xl mb-8 mt-20 text-left min-h-[400px] flex items-center justify-center">
                     <CardContent>    
                    {
                     loading ?  
@@ -76,8 +75,7 @@ export const CertificateDetailPage = () => {
                 }
                 </CardContent>
                 </Card>
-            </div>
-        </React.Fragment>
+            </div> 
     );
   }
   

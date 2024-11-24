@@ -63,8 +63,8 @@ export default function HospitalityDetails() {
   }, []);
 
   return (
-    <div className="flex justify-center mt-4 mb-8 p-2">
-      <Tabs defaultValue="idCardDetails" className="max-w-[95%]">
+    <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
+      <Tabs defaultValue="idCardDetails" className=" w-full">
         <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="idCardDetails">Id Card Details</TabsTrigger>
           <TabsTrigger value="accomodationDetails">

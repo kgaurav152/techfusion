@@ -35,7 +35,7 @@ export const AllParticipants = () => {
     }, []);
 
   return (
-        <div className="flex flex-col items-center mt-2 text-center">
+        <div className="flex flex-col w-11/12 mx-auto items-center mt-2 mb-6 text-center">
             <h1 className='text-3xl text-white font-bold'>All Participants</h1>
             <div className='w-full'>
                 <DataTable columns={columns(setAllParticipantsData)} data={allParticipantsData} />

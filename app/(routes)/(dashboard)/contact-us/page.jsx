@@ -67,8 +67,8 @@ export const ContactUsPage = () => {
   }, [event]);
 
   return (
-    <div className="flex flex-col items-center mt-2 mb-8 text-center">
-      <div className="text-left text-white mb-4 w-4/5 border-2 border-orange-100 p-4 md:p-10 ">
+    <div className="flex flex-col w-11/12 mx-auto items-center mt-2 mb-8 text-center">
+      <div className="text-left text-white mb-4 w-full border-2 border-orange-100 p-4 md:p-10 ">
         <h2 className="text-2xl text-center underline text-white font-bold">
           FAQs
         </h2>
@@ -249,7 +249,7 @@ export const ContactUsPage = () => {
                 role="combobox"
                 aria-expanded={openPop}
                 className={cn(
-                  "justify-between",
+                  "justify-between w-full max-w-sm",
                   !value && "text-muted-foreground"
                 )}
               >

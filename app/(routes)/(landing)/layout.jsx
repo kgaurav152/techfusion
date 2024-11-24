@@ -52,7 +52,7 @@ const DashboardLayout = ({ children }) => {
         <GetStartedButton text={"Get started →"} onHover={handleHover}/>
       </div>
       ) : ( 
-      <div className=" min-h-[100vh] bg-[#00040F] relative" >
+      <div className="min-h-[100vh] bg-[#00040F] relative" >
         <StarsCanvas/> 
         {children} 
       </div>

@@ -13,7 +13,7 @@ import { IoMdMail } from "react-icons/io";
 
 function CoordinatorCard({ data, eventLabel }) {
   return (
-    <Card className="mx-auto max-w-xl rounded-lg shadow-md overflow-hidden">
+    <Card className="mx-auto max-w-xl w-full rounded-lg shadow-md overflow-hidden">
       <div className="p-6 text-center">
         <CardTitle className="text-xl font-bold mb-4">{eventLabel}</CardTitle>
         <div className="flex justify-center items-center mb-2">

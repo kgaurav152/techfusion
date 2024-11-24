@@ -36,7 +36,7 @@ export const EventDetailPage = () => {
   return (
     <section>
       {eventDetail && (
-        <article className="max-w-4xl px-6 py-24 mx-auto space-y-12 min-h-[60vh] text-white">
+        <article className="max-w-4xl py-20 w-11/12 mx-auto space-y-12 min-h-[60vh] text-white">
           <div className="w-full mx-auto space-y-4 text-center">
             <h1 className="font-bold leading-tight text-5xl md:text-7xl text-white">
               {eventDetail.name}

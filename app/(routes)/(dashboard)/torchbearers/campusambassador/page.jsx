@@ -94,9 +94,9 @@ export const CAPage = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen items-center mt-2 mb-8 text-center">
+    <div className="flex flex-col min-h-screen w-11/12 mx-auto items-center mt-2 mb-8 text-center">
       <div
-        className="flex flex-col items-center mt-4 p-4 text-center"
+        className="flex flex-col items-center mt-4 text-center"
         id="campusAmbassdors"
       >
         <h3 className="text-lg md:text-xl text-white max-w-xl font-bold mb-4">

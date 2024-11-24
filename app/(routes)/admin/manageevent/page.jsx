@@ -38,7 +38,7 @@ export const EventManagement = () => {
     
 
   return (
-        <div className="flex flex-col items-center mt-2 text-center">
+        <div className="flex flex-col w-11/12 mx-auto items-center mt-2 mb-8 text-center">
             <CreateEventButton className="flex items-center" setEventData={setEventData}/>
             <h1 className='text-3xl text-white font-bold mt-8'>List of All Events</h1>
             <div className='w-full'>

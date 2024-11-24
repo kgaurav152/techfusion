@@ -16,7 +16,7 @@ import {
 import { Button } from '@/components/ui/button'; 
  
 
- const page = () => {
+ const Page = () => {
       
   const neonTextStyle = {
     marginTop: '5vh',
@@ -30,11 +30,10 @@ import { Button } from '@/components/ui/button';
     animation: 'flicker 1.5s infinite alternate',
     color: '#fff',
   };
-  return (
-    <div>
-        <div className="text-center mb-4 text-border flex-col">
+  return ( 
+        <div className="text-center mb-4 text-border w-11/12 mx-auto flex-col">
         <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
-        <Card className="mx-auto w-4/5 max-w-xl mt-2 mb-2 text-left">
+        <Card className="mx-auto w-full max-w-xl mt-2 mb-2 text-left">
           <CardHeader>
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
             <CardDescription />
@@ -77,9 +76,8 @@ import { Button } from '@/components/ui/button';
               </div>
           </CardContent>
         </Card>
-      </div>
-    </div>
+      </div> 
   )
 }
 
-export default page
+export default Page

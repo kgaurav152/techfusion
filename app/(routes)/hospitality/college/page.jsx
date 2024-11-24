@@ -181,7 +181,7 @@ export function Accomodation({ allParticipantsData, fetchAllParticipants }) {
   });
 
   return (
-    <div>
+    <div className="">
       <div className="space-y-1">
         <Form {...form}>
           <form
@@ -822,13 +822,13 @@ export default function CollegeHospitality() {
 
   return (
     <>
-      <div className="flex justify-center container mt-4 mb-8">
+      <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
         <Button onClick={(e) => handleClick(e, "/hospitality/college/details")}>
           View Allocation Details
         </Button>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
-        <Tabs defaultValue="idCard" className="max-w-[95%] lg:max-w-[95%]">
+        <Tabs defaultValue="idCard" className="max-w-2xl w-full">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="idCard">Id Card</TabsTrigger>
             <TabsTrigger value="accomodation">Accomodation</TabsTrigger>

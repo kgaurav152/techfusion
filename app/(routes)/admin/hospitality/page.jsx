@@ -90,7 +90,7 @@ export function ModifyAccomodationForm({
   };
 
   return (
-    <div className="bg-white text-center">
+    <div className="bg-white  text-center">
       <p className="mb-4">
         Are you sure you want to modify accomodation status?
       </p>
@@ -822,13 +822,13 @@ export default function Hospitality() {
 
   return (
     <>
-      <div className="flex justify-center container mt-4 mb-8">
+      <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
         <Button onClick={(e) => handleClick(e, "/admin/hospitality/details")}>
           View Allocation Details
         </Button>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
-        <Tabs defaultValue="idCard" className="max-w-[95%] lg:max-w-[95%]">
+        <Tabs defaultValue="idCard" className="max-w-2xl w-full">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="idCard">Id Card</TabsTrigger>
             <TabsTrigger value="accomodation">Accomodation</TabsTrigger>
