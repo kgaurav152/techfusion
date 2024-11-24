@@ -66,7 +66,7 @@ export function DeleteParticipationForm({
   );
 }
 
-export function DeleteButton({ ParticipationId, setActionSuccess }) {
+export function DeleteButton({ participationId, setActionSuccess }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -82,7 +82,7 @@ export function DeleteButton({ ParticipationId, setActionSuccess }) {
         </DialogHeader>
         <DeleteParticipationForm
           setOpen={setOpen}
-          ParticipationId={ParticipationId}
+          participationId={participationId}
           setActionSuccess={setActionSuccess}
         />
       </DialogContent>
