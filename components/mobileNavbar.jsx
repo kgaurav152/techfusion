@@ -16,7 +16,7 @@ const MobileNavbar = () => {
   const userType = Cookies.get("userType");
 
   return (
-    <div>
+    <div className="relative">
       <div className="md:hidden absolute right-4 top-4">
         <button className="text-white focus:outline-none" onClick={toggleMenu}>
           <svg
@@ -45,7 +45,7 @@ const MobileNavbar = () => {
         </button>
       </div>
       {isOpen && (
-        <div className="md:hidden mt-6">
+        <div className="md:hidden mt-6 absolute top-6 left-0 right-0">
           <div className="flex flex-col space-y-4">
             {navbarData.map(
               (nav) =>

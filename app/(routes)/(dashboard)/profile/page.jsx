@@ -52,13 +52,14 @@ export const ProfilePage = () => {
   //     setActionSuccess(false);
   // }
 
+ 
   const logoutHandler = async () => {
-    const { data } = await axios.get("/api/logout");
+    const { data } = await apiConnector("GET", "/api/logout");
     if (data.success) {
       toast.success("Logout Successful");
       dispatch(setUserDetails(null));
       Cookies.remove("token");
-      Cookies.set("IsLoggedIn", false);
+      Cookies.remove("userType");
       router.push("/");
     }
   };
