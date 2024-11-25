@@ -51,7 +51,16 @@ export const columns = (setAllParticipantsData) => [
     cell: ({ row }) => {
       const data = row.original;
       const opted =
-        data?.tShirtSize === "No" ? <span className="bg-amber-100 px-3 py-1 rounded-xl text-amber-500"> No</span> : <span className="bg-green-100 px-3 py-1 rounded-xl text-green-500">Yes</span>;
+        data?.tShirtSize === "No" ? (
+          <span className="bg-amber-100 px-3 py-1 rounded-xl text-amber-500">
+            {" "}
+            No
+          </span>
+        ) : (
+          <span className="bg-green-100 px-3 py-1 rounded-xl text-green-500">
+            Yes
+          </span>
+        );
       return <p>{opted}</p>;
     },
   },
@@ -69,10 +78,19 @@ export const columns = (setAllParticipantsData) => [
       );
     },
     cell: ({ row }) => {
-      const { participant } = row.original;
+      const participant = row.original;
       return (
         <p>
-          {participant?.tShirtAllocation ? <span className="bg-green-100 px-3 py-1 rounded-xl text-green-500">Yes</span> : <span className="bg-amber-100 px-3 py-1 rounded-xl text-amber-500"> No</span> }
+          {participant?.tShirtAllocation ? (
+            <span className="bg-green-100 px-3 py-1 rounded-xl text-green-500">
+              Yes
+            </span>
+          ) : (
+            <span className="bg-amber-100 px-3 py-1 rounded-xl text-amber-500">
+              {" "}
+              No
+            </span>
+          )}
         </p>
       );
     },
