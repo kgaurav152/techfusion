@@ -266,50 +266,6 @@ export const colleges = [
   { label: "other", value: "other" },
 ];
 
-export const schools = [
-  {
-    label: "Colonels Academy, Katihar",
-    value: "Colonels Academy, Katihar",
-  },
-  {
-    label: "Don Bosco School, Katihar",
-    value: "Don Bosco School, Katihar",
-  },
-  {
-    label: "GD Goenka Public School, Purnia",
-    value: "GD Goenka Public School, Purnia",
-  },
-  {
-    label: "Jai Mala Shiksha Niketan, Katihar",
-    value: "Jai Mala Shiksha Niketan, Katihar",
-  },
-  {
-    label: "Mary Immaculate School, Katihar",
-    value: "Mary Immaculate School, Katihar",
-  },
-  {
-    label: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
-    value: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
-  },
-  {
-    label: "PM SHREE Kendriya Vidyalaya, Katihar",
-    value: "PM SHREE Kendriya Vidyalaya, Katihar",
-  },
-  {
-    label: "Scottish Public School, Katihar",
-    value: "Scottish Public School, Katihar",
-  },
-  {
-    label: "S.S. Public School, Katihar",
-    value: "S.S. Public School, Katihar",
-  },
-  // {
-  //   label: "",
-  //   value: "",
-  // },
-  { label: "other", value: "other" },
-];
-
 export const branches = [
   { label: "3-D Animation & Graphics", value: "3-D Animation & Graphics" },
   {
@@ -386,6 +342,77 @@ export const batches = [
   { label: "2K22", value: "2K22" },
   { label: "2K23", value: "2K23" },
   { label: "2K24", value: "2K24" },
+];
+
+export const schools = [
+  {
+    label: "Colonels Academy, Katihar",
+    value: "Colonels Academy, Katihar",
+  },
+  {
+    label: "Don Bosco School, Katihar",
+    value: "Don Bosco School, Katihar",
+  },
+  {
+    label: "GD Goenka Public School, Purnia",
+    value: "GD Goenka Public School, Purnia",
+  },
+  {
+    label: "Jai Mala Shiksha Niketan, Katihar",
+    value: "Jai Mala Shiksha Niketan, Katihar",
+  },
+  {
+    label: "Mary Immaculate School, Katihar",
+    value: "Mary Immaculate School, Katihar",
+  },
+  {
+    label: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
+    value: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
+  },
+  {
+    label: "PM SHREE Kendriya Vidyalaya, Katihar",
+    value: "PM SHREE Kendriya Vidyalaya, Katihar",
+  },
+  {
+    label: "Scottish Public School, Katihar",
+    value: "Scottish Public School, Katihar",
+  },
+  {
+    label: "S.S. Public School, Katihar",
+    value: "S.S. Public School, Katihar",
+  },
+  // {
+  //   label: "",
+  //   value: "",
+  // },
+  { label: "other", value: "other" },
+];
+
+export const studentClasses = [
+  { label: "1", value: "1" },
+  { label: "2", value: "2" },
+  { label: "3", value: "3" },
+  { label: "4", value: "4" },
+  { label: "5", value: "5" },
+  { label: "6", value: "6" },
+  { label: "7", value: "7" },
+  { label: "8", value: "8" },
+  { label: "9", value: "9" },
+  { label: "10", value: "10" },
+  { label: "11", value: "11" },
+  { label: "12", value: "12" },
+];
+
+export const sections = [
+  { label: "A", value: "A" },
+  { label: "B", value: "B" },
+  { label: "C", value: "C" },
+  { label: "D", value: "D" },
+  { label: "E", value: "E" },
+  { label: "F", value: "F" },
+  { label: "G", value: "G" },
+  { label: "H", value: "H" },
+  { label: "I", value: "I" },
 ];
 
 export const tshirtSizeValue = [
