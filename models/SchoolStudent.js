@@ -51,7 +51,7 @@ const SchoolStudentSchema = new mongoose.Schema(
     },
     paymentReceivedBy: {
       type: String,
-      required: true,
+      // required: true,
     },
     idCardAllocation: {
       type: Boolean,
