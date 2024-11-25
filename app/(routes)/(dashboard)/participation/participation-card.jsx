@@ -19,19 +19,19 @@ const ParticipationCard = ({ data }) => {
 
   return (
     <Card className="p-5">
-      <CardContent className="grid grid-cols-1 md:grid-cols-3 gap-3 p-0">
+      <CardContent className="flex flex-col md:flex-row justify-between p-0">
         <img
           loading="lazy"
           src={data?.event?.posterUrl}
           alt={data?.event?.name}
-          className="aspect-auto"
+          className="aspect-auto max-w-[175px] mx-auto"
         />
-        <div className="md:px-3 relative col-span-2 w-full">
+        <div className="md:px-3 py-2 relative col-span-2 w-full">
           <CardTitle className="text-xl lg:text-2xl flex justify-between">
             <p>
               {data?.event?.eventId} - {data?.event?.name}
             </p>
-            <div className="absolute -right-5 -top-1 md:-top-5">
+            <div className="absolute -right-5 top-0 md:-top-3">
               {data?.participants[0]?._id === user?._id ? (
                 <DeleteButton />
               ) : (
@@ -40,11 +40,11 @@ const ParticipationCard = ({ data }) => {
             </div>
           </CardTitle>
           <CardDescription>
-            {data?.event?.eventType} - {data?.event?.participationMode}
+            {data?.event?.eventType}
           </CardDescription>
           <div className="mt-4 bg-amber-100 rounded-lg p-3">
             <p className="text-xl font-semibold text-center">
-              {data?.event?.participationMode === "Group" && "Team Member"}
+              {data?.event?.max >=1 && data?.teamName}
             </p>
             <ul>
               {data?.participants.map((member, i) => (
@@ -74,7 +74,7 @@ const AskTeamLeader = () => {
     <Popover>
       <PopoverTrigger>
         <Button variant="ghost">
-          <ShieldAlert className="text-amber-500 w-4 h-4" />
+          <ShieldAlert className="text-amber-500 w-6 h-6" />
         </Button>
       </PopoverTrigger>
       <PopoverContent className="text-sm bg-amber-50 px-2 py-2 rounded-lg">

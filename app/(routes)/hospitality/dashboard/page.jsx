@@ -162,56 +162,51 @@ const AdminDashboard = () => {
                   </TableRow>
                 </TableBody>
               </Table>
-              {/* </div> */}
             </CardContent>
-            {/* <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter> */}
           </Card>
-          {/* <Card>
-          <CardHeader>
-            <CardTitle>Total Amount Collected</CardTitle> 
-          </CardHeader>
-          <CardContent>
-             
-            <div className="text-5xl text-center">
-              {"₹"}{stats.totalAmount}
-            </div>
-          </CardContent> 
-        </Card> */}
         </div>
       )}
       {stats && (
-        <div className="my-10">
-          <div>
-            <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-2xl">Colleges</h5>
-              <Bar data={colleges} options={options} />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-10 w-11/12 mx-auto lg:grid-cols-2">
-            <div className="flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-xl">Id Card</h5>
+        <div className="grid grid-cols-1 gap-3 my-2 md:grid-cols-3 w-11/12 mx-auto lg:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <CardTitle>ID Card</CardTitle>
+            </CardHeader>
+            <CardContent>
               <Pie data={idCard} options={options} />
-              <h6 className="font-semibold text-lg">
-                Total : {stats?.idCardAllocation?.total}
-              </h6>
-            </div>
-            <div className="flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-xl">Accomodation</h5>
+            </CardContent>
+            <CardFooter className="font-semibold text-lg">
+              Total : {stats?.idCardAllocation?.total}
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Accomodation</CardTitle>
+            </CardHeader>
+            <CardContent className=" flex items-center justify-center">
               <Pie data={accomodation} options={options} />
-              <h6 className="font-semibold text-lg">
-                Total Opted : {stats?.totalAccomodation?.total}
-              </h6>
-            </div>
-            <div className="flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-xl">Tshirt</h5>
+            </CardContent>
+            <CardFooter className="font-semibold text-lg">
+              Total Opted : {stats?.totalAccomodation?.total}
+            </CardFooter>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Tshirt</CardTitle>
+            </CardHeader>
+            <CardContent>
               <Pie data={tshirt} options={options} />
-              <h6 className="font-semibold text-lg">
-                Total Opted : {stats?.totalTshirtDetails?.total}
-              </h6>
-            </div>
-          </div>
+            </CardContent>
+            <CardFooter className="font-semibold text-lg">
+              Total Opted : {stats?.totalTshirtDetails?.total}
+            </CardFooter>
+          </Card>
+        </div>
+      )}
+      {stats && (
+        <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
+          <h5 className="font-semibold text-2xl">Colleges</h5>
+          <Bar data={colleges} options={options} />
         </div>
       )}
     </div>

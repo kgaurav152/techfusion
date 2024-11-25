@@ -73,46 +73,43 @@ const CertificateVerificationForm = () => {
     <React.Fragment>
       <div className="text-center w-11/12 mx-auto mb-4 text-border flex-col">
         <h1
-          className="font-bold text-[3rem] text-border-white"
+          className="font-bold text-[2rem] md:text-[3rem] text-border-white"
           style={{ ...neonTextStyle }}
         >
           Verify TechFusion&apos;24 Participation Certificate
         </h1>
         <Card className="mx-auto w-full max-w-xl mb-8 mt-20 text-left">
+          <CardHeader>
+            <CardTitle>
+              <h2 className="font-bold text-xl">
+                Enter TechFusion&apos;24 Certificate Id Below To Verify
+              </h2>
+            </CardTitle>
+          </CardHeader>
           <CardContent>
             <Form {...form}>
               <form
-                onSubmit={form.handleSubmit(onSubmit)}
-                className="mx-auto flex flex-col items-center mb-8"
+                onSubmit={form.handleSubmit(onSubmit)} 
+                className="w-full max-w-md mx-auto space-y-5"
               >
-                <div className="flex flex-col items-center mt-10">
-                  <div className="mb-8">
-                    <h2 className="font-bold">
-                      Enter TechFusion&apos;24 Certificate Id Below To Verify
-                    </h2>
-                  </div>
-                  <FormField
-                    control={form.control}
-                    name="certId"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Certificate Id*</FormLabel>
-                        <FormControl>
-                          <Input
-                            placeholder="Enter Certificate Id"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormDescription />
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                </div>
+                <FormField
+                  control={form.control}
+                  name="certId"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Certificate Id*</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Enter Certificate Id" {...field} />
+                      </FormControl>
+                      <FormDescription />
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
                 <Button
                   type="submit"
                   disabled={isLoading}
-                  className="mt-8 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
+                  className="transition mx-auto ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
                 >
                   Verify
                 </Button>

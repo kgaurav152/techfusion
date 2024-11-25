@@ -110,7 +110,7 @@ const AdminDashboard = () => {
       </p>
       <PageMenubar buttons={menuButtons} />
       {stats && (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-4">
+        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
           <Card>
             <CardHeader>
               <CardTitle>Participants Count</CardTitle>
@@ -154,6 +154,22 @@ const AdminDashboard = () => {
             </div>
           </CardContent> 
         </Card> */}
+          <Card className="">
+            <CardHeader>
+              <CardTitle>Accomodation</CardTitle>
+            </CardHeader>
+            <CardContent className="h-[200px] flex items-center justify-center">
+              <Pie data={accomodation} options={options} />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <CardTitle>Tshirt</CardTitle>
+            </CardHeader>
+            <CardContent className="h-[200px] flex items-center justify-center">
+              <Pie data={tshirt} options={options} />
+            </CardContent>
+          </Card>
         </div>
       )}
       {stats && (
@@ -162,16 +178,6 @@ const AdminDashboard = () => {
             <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
               <h5 className="font-semibold text-2xl">Colleges</h5>
               <Bar data={colleges} options={options} />
-            </div>
-          </div>
-          <div className="grid grid-cols-1 gap-10 w-11/12 mx-auto lg:grid-cols-2">
-            <div className="flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-xl">Accomodation</h5>
-              <Pie data={accomodation} options={options} />
-            </div>
-            <div className="flex flex-col gap-y-2 items-center justify-center">
-              <h5 className="font-semibold text-xl">Tshirt</h5>
-              <Pie data={tshirt} options={options} />
             </div>
           </div>
         </div>

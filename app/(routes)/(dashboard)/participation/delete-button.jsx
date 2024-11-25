@@ -20,32 +20,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import {
-  Card,
-  CardHeader,
-  CardFooter,
-  CardTitle,
-  CardDescription,
-  CardContent,
-} from "@/components/ui/card";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { apiConnector } from "@/helpers/apiConnector";
-import { useSelector } from "react-redux";
+ 
+ 
+import { apiConnector } from "@/helpers/apiConnector"; 
 
 export function DeleteEventAlert({
   setOpen,
@@ -107,7 +84,7 @@ export function DeleteButton({ participationId, setParticipatingEventsData }) {
     <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
         <Button variant="ghost" className="text-rose-500">
-          <Trash2 className="h-4 w-4" />
+          <Trash2 className="h-6 w-6" />
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

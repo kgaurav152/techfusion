@@ -39,7 +39,7 @@ const DashboardLayout = ({ children }) => {
       {isGetStarted ? (
       <div
         className={clsx(
-          "flex justify-center items-center min-h-screen font-hnd text-white transition-all duration-300 w-full h-full",
+          "flex justify-center items-center min-h-screen absolute top-0 left-0 right-0 bottom-0 text-white transition-all duration-300 w-full",
           isHovered
             ? "bg-[#ff4802] bg-[linear-gradient(#ffffff3f_2px,transparent_2px),linear-gradient(90deg,#ffffff3f_2px,transparent_2px),linear-gradient(#ffffff3f_1px,transparent_1px),linear-gradient(90deg,#ffffff3f_1px,rgba(0,0,0,0)_1px)] bg-[250px_250px,250px_250px,50px_50px,50px_50px]"
             : "bg-black"

@@ -52,9 +52,11 @@ export const columns = (setAllParticipantsData) => [
       const { participant } = row.original;
       return (
         <p className="">
-          {participant?.idCardAllocation == true ? "Yes" : "No"}
+          {participant?.idCardAllocation ? <span className="bg-green-100 px-3 py-1 rounded-xl text-green-500">Yes</span> : <span className="bg-amber-100 px-3 py-1 rounded-xl text-amber-500"> No</span> }
+ 
         </p>
       );
     },
   },
 ];
+

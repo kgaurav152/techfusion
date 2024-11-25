@@ -32,7 +32,7 @@ import { Button } from '@/components/ui/button';
   };
   return ( 
         <div className="text-center mb-4 text-border w-11/12 mx-auto flex-col">
-        <h1 className="font-bold text-[3rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
+        <h1 className="font-bold text-[2.5rem] md:text-[3.5rem] text-border-white" style={{ ...neonTextStyle }}>TechFusion&apos;24 Registration</h1>
         <Card className="mx-auto w-full max-w-xl mt-2 mb-2 text-left">
           <CardHeader>
             <CardTitle>For all your queries, feel free to contact:</CardTitle>
@@ -65,7 +65,7 @@ import { Button } from '@/components/ui/button';
             </div>
           </CardContent>
         </Card>
-        <Card className="mx-auto w-4/5 max-w-xl mb-8 text-left">
+        <Card className="mx-auto max-w-xl mb-8 text-left">
           <CardContent>
               <div className="flex items-center justify-center text-center pt-4 mb-8 mt-8">
                 <p className="font-bold text-xl font-mono text-red-600">Oops! Event Participation is closed now!</p>
