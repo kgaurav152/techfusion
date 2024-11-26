@@ -431,3 +431,22 @@ export const knowAbout = [
   { label: "College Administration", value: "College Administration" },
   { label: "Other", value: "Other" },
 ];
+
+export const deskManagers = [
+  {
+    label: "Krishan",
+    value: "Krishan",
+  },
+  {
+    label: "Monika",
+    value: "Monika",
+  },
+  {
+    label: "Ruchika",
+    value: "Ruchika",
+  },
+  {
+    label: "Tanya",
+    value: "Tanya",
+  },
+];
