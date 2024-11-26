@@ -17,10 +17,20 @@ export async function POST(req) {
         message: "This is protected route for Admin and Hospitality access",
       });
     }
+    let formattedPaymentReceivedBy;
+    if (isPaymentConfirmed === false) {
+      formattedPaymentReceivedBy = "";
+    } else {
+      formattedPaymentReceivedBy = paymentReceivedBy;
+    }
+
+    console.log(schoolStudentId);
+
     const data = await SchoolStudent.findByIdAndUpdate(schoolStudentId, {
       isPaymentConfirmed,
-      paymentReceivedBy,
+      paymentReceivedBy: formattedPaymentReceivedBy,
     });
+
     return NextResponse.json({
       success: true,
       message: "Payment status updated",
