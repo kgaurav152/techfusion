@@ -32,7 +32,7 @@ export async function POST(req) {
         data: data,
       });
     }
-    if (data?.event?.coordinators.includes(user.coordinatorDetails)) {
+    if (data?.[0].event?.coordinators.includes(user.coordinatorDetails)) {
       return NextResponse.json({
         success: true,
         message: "All Participantion Details by Event",
