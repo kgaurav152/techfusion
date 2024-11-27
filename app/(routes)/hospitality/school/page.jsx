@@ -624,9 +624,16 @@ export default function SchoolHospitality() {
 
   return (
     <>
-      <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
+      <div className="flex justify-center gap-4 w-11/12 mx-auto mt-4 mb-8">
         <Button onClick={(e) => handleClick(e, "/hospitality/school/details")}>
           View Allocation Details
+        </Button>
+        <Button
+          onClick={(e) =>
+            handleClick(e, "/hospitality/school/event-management")
+          }
+        >
+          Manage Event Participation
         </Button>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
