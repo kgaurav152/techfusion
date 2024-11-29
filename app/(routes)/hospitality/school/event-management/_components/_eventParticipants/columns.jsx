@@ -2,7 +2,7 @@
 
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { DeleteButton } from "@/app/(routes)/hospitality/school/event-management/_components/buttonBar";
+import { DeleteButton } from "@/app/(routes)/hospitality/school/event-management/_components/_eventParticipants/buttonBar";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 

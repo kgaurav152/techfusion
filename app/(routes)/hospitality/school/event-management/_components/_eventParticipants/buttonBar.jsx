@@ -29,7 +29,7 @@ export function DeleteParticipationForm({
     try {
       const toastId = toast.loading("Deleting...");
       const { data } = await apiConnector(
-        "POST",
+        "DELETE",
         "/api/school/deleteSchoolParticipation",
         obj
       );

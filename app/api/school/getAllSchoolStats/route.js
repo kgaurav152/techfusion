@@ -1,7 +1,5 @@
-import { connect } from "@/config/dbconfig";
-// import bcryptjs from "bcryptjs";
-import { NextResponse } from "next/server";
-// import jwt from "jsonwebtoken"
+import { connect } from "@/config/dbconfig"; 
+import { NextResponse } from "next/server"; 
 import { getDataFromToken } from "@/helpers/getDataFromToken";
 import { schools } from "@/public/constants";
 import User from "@/models/User";

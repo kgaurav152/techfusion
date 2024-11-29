@@ -6,7 +6,7 @@ import SchoolStudent from "@/models/SchoolStudent";
 import SchoolParticipation from "@/models/SchoolParticipation";
 
 connect();
-export async function POST(req) {
+export async function DELETE(req) {
   const { token, participationId } = await req.json();
   try {
     const userID = await getDataFromToken(token);
@@ -21,8 +21,7 @@ export async function POST(req) {
 
     const schoolParticipation = await SchoolParticipation.findById(
       participationId
-    ).populate("schoolEvent");
-
+    ).populate("schoolEvent"); 
     if (schoolParticipation.schoolEvent.eventType === "Technical") {
       for (let i = 0; i < schoolParticipation.participants.length; i++) {
         await SchoolStudent.findByIdAndUpdate(

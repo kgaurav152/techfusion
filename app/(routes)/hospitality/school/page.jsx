@@ -207,9 +207,9 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(onSubmit)}
-          className="mx-auto flex flex-col items-center mb-8"
+          className="mb-8"
         >
-          <div className="mx-auto w-4/5 gap-2 lg:grid lg:grid-cols-2 lg:gap-4 max-w-xl mb-4">
+          <div className="gap-2 grid grid-cols-1 md:grid-cols-2 lg:gap-4 mb-5">
             <FormField
               control={form.control}
               name="name"
@@ -270,7 +270,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               control={form.control}
               name="school"
               render={({ field }) => (
-                <FormItem className="flex flex-col">
+                <FormItem className="flex flex-col md:mt-2.5">
                   <FormLabel>School*</FormLabel>
                   <Popover open={openPop} onOpenChange={setOpenPop}>
                     <PopoverTrigger asChild>
@@ -380,7 +380,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               name="section"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>section</FormLabel>
+                  <FormLabel>Section</FormLabel>
                   <Select
                     onValueChange={field.onChange}
                     defaultValue={field.value}
@@ -437,7 +437,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
           <Button
             type="submit"
             disabled={isLoading}
-            className="transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
+            className="transition mx-auto ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
           >
             Register Student
           </Button>
@@ -454,7 +454,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent.festId ? (
                 <strong>{registeredStudent.festId}</strong>
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -463,7 +463,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
                 {registeredStudent.name ? (
                   registeredStudent.name
                 ) : (
-                  <span className="text-red-600">not available</span>
+                  <span className="text-rose-500">not available</span>
                 )}
               </b>{" "}
               !
@@ -473,7 +473,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.gender ? (
                 registeredStudent.gender
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -481,7 +481,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.school ? (
                 registeredStudent.school
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -489,7 +489,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.studentClass ? (
                 registeredStudent.studentClass
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -497,7 +497,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.section ? (
                 registeredStudent.section
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -505,7 +505,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.rollNo ? (
                 registeredStudent.rollNo
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -513,7 +513,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.parentPhoneNumber ? (
                 registeredStudent.parentPhoneNumber
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -521,7 +521,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.registrationFee ? (
                 registeredStudent.registrationFee
               ) : (
-                <span className="text-red-600">not available</span>
+                <span className="text-rose-500">not available</span>
               )}
             </p>
             <p className="font-mono mb-2">
@@ -529,7 +529,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               {registeredStudent?.isPaymentConfirmed === true ? (
                 <span className="text-green-500">Paid</span>
               ) : (
-                <span className="text-red-600">Pending</span>
+                <span className="text-rose-500">Pending</span>
               )}
             </p>
             <div className="flex flex-row gap-6 mt-8 justify-center">

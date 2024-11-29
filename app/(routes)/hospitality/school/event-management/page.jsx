@@ -61,6 +61,7 @@ import SelectedEventCard from "@/components/selected-event-card";
 
 import { columns as participantsColumns } from "@/app/(routes)/hospitality/school/event-management/_components/_eventParticipants/columns";
 import { DataTable as ParticipantsDataTable } from "@/app/(routes)/hospitality/school/event-management/_components/_eventParticipants/data-table";
+import UserParticipation from "./_components/userParticipation/userParticipation";
 // import { columns as paymentColumns } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/columns";
 // import { DataTable as PaymentDataTable } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/data-table";
 
@@ -74,7 +75,7 @@ const UserSelectionPopOver = ({ allParticipantsData, form, index, field }) => {
             variant="outline"
             role="combobox"
             className={cn(
-              "justify-between w-[300px]",
+              "justify-between w-full",
               !field.value && "text-muted-foreground"
             )}
           >
@@ -125,8 +126,8 @@ export function SchoolStudentEventRegistration({
 }) {
   const [isLoading, setIsLoading] = useState(false);
   const [openPop, setOpenPop] = useState(false);
-  const [selectedEvent, setSelectedEvent] = useState({});
-  const [selectedForEventDetail, setSelectedForEventDetail] = useState({});
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [selectedForEventDetail, setSelectedForEventDetail] = useState(null);
 
   const form = useForm({
     mode: "onChange",
@@ -142,10 +143,10 @@ export function SchoolStudentEventRegistration({
     const eventId = watch("event");
     const selected = eventData?.find((ev) => ev?.value === eventId);
     setSelectedEvent(selected);
-    console.log(selected);
+    // console.log(selected);
     const selectedForDetail = event?.find((ev) => ev?._id === eventId);
     setSelectedForEventDetail(selectedForDetail);
-    console.log(selectedForDetail);
+    // console.log(selectedForDetail);
     if (selected) {
       const initialMembers = Array(selected?.minParticipants)
         .fill(null)
@@ -226,6 +227,8 @@ export function SchoolStudentEventRegistration({
       setIsLoading(false);
       if (data?.success) {
         toast?.success("Registered for Event Successfully!");
+        setSelectedForEventDetail(null);
+        setSelectedEvent(null)
         form?.reset();
       } else {
         toast?.error(data?.message);
@@ -240,190 +243,185 @@ export function SchoolStudentEventRegistration({
   };
 
   return (
-    <div className="w-11/12 mx-auto">
-      <>
-        <div className="text-center mb-4 text-border flex-col">
-          {/* <h1
+    <>
+      <div className="text-center mb-4 text-border flex-col">
+        {/* <h1
               className="font-bold text-[3rem] text-border-white"
               style={{ ...neonTextStyle }}
             >
               Enroll Participant for Event Below
             </h1> */}
-          <Card className="mx-auto w-full max-w-xl mb-8 text-left">
-            <CardContent>
-              <div className="flex flex-col items-center pt-4">
-                <p className="font-semibold font-mono">
-                  A participant can participate in max. 5 Technical and 3
-                  Cultural events in total.
-                </p>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="max-w-xl w-11/12 flex gap-3 flex-col items-center justify-center mx-auto"
-          >
-            <FormField
-              control={form.control}
-              name="event"
-              render={({ field }) => (
-                <FormItem className="w-full">
-                  <FormLabel className="">Select Event</FormLabel>
-                  <Popover open={openPop} onOpenChange={setOpenPop}>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant="outline"
-                          role="combobox"
-                          className={cn(
-                            "w-full justify-between",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value
-                            ? eventData.find(
-                                (event) => event.value === field.value
-                              )?.label
-                            : "Select an Event to Enroll"}
-                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="p-0">
-                      <Command>
-                        <CommandInput placeholder="Search Event..." />
-                        <CommandEmpty>No Event found.</CommandEmpty>
-                        <ScrollArea className="h-48 overflow-auto">
-                          <CommandGroup>
-                            {eventData?.map((event) => (
-                              <CommandItem
-                                value={event.label}
-                                key={event.value}
-                                onSelect={() => {
-                                  form.setValue("event", event.value);
-                                  setOpenPop(false);
-                                }}
-                              >
-                                <Check
-                                  className={cn(
-                                    "mr-2 h-4 w-4",
-                                    event.value === field.value
-                                      ? "opacity-100"
-                                      : "opacity-0"
-                                  )}
-                                />
-                                {event.label}
-                              </CommandItem>
-                            ))}
-                          </CommandGroup>
-                        </ScrollArea>
-                      </Command>
-                    </PopoverContent>
-                  </Popover>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
+        <Card className="mx-auto w-full max-w-xl mb-8">
+          <CardContent>
+            <div className="flex flex-col items-center pt-4">
+              <p className="font-semibold font-mono">
+                A participant can participate in max. 5 Technical and 3 Cultural
+                events in total.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="max-w-xl w-full flex gap-3 flex-col items-center justify-center mx-auto"
+        >
+          <FormField
+            control={form.control}
+            name="event"
+            render={({ field }) => (
+              <FormItem className="w-full">
+                <FormLabel className="">Select Event</FormLabel>
+                <Popover open={openPop} onOpenChange={setOpenPop}>
+                  <PopoverTrigger asChild>
+                    <FormControl>
+                      <Button
+                        variant="outline"
+                        role="combobox"
+                        className={cn(
+                          "w-full justify-between",
+                          !field.value && "text-muted-foreground"
+                        )}
+                      >
+                        {field.value
+                          ? eventData.find(
+                              (event) => event.value === field.value
+                            )?.label
+                          : "Select an Event to Enroll"}
+                        <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                      </Button>
+                    </FormControl>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-0">
+                    <Command>
+                      <CommandInput placeholder="Search Event..." />
+                      <CommandEmpty>No Event found.</CommandEmpty>
+                      <ScrollArea className="h-48 overflow-auto">
+                        <CommandGroup>
+                          {eventData?.map((event) => (
+                            <CommandItem
+                              value={event.label}
+                              key={event.value}
+                              onSelect={() => {
+                                form.setValue("event", event.value);
+                                setOpenPop(false);
+                              }}
+                            >
+                              <Check
+                                className={cn(
+                                  "mr-2 h-4 w-4",
+                                  event.value === field.value
+                                    ? "opacity-100"
+                                    : "opacity-0"
+                                )}
+                              />
+                              {event.label}
+                            </CommandItem>
+                          ))}
+                        </CommandGroup>
+                      </ScrollArea>
+                    </Command>
+                  </PopoverContent>
+                </Popover>
+                <FormDescription />
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          {selectedForEventDetail && selectedForEventDetail?._id && (
+            <SelectedEventCard
+              selectedForEventDetail={selectedForEventDetail}
             />
-            {selectedForEventDetail && selectedForEventDetail?._id && (
-              <SelectedEventCard
-                selectedForEventDetail={selectedForEventDetail}
+          )}
+          <div className="w-full">
+            {selectedEvent && selectedEvent?.maxParticipants > 1 && (
+              <FormField
+                control={control}
+                name="teamName"
+                rules={{ required: selectedEvent?.maxParticipants > 1 }}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      Team Name: <sup className="text-rose-500">*</sup>
+                    </FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter team name" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
               />
             )}
-            <div>
-              {selectedEvent && selectedEvent?.maxParticipants > 1 && (
-                <FormField
-                  control={control}
-                  name="teamName"
-                  rules={{ required: selectedEvent?.maxParticipants > 1 }}
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>
-                        Team Name: <sup className="text-rose-500">*</sup>
-                      </FormLabel>
-                      <FormControl>
-                        <Input placeholder="Enter team name" {...field} />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
+            <div className="flex flex-col w-full gap-5 mt-4">
+              {selectedEvent && selectedEvent.maxParticipants > 1 && (
+                <h3 className="border-b text-lg font-semibold">Team Members</h3>
               )}
-              <div className="flex flex-col gap-3 mt-4">
-                {selectedEvent && selectedEvent.maxParticipants > 1 && (
-                  <h3>Team Members</h3>
-                )}
-                {fields?.map((member, index) => (
-                  <div key={member?.id} className="">
-                    <div>
-                      <FormField
-                        control={form.control}
-                        name={`teamMembers.${index}.festId`}
-                        render={({ field }) => (
-                          <FormItem>
-                            <FormLabel>
-                              {`${
-                                index === 0 &&
-                                selectedEvent?.maxParticipants > 1
-                                  ? "Team Lead:  "
-                                  : selectedEvent?.maxParticipants === 1
-                                  ? "Participant:  "
-                                  : `Team Member ${index + 1}:  `
-                              }`}
-                            </FormLabel>
-                            <FormControl>
-                              <UserSelectionPopOver
-                                allParticipantsData={allParticipantsData}
-                                form={form}
-                                index={index}
-                                field={field}
-                              />
-                            </FormControl>
-                            <FormDescription />
-                            <FormMessage />
-                          </FormItem>
-                        )}
-                      />
-                    </div>
-                    <div>
-                      {index >= selectedEvent?.minParticipants && (
-                        <Button
-                          type="button"
-                          size="sm"
-                          onClick={() => remove(index)}
-                          className="text-rose-500"
-                        >
-                          Remove
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-                ))}
-                {selectedEvent &&
-                  fields?.length < selectedEvent?.maxParticipants && (
-                    <div className="flex justify-end">
-                      <Button className="w-fit" onClick={handleAddMember}>
-                        Add Team Member
+              {selectedEvent && fields?.map((member, index) => (
+                <div key={member?.id} className="">
+                  <FormField
+                    control={form.control}
+                    name={`teamMembers.${index}.festId`}
+                    render={({ field }) => (
+                      <FormItem className="flex flex-col w-full">
+                        <FormLabel>
+                        {`${
+                              (index === 0 && selectedEvent?.maxParticipants > 1)
+                                ? "Team Lead:  "
+                                : (selectedEvent?.maxParticipants === 1)
+                                ? "Participant:  "
+                                : `Team Member ${index + 1}:  `
+                            }`}
+                        </FormLabel>
+                        <FormControl>
+                          <UserSelectionPopOver
+                            allParticipantsData={allParticipantsData}
+                            form={form}
+                            index={index}
+                            field={field}
+                          />
+                        </FormControl>
+                        <FormDescription />
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  <div>
+                    {index >= selectedEvent?.minParticipants && (
+                      <Button
+                        type="button"
+                        size="sm"
+                        onClick={() => remove(index)}
+                        className="text-rose-500"
+                      >
+                        Remove
                       </Button>
-                    </div>
-                  )}
-              </div>
+                    )}
+                  </div>
+                </div>
+              ))}
+              {selectedEvent &&
+                fields?.length < selectedEvent?.maxParticipants && (
+                  <div className="flex justify-end">
+                    <Button className="w-fit" onClick={handleAddMember}>
+                      Add Team Member
+                    </Button>
+                  </div>
+                )}
             </div>
-            {selectedForEventDetail && selectedForEventDetail?._id && (
-              <Button
-                type="submit"
-                disabled={isLoading || !selectedEvent}
-                className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-xl border border-transparent my-6 bg-gray-900 text-white px-8 py-1 hover:bg-purple-500 flex items-center border-white hover:border-none"
-              >
-                Enroll
-              </Button>
-            )}
-          </form>
-        </Form>
-      </>
-    </div>
+          </div>
+          {selectedForEventDetail && selectedForEventDetail?._id && (
+            <Button
+              type="submit"
+              disabled={isLoading || !selectedEvent}
+              className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-xl border border-transparent my-6 bg-gray-900 text-white px-8 py-1 hover:bg-purple-500 flex items-center border-white hover:border-none"
+            >
+              Enroll
+            </Button>
+          )}
+        </form>
+      </Form>
+    </>
   );
 }
 
@@ -463,7 +461,7 @@ export function ViewAllSchoolEventParticipants({ eventData }) {
   }
 
   return (
-    <div className="flex flex-col w-11/12 mx-auto items-center my-2 mb-8 text-center">
+    <div className="flex flex-col w-full mx-auto items-center my-2 mb-8 text-center">
       <h1 className="text-3xl font-bold">School Participants by Event</h1>
       <div className="container mt-4 mb-5 w-full">
         <Popover open={openPop} onOpenChange={setOpenPop}>
@@ -531,9 +529,6 @@ export function ViewAllSchoolEventParticipants({ eventData }) {
 
 export default function SchoolEventManagement() {
   const router = useRouter();
-  const [allSchoolParticipantsData, setAllSchoolParticipantsData] = useState(
-    []
-  );
   const [
     allConfirmedSchoolParticipantsData,
     setAllConfirmedSchoolParticipantsData,
@@ -575,7 +570,6 @@ export default function SchoolEventManagement() {
           technical: user.technical,
           cultural: user.cultural,
         }));
-        setAllSchoolParticipantsData(restructuredUsers);
         const confirmedPaymentRestructuredStudents = restructuredUsers.filter(
           (schoolStudent) => schoolStudent.paymentStatus === true
         );
@@ -586,6 +580,7 @@ export default function SchoolEventManagement() {
           .map((user) => ({
             label: `${user.festId} - ${user.name}`,
             value: user.festId,
+            _id: user._id,
             paymentStatus: user.isPaymentConfirmed,
           }))
           .filter((schoolStudent) => schoolStudent.paymentStatus === true);
@@ -654,42 +649,58 @@ export default function SchoolEventManagement() {
             <TabsTrigger value="viewEventParticipants">
               View Event Participants
             </TabsTrigger>
+            <TabsTrigger value="viewUserParticipation">
+              View User Participation
+            </TabsTrigger>
           </TabsList>
           <TabsContent value="eventRegistration">
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>School Student Event Registration</CardTitle>
-                  <CardDescription>
-                    Register Student For Event Below:
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <SchoolStudentEventRegistration
-                    allParticipantsData={
-                      allConfirmedSchoolParticipantsDataByFestIdAsValue
-                    }
-                    event={event}
-                    eventData={eventData}
-                  />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>School Student Event Registration</CardTitle>
+                <CardDescription>
+                  Register Student For Event Below:
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <SchoolStudentEventRegistration
+                  allParticipantsData={
+                    allConfirmedSchoolParticipantsDataByFestIdAsValue
+                  }
+                  event={event}
+                  eventData={eventData}
+                />
+              </CardContent>
+            </Card>
           </TabsContent>
           <TabsContent value="viewEventParticipants">
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Event Participants</CardTitle>
-                  <CardDescription>
-                    View and modify Participants by Event.
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ViewAllSchoolEventParticipants eventData={eventData} />
-                </CardContent>
-              </Card>
-            </div>
+            <Card>
+              <CardHeader>
+                <CardTitle>Event Participants</CardTitle>
+                <CardDescription>
+                  View and modify Participants by Event.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <ViewAllSchoolEventParticipants eventData={eventData} />
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="viewUserParticipation">
+            <Card>
+              <CardHeader>
+                <CardTitle>User Participation</CardTitle>
+                <CardDescription>
+                  View and modify User Participation.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <UserParticipation
+                  allParticipants={
+                    allConfirmedSchoolParticipantsDataByFestIdAsValue
+                  }
+                />
+              </CardContent>
+            </Card>
           </TabsContent>
         </Tabs>
       </div>
