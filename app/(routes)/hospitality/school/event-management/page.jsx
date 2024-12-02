@@ -61,7 +61,7 @@ import SelectedEventCard from "@/components/selected-event-card";
 
 import { columns as participantsColumns } from "@/app/(routes)/hospitality/school/event-management/_components/_eventParticipants/columns";
 import { DataTable as ParticipantsDataTable } from "@/app/(routes)/hospitality/school/event-management/_components/_eventParticipants/data-table";
-import UserParticipation from "./_components/userParticipation/userParticipation";
+import UserParticipation from "@/app/(routes)/hospitality/school/event-management/_components/_userParticipation/userParticipation";
 // import { columns as paymentColumns } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/columns";
 // import { DataTable as PaymentDataTable } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/data-table";
 
@@ -228,7 +228,7 @@ export function SchoolStudentEventRegistration({
       if (data?.success) {
         toast?.success("Registered for Event Successfully!");
         setSelectedForEventDetail(null);
-        setSelectedEvent(null)
+        setSelectedEvent(null);
         form?.reset();
       } else {
         toast?.error(data?.message);
@@ -357,49 +357,50 @@ export function SchoolStudentEventRegistration({
               {selectedEvent && selectedEvent.maxParticipants > 1 && (
                 <h3 className="border-b text-lg font-semibold">Team Members</h3>
               )}
-              {selectedEvent && fields?.map((member, index) => (
-                <div key={member?.id} className="">
-                  <FormField
-                    control={form.control}
-                    name={`teamMembers.${index}.festId`}
-                    render={({ field }) => (
-                      <FormItem className="flex flex-col w-full">
-                        <FormLabel>
-                        {`${
-                              (index === 0 && selectedEvent?.maxParticipants > 1)
+              {selectedEvent &&
+                fields?.map((member, index) => (
+                  <div key={member?.id} className="">
+                    <FormField
+                      control={form.control}
+                      name={`teamMembers.${index}.festId`}
+                      render={({ field }) => (
+                        <FormItem className="flex flex-col w-full">
+                          <FormLabel>
+                            {`${
+                              index === 0 && selectedEvent?.maxParticipants > 1
                                 ? "Team Lead:  "
-                                : (selectedEvent?.maxParticipants === 1)
+                                : selectedEvent?.maxParticipants === 1
                                 ? "Participant:  "
                                 : `Team Member ${index + 1}:  `
                             }`}
-                        </FormLabel>
-                        <FormControl>
-                          <UserSelectionPopOver
-                            allParticipantsData={allParticipantsData}
-                            form={form}
-                            index={index}
-                            field={field}
-                          />
-                        </FormControl>
-                        <FormDescription />
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <div>
-                    {index >= selectedEvent?.minParticipants && (
-                      <Button
-                        type="button"
-                        size="sm"
-                        onClick={() => remove(index)}
-                        className="text-rose-500"
-                      >
-                        Remove
-                      </Button>
-                    )}
+                          </FormLabel>
+                          <FormControl>
+                            <UserSelectionPopOver
+                              allParticipantsData={allParticipantsData}
+                              form={form}
+                              index={index}
+                              field={field}
+                            />
+                          </FormControl>
+                          <FormDescription />
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    <div>
+                      {index >= selectedEvent?.minParticipants && (
+                        <Button
+                          type="button"
+                          size="sm"
+                          onClick={() => remove(index)}
+                          className="text-rose-500"
+                        >
+                          Remove
+                        </Button>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
               {selectedEvent &&
                 fields?.length < selectedEvent?.maxParticipants && (
                   <div className="flex justify-end">
@@ -635,11 +636,11 @@ export default function SchoolEventManagement() {
 
   return (
     <>
-      <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
+      {/* <div className="flex justify-center w-11/12 mx-auto mt-4 mb-8">
         <Button onClick={(e) => handleClick(e, "/hospitality/school/details")}>
           View Allocation Details
         </Button>
-      </div>
+      </div> */}
       <div className="flex justify-center mt-4 mb-8 p-2">
         <Tabs defaultValue="eventRegistration" className="max-w-4xl w-full">
           <TabsList className="grid w-full grid-cols-3">

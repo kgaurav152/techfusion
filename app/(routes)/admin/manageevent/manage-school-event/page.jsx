@@ -6,11 +6,8 @@ import { columns } from "@/app/(routes)/admin/manageevent/_components/columns";
 import { DataTable } from "@/app/(routes)/admin/manageevent/_components/data-table";
 import { CreateEventButton } from "@/app/(routes)/admin/manageevent/_components/buttonBar";
 import { apiConnector } from "@/helpers/apiConnector";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
 
-export const EventManagement = () => {
+export const SchoolEventManagement = () => {
   const [loading, setLoading] = useState(false);
 
   const [eventData, setEventData] = useState([]);
@@ -19,7 +16,10 @@ export const EventManagement = () => {
     const toastId = toast.loading("Loading ...");
     setLoading(true);
     try {
-      const { data } = await apiConnector("POST", "/api/event/getAllEvent");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/school/schoolEvent/getAllSchoolEvent"
+      );
       setLoading(false);
       toast.dismiss(toastId);
       if (data.success) {
@@ -37,24 +37,18 @@ export const EventManagement = () => {
     fetchEventData();
   }, []);
 
-  const meantFor = "College";
+  const meantFor = "School";
 
   return (
     <div className="flex flex-col w-11/12 mx-auto items-center mt-2 mb-8 text-center">
-      <div className="flex flex-col items-center justify-center gap-4">
-        <Link href="/admin/manageevent/manage-school-event">
-          <Button className="flex-row justify-center gap-2">
-            Manage School Event
-            <ArrowRight className="h-4 w-4" />
-          </Button>
-        </Link>
-        <CreateEventButton
-          className="flex items-center"
-          setEventData={setEventData}
-          meantFor={meantFor}
-        />
-      </div>
-      <h1 className="text-3xl text-white font-bold mt-8">List of All Events</h1>
+      <CreateEventButton
+        className="flex items-center"
+        setEventData={setEventData}
+        meantFor={meantFor}
+      />
+      <h1 className="text-3xl text-white font-bold mt-8">
+        List of All School Events
+      </h1>
       <div className="w-full">
         <DataTable columns={columns(setEventData, meantFor)} data={eventData} />
       </div>
@@ -62,4 +56,4 @@ export const EventManagement = () => {
   );
 };
 
-export default EventManagement;
+export default SchoolEventManagement;

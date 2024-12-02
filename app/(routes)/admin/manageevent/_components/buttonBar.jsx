@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 // import axios from "axios";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -46,7 +46,7 @@ import {
 } from "@/components/ui/select";
 import { apiConnector } from "@/helpers/apiConnector";
 
-export function EventCreationForm({ setOpen, setEventData }) {
+export function EventCreationForm({ setOpen, setEventData, meantFor }) {
   const EventCreationFormSchema = z
     .object({
       eventType: z.enum(["Cultural", "Technical"], {
@@ -93,9 +93,17 @@ export function EventCreationForm({ setOpen, setEventData }) {
   const onSubmit = async (data) => {
     setIsLoading(true);
 
+    const apiEndpoint =
+      meantFor === "School"
+        ? "/api/school/schoolEvent/createSchoolEvent"
+        : "/api/event/createEvent";
+
+    const eventIdPrefix = meantFor === "School" ? "S" : "";
+    const eventTypePrefix = data.eventType === "Cultural" ? "C" : "T";
+
     const obj = {
       eventType: data.eventType,
-      eventId: data.eventType == "Cultural" ? "C" + data.id : "T" + data.id,
+      eventId: `${eventIdPrefix}${eventTypePrefix}${data.id}`,
       name: data.name,
       description: data.description,
       ruleBook: data.rulebookLink,
@@ -107,11 +115,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
     try {
       const toastId = toast.loading("Creating Event...");
 
-      const { data } = await apiConnector(
-        "POST",
-        "/api/event/createEvent",
-        obj
-      );
+      const { data } = await apiConnector("POST", apiEndpoint, obj);
       setIsLoading(false);
       toast.dismiss(toastId);
       if (data.success) {
@@ -129,10 +133,7 @@ export function EventCreationForm({ setOpen, setEventData }) {
 
   return (
     <Form {...form}>
-      <form
-        onSubmit={form.handleSubmit(onSubmit)}
-        className="space-y-5"
-      >
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
         <FormField
           control={form.control}
           name="eventType"
@@ -178,7 +179,14 @@ export function EventCreationForm({ setOpen, setEventData }) {
             <FormItem>
               <FormLabel className="text-white">Name of Event*</FormLabel>
               <FormControl>
-                <Input placeholder="Enter Name of Event" {...field} />
+                <Input
+                  placeholder={
+                    meantFor === "School"
+                      ? "Enter Name of School Event"
+                      : "Enter Name of Event"
+                  }
+                  {...field}
+                />
               </FormControl>
               <FormDescription />
               <FormMessage />
@@ -285,43 +293,54 @@ export function EventCreationForm({ setOpen, setEventData }) {
   );
 }
 
-export function CreateEventButton({ setEventData }) {
+export function CreateEventButton({ setEventData, meantFor }) {
   const [open, setOpen] = useState(false);
 
   return (
     <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant="outline">Create New Event</Button>
+        <Button variant="outline">
+          {meantFor === "School"
+            ? "Create New School Event"
+            : "Create New Event"}
+        </Button>
       </DialogTrigger>
       <DialogContent className="max-w-2xl bg-[#00040F]">
         <DialogHeader>
           <DialogTitle className="text-white text-3xl">
-            Create New Event
+            {meantFor === "School"
+              ? "Create New School Event"
+              : "Create New Event"}
           </DialogTitle>
           <DialogDescription className="text-xl">
             {" "}
             Fill details below carefully!
           </DialogDescription>
         </DialogHeader>
-        <EventCreationForm setOpen={setOpen} setEventData={setEventData} />
+        <EventCreationForm
+          setOpen={setOpen}
+          setEventData={setEventData}
+          meantFor={meantFor}
+        />
       </DialogContent>
     </Dialog>
   );
 }
 
-export function DeleteEventForm({ setOpen, EventId, setEventData }) {
+export function DeleteEventForm({ setOpen, EventId, setEventData, meantFor }) {
   const handleEventDeletion = async () => {
     const obj = {
       id: EventId,
     };
 
+    const apiEndpoint =
+      meantFor === "School"
+        ? "/api/school/schoolEvent/deleteSchoolEvent"
+        : "/api/event/deleteEvent";
+
     try {
       const toastId = toast.loading("Loading...");
-      const { data } = await apiConnector(
-        "POST",
-        "/api/event/deleteEvent",
-        obj
-      );
+      const { data } = await apiConnector("POST", apiEndpoint, obj);
       console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
@@ -338,7 +357,11 @@ export function DeleteEventForm({ setOpen, EventId, setEventData }) {
 
   return (
     <div className="bg-white text-center">
-      <p className="mb-4">Are you sure you want to delete this event?</p>
+      <p className="mb-4">
+        {meantFor === "School"
+          ? "Are you sure want to delete this school event?"
+          : "Are you sure you want to delete this event?"}
+      </p>
       <Button
         className="mr-8"
         variant="destructive"
@@ -354,7 +377,7 @@ export function DeleteEventForm({ setOpen, EventId, setEventData }) {
   );
 }
 
-export function DeleteButton({ EventId, setEventData }) {
+export function DeleteButton({ EventId, setEventData, meantFor }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -371,6 +394,7 @@ export function DeleteButton({ EventId, setEventData }) {
         <DeleteEventForm
           setOpen={setOpen}
           EventId={EventId}
+          meantFor={meantFor}
           setEventData={setEventData}
         />
       </DialogContent>

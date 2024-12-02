@@ -205,10 +205,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
   return (
     <React.Fragment>
       <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="mb-8"
-        >
+        <form onSubmit={form.handleSubmit(onSubmit)} className="mb-8">
           <div className="gap-2 grid grid-cols-1 md:grid-cols-2 lg:gap-4 mb-5">
             <FormField
               control={form.control}
@@ -625,15 +622,15 @@ export default function SchoolHospitality() {
   return (
     <>
       <div className="flex justify-center gap-4 w-11/12 mx-auto mt-4 mb-8">
-        <Button onClick={(e) => handleClick(e, "/hospitality/school/details")}>
+        {/* <Button onClick={(e) => handleClick(e, "/hospitality/school/details")}>
           View Allocation Details
-        </Button>
+        </Button> */}
         <Button
           onClick={(e) =>
             handleClick(e, "/hospitality/school/event-management")
           }
         >
-          Manage Event Participation
+          Manage School Event Participation
         </Button>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
