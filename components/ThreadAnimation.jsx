@@ -1,11 +1,10 @@
-'use client'
+"use client";
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { useDispatch, useSelector } from "react-redux";
-
 
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
@@ -57,7 +56,6 @@ const ThreadAnimation = () => {
     };
   }, []);
 
-  
   const handleClick = (e, path) => {
     e.preventDefault();
     router.push(path);
@@ -70,7 +68,7 @@ const ThreadAnimation = () => {
           <div className="w-calc-100plus300 md:w-full max-w-[initial] h-auto ">
             <Player
               ref={lottieRef}
-              src='/assets/StartBuilding_001.json'
+              src="/assets/StartBuilding_001.json"
               style={{
                 position: "absolute",
                 top: "50%",
@@ -80,7 +78,7 @@ const ThreadAnimation = () => {
               loop
             ></Player>
             <img
-              src='/assets/StartBuilding_001_BG.png'
+              src="/assets/StartBuilding_001_BG.png"
               alt="Line background"
               loading="lazy"
               height="500"
@@ -94,7 +92,7 @@ const ThreadAnimation = () => {
               TechFusion&apos;24
             </h1>
             <p className="text-white text-xl md:text-4xl underline">
-              25-28 January 2024
+              09-12 January 2025
             </p>
 
             {live ? (

@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/card";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
-import { FaInstagram, FaLinkedin, FaPhoneAlt } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaPhoneAlt } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 
 function CACard({ data }) {
@@ -19,11 +19,11 @@ function CACard({ data }) {
           <div className="flex items-center justify-center">
             <img
               src="/techfusion_Logo_black.svg"
-              alt="TechFusion'24 Logo"
+              alt="TechFusion'25 Logo"
               width="w-[120vh]"
             />
           </div>
-          </CardTitle>
+        </CardTitle>
         <div className="flex justify-center items-center mb-2">
           {/* <img
             src={data.pictureUrl}
@@ -31,26 +31,40 @@ function CACard({ data }) {
             className="w-32 h-32 rounded-full object-cover mb-2"
           /> */}
           <Avatar className="w-32 h-32">
-              <AvatarImage src={data.pictureUrl} 
-            alt={data.name[0]} 
-            className="rounded-full object-cover mb-2"/>
-              <AvatarFallback>{data.name}</AvatarFallback>
+            <AvatarImage
+              src={data.pictureUrl}
+              alt={data.name[0]}
+              className="rounded-full object-cover mb-2"
+            />
+            <AvatarFallback>{data.name}</AvatarFallback>
           </Avatar>
         </div>
         <div className="mb-4">
           <p className="text-lg font-semibold mb-2">{data.name}</p>
-          <p className="text-lg font-semibold mb-2">CA Id: <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">{data.caId}</span></p>
-          <p className="text-lg font-semibold mb-2">{data.branch}<span className="ml-4">{data.batch}</span></p>
+          <p className="text-lg font-semibold mb-2">
+            CA Id:{" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+              {data.caId}
+            </span>
+          </p>
+          <p className="text-lg font-semibold mb-2">
+            {data.branch}
+            <span className="ml-4">{data.batch}</span>
+          </p>
           <p className="text-lg font-semibold mb-3">{data.college}</p>
           <div className="flex justify-center items-center mb-4">
             {data.mobile ? (
-              <a href={`tel:${data.mobile}`} className="flex items-center text-blue-800 hover:underline">
+              <a
+                href={`tel:${data.mobile}`}
+                className="flex items-center text-blue-800 hover:underline"
+              >
                 <FaPhoneAlt className="mr-2" />
                 {data.mobile}
               </a>
             ) : (
               <span className="flex items-center hover:underline">
-              <FaPhoneAlt className="mr-2" /> not available</span>
+                <FaPhoneAlt className="mr-2" /> not available
+              </span>
             )}
           </div>
         </div>

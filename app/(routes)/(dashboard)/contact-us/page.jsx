@@ -156,7 +156,7 @@ export const ContactUsPage = () => {
               When and where does TechFusion take place?
             </AccordionTrigger>
             <AccordionContent>
-              TechFusion will be held from January 25th to January 28th, 2024,
+              TechFusion will be held from January 09th to January 12th, 2025,
               at Katihar Engineering College, Katihar&apos;s campus.
             </AccordionContent>
           </AccordionItem>
@@ -174,8 +174,8 @@ export const ContactUsPage = () => {
             <AccordionTrigger>Do you provide accommodation?</AccordionTrigger>
             <AccordionContent>
               Yes, hostel accommodation is available on campus at Rs 50 per day.
-              Participants can avail of accommodation from January 24th until
-              January 29th, upon their arrival at the campus.
+              Participants can avail of accommodation from January 09th until
+              January 13th, upon their arrival at the campus.
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">

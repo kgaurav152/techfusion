@@ -63,7 +63,7 @@ const CoordinatorNavBar = () => {
               src="/TechFusionLogo.svg"
               width={30}
               height={30}
-              alt="TechFusion'24 Logo"
+              alt="TechFusion'25 Logo"
             />
           </Link>
         </div>

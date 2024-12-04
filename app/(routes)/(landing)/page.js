@@ -2,12 +2,12 @@
 
 import { Button } from "@/components/ui/button";
 import { MoveUpRight } from "lucide-react";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import Image from "next/image";
 import RiveAnimationComponent from "@/components/riveAnimation";
-import EventCarousel from "@/components/eventCarousel"; 
+import EventCarousel from "@/components/eventCarousel";
 import About from "@/components/about";
 import CertDownloader from "@/components/certificateDownload";
 import { eventCoordinators } from "@/public/coordinators";
@@ -55,11 +55,11 @@ const LandingPage = () => {
           />
           <div className="flex flex-col items-center mt-20">
             <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              {/* TechFusion&apos;24 */} TechFusion&apos;2.0
+              {/* TechFusion&apos;25 */} TechFusion&apos;25
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              {/*  24-27 December 2024 */} Tentative Dates- Last Week of Dec
-              2024
+              {/*  09-12 January 2025 */} Tentative Dates- First Week of Jan
+              2025
             </p>
             {live ? (
               <div>
@@ -154,7 +154,7 @@ const LandingPage = () => {
                   src="/registrationStartsFrom_19_dec.svg"
                   width={850}
                   height={200}
-                  alt="TechFusion 2.0 Registration from 19th nov"
+                  alt="TechFusion'25 Registration from 19th dec"
                 />
               </div>
             )}
@@ -277,7 +277,7 @@ const LandingPage = () => {
               src="/comingSoon.svg"
               width={900}
               height={200}
-              alt="TechFusion 2.0 Coming Soon"
+              alt="TechFusion'25 Coming Soon"
             />
             <p></p>
           </div>

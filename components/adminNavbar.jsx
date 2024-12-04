@@ -14,7 +14,7 @@ import {
 } from "@/components/ui/popover";
 import { Button } from "@/components/ui/button";
 import axios from "axios";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
 import { LogOutIcon } from "lucide-react";
@@ -63,7 +63,7 @@ const NavBar = () => {
               src="/TechFusionLogo.svg"
               width={30}
               height={30}
-              alt="TechFusion'24 Logo"
+              alt="TechFusion'25 Logo"
             />
           </Link>
         </div>
@@ -136,7 +136,11 @@ const NavBar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent className="w-fit py-1 px-2">
-                <Button  className="flex text-rose-500 hover:text-rose-700 items-center justify-center gap-3" variant="ghost" onClick={logoutHandler}>
+                <Button
+                  className="flex text-rose-500 hover:text-rose-700 items-center justify-center gap-3"
+                  variant="ghost"
+                  onClick={logoutHandler}
+                >
                   {" "}
                   <LogOutIcon className="w-5 h-5" />
                   Logout
