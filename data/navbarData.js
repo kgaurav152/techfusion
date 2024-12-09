@@ -55,7 +55,7 @@ export const navbarData = [
   },
   {
     label: "Hospitality",
-    href: "/admin/hospitality",
+    href: "/hospitality/dashboard",
     userType: "admin",
   },
   {
@@ -69,7 +69,7 @@ export const navbarData = [
     userType: "admin",
   },
   {
-    label: "All Paticipants Pending",
+    label: "All Paticipants",
     href: "/admin/participant/all",
     userType: "admin",
   },
