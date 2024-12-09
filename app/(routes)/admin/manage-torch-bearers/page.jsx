@@ -20,11 +20,21 @@ const ManageTorchBearerPage = () => {
         "/admin/manage-torch-bearers/manage-event-coordinator-assignment",
       cardInfo: "View, Add and manage Coordinator-Event relationship",
     },
+    {
+      cardTitle: "Manage Hospitality User",
+      redirectUrl: "/admin/manage-torch-bearers/manage-hospitality-user",
+      cardInfo: "View, Add and manage Hospitality User",
+    },
+    {
+      cardTitle: "Manage School Facilitator",
+      redirectUrl: "/admin/manage-torch-bearers/manage-school-facilitator",
+      cardInfo: "View, Add and manage School Facilitator",
+    },
   ];
 
   return (
     <React.Fragment>
-      <div className="grid w-11/12 mx-auto grid-cols-1 gap-3 lg:grid-cols-3">
+      <div className="grid w-11/12 mx-auto grid-cols-1 gap-3 lg:grid-cols-3 mb-6">
         {redirectArray.map((card, index) => (
           <RedirectCard
             key={index}
