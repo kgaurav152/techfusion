@@ -58,8 +58,7 @@ const LandingPage = () => {
               {/* TechFusion&apos;25 */} TechFusion&apos;25
             </h1>
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              {/*  09-12 January 2025 */} Tentative Dates- First Week of Jan
-              2025
+              09-12 January 2025
             </p>
             {live ? (
               <div>
@@ -177,7 +176,7 @@ const LandingPage = () => {
                   src="/comingSoon.svg"
                   width={900}
                   height={200}
-                  alt="TechFusion'24 Coming Soon"
+                  alt="TechFusion'25 Coming Soon"
                 />
               </div>
             </>
