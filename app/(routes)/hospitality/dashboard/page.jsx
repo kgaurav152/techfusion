@@ -26,16 +26,26 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { apiConnector } from "@/helpers/apiConnector";
 import PageMenubar from "@/components/pageMenuBar";
+import { Separator } from "@/components/ui/separator";
 Chart.register(...registerables);
 const AdminDashboard = () => {
   const { user } = useSelector((state) => state.profile);
   const [stats, setStats] = useState();
+  const [schoolStats, setSchoolStats] = useState();
   useEffect(() => {
     const fetchStats = async () => {
       const { data } = await apiConnector("POST", "/api/getAllStats");
       setStats(data?.data);
     };
+    const fetchSchoolStats = async () => {
+      const { data } = await apiConnector(
+        "POST",
+        "/api/school/getAllSchoolStats"
+      );
+      setSchoolStats(data?.data);
+    };
     fetchStats();
+    fetchSchoolStats();
   }, []);
   const generateRandomColors = (numColors) => {
     const colors = [];
@@ -127,7 +137,7 @@ const AdminDashboard = () => {
               <CardTitle>Insights</CardTitle>
               {/* <CardDescription>Card Description</CardDescription> */}
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex flex-col">
               {/* <div className="overflow-x-auto my-8"> */}
               <Table>
                 <TableCaption>
@@ -162,6 +172,48 @@ const AdminDashboard = () => {
                   </TableRow>
                 </TableBody>
               </Table>
+              <Separator className="my-8" />
+              {schoolStats && (
+                <Table>
+                  <TableCaption>
+                    Hospitality Management Insight - School
+                  </TableCaption>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[100px]">Matrix</TableHead>
+                      <TableHead>Total/Opted</TableHead>
+                      <TableHead>Alloted/Paid</TableHead>
+                      <TableHead>Pending</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody className="flex-col textcenter">
+                    <TableRow>
+                      <TableCell className="font-medium">Id Card</TableCell>
+                      <TableCell>
+                        {schoolStats?.idCardAllocation?.total}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.idCardAllocation?.yes}
+                      </TableCell>
+                      <TableCell>{schoolStats?.idCardAllocation?.no}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">
+                        Payment Status
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.total}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.approved}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.pending}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
           </Card>
         </div>
