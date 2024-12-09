@@ -34,7 +34,7 @@ export async function POST(req) {
     const length = 10;
     const mobile = Math.floor(
       Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1)
-    );
+    ).toString();
 
     const salt = await bcryptjs.genSalt(10);
     const hashPassword = await bcryptjs.hash(password, salt);
