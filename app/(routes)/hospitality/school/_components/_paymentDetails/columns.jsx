@@ -7,6 +7,10 @@ import { ModifyPaymentStatusButton } from "@/app/(routes)/hospitality/school/_co
 
 export const columns = (fetchAllParticipants) => [
   {
+    accessorKey: "createdAt",
+    header: "Created At",
+  },
+  {
     accessorKey: "festId",
     header: "TechFusion ID",
   },

@@ -567,6 +567,7 @@ export default function SchoolHospitality() {
         const restructuredUsers = unRestructuredUsers.map((user) => ({
           label: `${user.festId} - ${user.name}`,
           value: user._id,
+          createdAt: new Date(user.createdAt).toLocaleDateString("en-GB"),
           name: user.name,
           gender: user.gender,
           studentClass: user.studentClass,
