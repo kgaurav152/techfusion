@@ -59,7 +59,7 @@ export const columns = (fetchAllParticipants) => [
     },
     cell: ({ row }) => {
       const student = row.original;
-      return (
+      return student?.idCardAllocation !== true ? (
         <ModifyIdCardAllocationStatusButton
           schoolStudentId={student?.value}
           isPaymentConfirmed={student?.paymentStatus}
@@ -67,6 +67,8 @@ export const columns = (fetchAllParticipants) => [
           registeredStudent={student}
           fetchAllParticipants={fetchAllParticipants}
         />
+      ) : (
+        <p className="text-purple-500">Id Allocated</p>
       );
     },
   },
