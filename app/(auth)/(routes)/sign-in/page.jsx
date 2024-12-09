@@ -55,6 +55,8 @@ const SignInPage = () => {
           router.push("/coordinator/manage-event-participants");
         } else if (data?.data?.userType == "hospitality") {
           router.push("/hospitality/dashboard");
+        } else if (data?.data?.userType == "schoolfacilitator") {
+          router.push("/schoolfacilitator");
         } else {
           router.push("/");
         }
