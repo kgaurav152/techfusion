@@ -15,6 +15,17 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCaption,
+  TableCell,
+  TableFooter,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Separator } from "@/components/ui/separator";
 
 import Footer from "@/components/footer";
 import { useState, useEffect } from "react";
@@ -27,6 +38,7 @@ Chart.register(...registerables);
 const AdminDashboard = () => {
   const { user } = useSelector((state) => state.profile);
   const [stats, setStats] = useState();
+  const [schoolStats, setSchoolStats] = useState();
   // const dispatch = useDispatch();
   useEffect(() => {
     const fetchStats = async () => {
@@ -34,6 +46,14 @@ const AdminDashboard = () => {
       setStats(data?.data);
     };
     fetchStats();
+    const fetchSchoolStats = async () => {
+      const { data } = await apiConnector(
+        "POST",
+        "/api/school/getAllSchoolStats"
+      );
+      setSchoolStats(data?.data);
+    };
+    fetchSchoolStats();
   }, []);
   const generateRandomColors = (numColors) => {
     const colors = [];
@@ -78,6 +98,20 @@ const AdminDashboard = () => {
       },
     ],
   };
+  const schools = {
+    labels: schoolStats?.schoolParticipation.map((sch) => sch?.school),
+    datasets: [
+      {
+        label: "Student By Schools",
+        data: schoolStats?.schoolParticipation.map(
+          (school) => school?.totalStudent
+        ),
+        backgroundColor: generateRandomColors(
+          schoolStats?.schoolParticipation?.length
+        ),
+      },
+    ],
+  };
 
   const options = {
     maintainAspectRatio: true,
@@ -110,34 +144,94 @@ const AdminDashboard = () => {
       </p>
       <PageMenubar buttons={menuButtons} />
       {stats && (
-        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
+        <div className="mt-6 flex flex-col">
           <Card>
             <CardHeader>
-              <CardTitle>Participants Count</CardTitle>
+              <CardTitle>Insights</CardTitle>
               {/* <CardDescription>Card Description</CardDescription> */}
             </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-4">
-                <span className="col-span-2">Approved Participant</span>
-                <span>:</span>
-                <span className="font-semibold">
-                  {stats.allParticipants.approved}
-                </span>
-              </div>
-              <div className="grid grid-cols-4">
-                <span className="col-span-2">Pending Participant</span>
-                <span>:</span>
-                <span className="font-semibold">
-                  {stats.allParticipants.pending}
-                </span>
-              </div>
-              <div className="grid grid-cols-4">
-                <span className="col-span-2">Total Participant</span>
-                <span>:</span>
-                <span className="font-semibold">
-                  {stats.allParticipants.total}
-                </span>
-              </div>
+            <CardContent className="flex flex-col">
+              <Table>
+                <TableCaption>
+                  Hospitality Management Insight - College
+                </TableCaption>
+                <TableHeader>
+                  <TableRow>
+                    <TableHead className="w-[100px]">Matrix</TableHead>
+                    <TableHead>Total/Opted</TableHead>
+                    <TableHead>Alloted/Approved</TableHead>
+                    <TableHead>Pending</TableHead>
+                  </TableRow>
+                </TableHeader>
+                <TableBody className="flex-col textcenter">
+                  <TableRow>
+                    <TableCell className="font-medium">Participant</TableCell>
+                    <TableCell>{stats?.allParticipants?.total}</TableCell>
+                    <TableCell>{stats?.allParticipants?.approved}</TableCell>
+                    <TableCell>{stats?.allParticipants?.pending}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Id Card</TableCell>
+                    <TableCell>{stats?.idCardAllocation?.total}</TableCell>
+                    <TableCell>{stats?.idCardAllocation?.yes}</TableCell>
+                    <TableCell>{stats?.idCardAllocation?.no}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">Accomodation</TableCell>
+                    <TableCell>{stats?.totalAccomodation?.total}</TableCell>
+                    <TableCell>{stats?.totalAccomodation?.alloted}</TableCell>
+                    <TableCell>{stats?.totalAccomodation?.pending}</TableCell>
+                  </TableRow>
+                  <TableRow>
+                    <TableCell className="font-medium">TShirt</TableCell>
+                    <TableCell>{stats?.totalTshirtDetails?.total}</TableCell>
+                    <TableCell>{stats?.totalTshirtDetails?.alloted}</TableCell>
+                    <TableCell>{stats?.totalTshirtDetails?.alloted}</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+              <Separator className="my-8" />
+              {schoolStats && (
+                <Table>
+                  <TableCaption>
+                    Hospitality Management Insight - School
+                  </TableCaption>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[100px]">Matrix</TableHead>
+                      <TableHead>Total/Opted</TableHead>
+                      <TableHead>Alloted/Paid</TableHead>
+                      <TableHead>Pending</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody className="flex-col textcenter">
+                    <TableRow>
+                      <TableCell className="font-medium">Id Card</TableCell>
+                      <TableCell>
+                        {schoolStats?.idCardAllocation?.total}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.idCardAllocation?.yes}
+                      </TableCell>
+                      <TableCell>{schoolStats?.idCardAllocation?.no}</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell className="font-medium">
+                        Payment Status
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.total}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.approved}
+                      </TableCell>
+                      <TableCell>
+                        {schoolStats?.allSchoolStudents?.pending}
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              )}
             </CardContent>
             {/* <CardFooter>
             <p>Card Footer</p>
@@ -154,22 +248,24 @@ const AdminDashboard = () => {
             </div>
           </CardContent> 
         </Card> */}
-          <Card className="">
-            <CardHeader>
-              <CardTitle>Accomodation</CardTitle>
-            </CardHeader>
-            <CardContent className="h-[200px] flex items-center justify-center">
-              <Pie data={accomodation} options={options} />
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader>
-              <CardTitle>Tshirt</CardTitle>
-            </CardHeader>
-            <CardContent className="h-[200px] flex items-center justify-center">
-              <Pie data={tshirt} options={options} />
-            </CardContent>
-          </Card>
+          <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3 mt-6">
+            <Card className="">
+              <CardHeader>
+                <CardTitle>Accomodation</CardTitle>
+              </CardHeader>
+              <CardContent className="h-[200px] flex items-center justify-center">
+                <Pie data={accomodation} options={options} />
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Tshirt</CardTitle>
+              </CardHeader>
+              <CardContent className="h-[200px] flex items-center justify-center">
+                <Pie data={tshirt} options={options} />
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
       {stats && (
@@ -178,6 +274,16 @@ const AdminDashboard = () => {
             <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
               <h5 className="font-semibold text-2xl">Colleges</h5>
               <Bar data={colleges} options={options} />
+            </div>
+          </div>
+        </div>
+      )}
+      {schoolStats && (
+        <div className="my-10">
+          <div>
+            <div className=" hidden lg:flex md:flex flex-col gap-y-2 items-center justify-center">
+              <h5 className="font-semibold text-2xl">Schools</h5>
+              <Bar data={schools} options={options} />
             </div>
           </div>
         </div>
