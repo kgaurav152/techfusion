@@ -6,7 +6,6 @@ import { getDataFromToken } from "@/helpers/getDataFromToken";
 
 export async function PUT(req) {
   const { token, coordinatorId, updateData } = await req.json();
-  console.log(token, coordinatorId, updateData);
   connect();
 
   try {

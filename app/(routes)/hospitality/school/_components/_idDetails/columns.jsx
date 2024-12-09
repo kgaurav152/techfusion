@@ -59,7 +59,6 @@ export const columns = (fetchAllParticipants) => [
     },
     cell: ({ row }) => {
       const student = row.original;
-      console.log(student);
       return (
         <ModifyIdCardAllocationStatusButton
           schoolStudentId={student?.value}

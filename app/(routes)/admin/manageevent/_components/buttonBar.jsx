@@ -341,7 +341,6 @@ export function DeleteEventForm({ setOpen, EventId, setEventData, meantFor }) {
     try {
       const toastId = toast.loading("Loading...");
       const { data } = await apiConnector("POST", apiEndpoint, obj);
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Event Deleted!");

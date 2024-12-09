@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -351,7 +351,9 @@ export function CreateCoordinatorButton({ setCoordinatorData }) {
           <DialogTitle className="text-white text-2xl text-center">
             Create New Coordinator
           </DialogTitle>
-          <DialogDescription className="text-lg text-center">Fill details below carefully!</DialogDescription>
+          <DialogDescription className="text-lg text-center">
+            Fill details below carefully!
+          </DialogDescription>
         </DialogHeader>
         <CoordinatorCreationForm
           setOpen={setOpen}
@@ -709,7 +711,6 @@ export function DeleteCoordinatorForm({
         "/api/admin/coordinator/deleteCoordinator",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Coordinator Deleted!");

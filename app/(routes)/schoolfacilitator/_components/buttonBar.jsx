@@ -49,8 +49,6 @@ export function ModifyPaymentStatusForm({
         isPaymentConfirmed === false ? data.paymentReceivedBy : null,
     };
 
-    console.log(obj);
-
     try {
       const toastId = toast.loading("Loading...");
       const { data } = await apiConnector(

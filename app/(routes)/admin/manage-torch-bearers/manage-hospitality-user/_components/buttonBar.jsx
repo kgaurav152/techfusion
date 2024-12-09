@@ -322,7 +322,6 @@ export function DeleteHospitalityUserForm({
         "/api/admin/hospitality/deleteHospitalityUser",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("HospitalityUser Deleted!");

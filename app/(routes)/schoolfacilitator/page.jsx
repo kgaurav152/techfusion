@@ -157,12 +157,8 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
         obj
       );
       toast.dismiss(toastId);
-      console.log(data);
-      console.log("hello");
-      console.log(data.data);
       if (data.success) {
         toast.success("Student Registered Successfully!");
-        console.log(data.data);
         setRegisteredStudent(data.data);
         setIsRegistrationSuccessfulPopup(true);
         form.reset();

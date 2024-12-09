@@ -188,10 +188,8 @@ const EventRegistrationViaAdmin = () => {
     const eventId = watch("event");
     const selected = eventData?.find((ev) => ev?.value === eventId);
     setSelectedEvent(selected);
-    console.log(selected);
     const selectedForDetail = event?.find((ev) => ev?._id === eventId);
     setSelectedForEventDetail(selectedForDetail);
-    console.log(selectedForDetail);
     if (selected) {
       // form?.setValue("teamMembers", [{ festId: "", role: "Team Lead" }]);
       // for (let i = 1; i < selected?.minParticipants; i++) {

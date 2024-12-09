@@ -75,7 +75,6 @@ export function ModifyAccomodationForm({
         "/api/hospitality/modifyAccomodationStatus",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Accomodation Status Modified!");
@@ -575,7 +574,6 @@ export function ModifyIdCardAllocationForm({
         "/api/hospitality/idCardAllocation",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Id Card Allocation Status Modified!");

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -136,241 +136,231 @@ export function CampusAmbassadorCreationForm({
   };
 
   return (
-    
-      <Form {...form}>
-        <form
-          onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-5"
-        > 
-            <FormField
-              control={form.control}
-              name="id"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Enter CA Id*</FormLabel>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+        <FormField
+          control={form.control}
+          name="id"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Enter CA Id*</FormLabel>
+              <FormControl>
+                <Input placeholder="Enter Id of Ca" {...field} />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Name of CA*</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Name of Campus Ambassador"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="mobile"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Mobile of CA*</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Mobile of Campus Ambassador"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Email</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Email of Campus Ambassador"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="linkedin"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Linkedin</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter linkedin url of Campus Ambassador"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="pictureUrl"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Picture URL*</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Enter Picture URL of Campus Ambassador"
+                  {...field}
+                />
+              </FormControl>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="college"
+          render={({ field }) => (
+            <FormItem className="flex flex-col">
+              <FormLabel className="text-white">College*</FormLabel>
+              <Popover open={openPop} onOpenChange={setOpenPop}>
+                <PopoverTrigger asChild>
                   <FormControl>
-                    <Input placeholder="Enter Id of Ca" {...field} />
+                    <Button
+                      variant="outline"
+                      role="combobox"
+                      className={cn(
+                        "justify-between",
+                        !field.value && "text-muted-foreground"
+                      )}
+                    >
+                      {field.value
+                        ? colleges.find(
+                            (college) => college.value === field.value
+                          )?.label
+                        : "Select College"}
+                      <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                    </Button>
                   </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Name of CA*</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Name of Campus Ambassador"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="mobile"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Mobile of CA*</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Mobile of Campus Ambassador"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Email</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Email of Campus Ambassador"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="linkedin"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Linkedin</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter linkedin url of Campus Ambassador"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="pictureUrl"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Picture URL*</FormLabel>
-                  <FormControl>
-                    <Input
-                      placeholder="Enter Picture URL of Campus Ambassador"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="college"
-              render={({ field }) => (
-                <FormItem className="flex flex-col">
-                  <FormLabel className="text-white">College*</FormLabel>
-                  <Popover open={openPop} onOpenChange={setOpenPop}>
-                    <PopoverTrigger asChild>
-                      <FormControl>
-                        <Button
-                          variant="outline"
-                          role="combobox"
-                          className={cn(
-                            "justify-between",
-                            !field.value && "text-muted-foreground"
-                          )}
-                        >
-                          {field.value
-                            ? colleges.find(
-                                (college) => college.value === field.value
-                              )?.label
-                            : "Select College"}
-                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
-                        </Button>
-                      </FormControl>
-                    </PopoverTrigger>
-                    <PopoverContent className="p-0">
-                      <Command>
-                        <CommandInput placeholder="Search College..." />
-                        <CommandEmpty>No College found.</CommandEmpty>
-                        <ScrollArea className="h-48 overflow-auto">
-                          <CommandGroup>
-                            {colleges.map((college) => (
-                              <CommandItem
-                                value={college.label}
-                                key={college.value}
-                                onSelect={() => {
-                                  form.setValue("college", college.value);
-                                  setOpenPop(false);
-                                }}
-                              >
-                                <Check
-                                  className={cn(
-                                    "mr-2 h-4 w-4",
-                                    college.value === field.value
-                                      ? "opacity-100"
-                                      : "opacity-0"
-                                  )}
-                                />
-                                {college.label}
-                              </CommandItem>
-                            ))}
-                          </CommandGroup>
-                        </ScrollArea>
-                      </Command>
-                    </PopoverContent>
-                  </Popover>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="branch"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Branch*</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Branch" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {branches &&
-                        branches.map((item, index) => (
-                          <SelectItem
-                            key={index}
-                            value={item.value}
-                          >{`${item.label}`}</SelectItem>
+                </PopoverTrigger>
+                <PopoverContent className="p-0">
+                  <Command>
+                    <CommandInput placeholder="Search College..." />
+                    <CommandEmpty>No College found.</CommandEmpty>
+                    <ScrollArea className="h-48 overflow-auto">
+                      <CommandGroup>
+                        {colleges.map((college) => (
+                          <CommandItem
+                            value={college.label}
+                            key={college.value}
+                            onSelect={() => {
+                              form.setValue("college", college.value);
+                              setOpenPop(false);
+                            }}
+                          >
+                            <Check
+                              className={cn(
+                                "mr-2 h-4 w-4",
+                                college.value === field.value
+                                  ? "opacity-100"
+                                  : "opacity-0"
+                              )}
+                            />
+                            {college.label}
+                          </CommandItem>
                         ))}
-                    </SelectContent>
-                  </Select>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="batch"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel className="text-white">Batch*</FormLabel>
-                  <Select
-                    onValueChange={field.onChange}
-                    defaultValue={field.value}
-                  >
-                    <FormControl>
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select Batch" />
-                      </SelectTrigger>
-                    </FormControl>
-                    <SelectContent>
-                      {batches &&
-                        batches.map((item, index) => (
-                          <SelectItem key={index} value={item.value}>
-                            {item.label}
-                          </SelectItem>
-                        ))}
-                    </SelectContent>
-                  </Select>
-                  <FormDescription />
-                  <FormMessage />
-                </FormItem>
-              )}
-            /> 
-          <Button
-            type="submit"
-            disabled={isLoading}
-            className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
-          >
-            Create CA
-          </Button>
-        </form>
-      </Form> 
+                      </CommandGroup>
+                    </ScrollArea>
+                  </Command>
+                </PopoverContent>
+              </Popover>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="branch"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Branch*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Branch" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {branches &&
+                    branches.map((item, index) => (
+                      <SelectItem
+                        key={index}
+                        value={item.value}
+                      >{`${item.label}`}</SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="batch"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Batch*</FormLabel>
+              <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormControl>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Select Batch" />
+                  </SelectTrigger>
+                </FormControl>
+                <SelectContent>
+                  {batches &&
+                    batches.map((item, index) => (
+                      <SelectItem key={index} value={item.value}>
+                        {item.label}
+                      </SelectItem>
+                    ))}
+                </SelectContent>
+              </Select>
+              <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button
+          type="submit"
+          disabled={isLoading}
+          className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-2xl border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 flex items-center border-white hover:border-none"
+        >
+          Create CA
+        </Button>
+      </form>
+    </Form>
   );
 }
 
@@ -388,7 +378,7 @@ export function CreateCampusAmbassadorButton({ setCampusAmbassadorData }) {
             Create New Campus Ambassador
           </DialogTitle>
           <DialogDescription className="text-lg text-center">
-          Fill details below carefully!
+            Fill details below carefully!
           </DialogDescription>
         </DialogHeader>
         <CampusAmbassadorCreationForm
@@ -770,7 +760,6 @@ export function DeleteCampusAmbassadorForm({
         "/api/campusAmbassador/deleteCampusAmbassador",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Campus Ambassador Deleted!");

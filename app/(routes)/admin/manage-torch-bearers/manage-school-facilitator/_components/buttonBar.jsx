@@ -322,7 +322,6 @@ export function DeleteSchoolFacilitatorForm({
         "/api/admin/schoolFacilitator/deleteSchoolFacilitator",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("SchoolFacilitator Deleted!");
