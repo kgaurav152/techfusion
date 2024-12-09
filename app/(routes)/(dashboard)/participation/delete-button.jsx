@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 // import axios from "axios";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,9 +20,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
- 
- 
-import { apiConnector } from "@/helpers/apiConnector"; 
+
+import { apiConnector } from "@/helpers/apiConnector";
 
 export function DeleteEventAlert({
   setOpen,
@@ -41,7 +40,6 @@ export function DeleteEventAlert({
         "/api/deleteParticipation",
         obj
       );
-      console.log(data);
       toast.dismiss(toastId);
       if (data.success) {
         toast.success("Participation to the event deleted!");
@@ -69,7 +67,11 @@ export function DeleteEventAlert({
         >
           Confirm
         </Button>
-        <Button variant="secondary" type="button" onClick={() => setOpen(false)}>
+        <Button
+          variant="secondary"
+          type="button"
+          onClick={() => setOpen(false)}
+        >
           Cancel
         </Button>
       </div>

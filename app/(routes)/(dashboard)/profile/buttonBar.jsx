@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState } from "react";
 // import axios from "axios";
-import {toast} from 'sonner'
+import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
 
 import { Input } from "@/components/ui/input";
-import { Textarea } from '@/components/ui/textarea';
+import { Textarea } from "@/components/ui/textarea";
 import {
   Dialog,
   DialogContent,
@@ -35,38 +35,48 @@ import {
   CardFooter,
   CardTitle,
   CardDescription,
-  CardContent
+  CardContent,
 } from "@/components/ui/card";
 import {
-    Select,
-    SelectContent,
-    SelectItem,
-    SelectTrigger,
-    SelectValue,
-} from "@/components/ui/select"
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { apiConnector } from "@/helpers/apiConnector";
 
-export function DeleteEventForm({ setOpen,  participationId, setParticipatingEventsData }) {
+export function DeleteEventForm({
+  setOpen,
+  participationId,
+  setParticipatingEventsData,
+}) {
   const handleParticipationDeletion = async () => {
-    const obj = { 
-      participation_id: participationId
-    }; 
+    const obj = {
+      participation_id: participationId,
+    };
 
-  try {
-    const toastId = toast.loading("Loading...");
-      const { data } = await apiConnector("POST","/api/deleteParticipation",obj);
-      console.log(data)
-      toast.dismiss(toastId); 
+    try {
+      const toastId = toast.loading("Loading...");
+      const { data } = await apiConnector(
+        "POST",
+        "/api/deleteParticipation",
+        obj
+      );
+      toast.dismiss(toastId);
       if (data.success) {
-          toast.success("Participation to the event deleted!");
-          setOpen(false);
-          setParticipatingEventsData([...data.data?.technical,...data.data?.cultural]);
+        toast.success("Participation to the event deleted!");
+        setOpen(false);
+        setParticipatingEventsData([
+          ...data.data?.technical,
+          ...data.data?.cultural,
+        ]);
       } else {
-      toast.error(data.message);
+        toast.error(data.message);
       }
-  } catch (err) {
+    } catch (err) {
       console.log(err);
-  }
+    }
   };
 
   return (
@@ -101,7 +111,11 @@ export function DeleteButton({ participationId, setParticipatingEventsData }) {
         <DialogHeader>
           <DialogTitle>Delete Participation</DialogTitle>
         </DialogHeader>
-        <DeleteEventForm setOpen={setOpen} participationId={participationId} setParticipatingEventsData={setParticipatingEventsData} />
+        <DeleteEventForm
+          setOpen={setOpen}
+          participationId={participationId}
+          setParticipatingEventsData={setParticipatingEventsData}
+        />
       </DialogContent>
     </Dialog>
   );
