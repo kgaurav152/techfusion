@@ -92,7 +92,13 @@ const UserSchema = new mongoose.Schema({
   },
   userType: {
     type: String,
-    enum: ["admin", "participant", "coordinator", "hospitality"],
+    enum: [
+      "admin",
+      "participant",
+      "coordinator",
+      "hospitality",
+      "schoolfacilitator",
+    ],
     default: "participant",
   },
   // participatedIn:[{
