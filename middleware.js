@@ -9,15 +9,29 @@ export function middleware(request) {
   const pathname = url.pathname;
   // Role-based access restrictions
   const restrictedPaths = {
-    participant: ["/admin", "/hospitality", "/coordinator"],
+    participant: [
+      "/admin",
+      "/hospitality",
+      "/coordinator",
+      "/schoolfacilitator",
+    ],
     hospitality: [
       "/admin",
       "/coordinator",
+      "/schoolfacilitator",
       "/eventregistrationviaca",
       "/eventregistration",
     ],
     coordinator: [
       "/admin",
+      "/hospitality",
+      "/schoolfacilitator",
+      "/eventregistrationviaca",
+      "/eventregistration",
+    ],
+    schoolfacilitator: [
+      "/admin",
+      "/coordinator",
       "/hospitality",
       "/eventregistrationviaca",
       "/eventregistration",
@@ -47,6 +61,8 @@ export function middleware(request) {
       return NextResponse.redirect(
         new URL("/hospitality/dashboard", request.url)
       );
+    } else if (userType == "schoolfacilitator") {
+      return NextResponse.redirect(new URL("/schoolfacilitator", request.url));
     }
     return NextResponse.redirect(new URL("/", request.url));
   }
