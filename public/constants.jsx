@@ -450,3 +450,54 @@ export const deskManagers = [
     value: "Tanya",
   },
 ];
+
+export const schoolFacilitators = [
+  {
+    label: "Abhishek-105026",
+    value: "Abhishek-105026",
+  },
+  {
+    label: "Adarsh-101002",
+    value: "Adarsh-101002",
+  },
+  {
+    label: "Chiranjeev-101050",
+    value: "Chiranjeev-101050",
+  },
+  {
+    label: "Krishan-101031",
+    value: "Krishan-101031",
+  },
+  {
+    label: "Monika-105051",
+    value: "Monika-105051",
+  },
+  {
+    label: "Prakash-101020",
+    value: "Prakash-101020",
+  },
+  {
+    label: "RajLakshmi-105039",
+    value: "RajLakshmi-105039",
+  },
+  {
+    label: "Ruchika-110015",
+    value: "Ruchika-110015",
+  },
+  {
+    label: "Sarweshwar-102030",
+    value: "Sarweshwar-102030",
+  },
+  {
+    label: "Tanya-101004",
+    value: "Tanya-101004",
+  },
+  {
+    label: "Tejasvi-101026",
+    value: "Tejasvi-101026",
+  },
+  {
+    label: "Vikram-102921",
+    value: "Vikram-102921",
+  },
+];
