@@ -12,8 +12,8 @@ const About = () => {
           <br />
           <br />
           The initial three days showcase technical competitions, workshops, and
-          lectures, drawing 2,000+ participants from various engineering
-          institutes. It&apos;s a hub of innovation and creativity.
+          lectures, drawing 2,000+ participants from various engineering and
+          technical institutes. It&apos;s a hub of innovation and creativity.
           <br />
           <br />
           The concluding day features vibrant cultural events, uniting students
@@ -32,11 +32,11 @@ const About = () => {
           workshops, invigorating cultural events, and thought-provoking guest
           lectures. The initial three days spotlight technical competitions,
           exhibitions, hands-on workshops, and captivating guest lectures.
-          Drawing over 2,000 participants from engineering institutes statewide
-          and beyond, these days cultivate an environment where innovation
-          thrives, igniting collisions of minds and sparking creativity.
-          Shifting seamlessly to cultural celebrations on the fourth day,
-          TechFusion&apos;25 amplifies vibrant cultural events, embracing
+          Drawing over 2,000+ participants from engineering and technical
+          institutes statewide and beyond, these days cultivate an environment
+          where innovation thrives, igniting collisions of minds and sparking
+          creativity. Shifting seamlessly to cultural celebrations on the fourth
+          day, TechFusion&apos;25 amplifies vibrant cultural events, embracing
           diversity and talent. Showcasing captivating performances and artistic
           displays, these cultural days serve as a spectacle uniting students in
           a jubilant celebration of art, music, and tradition. Embrace the
@@ -50,7 +50,7 @@ const About = () => {
       <div className=" w-full md:w-1/2 lg:w-1/2">
         <img
           className="w-full h-750 object-cover rounded-lg"
-          src="https://i.imgur.com/yxSOBuV.jpg"
+          src="https://i.imgur.com/vlNKa9y.jpg"
           alt="About Us"
         />
       </div>

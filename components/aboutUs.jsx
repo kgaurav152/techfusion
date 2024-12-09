@@ -25,23 +25,23 @@ function AboutUs({ clampAbout }) {
                   TechFusion&apos;25 will be dedicated to a spectrum of
                   technical competitions, exhibitions, hands-on workshops, and
                   riveting guest lectures, attracting over 2,000+ participants
-                  from engineering institutes across the state and outside also.
-                  It&apos;s a melting pot of innovation, where minds collide,
-                  ideas spark, and creativity flourishes. Transitioning
-                  seamlessly from technology to culture, the final and 4th day
-                  of TechFusion&apos;25 will transform the ambiance with vibrant
-                  cultural events, fostering a celebration of diversity and
-                  talent. From captivating performances to artistic displays,
-                  these cultural days promise to be a spectacle of talent,
-                  uniting students in a celebration of art, music, and
-                  traditions. Embrace the excitement, fuel your curiosity, and
-                  immerse yourself in an unforgettable journey into the realms
-                  of innovation, technology, and culture. Join us at Katihar
-                  Engineering College, Katihar for TechFusion&apos;25 - a
-                  four-day extravaganza where brilliance meets innovation and
-                  cultural fervor! Mark your calendars, for this is where the
-                  future unfolds - TechFusion&apos;25, where technology meets
-                  culture in a harmony of excellence!
+                  from engineering and technical institutes across the state and
+                  outside also. It&apos;s a melting pot of innovation, where
+                  minds collide, ideas spark, and creativity flourishes.
+                  Transitioning seamlessly from technology to culture, the final
+                  and 4th day of TechFusion&apos;25 will transform the ambiance
+                  with vibrant cultural events, fostering a celebration of
+                  diversity and talent. From captivating performances to
+                  artistic displays, these cultural days promise to be a
+                  spectacle of talent, uniting students in a celebration of art,
+                  music, and traditions. Embrace the excitement, fuel your
+                  curiosity, and immerse yourself in an unforgettable journey
+                  into the realms of innovation, technology, and culture. Join
+                  us at Katihar Engineering College, Katihar for
+                  TechFusion&apos;25 - a four-day extravaganza where brilliance
+                  meets innovation and cultural fervor! Mark your calendars, for
+                  this is where the future unfolds - TechFusion&apos;25, where
+                  technology meets culture in a harmony of excellence!
                 </p>
                 <br />
                 <div>
@@ -68,10 +68,10 @@ function AboutUs({ clampAbout }) {
                 TechFusion&apos;25 will be dedicated to a spectrum of technical
                 competitions, exhibitions, hands-on workshops, and riveting
                 guest lectures, attracting over 2,000+ participants from
-                engineering institutes across the state and outside also.
-                It&apos;s a melting pot of innovation, where minds collide,
-                ideas spark, and creativity flourishes. Transitioning seamlessly
-                from technology to culture, the final and 4th day of
+                engineering and technical institutes across the state and
+                outside also. It&apos;s a melting pot of innovation, where minds
+                collide, ideas spark, and creativity flourishes. Transitioning
+                seamlessly from technology to culture, the final and 4th day of
                 TechFusion&apos;25 will transform the ambiance with vibrant
                 cultural events, fostering a celebration of diversity and
                 talent. From captivating performances to artistic displays,
@@ -93,7 +93,7 @@ function AboutUs({ clampAbout }) {
         <div className="mx-auto p-2 lg:px-4 bg-[#00040F]">
           <div className="flex justify-center items-center">
             <img
-              src="/aboutUs.png"
+              src="/aboutUs.jpg"
               alt="TechFusion'25 Hero Poster"
               className="max-w-full h-auto"
             />
