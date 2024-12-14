@@ -101,7 +101,7 @@ export const CAPage = () => {
       >
         <h3 className="text-lg md:text-xl text-white max-w-xl font-bold mb-4">
           Select your College below to get contact details of your
-          college&apos;s <span className="">TechFusion&apos;24</span> Campus
+          college&apos;s <span className="">TechFusion&apos;25</span> Campus
           Ambassador:
         </h3>
         <div className="mt-4 w-full mb-5">
@@ -159,7 +159,7 @@ export const CAPage = () => {
         {value && selectedCampusAmbassador.length > 0 ? (
           <div className="campusAmbassadors">
             <h4 className="text-xl font-bold text-white mb-10 mt-4">
-              TechFusion&apos;24 Campus Ambassdor:
+              TechFusion&apos;25 Campus Ambassdor:
             </h4>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {selectedCampusAmbassador.length > 0 &&

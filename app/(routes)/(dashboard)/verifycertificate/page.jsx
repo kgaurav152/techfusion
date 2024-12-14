@@ -76,20 +76,20 @@ const CertificateVerificationForm = () => {
           className="font-bold text-[2rem] md:text-[3rem] text-border-white"
           style={{ ...neonTextStyle }}
         >
-          Verify TechFusion&apos;24 Participation Certificate
+          Verify TechFusion&apos;25 Participation Certificate
         </h1>
         <Card className="mx-auto w-full max-w-xl mb-8 mt-20 text-left">
           <CardHeader>
             <CardTitle>
               <h2 className="font-bold text-xl">
-                Enter TechFusion&apos;24 Certificate Id Below To Verify
+                Enter TechFusion&apos;25 Certificate Id Below To Verify
               </h2>
             </CardTitle>
           </CardHeader>
           <CardContent>
             <Form {...form}>
               <form
-                onSubmit={form.handleSubmit(onSubmit)} 
+                onSubmit={form.handleSubmit(onSubmit)}
                 className="w-full max-w-md mx-auto space-y-5"
               >
                 <FormField

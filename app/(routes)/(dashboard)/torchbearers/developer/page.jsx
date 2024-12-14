@@ -34,7 +34,7 @@ export const DeveloperPage = () => {
         {developers.length > 0 && (
           <div className="developers">
             <h4 className="text-2xl font-bold mb-10 mt-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              TechFusion&apos;24 Website Developers:
+              TechFusion&apos;25 Website Developers:
             </h4>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {developers.length > 0 &&
