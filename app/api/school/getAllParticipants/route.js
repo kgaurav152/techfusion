@@ -20,7 +20,7 @@ export async function POST(req) {
         message: "This is protected route for Admin and hospitality access",
       });
     }
-    const data = await SchoolStudent.find();
+    const data = await SchoolStudent.find().populate("createdBy");
     return NextResponse.json({
       success: true,
       message: "All School Participant Fetched",

@@ -44,8 +44,10 @@ export async function POST(request) {
     const fetchedPaymentReceivedBy = null;
     const isPaymentConfirmed = false;
     const idCardAllocation = false;
+    const createdBy = userID;
 
     const schoolCode = fetchedSchool
+      .replace(/\./g, "")
       .replace(/\s+/g, "")
       .substring(0, 4)
       .toUpperCase();
@@ -94,6 +96,7 @@ export async function POST(request) {
       paymentReceivedBy: fetchedPaymentReceivedBy,
       isPaymentConfirmed,
       idCardAllocation,
+      createdBy,
     });
 
     const savedSchoolStudent = await newSchoolStudent.save();
