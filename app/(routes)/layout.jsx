@@ -36,9 +36,7 @@ const DashboardLayout = ({ children }) => {
   return (
     <div className="min-h-[100vh] bg-[#00040F] relative">
       <NavBar />
-     <div className="mt-10">
       {children}
-     </div>
       <Footer />
       <BottomBar />
     </div>

@@ -70,6 +70,7 @@
     "react-redux": "^8.1.2",
     "react-to-print": "^2.14.15",
     "remark-gfm": "^4.0.0",
+    "simplex-noise": "^4.0.3",
     "sonner": "^1.7.0",
     "styled-components": "^6.1.6",
     "tailwind-merge": "^2.1.0",

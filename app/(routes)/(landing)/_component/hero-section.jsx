@@ -1,5 +1,6 @@
 import CertDownloader from "@/components/certificateDownload";
 import { Button } from "@/components/ui/button";
+import { Vortex } from "@/components/ui/vortex";
 import { MoveUpRight } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -17,9 +18,9 @@ const HeroSection = ({ live }) => {
   };
 
   return (
-    <div className="relative text-center mb-8 lg:min-h-[80vh]">
-      <div className="z-0">
-        <Image
+    <div className="relativz text-center h-screen min-h-[80vh]">
+      {/* <div className="z-0"> */}
+      {/* <Image
           alt="Light ray background"
           fetchpriority="high"
           width="1000"
@@ -30,12 +31,13 @@ const HeroSection = ({ live }) => {
           style={{ color: "transparent" }}
           srcset="/bghero.png 1x, /bghero.png 2x"
           src="/bghero.png"
-        />
-        <div className="flex flex-col items-center">
-          <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            TechFusion&apos;25
-          </h1>
+        /> */}
 
+      <Vortex backgroundColor="black" particleCount={400} baseSpeed={0} rangeY={400} baseHue={120}>
+        <h1 className="font-extrabold pt-10 text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+          TechFusion&apos;25
+        </h1>
+        <div className="flex flex-col items-center">
           <p className="text-xl md:text-4xl mb-5 mt-4 underline">
             09-12 January 2025
           </p>
@@ -137,7 +139,8 @@ const HeroSection = ({ live }) => {
             </div>
           )}
         </div>
-      </div>
+      </Vortex>
+      {/* </div> */}
     </div>
   );
 };
