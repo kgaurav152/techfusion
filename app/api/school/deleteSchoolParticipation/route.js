@@ -12,7 +12,11 @@ export async function DELETE(req) {
     const userID = await getDataFromToken(token);
     const user = await User.findById(userID);
 
-    if (user?.userType !== "admin" && user?.userType !== "hospitality") {
+    if (
+      user?.userType !== "admin" &&
+      user?.userType !== "hospitality" &&
+      user?.userType !== "schoolfacilitator"
+    ) {
       return NextResponse.json({
         success: false,
         message: "This is protected route for Admin and hospitality access",
@@ -21,7 +25,7 @@ export async function DELETE(req) {
 
     const schoolParticipation = await SchoolParticipation.findById(
       participationId
-    ).populate("schoolEvent"); 
+    ).populate("schoolEvent");
     if (schoolParticipation.schoolEvent.eventType === "Technical") {
       for (let i = 0; i < schoolParticipation.participants.length; i++) {
         await SchoolStudent.findByIdAndUpdate(
