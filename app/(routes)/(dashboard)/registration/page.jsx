@@ -316,10 +316,11 @@ const RegistrationForm = () => {
           <CardContent>
             <div className="flex items-center justify-center text-center pt-4 mb-8 mt-8">
               <p className="font-bold text-xl font-mono text-red-600">
-                Oops! Registration is closed now!
+                {/* Oops! Registration is closed now! */}
+                Registration starts from 19th December 2024!
               </p>
             </div>
-            <div className="flex flex-col items-center pt-4">
+            {/* <div className="flex flex-col items-center pt-4">
               <p className="font-semibold font-mono mb-10">
                 Having Issue with registration contact you Campus Ambassador
                 below:
@@ -333,7 +334,7 @@ const RegistrationForm = () => {
               >
                 Find Your Campus Ambassador
               </Button>
-            </div>
+            </div> */}
           </CardContent>
         </Card>
       </div>

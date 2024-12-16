@@ -33,7 +33,7 @@ const LandingPage = () => {
       {/* Events Section */}
       <section className="mb-10">
         <div>
-          {live ? (
+          {/* {live ? (
             <EventCarousel />
           ) : (
             <>
@@ -47,8 +47,8 @@ const LandingPage = () => {
                 />
               </div>
             </>
-          )}
-          {/* <EventCarousel /> */}
+          )} */}
+          <EventCarousel />
         </div>
       </section>
 
