@@ -565,6 +565,7 @@ export default function SchoolHospitality() {
           label: `${user.festId} - ${user.name}`,
           value: user._id,
           createdAt: new Date(user.createdAt).toLocaleDateString("en-GB"),
+          createdBy: user.createdBy,
           name: user.name,
           gender: user.gender,
           studentClass: user.studentClass,

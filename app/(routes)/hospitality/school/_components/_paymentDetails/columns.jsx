@@ -11,6 +11,18 @@ export const columns = (fetchAllParticipants) => [
     header: "Created At",
   },
   {
+    accessorKey: "createdBy",
+    header: "Created By",
+    cell: ({ row }) => {
+      const student = row.original;
+      return student?.createdBy ? (
+        <p>{student?.createdBy?.name}</p>
+      ) : (
+        <p>N/A</p>
+      );
+    },
+  },
+  {
     accessorKey: "festId",
     header: "TechFusion ID",
   },
