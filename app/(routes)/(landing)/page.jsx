@@ -28,7 +28,7 @@ const LandingPage = () => {
     <div className="text-white text-center min-h-[100vh] bg-[#00040F] relative">
       <HeroSection live={live} />
       {/*Star Wars Animation*/}
-      {/* <RiveAnimationComponent live={live} /> */}
+      <RiveAnimationComponent live={live} />
 
       {/* Events Section */}
       <section className="mb-10">
