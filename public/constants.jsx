@@ -374,6 +374,10 @@ export const schools = [
     value: "PM SHREE Kendriya Vidyalaya, Katihar",
   },
   {
+    label: "S.B.P Vidya Vihar, Katihar",
+    value: "S.B.P Vidya Vihar, Katihar",
+  },
+  {
     label: "Scottish Public School, Katihar",
     value: "Scottish Public School, Katihar",
   },
