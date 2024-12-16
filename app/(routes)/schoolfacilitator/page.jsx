@@ -596,6 +596,13 @@ export default function SchoolHospitality() {
 
   return (
     <>
+      <div className="flex justify-center gap-4 w-11/12 mx-auto mt-4 mb-8">
+        <Button
+          onClick={(e) => handleClick(e, "/schoolfacilitator/event-management")}
+        >
+          Manage School Event Participation
+        </Button>
+      </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
         <Tabs defaultValue="studentRegistration" className="max-w-4xl w-full">
           <TabsList className="grid w-full grid-cols-2">
