@@ -18,7 +18,7 @@ const HeroSection = ({ live }) => {
   };
 
   return (
-    <div className="relativz text-center h-screen min-h-[80vh]">
+    <div className="relativz text-center h-screen overflow-hidden min-h-[80vh]">
       {/* <div className="z-0"> */}
       {/* <Image
           alt="Light ray background"
