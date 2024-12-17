@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
-const EventCard = ({ event }) => {
+const EventCard = ({ event, renderFor }) => {
   const { user } = useSelector((state) => state.profile);
 
   return (
@@ -19,15 +19,21 @@ const EventCard = ({ event }) => {
           height={500}
         />
         <div className="px-6 py-4">
-          <div className="text-white font-bold text-xl mb-3">
-            {event.name}
-            <br />
-            <p className="text-base">Event Id: {event.eventId}</p>
-            <p className="text-base">Event Type: {event.eventType}</p>
-            <div className="flex flex-row gap-2">
-              <p className="text-lg mb-1">Participant Allowed-</p>
-              <p className="text-lg mb-1">min: {event?.min},</p>
-              <p className="text-lg mb-1">max: {event?.max}</p>
+          <div className="text-white font-bold mb-3 gap-2">
+            <p className="text-xl mb-2">{event.name}</p>
+            <p className="text-base">
+              Event Id: <span className="text-sm"> {event.eventId} </span>
+            </p>
+            <p className="text-base">
+              Event Type: <span className="text-sm"> {event.eventType} </span>
+            </p>
+            <div className="flex flex-col md:gap-2 md:flex-row">
+              <p className="text-base mb-1">Participant Allowed:</p>
+              <div className="flex flex-row items-center gap-1">
+                <p className="text-sm mb-1">min: {event?.min}</p>
+                <p className="text-xs mb-1">|</p>
+                <p className="text-sm mb-1">max: {event?.max}</p>
+              </div>
             </div>
           </div>
           <p className="text-gray-300 text-base line-clamp-5">
@@ -38,16 +44,22 @@ const EventCard = ({ event }) => {
         <div className="flex flex-row gap-6 mb-4 justify-center">
           <Link
             className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-400 text-black"
-            href={`/events/detail/${event._id}`}
+            href={
+              renderFor == "college"
+                ? `/events/detail/${event._id}`
+                : `/events/school-events/detail/${event._id}`
+            }
           >
             Read more
           </Link>
-          <Link
-            className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
-            href={user ? "/eventregistration" : "/registration"}
-          >
-            Register now
-          </Link>
+          {renderFor && renderFor == "college" && (
+            <Link
+              className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
+              href={user ? "/eventregistration" : "/registration"}
+            >
+              Register now
+            </Link>
+          )}
         </div>
       </div>
     </div>
