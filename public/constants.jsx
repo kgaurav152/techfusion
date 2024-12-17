@@ -465,6 +465,10 @@ export const schoolFacilitators = [
     value: "Adarsh-101002",
   },
   {
+    label: "Aryan-102014",
+    value: "Aryan-102014",
+  },
+  {
     label: "Chiranjeev-101050",
     value: "Chiranjeev-101050",
   },
