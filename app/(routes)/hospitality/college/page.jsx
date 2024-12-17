@@ -758,6 +758,62 @@ export function IdCard({ fetchAllParticipants, allParticipantsData }) {
                     <p className="font-mono">
                       Id Card have not been alloted yet to the User.
                     </p>
+                    <div className="bg-white p-4 rounded shadow-md">
+                      <h2 className="mb-2 text-center font-extrabold">
+                        Participant Details:
+                      </h2>
+                      <p className="font-mono mb-2">
+                        Participant&apos;s TechFusion Id:{" "}
+                        {form.watch("user").festId ? (
+                          <strong>{form.watch("user").festId}</strong>
+                        ) : (
+                          <span className="text-red-600">not available</span>
+                        )}
+                      </p>
+                      <p className="font-mono mb-2">
+                        Name:{" "}
+                        <b>
+                          {form.watch("user").name ? (
+                            form.watch("user").name
+                          ) : (
+                            <span className="text-red-600">not available</span>
+                          )}
+                        </b>{" "}
+                        !
+                      </p>
+                      <p className="font-mono mb-2">
+                        College:{" "}
+                        {form.watch("user")?.college ? (
+                          form.watch("user").college
+                        ) : (
+                          <span className="text-red-600">not available</span>
+                        )}
+                      </p>
+                      <p className="font-mono mb-2">
+                        Phone:{" "}
+                        {form.watch("user")?.mobile ? (
+                          form.watch("user").mobile
+                        ) : (
+                          <span className="text-red-600">not available</span>
+                        )}
+                      </p>
+                      <p className="font-mono mb-2">
+                        Batch:{" "}
+                        {form.watch("user")?.batch ? (
+                          form.watch("user").batch
+                        ) : (
+                          <span className="text-red-600">not available</span>
+                        )}
+                      </p>
+                      <p className="font-mono mb-2">
+                        Payment Status:{" "}
+                        {form.watch("user")?.paymentStatus === true ? (
+                          <span className="text-green-500">Paid</span>
+                        ) : (
+                          <span className="text-red-600">Pending</span>
+                        )}
+                      </p>
+                    </div>
                     <Button
                       type="submit"
                       disabled={loading}
@@ -790,6 +846,11 @@ export default function CollegeHospitality() {
         const restructuredUsers = unRestructuredUsers.map((user) => ({
           label: `${user.festId} - ${user.name}`,
           value: user._id,
+          name: user.name,
+          festId: user.festId,
+          college: user.college,
+          batch: user.batch,
+          mobile: user.mobile,
           tShirtSize: user.tShirtSize,
           gender: user.gender,
           paymentStatus: user.status,
