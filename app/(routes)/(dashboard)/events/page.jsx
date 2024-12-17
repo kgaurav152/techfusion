@@ -1,15 +1,18 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-// import Link from "next/link";
-import { toast } from "sonner";
+import React from "react";
 
 import EventCard from "@/components/eventCard";
-import { apiConnector } from "@/helpers/apiConnector";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import ShinyButton from "@/components/custom/shiny-button";
+
+import { ArrowRight } from "lucide-react";
 import { useSelector } from "react-redux";
 
 export const EventList = () => {
   const { event } = useSelector((state) => state.event);
+  const renderFor = "college";
   // const [eventList, setEventList] = useState(event);
 
   // console.log("Redux",event)
@@ -34,6 +37,12 @@ export const EventList = () => {
 
   return (
     <div className="px-6 py-10 mx-auto w-11/12 ">
+      <Link href="/events/school-events" className="mb-8 flex justify-center">
+        <ShinyButton className="flex-row justify-center gap-2" dark>
+          View School Events
+          <ArrowRight className="h-4 w-4" />
+        </ShinyButton>
+      </Link>
       <h1 className="text-3xl font-semibold text-center capitalize lg:text-4xl text-white">
         Events
       </h1>
@@ -46,7 +55,7 @@ export const EventList = () => {
       <br />
       <div className="flex flex-wrap justify-center mt-6">
         {event?.map((e) => {
-          return <EventCard key={e._id} event={e} />;
+          return <EventCard key={e._id} event={e} renderFor={renderFor} />;
         })}
       </div>
     </div>
