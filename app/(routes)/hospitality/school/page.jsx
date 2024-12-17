@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 import { toast } from "sonner";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -64,11 +65,9 @@ import { DataTable as IdDataTable } from "@/app/(routes)/hospitality/school/_com
 import { columns as paymentColumns } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/columns";
 import { DataTable as PaymentDataTable } from "@/app/(routes)/hospitality/school/_components/_paymentDetails/data-table";
 
-export function Payment({
-  allParticipantsData,
-  allSchoolStatsData,
-  fetchAllParticipants,
-}) {
+export function Payment({ allParticipantsData, fetchAllParticipants }) {
+  const { user } = useSelector((state) => state.profile);
+  const userType = user?.userType;
   return (
     <div className="flex flex-col mt-2">
       {/* <p className="text-xl font-semibold mb-2">Total Participants :</p>
@@ -77,7 +76,7 @@ export function Payment({
       <p>Pending Allocation: {allSchoolStatsData?.idCardAllocation?.no}</p> */}
       <div className="w-full text-center">
         <PaymentDataTable
-          columns={paymentColumns(fetchAllParticipants)}
+          columns={paymentColumns(fetchAllParticipants, userType)}
           data={allParticipantsData}
         />
       </div>

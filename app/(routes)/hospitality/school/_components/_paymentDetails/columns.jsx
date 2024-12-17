@@ -3,93 +3,117 @@
 import { ArrowUpDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { ModifyPaymentStatusButton } from "@/app/(routes)/hospitality/school/_components/buttonBar";
+import {
+  ModifyPaymentStatusButton,
+  EditSchoolStudentDetailsButton,
+} from "@/app/(routes)/hospitality/school/_components/buttonBar";
 
-export const columns = (fetchAllParticipants) => [
-  {
-    accessorKey: "createdAt",
-    header: "Created At",
-  },
-  {
-    accessorKey: "createdBy",
-    header: "Created By",
-    cell: ({ row }) => {
-      const student = row.original;
-      return student?.createdBy ? (
-        <p>{student?.createdBy?.name}</p>
-      ) : (
-        <p>N/A</p>
-      );
+export const columns = (fetchAllParticipants, userType) => {
+  const baseColumns = [
+    {
+      accessorKey: "createdAt",
+      header: "Created At",
     },
-  },
-  {
-    accessorKey: "festId",
-    header: "TechFusion ID",
-  },
-  {
-    accessorKey: "name",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
+    {
+      accessorKey: "createdBy",
+      header: "Created By",
+      cell: ({ row }) => {
+        const student = row.original;
+        return student?.createdBy ? (
+          <p>{student?.createdBy?.name}</p>
+        ) : (
+          <p>N/A</p>
+        );
+      },
     },
-  },
-  {
-    accessorKey: "school",
-    header: "School",
-  },
-  {
-    accessorKey: "studentClass",
-    header: "Class",
-  },
-  {
-    accessorKey: "section",
-    header: "Section",
-  },
-  {
-    accessorKey: "rollNo",
-    header: "Roll No",
-  },
-  {
-    accessorKey: "parentPhoneNumber",
-    header: "Parent Phone No.",
-  },
-  {
-    accessorKey: "registrationFee",
-    header: "Registration Fee",
-  },
-  {
-    accessorKey: "paymentReceivedBy",
-    header: "Payment Received By",
-  },
-  {
-    accessorKey: "idCardAllocation",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Payment Status
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
+    {
+      accessorKey: "festId",
+      header: "TechFusion ID",
     },
-    cell: ({ row }) => {
-      const student = row.original;
-      return (
-        <ModifyPaymentStatusButton
-          schoolStudentId={student?.value}
-          isPaymentConfirmed={student?.paymentStatus}
-          fetchAllParticipants={fetchAllParticipants}
-        />
-      );
+    {
+      accessorKey: "name",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Name
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        );
+      },
     },
-  },
-];
+    {
+      accessorKey: "school",
+      header: "School",
+    },
+    {
+      accessorKey: "studentClass",
+      header: "Class",
+    },
+    {
+      accessorKey: "section",
+      header: "Section",
+    },
+    {
+      accessorKey: "rollNo",
+      header: "Roll No",
+    },
+    {
+      accessorKey: "parentPhoneNumber",
+      header: "Parent Phone No.",
+    },
+    {
+      accessorKey: "registrationFee",
+      header: "Registration Fee",
+    },
+    {
+      accessorKey: "paymentReceivedBy",
+      header: "Payment Received By",
+    },
+    {
+      accessorKey: "idCardAllocation",
+      header: ({ column }) => {
+        return (
+          <Button
+            variant="ghost"
+            onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          >
+            Payment Status
+            <ArrowUpDown className="ml-2 h-4 w-4" />
+          </Button>
+        );
+      },
+      cell: ({ row }) => {
+        const student = row.original;
+        return (
+          <ModifyPaymentStatusButton
+            schoolStudentId={student?.value}
+            isPaymentConfirmed={student?.paymentStatus}
+            fetchAllParticipants={fetchAllParticipants}
+          />
+        );
+      },
+    },
+  ];
+
+  // Conditionally add the "Edit" column for userType = admin
+  if (userType === "admin") {
+    baseColumns.push({
+      accessorKey: "edit",
+      header: "Edit",
+      cell: ({ row }) => {
+        const schoolStudent = row.original;
+        return (
+          <EditSchoolStudentDetailsButton
+            schoolStudent={schoolStudent}
+            fetchAllParticipants={fetchAllParticipants}
+          />
+        );
+      },
+    });
+  }
+
+  return baseColumns;
+};
