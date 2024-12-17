@@ -17,6 +17,7 @@ import { toast } from "sonner";
 import { setUserDetails } from "@/redux/slices/profileSlice";
 import { apiConnector } from "@/helpers/apiConnector";
 import { setEvent } from "@/redux/slices/eventSlice";
+import { setSchoolEvent } from "@/redux/slices/schoolEventSlice";
 import { LogOutIcon } from "lucide-react";
 import { navbarData } from "@/data/navbarData";
 import MobileNavbar from "./mobileNavbar";
@@ -48,6 +49,18 @@ const NavBar = () => {
       dispatch(setEvent(data?.data));
     };
     fetchEvents();
+  }, [dispatch]);
+
+  useEffect(() => {
+    const fetchSchoolEvents = async () => {
+      const { data } = await apiConnector(
+        "POST",
+        "/api/school/schoolEvent/getAllSchoolEvent"
+      );
+      // console.log(data?.data)
+      dispatch(setSchoolEvent(data?.data));
+    };
+    fetchSchoolEvents();
   }, [dispatch]);
 
   return (
