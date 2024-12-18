@@ -43,6 +43,11 @@ export const EventDetailPage = () => {
             <h1 className="font-bold leading-tight text-5xl md:text-7xl text-white">
               {eventDetail.name}
             </h1>
+            <div className="flex justify-center mx-auto mt-2">
+              <span className="inline-block w-56 h-1 bg-blue-500 rounded-full"></span>
+              <span className="inline-block w-5 h-1 mx-1 bg-blue-500 rounded-full"></span>
+              <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
+            </div>
           </div>
 
           <Image
