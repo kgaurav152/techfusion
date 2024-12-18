@@ -4,13 +4,14 @@ import React from "react";
 
 import EventCard from "@/components/eventCard";
 import { useSelector } from "react-redux";
+import Loader from "@/components/custom/loader";
 
 export const EventList = () => {
   const { schoolEvent } = useSelector((state) => state.schoolEvent);
   const renderFor = "school";
 
   return (
-    <div className="px-6 py-10 mx-auto w-11/12 ">
+    <div className="px-6 py-10 mx-auto min-h-screen w-11/12 ">
       <h1 className="text-3xl font-semibold text-center capitalize lg:text-4xl text-white">
         School Events
       </h1>
@@ -22,9 +23,9 @@ export const EventList = () => {
       </div>
       <br />
       <div className="flex flex-wrap justify-center mt-6">
-        {schoolEvent?.map((e) => {
+        {schoolEvent ? schoolEvent?.map((e) => {
           return <EventCard key={e._id} event={e} renderFor={renderFor} />;
-        })}
+        }) : <Loader/>}
       </div>
     </div>
   );

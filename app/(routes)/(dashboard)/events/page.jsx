@@ -9,6 +9,7 @@ import ShinyButton from "@/components/custom/shiny-button";
 
 import { ArrowRight } from "lucide-react";
 import { useSelector } from "react-redux";
+import Loader from "@/components/custom/loader";
 
 export const EventList = () => {
   const { event } = useSelector((state) => state.event);
@@ -54,9 +55,13 @@ export const EventList = () => {
       </div>
       <br />
       <div className="flex flex-wrap gap-8 justify-center mt-6">
-        {event?.map((e) => {
-          return <EventCard key={e._id} event={e} renderFor={renderFor} />;
-        })}
+        {event ? (
+          event?.map((e) => {
+            return <EventCard key={e._id} event={e} renderFor={renderFor} />;
+          })
+        ) : (
+          <Loader />
+        )}
       </div>
     </div>
   );
