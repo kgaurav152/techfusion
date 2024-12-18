@@ -55,7 +55,7 @@ const EventCard = ({ event, renderFor }) => {
                   : `/events/school-events/detail/${event._id}`
               }
             >
-              <Button className=" bg-gradient-to-br text-black from-purple-500 to-cyan-500 hover:from-cyan-500 hover:to-purple-500 duration-300">
+              <Button className="w-full bg-gradient-to-br text-black from-purple-500 to-cyan-500 hover:from-cyan-500 hover:to-purple-500 duration-300">
                 Read more
               </Button>
             </Link>
