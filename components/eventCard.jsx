@@ -45,21 +45,20 @@ const EventCard = ({ event, renderFor }) => {
         </div>
         <div className="h-20">
           <div className="grid absolute bottom-5 left-2 right-2 w-full grid-cols-2 sm:grid-cols-2 gap-1.5">
-            <Button className=" bg-gradient-to-br text-black from-purple-500 to-cyan-500 hover:from-cyan-500 hover:to-purple-500 duration-300">
-              {/* <ShinyButton> */}
+            {/* <ShinyButton> */}
 
-              <Link
-                href={
-                  renderFor == "college"
-                    ? `/events/detail/${event._id}`
-                    : `/events/school-events/detail/${event._id}`
-                }
-              >
+            <Link
+              href={
+                renderFor == "college"
+                  ? `/events/detail/${event._id}`
+                  : `/events/school-events/detail/${event._id}`
+              }
+            >
+              <Button className=" bg-gradient-to-br text-black from-purple-500 to-cyan-500 hover:from-cyan-500 hover:to-purple-500 duration-300">
                 Read more
-              </Link>
-            </Button>
+              </Button>
+            </Link>
             {/* </ShinyButton> */}
-
 
             {renderFor && renderFor == "college" && (
               <Link
