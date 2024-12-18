@@ -738,7 +738,7 @@ const RegistrationForm = () => {
                       of payment.
                       <p className="mt-2">
                         Note: This is one time payment and after this user can
-                        participate in upto 5 Technical and 3 Cultural events.
+                        participate in upto 5 Technical and 5 Cultural events.
                       </p>
                     </p>
                   </div>
@@ -821,7 +821,7 @@ const RegistrationForm = () => {
                       to Campus Ambassador of their college.
                       <p className="mt-2">
                         Note: This is one time payment and after this user can
-                        participate in upto 5 Technical and 3 Cultural events.
+                        participate in upto 5 Technical and 5 Cultural events.
                       </p>
                     </p>
                   </div>

@@ -255,7 +255,7 @@ export function SchoolStudentEventRegistration({
           <CardContent>
             <div className="flex flex-col items-center pt-4">
               <p className="font-semibold font-mono">
-                A participant can participate in max. 5 Technical and 3 Cultural
+                A participant can participate in max. 5 Technical and 5 Cultural
                 events in total.
               </p>
             </div>
