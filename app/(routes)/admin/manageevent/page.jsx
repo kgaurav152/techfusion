@@ -56,7 +56,10 @@ export const EventManagement = () => {
       </div>
       <h1 className="text-3xl text-white font-bold mt-8">List of All Events</h1>
       <div className="w-full">
-        <DataTable columns={columns(setEventData, meantFor)} data={eventData} />
+        <DataTable
+          columns={columns(fetchEventData, meantFor)}
+          data={eventData}
+        />
       </div>
     </div>
   );

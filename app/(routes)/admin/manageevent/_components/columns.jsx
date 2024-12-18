@@ -5,13 +5,13 @@ import { ColumnDef } from "@tanstack/react-table";
 import { ArrowUpDown, Eye, Image } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { ApproveButton, DeleteButton } from "./buttonBar";
+import { DeleteButton, EditButton } from "./buttonBar";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { format } from "date-fns";
 
-export const columns = (setEventData, meantFor) => {
+export const columns = (fetchEventData, meantFor) => {
   const baseColumns = [
     {
       accessorKey: "eventId",
@@ -163,14 +163,28 @@ export const columns = (setEventData, meantFor) => {
         return <p>{formattedDateTime}</p>;
       },
     },
+    // {
+    //   id: "deleteButton",
+    //   cell: ({ row }) => {
+    //     const event = row.original;
+    //     return (
+    //       <DeleteButton
+    //         EventId={event._id}
+    //         fetchEventData={fetchEventData}
+    //         meantFor={meantFor}
+    //       />
+    //     );
+    //   },
+    // },
     {
-      id: "deleteButton",
+      id: "editButton",
       cell: ({ row }) => {
         const event = row.original;
         return (
-          <DeleteButton
-            EventId={event._id}
-            setEventData={setEventData}
+          <EditButton
+            eventId={event._id}
+            eventDetail={event}
+            fetchEventData={fetchEventData}
             meantFor={meantFor}
           />
         );
