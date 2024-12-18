@@ -87,13 +87,25 @@ export const columns = (fetchAllParticipants, userType) => {
       },
       cell: ({ row }) => {
         const student = row.original;
-        return (
-          <ModifyPaymentStatusButton
-            schoolStudentId={student?.value}
-            isPaymentConfirmed={student?.paymentStatus}
-            fetchAllParticipants={fetchAllParticipants}
-          />
-        );
+        if (userType === "admin") {
+          return (
+            <ModifyPaymentStatusButton
+              schoolStudentId={student?.value}
+              isPaymentConfirmed={student?.paymentStatus}
+              fetchAllParticipants={fetchAllParticipants}
+            />
+          );
+        } else {
+          return student?.paymentStatus !== true ? (
+            <ModifyPaymentStatusButton
+              schoolStudentId={student?.value}
+              isPaymentConfirmed={student?.paymentStatus}
+              fetchAllParticipants={fetchAllParticipants}
+            />
+          ) : (
+            <p className="text-purple-500">Marked Paid</p>
+          );
+        }
       },
     },
   ];
