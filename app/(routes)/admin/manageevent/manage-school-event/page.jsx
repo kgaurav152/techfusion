@@ -50,7 +50,10 @@ export const SchoolEventManagement = () => {
         List of All School Events
       </h1>
       <div className="w-full">
-        <DataTable columns={columns(setEventData, meantFor)} data={eventData} />
+        <DataTable
+          columns={columns(fetchEventData, meantFor)}
+          data={eventData}
+        />
       </div>
     </div>
   );
