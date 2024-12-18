@@ -1,9 +1,7 @@
 import { connect } from "@/config/dbconfig";
-import User from "@/models/User";
-// import bcryptjs from "bcryptjs";
 import { NextResponse } from "next/server";
-// import jwt from "jsonwebtoken"
 import { getDataFromToken } from "@/helpers/getDataFromToken";
+import User from "@/models/User";
 import Event from "@/models/Event";
 
 connect();
@@ -18,6 +16,8 @@ export async function POST(req) {
     posterUrl,
     min,
     max,
+    eventDateTime,
+    eventRegistrationDateTime,
   } = await req.json();
   try {
     const userID = await getDataFromToken(token);
@@ -28,6 +28,15 @@ export async function POST(req) {
         message: "This is protected route for Admin access",
       });
     }
+
+    // Ensure the eventRegistrationDateTime is less than the eventDateTime
+    if (new Date(eventRegistrationDateTime) >= new Date(eventDateTime)) {
+      return NextResponse.json({
+        success: false,
+        message: "Event Registration Date Time must be before Event Date Time",
+      });
+    }
+
     const newEvent = await Event.create({
       name,
       eventType,
@@ -37,6 +46,8 @@ export async function POST(req) {
       posterUrl,
       min,
       max,
+      eventDateTime: eventDateTime,
+      eventRegistrationDateTime: eventRegistrationDateTime,
     });
     const data = await Event.find({});
     return NextResponse.json({

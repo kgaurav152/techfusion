@@ -16,6 +16,8 @@ export async function POST(req) {
     posterUrl,
     min,
     max,
+    eventDateTime,
+    eventRegistrationDateTime,
   } = await req.json();
   try {
     const userID = await getDataFromToken(token);
@@ -26,6 +28,15 @@ export async function POST(req) {
         message: "This is protected route for Admin access",
       });
     }
+
+    // Ensure the eventRegistrationDateTime is less than the eventDateTime
+    if (new Date(eventRegistrationDateTime) >= new Date(eventDateTime)) {
+      return NextResponse.json({
+        success: false,
+        message: "Event Registration Date Time must be before Event Date Time",
+      });
+    }
+
     const newSchoolEvent = await SchoolEvent.create({
       name,
       eventType,
@@ -35,6 +46,8 @@ export async function POST(req) {
       posterUrl,
       min,
       max,
+      eventDateTime: eventDateTime,
+      eventRegistrationDateTime: eventRegistrationDateTime,
     });
     const data = await SchoolEvent.find({});
     return NextResponse.json({
