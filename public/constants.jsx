@@ -420,11 +420,10 @@ export const sections = [
 ];
 
 export const tshirtSizeValue = [
-  { label: "S", value: "S" },
-  { label: "M", value: "M" },
-  { label: "L", value: "L" },
-  { label: "XL", value: "XL" },
-  { label: "XXL", value: "XXL" },
+  { label: "S - 36", value: "S" },
+  { label: "M - 38", value: "M" },
+  { label: "L - 40", value: "L" },
+  { label: "XL - 42", value: "XL" },
 ];
 
 export const knowAbout = [
