@@ -42,8 +42,8 @@ export default function CountDownTimer({ registrationCloseTime }) {
   }, [registrationCloseTime]);
   return (
     <div className="flex flex-col gap-3 my-5 items-center justify-center">
-      <div className="md:text-2xl font-medium text-rose-500">
-        !!! Limited Time Left to Register !!!
+      <div className="text-sm md:text-xl font-medium text-rose-500">
+        !! Limited Time to Register for this Event !!
       </div>
 
       <div className="grid grid-cols-4 gap-4">
