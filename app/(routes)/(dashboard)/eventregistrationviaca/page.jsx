@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useForm, useFieldArray } from "react-hook-form";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -44,6 +45,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 import QueryCard from "@/components/query-card";
 import SelectedEventCard from "@/components/selected-event-card";
 import { Button } from "@/components/ui/button";
+import Loader from "@/components/custom/loader";
 
 const EventRegistrationForm = () => {
   const neonTextStyle = {
@@ -59,6 +61,8 @@ const EventRegistrationForm = () => {
     animation: "flicker 1.5s infinite alternate",
     color: "#fff",
   };
+
+  const router = useRouter();
 
   const { user } = useSelector((state) => state?.profile);
   const { event } = useSelector((state) => state?.event);
@@ -197,7 +201,7 @@ const EventRegistrationForm = () => {
               <CardContent>
                 <div className="flex flex-col items-center pt-4">
                   <p className="font-semibold font-mono">
-                    A participant can participate in max. 5 Technical and 3
+                    A participant can participate in max. 5 Technical and 5
                     Cultural events in total.
                   </p>
                   {/* {form.watch('event').split('@')[1]==='Individual' && <p className="font-semibold font-mono"></p>} */}
@@ -216,7 +220,9 @@ const EventRegistrationForm = () => {
                 name="event"
                 render={({ field }) => (
                   <FormItem className="w-full">
-                    <FormLabel className="">Select Event</FormLabel>
+                    <FormLabel className="text-white">
+                      Select an Event
+                    </FormLabel>
                     <Popover open={openPop} onOpenChange={setOpenPop}>
                       <PopoverTrigger asChild>
                         <FormControl>
@@ -278,144 +284,191 @@ const EventRegistrationForm = () => {
                   selectedForEventDetail={selectedForEventDetail}
                 />
               )}
-              <div>
-                {selectedEvent && selectedEvent?.maxParticipants > 1 && (
-                  <FormField
-                    control={control}
-                    name="teamName"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-white">
-                          Team Name <sup className="text-rose-500">*</sup>
-                        </FormLabel>
-                        <FormControl>
-                          <Input placeholder="Enter team name" {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  // </div>
-                )}
-                <div className="flex flex-col gap-3">
-                  <h3>Team Members</h3>
-                  {fields?.map((member, index) => (
-                    <div key={member?.id} className="">
-                      <div>
-                        <FormField
-                          control={form.control}
-                          name={`teamMembers.${index}.festId`}
-                          render={({ field }) => (
-                            <FormItem>
-                              <FormLabel className="text-white">
-                                {`${
-                                  index === 0 &&
-                                  selectedEvent?.maxParticipants > 1
-                                    ? "Team Lead"
-                                    : selectedEvent?.maxParticipants === 1
-                                    ? "Participant"
-                                    : `Team Member ${index + 1}`
-                                }`}
-                              </FormLabel>
-                              <FormControl>
-                                {index === 0 ? (
-                                  <Input disabled defaultValue={user?.festId} />
-                                ) : (
-                                  <Input
-                                    placeholder="Enter Team Member's TechFusion Id"
-                                    {...field}
-                                  />
-                                )}
-                              </FormControl>
-                              {index === 0 &&
-                              selectedEvent?.maxParticipants > 1 ? (
-                                <FormDescription>
-                                  <span className="text-teal-300">
-                                    {user?.name}
-                                  </span>
-                                  <br />
-                                  If you want other member of your team to be a
-                                  leader ask them to register for the event
-                                  instead.
-                                </FormDescription>
-                              ) : selectedEvent?.maxParticipants === 1 ? (
-                                <FormDescription>
-                                  <span className="text-teal-300">
-                                    {user?.name}
-                                  </span>
-                                </FormDescription>
-                              ) : (
-                                <FormDescription />
-                              )}
-                              <FormMessage />
-                            </FormItem>
-                          )}
-                        />
-                      </div>
-                      <div>
-                        {index >= selectedEvent?.minParticipants && (
-                          <Button
-                            type="button"
-                            size="sm"
-                            onClick={() => remove(index)}
-                            className="text-rose-500"
-                          >
-                            Remove
-                          </Button>
+              {selectedForEventDetail &&
+              selectedForEventDetail?.eventRegistrationDateTime &&
+              new Date(selectedForEventDetail?.eventRegistrationDateTime) >
+                new Date() ? (
+                <React.Fragment>
+                  <div>
+                    {selectedEvent && selectedEvent?.maxParticipants > 1 && (
+                      <FormField
+                        control={control}
+                        name="teamName"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-white">
+                              Team Name <sup className="text-rose-500">*</sup>
+                            </FormLabel>
+                            <FormControl>
+                              <Input placeholder="Enter team name" {...field} />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
                         )}
-                      </div>
-                    </div>
-                  ))}
-                  {selectedEvent &&
-                    fields?.length < selectedEvent?.maxParticipants && (
-                      <div className="flex justify-end">
-                        <Button className="w-fit" onClick={handleAddMember}>
-                          Add Team Member
-                        </Button>
-                      </div>
+                      />
+                      // </div>
                     )}
+                    <div className="flex flex-col gap-3">
+                      <h3>Team Members</h3>
+                      {fields?.map((member, index) => (
+                        <div key={member?.id} className="">
+                          <div>
+                            <FormField
+                              control={form.control}
+                              name={`teamMembers.${index}.festId`}
+                              render={({ field }) => (
+                                <FormItem>
+                                  <FormLabel className="text-white">
+                                    {`${
+                                      index === 0 &&
+                                      selectedEvent?.maxParticipants > 1
+                                        ? "Team Lead"
+                                        : selectedEvent?.maxParticipants === 1
+                                        ? "Participant"
+                                        : `Team Member ${index + 1}`
+                                    }`}
+                                  </FormLabel>
+                                  <FormControl>
+                                    {index === 0 ? (
+                                      <Input
+                                        disabled
+                                        defaultValue={user?.festId}
+                                      />
+                                    ) : (
+                                      <Input
+                                        placeholder="Enter Team Member's TechFusion Id"
+                                        {...field}
+                                      />
+                                    )}
+                                  </FormControl>
+                                  {index === 0 &&
+                                  selectedEvent?.maxParticipants > 1 ? (
+                                    <FormDescription>
+                                      <span className="text-teal-300">
+                                        {user?.name}
+                                      </span>
+                                      <br />
+                                      If you want other member of your team to
+                                      be a leader ask them to register for the
+                                      event instead.
+                                    </FormDescription>
+                                  ) : selectedEvent?.maxParticipants === 1 ? (
+                                    <FormDescription>
+                                      <span className="text-teal-300">
+                                        {user?.name}
+                                      </span>
+                                    </FormDescription>
+                                  ) : (
+                                    <FormDescription />
+                                  )}
+                                  <FormMessage />
+                                </FormItem>
+                              )}
+                            />
+                          </div>
+                          <div>
+                            {index >= selectedEvent?.minParticipants && (
+                              <Button
+                                type="button"
+                                size="sm"
+                                onClick={() => remove(index)}
+                                className="text-rose-500"
+                              >
+                                Remove
+                              </Button>
+                            )}
+                          </div>
+                        </div>
+                      ))}
+                      {selectedEvent &&
+                        fields?.length < selectedEvent?.maxParticipants && (
+                          <div className="flex justify-end">
+                            <Button className="w-fit" onClick={handleAddMember}>
+                              Add Team Member
+                            </Button>
+                          </div>
+                        )}
+                    </div>
+                  </div>
+                  {selectedForEventDetail && selectedForEventDetail?._id && (
+                    <Button
+                      type="submit"
+                      disabled={isLoading || !selectedEvent}
+                      className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-xl border border-transparent my-6 bg-gray-900 text-white px-8 py-1 hover:bg-purple-500 flex items-center border-white hover:border-none"
+                    >
+                      Enroll
+                    </Button>
+                  )}
+                </React.Fragment>
+              ) : (
+                <div className="my-8">
+                  {selectedForEventDetail && selectedForEventDetail?._id && (
+                    <Card className="mx-auto max-w-xl mb-8 text-left">
+                      <CardContent>
+                        <div className="flex items-center justify-center text-center pt-4 mb-8 mt-8">
+                          <p className="font-bold text-xl font-mono text-red-600">
+                            Oops! Event Participation for{" "}
+                            {selectedForEventDetail?.name} is closed now!
+                          </p>
+                        </div>
+                        <div className="flex flex-col items-center pt-4">
+                          <p className="font-semibold font-mono mb-10">
+                            Having Issue with Participation contact Event
+                            coordinator
+                          </p>
+                          <Button
+                            className="justify-center mb-10"
+                            variant=""
+                            onClick={(e) => {
+                              e.preventDefault();
+                              router.push(
+                                `/events/detail/${selectedForEventDetail?._id}`
+                              );
+                            }}
+                          >
+                            Find Event Coordinator
+                          </Button>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  )}
                 </div>
-              </div>
-              {selectedForEventDetail && selectedForEventDetail?._id && (
-                <Button
-                  type="submit"
-                  disabled={isLoading || !selectedEvent}
-                  className="transition w-full ease-in-out delay-150 hover:-translate-y-1 hover:scale-102 duration-300 relative rounded-xl border border-transparent my-6 bg-gray-900 text-white px-8 py-1 hover:bg-purple-500 flex items-center border-white hover:border-none"
-                >
-                  Enroll
-                </Button>
               )}
             </form>
           </Form>
         </>
       ) : (
         <div className=" min-h-[80vh]">
-          <Card className="mx-auto w-4/5 max-w-xl mb-8 mt-16 text-left">
-            <CardHeader>
-              <CardTitle>
-                Oops! Your payment status isn&apos;t verified yet!
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center pt-4">
-                <p className="font-semibold font-mono">
-                  Please allow us some more time before we confirm your payment
-                  status. It usually takes somewhere between 24-48 hours to
-                  verify the payment status. <br />
-                  Meanwhile, you can explore the
-                  <Badge variant="outline" className=" bg-emerald-100 ml-2">
-                    <a
-                      className="flex flex-row items-center underline decoration-double decoration-emerald-400"
-                      href="/events"
-                    >
-                      Event Section
-                      <MousePointerClick className="ml-2" />
-                    </a>
-                  </Badge>
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          {user ? (
+            <Card className="mx-auto w-4/5 max-w-xl mb-8 mt-16 text-left">
+              <CardHeader>
+                <CardTitle>
+                  Oops! Your payment status isn&apos;t verified yet!
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center pt-4">
+                  <p className="font-semibold font-mono">
+                    Please allow us some more time before we confirm your
+                    payment status. It usually takes somewhere between 24-48
+                    hours to verify the payment status. <br />
+                    Meanwhile, you can explore the
+                    <Badge variant="outline" className=" bg-emerald-100 ml-2">
+                      <a
+                        className="flex flex-row items-center underline decoration-double decoration-emerald-400"
+                        href="/events"
+                      >
+                        Event Section
+                        <MousePointerClick className="ml-2" />
+                      </a>
+                    </Badge>
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          ) : (
+            <Loader />
+          )}
         </div>
       )}
     </div>
