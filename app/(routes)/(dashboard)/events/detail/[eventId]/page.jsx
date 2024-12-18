@@ -9,6 +9,7 @@ import Image from "next/image";
 import Link from "next/link";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import CountDownTimer from "@/components/custom/countdown-timer";
 
 export const EventDetailPage = () => {
   const { user } = useSelector((state) => state.profile);
@@ -20,18 +21,22 @@ export const EventDetailPage = () => {
 
   const { event } = useSelector((state) => state.event);
 
-  const filterByEventId = (eventId) => {
-    if (event.length > 0) {
-      setEventDetail(event.find((e) => e._id === eventId));
-    }
-  };
-
   useEffect(() => {
+    const filterByEventId = (eventId) => {
+      if (event.length > 0) {
+        setEventDetail(event.find((e) => e._id === eventId));
+      }
+    };
     filterByEventId(eventId);
   }, [event, eventId]);
 
   return (
     <section>
+      {/* {eventDetail?.eventRegistrationDateTime && (
+        <CountDownTimer
+          registrationCloseTime={eventDetail?.eventRegistrationDateTime}
+        />
+      )} */}
       {eventDetail && (
         <article className="max-w-4xl py-20 w-11/12 mx-auto space-y-12 min-h-[60vh] text-white">
           <div className="w-full mx-auto space-y-4 text-center">

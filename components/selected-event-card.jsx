@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import CountDownTimer from "./custom/countdown-timer";
 
 const SelectedEventCard = ({ selectedForEventDetail }) => {
   const router = useRouter();
@@ -61,8 +62,16 @@ const SelectedEventCard = ({ selectedForEventDetail }) => {
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="text-muted-foreground">
-        {selectedForEventDetail?.description.substr(0, 150)}...
+      <CardContent>
+        {selectedForEventDetail?.eventRegistrationDateTime && (
+          <CountDownTimer
+            registrationCloseTime={
+              selectedForEventDetail?.eventRegistrationDateTime
+            }
+          />
+        )}
+
+        {/* {selectedForEventDetail?.description.substr(0, 150)}... */}
       </CardContent>
       <CardFooter>
         <button

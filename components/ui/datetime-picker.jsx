@@ -249,11 +249,11 @@ function Calendar({
       className={cn("p-3", className)}
       classNames={{
         months:
-          "flex flex-col sm:flex-row space-y-4 sm:space-y-0 justify-center",
+          "flex flex-col sm:flex-row space-y-4 w-full sm:space-y-0 justify-center",
         month: "flex flex-col items-center space-y-4",
-        month_caption: "flex justify-center pt-1 relative items-center",
+        month_caption: "flex justify-center bg-green-500 w-full relative",
         caption_label: "text-sm font-medium",
-        nav: "space-x-1 flex items-center",
+        nav: "w-full flex item-center pt-1 justify-between",
         button_previous: cn(
           buttonVariants({ variant: "outline" }),
           "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100 absolute left-5 top-5",

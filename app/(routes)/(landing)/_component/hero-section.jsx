@@ -18,7 +18,7 @@ const HeroSection = ({ live }) => {
   };
 
   return (
-    <div className="relative text-center overflow-hidden">
+    <div className="relative text-center h-screen flex items-center justify-center overflow-hidden">
       {/* <div className="z-0"> */}
       {/* <Image
           alt="Light ray background"
@@ -34,13 +34,12 @@ const HeroSection = ({ live }) => {
         /> */}
 
       <Vortex
-        backgroundColor="black"
         particleCount={400}
         baseSpeed={0}
         rangeY={1000}
         // baseHue={120}
       >
-        <div className="py-20 lg:py-10">
+        <div className="py-20 flex h-full items-center justify-center flex-col lg:py-10">
           <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
             TechFusion&apos;25
           </h1>
@@ -148,6 +147,7 @@ const HeroSection = ({ live }) => {
           </div>
         </div>
       </Vortex>
+
       {/* </div> */}
     </div>
   );

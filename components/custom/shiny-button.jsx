@@ -33,12 +33,12 @@ const ShinyButton = React.forwardRef(
         {...animationProps}
         {...props}
         className={cn(
-          "relative rounded-lg px-6 py-2 font-medium backdrop-blur-xl transition-shadow duration-300 ease-in-out bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/50%)_0%,transparent_60%)] hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
+          "relative rounded-lg px-6 py-2 font-medium hover:shadow-purple-500/50 shadow shadow-purple-500/50 backdrop-blur-xl transition-shadow duration-300 ease-in-out bg-[radial-gradient(circle_at_50%_0%,hsl(var(--primary)/50%)_0%,transparent_60%)] hover:shadow-[0_0_20px_hsl(var(--primary)/10%)]",
           className
         )}
       >
         <span
-          className="relative flex flex-row gap-2 size-full text-sm tracking-wide font-light text-[rgb(255,255,255,90%)]"
+          className="relative flex flex-row gap-2 size-full text-sm text-center tracking-wide font-light text-[rgb(255,255,255,90%)]"
           style={{
             maskImage:
               "linear-gradient(-75deg,hsl(var(--primary)) calc(var(--x) + 20%),transparent calc(var(--x) + 30%),hsl(var(--primary)) calc(var(--x) + 100%))",

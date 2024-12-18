@@ -36,7 +36,7 @@ export const EventList = () => {
   // }, []);
 
   return (
-    <div className="px-6 py-10 mx-auto w-11/12 ">
+    <div className="py-10 mx-auto w-11/12">
       <Link href="/events/school-events" className="mb-8 flex justify-center">
         <ShinyButton className="flex-row justify-center gap-2" dark>
           View School Events
@@ -53,7 +53,7 @@ export const EventList = () => {
         <span className="inline-block w-1 h-1 bg-blue-500 rounded-full"></span>
       </div>
       <br />
-      <div className="flex flex-wrap justify-center mt-6">
+      <div className="flex flex-wrap gap-8 justify-center mt-6">
         {event?.map((e) => {
           return <EventCard key={e._id} event={e} renderFor={renderFor} />;
         })}

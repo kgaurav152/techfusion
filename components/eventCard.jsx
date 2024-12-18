@@ -3,13 +3,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useSelector } from "react-redux";
+import InteractiveHoverButton from "./custom/interactive-hover-button";
+import { Button } from "./ui/button";
+import ShinyButton from "./custom/shiny-button";
 
 const EventCard = ({ event, renderFor }) => {
   const { user } = useSelector((state) => state.profile);
 
   return (
     <div className="flex flex-col z-10">
-      <div className="max-w-[22rem] rounded overflow-hidden shadow-lg bg-gray-800 m-4 flex flex-col flex-1">
+      <div className="max-w-[22rem] relative  rounded overflow-hidden shadow-lg bg-gray-800 flex flex-col flex-1">
         <Image
           className="w-full aspect-auto object-cover"
           src={event.posterUrl}
@@ -40,26 +43,33 @@ const EventCard = ({ event, renderFor }) => {
             {event.description}
           </p>
         </div>
-        <br />
-        <div className="flex flex-row gap-6 mb-4 justify-center">
-          <Link
-            className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-400 text-black"
-            href={
-              renderFor == "college"
-                ? `/events/detail/${event._id}`
-                : `/events/school-events/detail/${event._id}`
-            }
-          >
-            Read more
-          </Link>
-          {renderFor && renderFor == "college" && (
-            <Link
-              className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
-              href={user ? "/eventregistration" : "/registration"}
-            >
-              Register now
-            </Link>
-          )}
+        <div className="h-20">
+          <div className="grid absolute bottom-5 left-2 right-2 w-full grid-cols-2 sm:grid-cols-2 gap-1.5">
+            <Button className=" bg-gradient-to-br text-black from-purple-500 to-cyan-500 hover:from-cyan-500 hover:to-purple-500 duration-300">
+              {/* <ShinyButton> */}
+
+              <Link
+                href={
+                  renderFor == "college"
+                    ? `/events/detail/${event._id}`
+                    : `/events/school-events/detail/${event._id}`
+                }
+              >
+                Read more
+              </Link>
+            </Button>
+            {/* </ShinyButton> */}
+
+
+            {renderFor && renderFor == "college" && (
+              <Link
+                // className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
+                href={user ? "/eventregistration" : "/registration"}
+              >
+                <InteractiveHoverButton text="Register now" />
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
