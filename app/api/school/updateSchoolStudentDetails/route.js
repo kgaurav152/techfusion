@@ -19,16 +19,11 @@ export async function PUT(req) {
       });
     }
 
-    console.log(adminUser);
-    console.log(schoolStudentId);
-    console.log(updateData);
-
     const updatedSchoolStudent = await SchoolStudent.findByIdAndUpdate(
       schoolStudentId,
       updateData,
       { new: true }
     );
-    console.log(updatedSchoolStudent);
 
     if (!updatedSchoolStudent) {
       return NextResponse.json({
