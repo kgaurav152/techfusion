@@ -48,6 +48,7 @@ const EventCard = ({ event, renderFor }) => {
             {/* <ShinyButton> */}
 
             <Link
+              className="w-full"
               href={
                 renderFor == "college"
                   ? `/events/detail/${event._id}`
