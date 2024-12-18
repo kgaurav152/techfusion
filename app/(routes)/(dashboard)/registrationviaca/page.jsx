@@ -166,17 +166,20 @@ const RegistrationForm = () => {
         ? 250
         : data.college === "Katihar Engineering College, Katihar" &&
           data.tShirt === "Yes"
-        ? 600
+        ? 649
         : data.college != "Katihar Engineering College, Katihar" &&
           data.tShirt === "No"
-        ? 300
+        ? 350
         : data.college != "Katihar Engineering College, Katihar" &&
           data.tShirt === "Yes"
-        ? 650
-        : 300;
+        ? 749
+        : 350;
 
     // const conditionalAmount =
     //   data.college === "Katihar Engineering College, Katihar" ? 250 : 300;
+
+    const conditionalTshirtSize =
+      data.tShirt === "No" ? "No" : data.tShirt === data.tShirtSize;
 
     const formData = new FormData();
     formData.append("name", data.name);
@@ -189,7 +192,7 @@ const RegistrationForm = () => {
     formData.append("batch", data.batch);
     formData.append("knowAbout", data.knowAbout);
     formData.append("accomodation", data.accomodation);
-    formData.append("tShirtSize", "No");
+    formData.append("tShirtSize", conditionalTshirtSize);
     formData.append("paymentMethod", data.paymentMethod);
     formData.append(
       "ca_no",
@@ -272,27 +275,6 @@ const RegistrationForm = () => {
               <div className="flex items-center space-x-4">
                 <Avatar>
                   <AvatarImage src="avatar_02.png" />
-                  <AvatarFallback>MK</AvatarFallback>
-                </Avatar>
-                <div className="gap-1">
-                  <p className="text-sm font-medium leading-none">
-                    Mohit Kumar
-                  </p>
-                  <a
-                    href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration."
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-800"
-                  >
-                    +917257827104
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center justify-between space-x-4">
-              <div className="flex items-center space-x-4">
-                <Avatar>
-                  <AvatarImage src="avatar_02.png" />
                   <AvatarFallback>KG</AvatarFallback>
                 </Avatar>
                 <div>
@@ -306,6 +288,27 @@ const RegistrationForm = () => {
                     className="text-sm text-blue-800"
                   >
                     +917004174269
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center justify-between space-x-4">
+              <div className="flex items-center space-x-4">
+                <Avatar>
+                  <AvatarImage src="avatar_02.png" />
+                  <AvatarFallback>MK</AvatarFallback>
+                </Avatar>
+                <div className="gap-1">
+                  <p className="text-sm font-medium leading-none">
+                    Mohit Kumar
+                  </p>
+                  <a
+                    href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-blue-800"
+                  >
+                    +917257827104
                   </a>
                 </div>
               </div>
@@ -639,7 +642,7 @@ const RegistrationForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white">
-                    Do you want TechFusion exclusive SweatShirt?*
+                    Do you want TechFusion exclusive Cheater?*
                   </FormLabel>
                   <Select
                     onValueChange={field.onChange}
@@ -657,8 +660,8 @@ const RegistrationForm = () => {
                   </Select>
                   {form.watch("tShirt") === "Yes" && (
                     <FormDescription>
-                      SweatShirt is chargable and an amount of &#8377; 350 will
-                      automatically be added to your registration fee shown
+                      Wind Cheater is chargable and an amount of &#8377; 399
+                      will automatically be added to your registration fee shown
                       below.
                     </FormDescription>
                   )}
@@ -744,16 +747,16 @@ const RegistrationForm = () => {
                           : form.watch("college") ===
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 600/-"
+                          ? "Rs. 649/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "No"
-                          ? "Rs. 300/-"
+                          ? "Rs. 350/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 650/-"
-                          : "Rs. 300/-"}
+                          ? "Rs. 749/-"
+                          : "Rs. 350/-"}
                         {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
                           ? 'Rs. 250/-': 'Rs. 300/-'} */}
                       </span>{" "}
@@ -761,7 +764,7 @@ const RegistrationForm = () => {
                       of payment.
                       <p className="mt-2">
                         Note: This is one time payment and after this user can
-                        participate in upto 5 Technical and 3 Cultural events.
+                        participate in upto 5 Technical and 5 Cultural events.
                       </p>
                     </p>
                   </div>
@@ -772,13 +775,11 @@ const RegistrationForm = () => {
                   <h1 className="font-bold text-xl text-red-400 underline mb-2">
                     Bank Account Details:
                   </h1>
-                  <p>A/c No. - 256312010000302</p>
-                  <p>
-                    A/c Holder/Name - Katihar Engineering College SDF Account
-                  </p>
-                  <p>IFSC code - UBIN0554031</p>
-                  <p>Bank - Union Bank of India</p>
-                  <p>Branch - Mangal Market Road, Katihar (BH)</p>
+                  <p>A/c No. - 38416078725</p>
+                  <p>A/c Holder/Name - Katihar Engineering College Katihar</p>
+                  <p>IFSC code - SBIN0000203</p>
+                  <p>Bank - State Bank of India</p>
+                  <p>Branch - Mirchaibari, Katihar (BH)</p>
                 </span>
               </div>
               <FormField
@@ -836,23 +837,23 @@ const RegistrationForm = () => {
                           : form.watch("college") ===
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 600/-"
+                          ? "Rs. 649/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "No"
-                          ? "Rs. 300/-"
+                          ? "Rs. 350/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 650/-"
-                          : "Rs. 300/-"}
+                          ? "Rs. 749/-"
+                          : "Rs. 350/-"}
                         {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
                           ? 'Rs. 250/-': 'Rs. 300/-'} */}
                       </span>{" "}
                       to Campus Ambassador of their college.
                       <p className="mt-2">
                         Note: This is one time payment and after this user can
-                        participate in upto 5 Technical and 3 Cultural events.
+                        participate in upto 5 Technical and 5 Cultural events.
                       </p>
                     </p>
                   </div>
