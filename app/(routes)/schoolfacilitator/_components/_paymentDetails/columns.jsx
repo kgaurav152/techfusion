@@ -83,12 +83,14 @@ export const columns = (fetchAllParticipants) => [
     },
     cell: ({ row }) => {
       const student = row.original;
-      return (
+      return student?.paymentStatus !== true ? (
         <ModifyPaymentStatusButton
           schoolStudentId={student?.value}
           isPaymentConfirmed={student?.paymentStatus}
           fetchAllParticipants={fetchAllParticipants}
         />
+      ) : (
+        <p className="text-purple-500">Marked Paid</p>
       );
     },
   },
