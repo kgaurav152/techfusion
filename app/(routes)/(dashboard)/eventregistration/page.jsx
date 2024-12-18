@@ -43,25 +43,6 @@ const Page = () => {
             <div className="flex items-center space-x-4">
               <Avatar>
                 <AvatarImage src="avatar_02.png" />
-                <AvatarFallback>MK</AvatarFallback>
-              </Avatar>
-              <div className="gap-1">
-                <p className="text-sm font-medium leading-none">Mohit Kumar</p>
-                <a
-                  href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-blue-800"
-                >
-                  +917257827104
-                </a>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-between space-x-4">
-            <div className="flex items-center space-x-4">
-              <Avatar>
-                <AvatarImage src="avatar_02.png" />
                 <AvatarFallback>KG</AvatarFallback>
               </Avatar>
               <div>
@@ -77,13 +58,32 @@ const Page = () => {
               </div>
             </div>
           </div>
+          <div className="flex items-center justify-between space-x-4">
+            <div className="flex items-center space-x-4">
+              <Avatar>
+                <AvatarImage src="avatar_02.png" />
+                <AvatarFallback>MK</AvatarFallback>
+              </Avatar>
+              <div className="gap-1">
+                <p className="text-sm font-medium leading-none">Mohit Kumar</p>
+                <a
+                  href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Registration."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-800"
+                >
+                  +917257827104
+                </a>
+              </div>
+            </div>
+          </div>
         </CardContent>
       </Card>
       <Card className="mx-auto max-w-xl mb-8 text-left">
         <CardContent>
           <div className="flex items-center justify-center text-center pt-4 mb-8 mt-8">
             <p className="font-bold text-xl font-mono text-red-600">
-              Oops! Event Participation is closed now!
+              Oops! Event Participation not started yet!
             </p>
           </div>
           <div className="flex flex-col items-center pt-4">
