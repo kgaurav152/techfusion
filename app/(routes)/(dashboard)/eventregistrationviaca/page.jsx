@@ -9,7 +9,12 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronsUpDown, Check, MousePointerClick } from "lucide-react";
+import {
+  ChevronsUpDown,
+  Check,
+  MousePointerClick,
+  ArrowRight,
+} from "lucide-react";
 import { cn } from "@/lib/utils";
 
 import {
@@ -408,16 +413,19 @@ const EventRegistrationForm = () => {
                         <div className="flex items-center justify-center text-center pt-4 mb-8 mt-8">
                           <p className="font-bold text-xl font-mono text-red-600">
                             Oops! Event Participation for{" "}
-                            {selectedForEventDetail?.name} is closed now!
+                            <span className="text-black">
+                              {selectedForEventDetail?.name}
+                            </span>{" "}
+                            is closed now!
                           </p>
                         </div>
                         <div className="flex flex-col items-center pt-4">
                           <p className="font-semibold font-mono mb-10">
                             Having Issue with Participation contact Event
-                            coordinator
+                            coordinator!
                           </p>
                           <Button
-                            className="justify-center mb-10"
+                            className="flex flex-row justify-center mb-10 gap-2"
                             variant=""
                             onClick={(e) => {
                               e.preventDefault();
@@ -426,7 +434,8 @@ const EventRegistrationForm = () => {
                               );
                             }}
                           >
-                            Find Event Coordinator
+                            Find Event Coordinator{" "}
+                            <ArrowRight className="h-4 w-4" />
                           </Button>
                         </div>
                       </CardContent>
