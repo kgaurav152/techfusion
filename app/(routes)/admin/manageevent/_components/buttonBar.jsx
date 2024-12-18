@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { toast } from "sonner";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
+import { add, format } from "date-fns";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "@/components/ui/button";
 import { Trash2 } from "lucide-react";
@@ -45,6 +46,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { apiConnector } from "@/helpers/apiConnector";
+import { DateTimePicker } from "@/components/ui/datetime-picker";
 
 export function EventCreationForm({ setOpen, setEventData, meantFor }) {
   const EventCreationFormSchema = z
@@ -62,6 +64,14 @@ export function EventCreationForm({ setOpen, setEventData, meantFor }) {
       description: z.string({ message: "Description can't be empty!" }),
       rulebookLink: z.string().url(),
       posterUrl: z.string().url(),
+      eventDateTime: z.date({
+        required_error: "Event Date Time is required",
+        invalid_type_error: "Event Date Time must be a valid date",
+      }),
+      eventRegistrationDateTime: z.date({
+        required_error: "Event Registration Date Time is required",
+        invalid_type_error: "Event Registration Date Time must be a valid date",
+      }),
       min: z
         .string()
         .min(1, { message: "Minimum participants must be at least 1" })
@@ -76,6 +86,11 @@ export function EventCreationForm({ setOpen, setEventData, meantFor }) {
         .refine((value) => !isNaN(value) && value >= 1, {
           message: "Maximum must be a valid number and at least 1",
         }),
+    })
+    .refine((data) => data.eventRegistrationDateTime < data.eventDateTime, {
+      path: ["eventRegistrationDateTime"],
+      message:
+        "Event Registration Date Time must be earlier than Event Date Time",
     })
     .refine((data) => parseInt(data.max, 10) >= parseInt(data.min, 10), {
       path: ["max"],
@@ -110,6 +125,8 @@ export function EventCreationForm({ setOpen, setEventData, meantFor }) {
       posterUrl: data.posterUrl,
       min: Number(data.min),
       max: Number(data.max),
+      eventDateTime: data.eventDateTime,
+      eventRegistrationDateTime: data.eventRegistrationDateTime,
     };
 
     try {
@@ -277,6 +294,46 @@ export function EventCreationForm({ setOpen, setEventData, meantFor }) {
                 />
               </FormControl>
               <FormDescription />
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="eventDateTime"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">Event Date Time*</FormLabel>
+              <FormControl>
+                <DateTimePicker
+                  granularity="minute"
+                  hourCycle={12}
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder="Select Event Date and Time"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="eventRegistrationDateTime"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel className="text-white">
+                Event Registration Closing Date Time*
+              </FormLabel>
+              <FormControl>
+                <DateTimePicker
+                  granularity="minute"
+                  hourCycle={12}
+                  value={field.value}
+                  onChange={field.onChange}
+                  placeholder="Select Event Registration Closing Date and Time"
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}

@@ -9,6 +9,7 @@ import { ApproveButton, DeleteButton } from "./buttonBar";
 import Link from "next/link";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
+import { format } from "date-fns";
 
 export const columns = (setEventData, meantFor) => {
   const baseColumns = [
@@ -118,6 +119,48 @@ export const columns = (setEventData, meantFor) => {
       cell: ({ row }) => {
         const event = row.original;
         return <p className="w-20 md:w-32 lg:w-40 truncate">{event.max}</p>;
+      },
+    },
+    {
+      accessorKey: "eventDateTime",
+      header: "Event Date Time",
+      cell: ({ row }) => {
+        const event = row.original;
+        let formattedDateTime = "N/A";
+        if (event?.eventDateTime) {
+          try {
+            formattedDateTime = format(
+              new Date(event.eventDateTime),
+              "dd MMM yyyy, hh:mm a"
+            );
+          } catch (error) {
+            console.error("Invalid eventDateTime:", event.eventDateTime, error);
+          }
+        }
+        return <p>{formattedDateTime}</p>;
+      },
+    },
+    {
+      accessorKey: "eventRegistrationDateTime",
+      header: "Event Registration Closing Date Time",
+      cell: ({ row }) => {
+        const event = row.original;
+        let formattedDateTime = "N/A";
+        if (event?.eventRegistrationDateTime) {
+          try {
+            formattedDateTime = format(
+              new Date(event.eventRegistrationDateTime),
+              "dd MMM yyyy, hh:mm a"
+            );
+          } catch (error) {
+            console.error(
+              "Invalid eventRegistrationDateTime:",
+              event.eventRegistrationDateTime,
+              error
+            );
+          }
+        }
+        return <p>{formattedDateTime}</p>;
       },
     },
     {
