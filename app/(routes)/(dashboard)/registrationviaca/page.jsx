@@ -101,6 +101,7 @@ const RegistrationForm = () => {
       batch: z.string({ message: "Must be a valid batch" }),
       knowAbout: z.string({ message: "Select a valid option" }),
       accomodation: z.enum(["Yes", "No"], { message: "Select a valid option" }),
+      tShirt: z.enum(["Yes", "No"], { message: "Select a valid option" }),
       tShirtSize: z.string().optional(),
       paymentMethod: z.enum(["ca", "ba"], { message: "Select a valid option" }),
       otherCollege: z.string().optional(),
@@ -179,7 +180,7 @@ const RegistrationForm = () => {
     //   data.college === "Katihar Engineering College, Katihar" ? 250 : 300;
 
     const conditionalTshirtSize =
-      data.tShirt === "No" ? "No" : data.tShirt === data.tShirtSize;
+      data.tShirt === "No" ? "No" : `${data.tShirtSize}`;
 
     const formData = new FormData();
     formData.append("name", data.name);
@@ -742,7 +743,8 @@ const RegistrationForm = () => {
                       Participant needs to pay registration fee of{" "}
                       <span className="font-bold">
                         {form.watch("college") ===
-                        "Katihar Engineering College, Katihar"
+                          "Katihar Engineering College, Katihar" &&
+                        form.watch("tShirt") === "No"
                           ? "Rs. 250/-"
                           : form.watch("college") ===
                               "Katihar Engineering College, Katihar" &&
