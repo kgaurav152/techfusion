@@ -115,6 +115,16 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
   const form = useForm({
     resolver: zodResolver(SchoolStudentRegistrationFormSchema),
     mode: "onChange",
+    defaultValues: {
+      name: "",
+      parentPhoneNumber: "",
+      gender: "Female",
+      school: "",
+      otherSchool: "",
+      studentClass: "1",
+      section: "A",
+      rollNo: "",
+    },
   });
 
   const handleRegistrationSuccessfulClick = () => {
@@ -532,7 +542,7 @@ export default function SchoolHospitality() {
     try {
       const { data } = await apiConnector(
         "POST",
-        "/api/school/getAllParticipants"
+        "/api/school/getAllParticipantsBySf"
       );
       setLoading(false);
       if (data.success) {

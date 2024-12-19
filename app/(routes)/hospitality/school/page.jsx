@@ -137,6 +137,16 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
   const form = useForm({
     resolver: zodResolver(SchoolStudentRegistrationFormSchema),
     mode: "onChange",
+    defaultValues: {
+      name: "",
+      parentPhoneNumber: "",
+      gender: "Female",
+      school: "",
+      otherSchool: "",
+      studentClass: "1",
+      section: "A",
+      rollNo: "",
+    },
   });
 
   const handleRegistrationSuccessfulClick = () => {
