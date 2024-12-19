@@ -548,7 +548,7 @@ export default function SchoolEventManagement() {
     try {
       const { data } = await apiConnector(
         "POST",
-        "/api/school/getAllParticipants"
+        "/api/school/getAllParticipantsBySf"
       );
       setLoading(false);
       if (data.success) {
