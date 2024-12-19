@@ -89,7 +89,7 @@ export const sendOnboardingEmail = async (email, username) => {
                                                                                 align="center">
 
                                                                                 <img align="center" border="0"
-                                                                                    src="https://i.imgur.com/YZFxP7B.png"
+                                                                                    src="https://i.imgur.com/GNszCdF.png"
                                                                                     alt="" title=""
                                                                                     style="outline:none;text-decoration:none;clear:both;display:inline-block!important;border:none;height:auto;float:none;width:60%;max-width:348px"
                                                                                     width="348">
