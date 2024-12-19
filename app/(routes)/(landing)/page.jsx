@@ -18,7 +18,7 @@ import HeroSection from "./_component/hero-section";
 const LandingPage = () => {
   // const dispatch = useDispatch();
 
-  const [live, setLive] = useState(false);
+  const [live, setLive] = useState(true);
   const developer = eventCoordinators.find(
     (coordinator) => coordinator.eventId === "WD"
   );
