@@ -129,7 +129,7 @@ const SignInPage = () => {
               </div>
               <div className="relative flex justify-center text-xs">
                 <span className="bg-background px-2 text-muted-foreground">
-                  Trouble logging in?
+                  Trouble signing in?
                 </span>
               </div>
             </div>

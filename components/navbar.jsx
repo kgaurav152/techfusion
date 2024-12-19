@@ -96,7 +96,7 @@ const NavBar = () => {
             <UserAvatar />
           ) : (
             <Link href="/sign-in" className="text-white hover:text-[#e11d48]">
-              Login
+              Sign In
             </Link>
           )}
         </div>
