@@ -49,7 +49,8 @@ const MobileNavbar = () => {
           <div className="flex flex-col space-y-4">
             {navbarData.map(
               (nav) =>
-                ((nav.userType === "public" && userType === 'participant') || nav.userType === userType) && (
+                ((nav.userType === "public" && userType === "participant") ||
+                  nav.userType === userType) && (
                   <Link
                     key={nav.href}
                     href={nav.href}
@@ -73,7 +74,7 @@ const MobileNavbar = () => {
                 }}
                 className="text-white z-50 hover:text-[#e11d48]"
               >
-                Login
+                Sign In
               </Link>
             )}
           </div>
