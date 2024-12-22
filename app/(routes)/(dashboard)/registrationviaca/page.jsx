@@ -643,7 +643,7 @@ const RegistrationForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel className="text-white">
-                    Do you want TechFusion exclusive Cheater?*
+                    Do you want TechFusion exclusive wind-Cheater/Jacket?*
                   </FormLabel>
                   <Select
                     onValueChange={field.onChange}
