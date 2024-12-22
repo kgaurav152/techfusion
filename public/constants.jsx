@@ -346,6 +346,14 @@ export const batches = [
 
 export const schools = [
   {
+    label: "AAM Children's Academy, Katihar",
+    value: "AAM Children's Academy, Katihar",
+  },
+  {
+    label: "Aditya Public School, Katihar",
+    value: "Aditya Public School, Katihar",
+  },
+  {
     label: "Colonels Academy, Katihar",
     value: "Colonels Academy, Katihar",
   },
@@ -366,6 +374,10 @@ export const schools = [
     value: "Mary Immaculate School, Katihar",
   },
   {
+    label: "New Pattern International School, Katihar",
+    value: "New Pattern International School, Katihar",
+  },
+  {
     label: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
     value: "PM SHREE Jawahar Navodaya Vidyalaya, Katihar",
   },
@@ -384,6 +396,10 @@ export const schools = [
   {
     label: "S.S. Public School, Katihar",
     value: "S.S. Public School, Katihar",
+  },
+  {
+    label: "St. Stephen's School, Katihar",
+    value: "St. Stephen's School, Katihar",
   },
   // {
   //   label: "",
