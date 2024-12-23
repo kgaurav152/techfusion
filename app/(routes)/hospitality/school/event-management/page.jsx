@@ -648,10 +648,10 @@ export default function SchoolEventManagement() {
               Event Registration
             </TabsTrigger>
             <TabsTrigger value="viewEventParticipants">
-              View Event Participants
+              Event Participants
             </TabsTrigger>
             <TabsTrigger value="viewUserParticipation">
-              View User Participation
+              User Participation
             </TabsTrigger>
           </TabsList>
           <TabsContent value="eventRegistration">

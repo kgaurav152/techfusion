@@ -11,7 +11,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { ChevronsUpDown, Check } from "lucide-react";
+import { ArrowRight, ChevronsUpDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import {
   Card,
@@ -58,6 +58,7 @@ import {
 } from "@/components/ui/select";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
+import ShinyButton from "@/components/custom/shiny-button";
 import { schools, studentClasses, sections } from "@/public/constants";
 
 import { columns as idColumns } from "@/app/(routes)/hospitality/school/_components/_idDetails/columns";
@@ -630,16 +631,14 @@ export default function SchoolHospitality() {
   return (
     <>
       <div className="flex justify-center gap-4 w-11/12 mx-auto mt-4 mb-8">
-        {/* <Button onClick={(e) => handleClick(e, "/hospitality/school/details")}>
-          View Allocation Details
-        </Button> */}
-        <Button
-          onClick={(e) =>
-            handleClick(e, "/hospitality/school/event-management")
-          }
+        <ShinyButton
+          className="flex-row justify-center gap-2"
+          dark
+          onClick={(e) => handleClick(e, "/schoolfacilitator/event-management")}
         >
           Manage School Event Participation
-        </Button>
+          <ArrowRight className="h-4 w-4" />
+        </ShinyButton>
       </div>
       <div className="flex justify-center mt-4 mb-8 p-2">
         <Tabs defaultValue="studentRegistration" className="max-w-4xl w-full">
