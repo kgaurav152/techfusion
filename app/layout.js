@@ -10,7 +10,7 @@ export const metadata = {
   title: "TechFusion'25 - Katihar Engineering College, Katihar",
   viewport: "width=device-width, initial-scale=1.0",
   description:
-    "TechFusion'25 - Join Katihar Engineering College, Katihar's annual extravaganza! Four days of innovation, cultural vibrancy, and technical brilliance from Jan 09-12, 2025. Participate in diverse engineering competitions, workshops, and enjoy captivating cultural performances. Total prizes worth Rs 2 Lakhs await!",
+    "TechFusion'25 - Join Katihar Engineering College, Katihar's annual extravaganza! Four days of innovation, cultural vibrancy, and technical brilliance from Jan 10-13, 2025. Participate in diverse engineering competitions, workshops, and enjoy captivating cultural performances. Total prizes worth Rs 2 Lakhs await!",
   keywords:
     "TechFusion, TechFusion 2025, Katihar Engineering College, Engineering Competitions, Cultural Fest, Innovation, Prizes, Workshops",
   author: "TechFusion'25 Team",

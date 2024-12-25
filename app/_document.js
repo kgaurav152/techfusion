@@ -21,7 +21,7 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-title" content="TechFusion" />
           <meta
             name="description"
-            content="TechFusion'25 - Join Katihar Engineering College, Katihar's annual extravaganza! Four days of innovation, cultural vibrancy, and technical brilliance from Jan 09-12, 2025. Participate in diverse engineering competitions, workshops, and enjoy captivating cultural performances. Total prizes worth Rs 2 Lakhs await!"
+            content="TechFusion'25 - Join Katihar Engineering College, Katihar's annual extravaganza! Four days of innovation, cultural vibrancy, and technical brilliance from Jan 10-13, 2025. Participate in diverse engineering competitions, workshops, and enjoy captivating cultural performances. Total prizes worth Rs 2 Lakhs await!"
           />
           <meta
             name="keywords"

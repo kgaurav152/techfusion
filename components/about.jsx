@@ -10,7 +10,7 @@ const About = () => {
           <div className="text-justify text-lg">
             <p className="md:hidden lg:hidden">
               TechFusion&apos;25, Katihar Engineering College&apos;s flagship
-              event from January 09th to 12th, 2025, offers an enthralling mix
+              event from January 10th to 13th, 2025, offers an enthralling mix
               of cutting-edge technology, competitions, workshops, and cultural
               festivities.
               <br />
@@ -32,7 +32,7 @@ const About = () => {
             </p>
             <p className="hidden md:block lg:block">
               TechFusion&apos;25, Katihar Engineering College&apos;s flagship
-              event from January 09th to 12th, 2025, promises an immersive
+              event from January 10th to 13th, 2025, promises an immersive
               experience merging cutting-edge technology, intense competitions,
               enriching workshops, invigorating cultural events, and
               thought-provoking guest lectures. The initial three days spotlight

@@ -92,7 +92,7 @@ const ThreadAnimation = () => {
               TechFusion&apos;25
             </h1>
             <p className="text-white text-xl md:text-4xl underline">
-              09-12 January 2025
+              10-13 January 2025
             </p>
 
             {live ? (

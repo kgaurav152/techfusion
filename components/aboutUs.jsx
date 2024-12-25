@@ -17,7 +17,7 @@ function AboutUs({ clampAbout }) {
                   College, Katihar! <br />
                   TechFusion&apos;25 is the flagship event organized by the
                   ingenious minds at Katihar Engineering College, scheduled to
-                  unfold over four captivating days from 09th to 12th January
+                  unfold over four captivating days from 10th to 13th January
                   2025. This year&apos;s TechFusion promises an exhilarating
                   amalgamation of cutting-edge technology, intense competitions,
                   enlightening workshops, invigorating cultural events, and
@@ -60,7 +60,7 @@ function AboutUs({ clampAbout }) {
                 Katihar! <br />
                 TechFusion&apos;25 is the flagship event organized by the
                 ingenious minds at Katihar Engineering College, scheduled to
-                unfold over four captivating days from 09th to 12th January
+                unfold over four captivating days from 10th to 13th January
                 2025. This year&apos;s TechFusion promises an exhilarating
                 amalgamation of cutting-edge technology, intense competitions,
                 enlightening workshops, invigorating cultural events, and

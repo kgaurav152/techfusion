@@ -47,7 +47,7 @@ const HeroSection = ({ live }) => {
           </h1>
           <div className="flex flex-col items-center">
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              09-12 January 2025
+              10-13 January 2025
             </p>
             {live ? (
               <div>
