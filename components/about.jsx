@@ -64,7 +64,7 @@ const About = () => {
           <div className="">
             <img
               className="w-full rounded-lg h-750 object-cover"
-              src="/aboutUs.jpg"
+              src="/aboutUs.webp"
               alt="About Us"
             />
           </div>

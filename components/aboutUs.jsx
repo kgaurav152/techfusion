@@ -93,7 +93,7 @@ function AboutUs({ clampAbout }) {
         <div className="mx-auto p-2 lg:px-4 bg-[#00040F]">
           <div className="flex justify-center items-center">
             <img
-              src="/aboutUs.jpg"
+              src="/aboutUs.webp"
               alt="TechFusion'25 Hero Poster"
               className="max-w-full h-auto"
             />
