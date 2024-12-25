@@ -28,8 +28,6 @@ export async function POST(req) {
       formattedPaymentReceivedBy = paymentReceivedBy;
     }
 
-    console.log(schoolStudentId);
-
     const data = await SchoolStudent.findByIdAndUpdate(schoolStudentId, {
       isPaymentConfirmed,
       paymentReceivedBy: formattedPaymentReceivedBy,
