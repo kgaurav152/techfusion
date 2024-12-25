@@ -42,10 +42,13 @@ export async function POST(req) {
       });
     }
 
+    const approvedBy = userID;
+
     const participant = await User.findByIdAndUpdate(
       userId,
       {
         status: "approved",
+        approvedBy: approvedBy,
       },
       { new: true }
     );
