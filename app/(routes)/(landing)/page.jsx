@@ -14,6 +14,9 @@ import { eventCoordinators } from "@/public/coordinators";
 import DeveloperCard from "../(dashboard)/torchbearers/developer/devCard";
 import Sponsors from "./_component/sponsor";
 import HeroSection from "./_component/hero-section";
+import TechFusionGlimpse from "@/components/TechFusionGlimpse";
+import { shuffleArray } from "@/lib/utils";
+import { carouselData, sponsorData } from "@/public/constants";
 
 const LandingPage = () => {
   // const dispatch = useDispatch();
@@ -62,6 +65,13 @@ const LandingPage = () => {
         ))
         }
       </div> */}
+      <div className="my-8">
+        <TechFusionGlimpse
+          renderPlace={"home"}
+          photos={shuffleArray(carouselData)}
+          sponsors={sponsorData}
+        />
+      </div>
     </div>
   );
 };
