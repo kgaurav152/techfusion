@@ -524,3 +524,233 @@ export const schoolFacilitators = [
     value: "Vikram-102921",
   },
 ];
+
+const CarouselDummyContent = () => {
+  return (
+    <>
+      {[...new Array(3).fill(1)].map((_, index) => {
+        return (
+          <div key={"dummy-content" + index}>
+            <p>TechFusion</p>
+          </div>
+        );
+      })}
+    </>
+  );
+};
+
+export const carouselData = [
+  {
+    category: "TechFusion'24",
+    title: "Robo Soccer",
+    src: "/assets/tf24/c1.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Bot-A-Maize",
+    src: "/assets/tf24/c2.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "E-Chess",
+    src: "/assets/tf24/c3.webp",
+    content: <CarouselDummyContent />,
+  },
+
+  {
+    category: "TechFusion'24",
+    title: "Robo Soccer",
+    src: "/assets/tf24/c4.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Bridge Making",
+    src: "/assets/tf24/c5.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Bridge Making",
+    src: "/assets/tf24/c6.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Bridge Making",
+    src: "/assets/tf24/c7.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Prastuti - School",
+    src: "/assets/tf24/c8.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Arduino Effect - School",
+    src: "/assets/tf24/c9.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Sesmic Design",
+    src: "/assets/tf24/c10.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Rap Battle",
+    src: "/assets/tf24/c11.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Sanskriti",
+    src: "/assets/tf24/c12.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Arz Kiya Hai",
+    src: "/assets/tf24/c13.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Voice of Solo",
+    src: "/assets/tf24/c14.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Instrumental",
+    src: "/assets/tf24/c15.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Nrityakala",
+    src: "/assets/tf24/c16.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Music Band Concert",
+    src: "/assets/tf24/c17.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Music Band Concert",
+    src: "/assets/tf24/c18.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Techvein - Title Sponsor",
+    src: "/assets/tf24/c19.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "IPG Mall - Associate Partner",
+    src: "/assets/tf24/c20.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Garden Kitchen - Food Partner",
+    src: "/assets/tf24/c21.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Games Of Food - Food Partner",
+    src: "/assets/tf24/c22.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Event Hoarding on NH-31",
+    src: "/assets/tf24/c23.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c24.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c25.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c26.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c27.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c28.webp",
+    content: <CarouselDummyContent />,
+  },
+  {
+    category: "TechFusion'24",
+    title: "Team TechFusion",
+    src: "/assets/tf24/c29.webp",
+    content: <CarouselDummyContent />,
+  },
+];
+
+export const sponsorData = [
+  {
+    logo: "/assets/tf24/sponsor/techvein_logo.png",
+    name: "Techvein",
+    alt: "techvein_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/ipg_mall_logo.jpg",
+    name: "IPG Mall",
+    alt: "ipg_mall_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/dominos.png",
+    name: "Domino's",
+    alt: "domino's_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/nds.jpg",
+    name: "NDS",
+    alt: "nds_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/skilldarpan.png",
+    name: "Skilldarpan",
+    alt: "skilldarpan_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/thegardenkitchen.png",
+    name: "The Garden Kitchen",
+    alt: "thegardenkitchen_logo",
+  },
+  {
+    logo: "/assets/tf24/sponsor/gameoffoods.jpg",
+    name: "Game of Foods",
+    alt: "gameoffoods_logo",
+  },
+];
