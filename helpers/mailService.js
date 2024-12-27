@@ -582,6 +582,9 @@ export const sendVerificationSuccessfulEmail = async (
         Registered Email: ${email}<br/>
         TechFusion ID: ${festId}</p>
 
+<p>To stay connected and receive the latest announcements about TechFusion and events, join our official WhatsApp group: 
+        <a href="https://chat.whatsapp.com/Kxfrzt9HuAFGC7bb7zLCWM" style="color: #007BFF;">Join WhatsApp Group</a></p>
+
         <p>If you have any questions or need assistance, feel free to reach out to us. We’re here to help!</p>
 
         <p>Thank you for joining TechFusion. We look forward to your active participation in the events.</p>
@@ -624,8 +627,8 @@ export const sendVerificationUnSuccessfulEmail = async (email, username) => {
 
         <p>Best regards,</p>
         <p><strong>Web Team</strong><br/>
-        TechFusion'25<br/>
-        Katihar Engineering College, Katihar</p>
+        <strong>TechFusion'25</strong><br/>
+        <strong>Katihar Engineering College, Katihar</strong></p>
       </div>
     `,
   };
