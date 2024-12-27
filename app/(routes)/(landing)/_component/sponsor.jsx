@@ -83,14 +83,17 @@ const Sponsors = () => {
               />
             </div> 
           </div> */}
-        <div className="flex justify-center">
+
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Eyewear Partner
+          </h2>
           <Image
-            src="/comingSoon.svg"
-            width={900}
-            height={200}
-            alt="TechFusion'25 Coming Soon"
+            src="/assets/sponsor/kalimandsons.jpg"
+            width={250}
+            height={40}
+            alt="Kalim and Sons"
           />
-          <p></p>
         </div>
       </div>
     </section>
