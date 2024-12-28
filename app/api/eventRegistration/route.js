@@ -5,8 +5,8 @@ import { getDataFromToken } from "@/helpers/getDataFromToken";
 import Event from "@/models/Event";
 import Participation from "@/models/Participation";
 
-const technical_max_limit = 20;
-const cultural_max_limit = 20;
+const technical_max_limit = 5;
+const cultural_max_limit = 5;
 
 function alreadyRegistered(user, event_id) {
   const technical = user.technical.find(

@@ -6,8 +6,8 @@ import SchoolStudent from "@/models/SchoolStudent";
 import SchoolEvent from "@/models/SchoolEvent";
 import SchoolParticipation from "@/models/SchoolParticipation";
 
-const technical_max_limit = 20;
-const cultural_max_limit = 20;
+const technical_max_limit = 5;
+const cultural_max_limit = 5;
 
 function alreadyRegistered(schoolStudent, schoolEvent_id) {
   const technical = schoolStudent.technical.find(
