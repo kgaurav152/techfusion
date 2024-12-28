@@ -118,7 +118,12 @@ const SignInPage = () => {
                     </FormItem>
                   )}
                 />
-                <Button disabled={loading} className="w-full" type="submit">
+                <Button
+                  variant="outline"
+                  disabled={loading}
+                  className="w-full"
+                  type="submit"
+                >
                   Submit
                 </Button>
               </form>
