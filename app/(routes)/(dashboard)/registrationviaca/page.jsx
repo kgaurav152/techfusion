@@ -167,13 +167,13 @@ const RegistrationForm = () => {
         ? 250
         : data.college === "Katihar Engineering College, Katihar" &&
           data.tShirt === "Yes"
-        ? 649
+        ? 599
         : data.college != "Katihar Engineering College, Katihar" &&
           data.tShirt === "No"
         ? 350
         : data.college != "Katihar Engineering College, Katihar" &&
           data.tShirt === "Yes"
-        ? 749
+        ? 699
         : 350;
 
     // const conditionalAmount =
@@ -661,7 +661,7 @@ const RegistrationForm = () => {
                   </Select>
                   {form.watch("tShirt") === "Yes" && (
                     <FormDescription>
-                      Wind Cheater is chargable and an amount of &#8377; 399
+                      Wind Cheater is chargable and an amount of &#8377; 349
                       will automatically be added to your registration fee shown
                       below.
                     </FormDescription>
@@ -749,7 +749,7 @@ const RegistrationForm = () => {
                           : form.watch("college") ===
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 649/-"
+                          ? "Rs. 599/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "No"
@@ -757,7 +757,7 @@ const RegistrationForm = () => {
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 749/-"
+                          ? "Rs. 699/-"
                           : "Rs. 350/-"}
                         {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
                           ? 'Rs. 250/-': 'Rs. 300/-'} */}
@@ -839,7 +839,7 @@ const RegistrationForm = () => {
                           : form.watch("college") ===
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 649/-"
+                          ? "Rs. 599/-"
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "No"
@@ -847,7 +847,7 @@ const RegistrationForm = () => {
                           : form.watch("college") !=
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
-                          ? "Rs. 749/-"
+                          ? "Rs. 699/-"
                           : "Rs. 350/-"}
                         {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
                           ? 'Rs. 250/-': 'Rs. 300/-'} */}
