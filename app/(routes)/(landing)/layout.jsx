@@ -1,42 +1,41 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import clsx from "clsx";
-import NavBar from "@/components/navbar";
-import Footer from '@/components/footer';
-import GetStartedButton from "@/app/(routes)/(landing)/getStartedButton";
-import StarsCanvas from "@/components/StarCanvas";
-import BottomBar from "@/components/bottom-bar";
+// import clsx from "clsx";
+// import NavBar from "@/components/navbar";
+// import Footer from '@/components/footer';
+// import GetStartedButton from "@/app/(routes)/(landing)/getStartedButton";
+// import StarsCanvas from "@/components/StarCanvas";
+// import BottomBar from "@/components/bottom-bar";
 
 const DashboardLayout = ({ children }) => {
+  // const [isGetStarted, setIsGetStarted] = useState(false);
+  // const [isHovered, setIsHovered] = useState(false);
 
-  const [isGetStarted, setIsGetStarted] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
+  // const handleHover = (hovered) => {
+  //   setIsHovered(hovered);
+  // };
 
-  const handleHover = (hovered) => {
-    setIsHovered(hovered);
-  };
-  
-  const toggleIsGetStarted = () => {
-    setIsGetStarted(false);
-    sessionStorage.setItem('hasSeenGetStarted', 'true');
-  };
+  // const toggleIsGetStarted = () => {
+  //   setIsGetStarted(false);
+  //   sessionStorage.setItem('hasSeenGetStarted', 'true');
+  // };
 
-  const handleButtonClick = () => {
-    setTimeout(() => {
-      toggleIsGetStarted();
-    }, 1000);
-  };
+  // const handleButtonClick = () => {
+  //   setTimeout(() => {
+  //     toggleIsGetStarted();
+  //   }, 1000);
+  // };
 
-  useEffect(() => {
-    const hasSeenGetStarted = sessionStorage.getItem('hasSeenGetStarted');
-    if (!hasSeenGetStarted) {
-      setIsGetStarted(true);
-    }
-  },[]);
+  // useEffect(() => {
+  //   const hasSeenGetStarted = sessionStorage.getItem('hasSeenGetStarted');
+  //   if (!hasSeenGetStarted) {
+  //     setIsGetStarted(true);
+  //   }
+  // },[]);
 
-  return (      
+  return (
     <div>
-      {isGetStarted ? (
+      {/* {isGetStarted ? (
       <div
         className={clsx(
           "flex justify-center items-center min-h-screen absolute top-0 left-0 right-0 bottom-0 text-white transition-all duration-300 w-full",
@@ -51,12 +50,12 @@ const DashboardLayout = ({ children }) => {
       >
         <GetStartedButton text={"Get started →"} onHover={handleHover}/>
       </div>
-      ) : ( 
-      <div className="min-h-[100vh] bg-[#00040F] relative" >
+      ) : (  */}
+      <div className="min-h-[100vh] bg-[#00040F] relative">
         {/* <StarsCanvas/>  */}
-        {children} 
+        {children}
       </div>
-      )}
+      {/* )} */}
     </div>
   );
 };
