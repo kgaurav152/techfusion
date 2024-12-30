@@ -634,7 +634,7 @@ export default function SchoolHospitality() {
         <ShinyButton
           className="flex-row justify-center gap-2"
           dark
-          onClick={(e) => handleClick(e, "/schoolfacilitator/event-management")}
+          onClick={(e) => handleClick(e, "/hospitality/school/event-management")}
         >
           Manage School Event Participation
           <ArrowRight className="h-4 w-4" />
