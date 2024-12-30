@@ -22,7 +22,6 @@ export async function DELETE(req) {
         message: "This is protected route for Admin and hospitality access",
       });
     }
-
     const schoolParticipation = await SchoolParticipation.findById(
       participationId
     ).populate("schoolEvent");
@@ -35,7 +34,7 @@ export async function DELETE(req) {
           }
         );
       }
-    } else if (schoolParticipation.event.eventType === "Cultural") {
+    } else if (schoolParticipation.schoolEvent.eventType === "Cultural") {
       for (let i = 0; i < schoolParticipation.participants.length; i++) {
         await SchoolStudent.findByIdAndUpdate(
           schoolParticipation.participants[i],

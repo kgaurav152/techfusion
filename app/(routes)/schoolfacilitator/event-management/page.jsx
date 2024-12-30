@@ -457,7 +457,7 @@ export function ViewAllSchoolEventParticipants({ eventData }) {
   };
 
   if (actionSuccess) {
-    fetchAllEventSchoolParticipants();
+    fetchAllEventSchoolParticipants(value);
     setActionSuccess(false);
   }
 
