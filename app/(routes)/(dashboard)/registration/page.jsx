@@ -809,10 +809,10 @@ const RegistrationForm = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel className="text-white">
-                      Transection Id*
+                      Transaction Id*
                     </FormLabel>
                     <FormControl>
-                      <Input placeholder="Enter Transection Id" {...field} />
+                      <Input placeholder="Enter Transaction Id" {...field} />
                     </FormControl>
                     <FormDescription />
                     <FormMessage />
