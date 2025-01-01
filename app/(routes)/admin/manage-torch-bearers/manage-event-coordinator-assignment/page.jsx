@@ -101,7 +101,7 @@ function EventView({
               name="event"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel className="text-white">Select Event</FormLabel>
+                  <FormLabel>Select Event</FormLabel>
                   <Popover open={openPop} onOpenChange={setOpenPop}>
                     <PopoverTrigger asChild>
                       <FormControl>
@@ -200,9 +200,7 @@ function EventView({
                   name="coordinator"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-white">
-                        Select Coordinator
-                      </FormLabel>
+                      <FormLabel>Select Coordinator</FormLabel>
                       <Popover open={openPop2} onOpenChange={setOpenPop2}>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -323,9 +321,7 @@ function CoordinatorView({
               name="coordinator"
               render={({ field }) => (
                 <FormItem className="flex flex-col">
-                  <FormLabel className="text-white">
-                    Select Coordinator
-                  </FormLabel>
+                  <FormLabel>Select Coordinator</FormLabel>
                   <Popover open={openPop2} onOpenChange={setOpenPop2}>
                     <PopoverTrigger asChild>
                       <FormControl>
@@ -424,7 +420,7 @@ function CoordinatorView({
                   name="event"
                   render={({ field }) => (
                     <FormItem className="flex flex-col">
-                      <FormLabel className="text-white">Select Event</FormLabel>
+                      <FormLabel>Select Event</FormLabel>
                       <Popover open={openPop} onOpenChange={setOpenPop}>
                         <PopoverTrigger asChild>
                           <FormControl>
@@ -634,7 +630,7 @@ export default function EventCoordinatorAssignment() {
         </Button>
       </div> */}
       <div className="flex justify-center mt-4 mb-8 p-2">
-        <Tabs defaultValue="vEvent" className="w-3/4 lg:w-5/6">
+        <Tabs defaultValue="vEvent" className="max-w-4xl w-full">
           <TabsList className="grid w-full grid-cols-2">
             <TabsTrigger value="vEvent">Via Event</TabsTrigger>
             <TabsTrigger value="vCoordinator">Via Coordinator</TabsTrigger>
