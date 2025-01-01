@@ -22,10 +22,14 @@ export const EventList = () => {
         <span className="inline-block w-3 h-1 bg-blue-500 rounded-full"></span>
       </div>
       <br />
-      <div className="flex flex-wrap justify-center mt-6">
-        {schoolEvent ? schoolEvent?.map((e) => {
-          return <EventCard key={e._id} event={e} renderFor={renderFor} />;
-        }) : <Loader/>}
+      <div className="flex flex-wrap gap-8 justify-center mt-6">
+        {schoolEvent ? (
+          schoolEvent?.map((e) => {
+            return <EventCard key={e._id} event={e} renderFor={renderFor} />;
+          })
+        ) : (
+          <Loader />
+        )}
       </div>
     </div>
   );
