@@ -464,7 +464,7 @@ export function ViewAllSchoolEventParticipants({ eventData }) {
   return (
     <div className="flex flex-col w-full mx-auto items-center my-2 mb-8 text-center">
       <h1 className="text-3xl font-bold">School Participants by Event</h1>
-      <div className="container mt-4 mb-5 w-full">
+      <div className="flex container items-center justify-center mt-4 mb-5 w-full">
         <Popover open={openPop} onOpenChange={setOpenPop}>
           <PopoverTrigger asChild>
             <Button
