@@ -25,8 +25,7 @@ import { apiConnector } from "@/helpers/apiConnector";
 
 export function DeleteEventAlert({
   setOpen,
-  participationId,
-  setParticipatingEventsData,
+  participationId,  fetchParticipatingEventsData
 }) {
   const handleParticipationDeletion = async () => {
     const obj = {
@@ -44,10 +43,7 @@ export function DeleteEventAlert({
       if (data.success) {
         toast.success("Participation to the event deleted!");
         setOpen(false);
-        setParticipatingEventsData([
-          ...data.data?.technical,
-          ...data.data?.cultural,
-        ]);
+        fetchParticipatingEventsData();
       } else {
         toast.error(data.message);
       }
@@ -79,7 +75,7 @@ export function DeleteEventAlert({
   );
 }
 
-export function DeleteButton({ participationId, setParticipatingEventsData }) {
+export function DeleteButton({ participationId, fetchParticipatingEventsData }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -96,7 +92,7 @@ export function DeleteButton({ participationId, setParticipatingEventsData }) {
         <DeleteEventAlert
           setOpen={setOpen}
           participationId={participationId}
-          setParticipatingEventsData={setParticipatingEventsData}
+          fetchParticipatingEventsData={fetchParticipatingEventsData}
         />
       </DialogContent>
     </Dialog>
