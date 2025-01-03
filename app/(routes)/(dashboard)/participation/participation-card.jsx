@@ -14,7 +14,7 @@ import { PopoverContent } from "@radix-ui/react-popover";
 import { AlertCircle, CircleDot, Dot, ShieldAlert } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const ParticipationCard = ({ data }) => {
+const ParticipationCard = ({ data, fetchParticipatingEventsData }) => {
   const { user } = useSelector((state) => state.profile);
 
   return (
@@ -33,7 +33,7 @@ const ParticipationCard = ({ data }) => {
             </p>
             <div className="absolute -right-5 top-0 md:-top-3">
               {data?.participants[0]?._id === user?._id ? (
-                <DeleteButton />
+                <DeleteButton participationId={data?._id} fetchParticipatingEventsData={fetchParticipatingEventsData} />
               ) : (
                 <AskTeamLeader />
               )}
