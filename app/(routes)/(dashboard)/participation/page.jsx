@@ -60,7 +60,7 @@ const ParticipationPage = () => {
           <Loader />
         ) : participatingEventsData.length > 0 ? (
           participatingEventsData.map((data) => (
-            <ParticipationCard key={data?._id} data={data} />
+            <ParticipationCard key={data?._id} data={data} fetchParticipatingEventsData={fetchParticipatingEventsData}/>
           ))
         ) : (
           <div className="text-white text-2xl text-center">
