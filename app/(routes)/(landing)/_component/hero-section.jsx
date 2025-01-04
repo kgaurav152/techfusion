@@ -8,6 +8,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Link from "next/link";
 import InteractiveHoverButton from "@/components/custom/interactive-hover-button";
+import { TypewriterEffectSmooth } from "@/components/custom/typewriter-effect";
 
 const HeroSection = ({ live }) => {
   const router = useRouter();
@@ -18,6 +19,33 @@ const HeroSection = ({ live }) => {
     e.preventDefault();
     router.push(path);
   };
+
+  const regDeadlineWords = [
+    {
+      text: "Registration Deadline Extended till : ",
+      className: "text-white dark:text-white",
+    },
+    // {
+    //   text: "Deadline ",
+    //   className: "text-white dark:text-white",
+    // },
+    // {
+    //   text: "Extended ",
+    //   className: "text-white dark:text-white",
+    // },
+    // {
+    //   text: "till : ",
+    //   className: "text-white dark:text-white",
+    // },
+    // {
+    //   text: ": ",
+    //   className: "text-white dark:text-white",
+    // },
+    {
+      text: " 06 Jan, 12 PM",
+      className: "text-blue-500 dark:text-blue-500",
+    },
+  ];
 
   return (
     <div className="relative text-center h-screen flex items-center justify-center overflow-hidden">
@@ -84,67 +112,72 @@ const HeroSection = ({ live }) => {
                   //   </Button>
                   //   <CertDownloader user={user} />
                   // </div>
-                  <div className="flex flex-col justify-center items-center md:flex-row gap-8 md:gap-8 mt-20">
-                    <Button
-                      className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                      onMouseEnter={() => {
-                        setIsHovered(true);
-                      }}
-                      onMouseLeave={() => {
-                        setIsHovered(false);
-                      }}
-                      onClick={(e) => handleClick(e, "/registration")}
-                    >
-                      <div className="flex items-center">
-                        <div
-                          className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
-                            isHovered ? "bg-purple-500" : "bg-white"
-                          }`}
-                        >
-                          <MoveUpRight
-                            className={`w-4 h-4 ${
-                              isHovered ? "text-white" : "text-gray-700"
+                  <React.Fragment>
+                    <div className="flex flex-col justify-center items-center my-20">
+                      <TypewriterEffectSmooth words={regDeadlineWords} />
+                    </div>
+                    <div className="flex flex-col justify-center items-center md:flex-row gap-8 md:gap-8 mt-20">
+                      <Button
+                        className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                        onMouseEnter={() => {
+                          setIsHovered(true);
+                        }}
+                        onMouseLeave={() => {
+                          setIsHovered(false);
+                        }}
+                        onClick={(e) => handleClick(e, "/registration")}
+                      >
+                        <div className="flex items-center">
+                          <div
+                            className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
+                              isHovered ? "bg-purple-500" : "bg-white"
                             }`}
-                          />
+                          >
+                            <MoveUpRight
+                              className={`w-4 h-4 ${
+                                isHovered ? "text-white" : "text-gray-700"
+                              }`}
+                            />
+                          </div>
+                          <span className="ml-3">Register Now</span>
                         </div>
-                        <span className="ml-3">Register Now</span>
-                      </div>
-                    </Button>
-                    <Link
-                      // className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
-                      href={"/sign-in"}
-                    >
-                      <InteractiveHoverButton
-                        text="Sign In"
-                        className="text-black"
-                      />
-                    </Link>
-                    {/* <Button
-                      className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                      onMouseEnter={() => {
-                        setIsHovered(true);
-                      }}
-                      onMouseLeave={() => {
-                        setIsHovered(false);
-                      }}
-                      onClick={(e) => handleClick(e, "/sign-in")}
-                    >
-                      <div className="flex items-center">
-                        <div
-                          className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
-                            isHovered ? "bg-purple-500" : "bg-white"
-                          }`}
-                        >
-                          <MoveUpRight
-                            className={`w-4 h-4 ${
-                              isHovered ? "text-white" : "text-gray-700"
+                      </Button>
+                      <Link
+                        // className="rounded-md px-2 md:px-5 py-1 md:py-3 bg-blue-500 text-black"
+                        href={"/sign-in"}
+                      >
+                        <InteractiveHoverButton
+                          text="Sign In"
+                          className="text-black"
+                        />
+                      </Link>
+                      {/* <Button
+                        className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                        onMouseEnter={() => {
+                          setIsHovered(true);
+                        }}
+                        onMouseLeave={() => {
+                          setIsHovered(false);
+                        }}
+                        onClick={(e) => handleClick(e, "/sign-in")}
+                      >
+                        <div className="flex items-center">
+                          <div
+                            className={`w-7 h-7 rounded-full flex items-center justify-center hover:bg-purple-500 border-white border-2 ${
+                              isHovered ? "bg-purple-500" : "bg-white"
                             }`}
-                          />
+                          >
+                            <MoveUpRight
+                              className={`w-4 h-4 ${
+                                isHovered ? "text-white" : "text-gray-700"
+                              }`}
+                            />
+                          </div>
+                          <span className="ml-3">Sign In</span>
                         </div>
-                        <span className="ml-3">Sign In</span>
-                      </div>
-                    </Button> */}
-                  </div>
+                      </Button> */}
+                    </div>
+                  </React.Fragment>
                 )}
               </div>
             ) : (
