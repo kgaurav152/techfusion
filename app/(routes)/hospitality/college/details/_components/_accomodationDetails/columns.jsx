@@ -28,6 +28,10 @@ export const columns = (setAllParticipantsData) => [
     },
   },
   {
+    accessorKey: "gender",
+    header: "Gender",
+  },
+  {
     accessorKey: "mobile",
     header: "Phone No.",
   },
