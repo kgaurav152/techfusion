@@ -42,7 +42,7 @@ const HeroSection = ({ live }) => {
     //   className: "text-white dark:text-white",
     // },
     {
-      text: " 06 Jan, 12 PM",
+      text: " 08 Jan, 11:59 PM",
       className: "text-blue-500 dark:text-blue-500",
     },
   ];
