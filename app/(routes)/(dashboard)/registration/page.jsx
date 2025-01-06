@@ -127,6 +127,10 @@ const RegistrationForm = () => {
   const form = useForm({
     resolver: zodResolver(RegistrationFormSchema),
     mode: "onChange",
+    // comment below defaultValues in case if tshirt selection is to be allowed
+    defaultValues: {
+      tShirt: "No",
+    },
   });
   const fileHandler = (e) => {
     console.log("File Handler");
@@ -161,23 +165,23 @@ const RegistrationForm = () => {
       data.otherCollege = null;
     }
 
-    const conditionalAmount =
-      data.college === "Katihar Engineering College, Katihar" &&
-      data.tShirt === "No"
-        ? 250
-        : data.college === "Katihar Engineering College, Katihar" &&
-          data.tShirt === "Yes"
-        ? 599
-        : data.college != "Katihar Engineering College, Katihar" &&
-          data.tShirt === "No"
-        ? 350
-        : data.college != "Katihar Engineering College, Katihar" &&
-          data.tShirt === "Yes"
-        ? 699
-        : 350;
-
     // const conditionalAmount =
-    //   data.college === "Katihar Engineering College, Katihar" ? 250 : 300;
+    //   data.college === "Katihar Engineering College, Katihar" &&
+    //   data.tShirt === "No"
+    //     ? 250
+    //     : data.college === "Katihar Engineering College, Katihar" &&
+    //       data.tShirt === "Yes"
+    //     ? 599
+    //     : data.college != "Katihar Engineering College, Katihar" &&
+    //       data.tShirt === "No"
+    //     ? 350
+    //     : data.college != "Katihar Engineering College, Katihar" &&
+    //       data.tShirt === "Yes"
+    //     ? 699
+    //     : 350;
+
+    const conditionalAmount =
+      data.college === "Katihar Engineering College, Katihar" ? 250 : 350;
 
     const conditionalTshirtSize =
       data.tShirt === "No" ? "No" : `${data.tShirtSize}`;
@@ -638,7 +642,7 @@ const RegistrationForm = () => {
                 </FormItem>
               )}
             />
-            <FormField
+            {/* <FormField
               control={form.control}
               name="tShirt"
               render={({ field }) => (
@@ -670,8 +674,8 @@ const RegistrationForm = () => {
                   <FormMessage />
                 </FormItem>
               )}
-            />
-            {form.watch("tShirt") === "Yes" && (
+            /> */}
+            {/* {form.watch("tShirt") === "Yes" && (
               <FormField
                 control={form.control}
                 name="tShirtSize"
@@ -703,7 +707,7 @@ const RegistrationForm = () => {
                   </FormItem>
                 )}
               />
-            )}
+            )} */}
             <FormField
               control={form.control}
               name="paymentMethod"
@@ -743,7 +747,7 @@ const RegistrationForm = () => {
                     <p className="font-semibold font-mono">
                       Participant needs to pay registration fee of{" "}
                       <span className="font-bold">
-                        {form.watch("college") ===
+                        {/* {form.watch("college") ===
                           "Katihar Engineering College, Katihar" &&
                         form.watch("tShirt") === "No"
                           ? "Rs. 250/-"
@@ -759,9 +763,11 @@ const RegistrationForm = () => {
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
                           ? "Rs. 699/-"
+                          : "Rs. 350/-"} */}
+                        {form.watch("college") ===
+                        "Katihar Engineering College, Katihar"
+                          ? "Rs. 250/-"
                           : "Rs. 350/-"}
-                        {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
-                          ? 'Rs. 250/-': 'Rs. 300/-'} */}
                       </span>{" "}
                       on below mentioned bank account and upload the screenshot
                       of payment.
@@ -833,7 +839,7 @@ const RegistrationForm = () => {
                     <p className="font-semibold font-mono">
                       Participant can pay registration fee of{" "}
                       <span className="font-bold">
-                        {form.watch("college") ===
+                        {/* {form.watch("college") ===
                           "Katihar Engineering College, Katihar" &&
                         form.watch("tShirt") === "No"
                           ? "Rs. 250/-"
@@ -849,9 +855,11 @@ const RegistrationForm = () => {
                               "Katihar Engineering College, Katihar" &&
                             form.watch("tShirt") === "Yes"
                           ? "Rs. 699/-"
+                          : "Rs. 350/-"} */}
+                        {form.watch("college") ===
+                        "Katihar Engineering College, Katihar"
+                          ? "Rs. 250/-"
                           : "Rs. 350/-"}
-                        {/* {form.watch('college') === 'Katihar Engineering College, Katihar'
-                          ? 'Rs. 250/-': 'Rs. 300/-'} */}
                       </span>{" "}
                       to Campus Ambassador of their college.
                       <p className="mt-2">
