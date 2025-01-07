@@ -134,6 +134,10 @@ export const colleges = [
   {
     label: "Government Engineering College, West Champaran",
     value: "Government Engineering College, West Champaran",
+  },  
+  {
+    label: "Government Polytechnic, Banka",
+    value: "Government Polytechnic, Banka",
   },
   {
     label: "Government Polytechnic, Barauni, Begusarai",
