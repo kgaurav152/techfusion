@@ -119,11 +119,11 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
     defaultValues: {
       name: "",
       parentPhoneNumber: "",
-      gender: "Female",
+      gender: "",
       school: "",
       otherSchool: "",
-      studentClass: "1",
-      section: "A",
+      studentClass: "",
+      section: "",
       rollNo: "",
     },
   });
