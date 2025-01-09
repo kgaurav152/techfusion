@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import {
   ModifyPaymentStatusButton,
   EditSchoolStudentDetailsButton,
+  DeleteSchoolStudentButton,
 } from "@/app/(routes)/hospitality/school/_components/buttonBar";
 
 export const columns = (fetchAllParticipants, userType) => {
@@ -112,19 +113,35 @@ export const columns = (fetchAllParticipants, userType) => {
 
   // Conditionally add the "Edit" column for userType = admin
   if (userType === "admin") {
-    baseColumns.push({
-      accessorKey: "edit",
-      header: "Edit",
-      cell: ({ row }) => {
-        const schoolStudent = row.original;
-        return (
-          <EditSchoolStudentDetailsButton
-            schoolStudent={schoolStudent}
-            fetchAllParticipants={fetchAllParticipants}
-          />
-        );
+    baseColumns.push(
+      {
+        accessorKey: "edit",
+        header: "Edit",
+        cell: ({ row }) => {
+          const schoolStudent = row.original;
+          return (
+            <EditSchoolStudentDetailsButton
+              schoolStudent={schoolStudent}
+              fetchAllParticipants={fetchAllParticipants}
+            />
+          );
+        },
       },
-    });
+      {
+        accessorKey: "delete",
+        header: "Delete",
+        cell: ({ row }) => {
+          const schoolStudent = row.original;
+          // console.log(schoolStudent);
+          return (
+            <DeleteSchoolStudentButton
+              schoolStudentId={schoolStudent.value}
+              fetchParticipantsData={fetchAllParticipants}
+            />
+          );
+        },
+      }
+    );
   }
 
   return baseColumns;

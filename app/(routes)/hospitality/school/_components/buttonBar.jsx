@@ -6,7 +6,7 @@ import { toast } from "sonner";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { apiConnector } from "@/helpers/apiConnector";
-import { Pencil } from "lucide-react";
+import { Pencil, Trash2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -630,6 +630,85 @@ export function EditSchoolStudentDetailsButton({
           setOpen={setOpen}
           schoolStudent={schoolStudent}
           fetchAllParticipants={fetchAllParticipants}
+        />
+      </DialogContent>
+    </Dialog>
+  );
+}
+
+export function DeleteSchoolStudentForm({
+  setOpen,
+  schoolStudentId,
+  fetchParticipantsData,
+}) {
+  const handleSchoolStudentDeletion = async () => {
+    const obj = {
+      schoolStudentId: schoolStudentId,
+    };
+
+    try {
+      const toastId = toast.loading("Loading...");
+
+      const { data } = await apiConnector(
+        "DELETE",
+        "/api/school/deleteSchoolStudent",
+        obj
+      );
+      toast.dismiss(toastId);
+      if (data.success) {
+        setOpen(false);
+        toast.success("School Student Deleted!");
+        fetchParticipantsData();
+      } else {
+        toast.error(data.message);
+        setOpen(false);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  return (
+    <div className="bg-white text-center">
+      <p className="mb-4">
+        Are you sure you want to delete this school student?
+      </p>
+      <Button
+        className="mr-8"
+        variant="destructive"
+        type="button"
+        onClick={handleSchoolStudentDeletion}
+      >
+        Delete
+      </Button>
+      <Button variant="outline" type="button" onClick={() => setOpen(false)}>
+        Cancel
+      </Button>
+    </div>
+  );
+}
+
+export function DeleteSchoolStudentButton({
+  schoolStudentId,
+  fetchParticipantsData,
+}) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Dialog className="mb-4" open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline">
+          <Trash2 className="h-4 w-4 text-red-500" />
+        </Button>
+      </DialogTrigger>
+      <DialogContent className="sm:max-w-[425px]">
+        <DialogHeader>
+          <DialogTitle>Delete School Student</DialogTitle>
+        </DialogHeader>
+        <DeleteSchoolStudentForm
+          setOpen={setOpen}
+          schoolStudentId={schoolStudentId}
+          fetchParticipantsData={fetchParticipantsData}
         />
       </DialogContent>
     </Dialog>
