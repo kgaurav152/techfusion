@@ -69,21 +69,17 @@ export const columns = (setAllParticipantsData) => [
     },
   },
   // {
-  //   accessorKey: 'paymentMethod',
-  //   header: 'Payment Method',
+  //   accessorKey: "paymentMethod",
+  //   header: "Payment Method",
   //   cell: ({ row }) => {
-
-  //     const paymentMethodValue = row.getValue('paymentMethod');
+  //     const paymentMethodValue = row.getValue("paymentMethod");
   //     const paymentMethodName = paymentMethodMapping[paymentMethodValue];
 
-  //     return (
-
-  //       `${paymentMethodName}` || 'Unknown'
-  //     );
+  //     return `${paymentMethodName}` || "Unknown";
   //   },
   // },
   // {
-  //   accessorKey: 'registrationFee',
+  //   accessorKey: "registrationFee",
   //   // header: 'Registration Fee'
   //   header: ({ column }) => {
   //     return (
@@ -94,12 +90,27 @@ export const columns = (setAllParticipantsData) => [
   //         Registration Fee
   //         <ArrowUpDown className="ml-2 h-4 w-4" />
   //       </Button>
-  //     )
+  //     );
   //   },
   // },
   // {
-  //   accessorKey: 'transactionId',
-  //   header: 'Payment Id'
+  //   accessorKey: "transactionId",
+  //   header: "Payment Id",
+  // },
+  // {
+  //   accessorKey: "approvedBy",
+  //   // header: 'Registration Fee'
+  //   header: "Approved by",
+  //   cell: ({ row }) => {
+  //     const { approvedBy } = row.original;
+  //     return (
+  //       <div>
+  //         <p className="grid grid-cols-5">
+  //           <span> {approvedBy.name}</span>
+  //         </p>
+  //       </div>
+  //     );
+  //   },
   // },
   {
     accessorKey: "Event Count",

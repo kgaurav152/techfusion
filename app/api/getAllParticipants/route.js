@@ -21,6 +21,10 @@ export async function POST(req) {
       status: { $eq: "approved" },
       userType: { $eq: "participant" },
     });
+    // const data = await User.find({
+    //   status: { $eq: "approved" },
+    //   userType: { $eq: "participant" },
+    // }).populate("approvedBy");
     return NextResponse.json({
       success: true,
       message: "All Participant with Approved Status",
