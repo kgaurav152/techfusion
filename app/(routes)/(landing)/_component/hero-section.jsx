@@ -113,9 +113,9 @@ const HeroSection = ({ live }) => {
                   //   <CertDownloader user={user} />
                   // </div>
                   <React.Fragment>
-                    <div className="flex flex-col justify-center items-center my-20">
+                    {/* <div className="flex flex-col justify-center items-center my-20">
                       <TypewriterEffectSmooth words={regDeadlineWords} />
-                    </div>
+                    </div> */}
                     <div className="flex flex-col justify-center items-center md:flex-row gap-8 md:gap-8 mt-20">
                       <Button
                         className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
