@@ -805,14 +805,14 @@ export function IdCard({ fetchAllParticipants, allParticipantsData }) {
                           <span className="text-red-600">not available</span>
                         )}
                       </p>
-                      <p className="font-mono mb-2">
+                      {/* <p className="font-mono mb-2">
                         Payment Status:{" "}
                         {form.watch("user")?.paymentStatus === true ? (
                           <span className="text-green-500">Paid</span>
                         ) : (
                           <span className="text-red-600">Pending</span>
                         )}
-                      </p>
+                      </p> */}
                     </div>
                     <Button
                       type="submit"
