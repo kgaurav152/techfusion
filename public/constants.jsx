@@ -134,7 +134,7 @@ export const colleges = [
   {
     label: "Government Engineering College, West Champaran",
     value: "Government Engineering College, West Champaran",
-  },  
+  },
   {
     label: "Government Polytechnic, Banka",
     value: "Government Polytechnic, Banka",
@@ -458,21 +458,21 @@ export const knowAbout = [
 
 export const deskManagers = [
   {
-    label: "Krishan",
-    value: "Krishan",
-  },
-  {
-    label: "Monika",
-    value: "Monika",
-  },
-  {
     label: "Ruchika",
     value: "Ruchika",
   },
   {
-    label: "Tanya",
-    value: "Tanya",
+    label: "Anushka",
+    value: "Anushka",
   },
+  {
+    label: "Zafar",
+    value: "Zafar",
+  },
+  // {
+  //   label: "Tanya",
+  //   value: "Tanya",
+  // },
 ];
 
 export const schoolFacilitators = [
