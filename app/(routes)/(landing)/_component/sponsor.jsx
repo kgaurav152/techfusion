@@ -6,84 +6,83 @@ const Sponsors = () => {
     <section className="my-5">
       <div>
         <h2 className=" text-5xl mb-10">Sponsors</h2>
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-3xl mt-2 mb-12 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Title Sponsor
+          </h2>
+          <Image
+            src="/assets/sponsor/ChicagoPizza.jpg"
+            width={550}
+            height={140}
+            alt="Chicago Pizza Logo"
+          />
+        </div>
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-2xl mt-2 mb-8 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            The Ultimate Electronics Partner
+          </h2>
+          <Image
+            src="/assets/sponsor/RelianceDigital.png"
+            width={350}
+            height={60}
+            alt="Reliance Digital"
+          />
+        </div>
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-2xl mt-2 mb-8 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Internship Partner
+          </h2>
+          <Image
+            src="/assets/sponsor/internbee.jpg"
+            width={350}
+            height={60}
+            alt="internbee"
+          />
+        </div>
         {/* <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Title Sponsor
-            </h2>
+          <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Skill Partner
+          </h2>
+          <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
             <Image
-              src="/assets/sponsor/techvein_logo.png"
+              src="/assets/sponsor/nds.jpg"
               width={250}
               height={40}
-              alt="TechVein It Solutions Pvt. Ltd. Logo"
+              alt="NDS"
             />
-          </div>
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Associated With
-            </h2>
             <Image
-              src="/assets/sponsor/ipg_mall_logo.jpg"
+              src="/assets/sponsor/skilldarpan.png"
               width={250}
               height={40}
-              alt="IPG Mall The Pride of Katihar"
+              alt="Skill Darpan"
             />
           </div>
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Beverage Partner
-            </h2>
+        </div>
+        <div className="flex flex-col items-center mb-8">
+          <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Food Partner
+          </h2>
+          <div className="flex flex-col lg:flex-row gap-5 lg:gap-12 sm:items-center">
             <Image
-              src="/assets/sponsor/tork_swadesi.jpg"
+              src="/assets/sponsor/dominos.png"
               width={250}
               height={40}
-              alt="Tork Swadesi"
+              alt="Dominos"
+            />
+            <Image
+              src="/assets/sponsor/thegardenkitchen.png"
+              width={250}
+              height={25}
+              alt="The Garden Kitchen"
+            />
+            <Image
+              src="/assets/sponsor/gameoffoods.jpg"
+              width={250}
+              height={40}
+              alt="Game of Foods"
             />
           </div>
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Skill Partner
-            </h2>
-            <div className="flex flex-col lg:flex-row gap-5 lg:gap-10">
-              <Image
-                src="/assets/sponsor/nds.jpg"
-                width={250}
-                height={40}
-                alt="NDS"
-              />
-              <Image
-                src="/assets/sponsor/skilldarpan.png"
-                width={250}
-                height={40}
-                alt="Skill Darpan"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col items-center mb-8">
-            <h2 className="text-2xl mt-2 mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              Food Partner
-            </h2>
-            <div className="flex flex-col lg:flex-row gap-5 lg:gap-12 sm:items-center">
-              <Image
-                src="/assets/sponsor/dominos.png"
-                width={250}
-                height={40}
-                alt="Dominos"
-              />
-              <Image
-                src="/assets/sponsor/thegardenkitchen.png"
-                width={250}
-                height={25}
-                alt="The Garden Kitchen"
-              />
-              <Image
-                src="/assets/sponsor/gameoffoods.jpg"
-                width={250}
-                height={40}
-                alt="Game of Foods"
-              />
-            </div> 
-          </div> */}
-
+        </div> */}
         <div className="flex flex-col items-center mb-8">
           <h2 className="text-2xl mt-2 mb-4 lg:mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
             Eyewear Partner
