@@ -11,7 +11,7 @@ const Sponsors = () => {
             Title Sponsor
           </h2>
           <Image
-            src="/assets/sponsor/ChicagoPizza.jpg"
+            src="/assets/sponsor/chicagoPizza.jpg"
             width={550}
             height={140}
             alt="Chicago Pizza Logo"
