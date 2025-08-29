@@ -15,6 +15,7 @@ const HeroSection = ({ live }) => {
 
   const { user } = useSelector((state) => state.profile);
   const [isHovered, setIsHovered] = useState(false);
+  const [eventEnded, setEventEnded] = useState(true);
   const handleClick = (e, path) => {
     e.preventDefault();
     router.push(path);
@@ -80,38 +81,41 @@ const HeroSection = ({ live }) => {
             {live ? (
               <div>
                 {user ? (
-                  <Button
-                    className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                    onMouseEnter={() => {
-                      setIsHovered(true);
-                    }}
-                    onMouseLeave={() => {
-                      setIsHovered(false);
-                    }}
-                    onClick={(e) => handleClick(e, "/eventregistration")}
-                  >
-                    <div className="flex items-center">
-                      <span className="ml-3">Event Registration</span>
+                  eventEnded ? (
+                    <div className="flex flex-row gap-4 z-20">
+                      <Button
+                        className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                        onMouseEnter={() => {
+                          setIsHovered(true);
+                        }}
+                        onMouseLeave={() => {
+                          setIsHovered(false);
+                        }}
+                        onClick={(e) => handleClick(e, "/resultview")}
+                      >
+                        <div className="flex items-center">
+                          <span className="ml-3">View Result</span>
+                        </div>
+                      </Button>
+                      <CertDownloader user={user} />
                     </div>
-                  </Button>
+                  ) : (
+                    <Button
+                      className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
+                      onMouseEnter={() => {
+                        setIsHovered(true);
+                      }}
+                      onMouseLeave={() => {
+                        setIsHovered(false);
+                      }}
+                      onClick={(e) => handleClick(e, "/eventregistration")}
+                    >
+                      <div className="flex items-center">
+                        <span className="ml-3">Event Registration</span>
+                      </div>
+                    </Button>
+                  )
                 ) : (
-                  // <div className="flex flex-row gap-4 z-20">
-                  //   <Button
-                  //     className="z-10 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-110 duration-300 relative rounded-2xl mb-2 mt-20 pt-2 pb-2 pr-4 pl-4 border border-transparent bg-gray-900 text-white px-5 py-2 hover:bg-purple-500 border-white hover:border-none flex items-center"
-                  //     onMouseEnter={() => {
-                  //       setIsHovered(true);
-                  //     }}
-                  //     onMouseLeave={() => {
-                  //       setIsHovered(false);
-                  //     }}
-                  //     onClick={(e) => handleClick(e, "/resultview")}
-                  //   >
-                  //     <div className="flex items-center">
-                  //       <span className="ml-3">View Result</span>
-                  //     </div>
-                  //   </Button>
-                  //   <CertDownloader user={user} />
-                  // </div>
                   <React.Fragment>
                     {/* <div className="flex flex-col justify-center items-center my-20">
                       <TypewriterEffectSmooth words={regDeadlineWords} />
