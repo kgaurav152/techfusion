@@ -72,11 +72,11 @@ const HeroSection = ({ live }) => {
       >
         <div className="py-20 flex h-full items-center justify-center flex-col lg:py-10">
           <h1 className="font-extrabold text-5xl md:text-8xl lg:text-9xl text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-            TechFusion&apos;25
+            TechFusion&apos;26
           </h1>
           <div className="flex flex-col items-center">
             <p className="text-xl md:text-4xl mb-5 mt-4 underline">
-              10-13 January 2025
+              10-13 January 2026
             </p>
             {live ? (
               <div>
@@ -190,7 +190,7 @@ const HeroSection = ({ live }) => {
                   src="/registrationStartsFrom_19_dec.svg"
                   width={850}
                   height={200}
-                  alt="TechFusion'25 Registration from 19th dec"
+                  alt="TechFusion'26 Registration from 19th dec"
                 />
               </div>
             )}

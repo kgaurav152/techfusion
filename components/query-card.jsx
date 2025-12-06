@@ -23,14 +23,14 @@ const QueryCard = () => {
               <AvatarFallback>KG</AvatarFallback>
             </Avatar>
             <div>
-              <p className="text-sm font-medium leading-none">Kumar Gaurav</p>
+              <p className="text-sm font-medium leading-none">Shambhu Kumar</p>
               <a
-                href="https://wa.me/917004174269?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
+                href="https://wa.me/917070407423?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-blue-800"
               >
-                +917004174269
+                +917070407423
               </a>
             </div>
           </div>
@@ -42,14 +42,52 @@ const QueryCard = () => {
               <AvatarFallback>MK</AvatarFallback>
             </Avatar>
             <div className="gap-1">
-              <p className="text-sm font-medium leading-none">Mohit Kumar</p>
+              <p className="text-sm font-medium leading-none">Rishav Anand</p>
               <a
-                href="https://wa.me/917257827104?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
+                href="https://wa.me/917909023293?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-blue-800"
               >
-                +917257827104
+                +917909023293
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between space-x-4">
+          <div className="flex items-center space-x-4">
+            <Avatar>
+              <AvatarImage src="avatar_02.png" />
+              <AvatarFallback>MK</AvatarFallback>
+            </Avatar>
+            <div className="gap-1">
+              <p className="text-sm font-medium leading-none">Reshav Kumar Tiwari</p>
+              <a
+                href="https://wa.me/917909023293?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-800"
+              >
+                +917909023293
+              </a>
+            </div>
+          </div>
+        </div>
+        <div className="flex items-center justify-between space-x-4">
+          <div className="flex items-center space-x-4">
+            <Avatar>
+              <AvatarImage src="avatar_02.png" />
+              <AvatarFallback>MK</AvatarFallback>
+            </Avatar>
+            <div className="gap-1">
+              <p className="text-sm font-medium leading-none">Alok Raj</p>
+              <a
+                href="https://wa.me/917909023293?text=Hello!%20I%20have%20some%20Query%20related%20to%20Event%20Registration."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-blue-800"
+              >
+                +917250338513
               </a>
             </div>
           </div>

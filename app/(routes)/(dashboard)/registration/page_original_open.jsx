@@ -731,14 +731,16 @@ const RegistrationForm = () => {
                           : form.watch('college') != 'Katihar Engineering College, Katihar' && form.watch('tShirt') === 'Yes'? 'Rs. 600/-': 'Rs. 300/-'} */}
                         {form.watch("college") ===
                         "Katihar Engineering College, Katihar"
-                          ? "Rs. 200/-"
-                          : "Rs. 300/-"}
+                          ? "Rs. 349/-"
+                          : "Rs. 399/-"}
                       </span>{" "}
                       on below mentioned bank account and upload the screenshot
                       of payment.
                       <p className="mt-2">
                         Note: This is one time payment and after this user can
                         participate in upto 5 Technical and 5 Cultural events.
+
+                        Note: 
                       </p>
                     </p>
                   </div>

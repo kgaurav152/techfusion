@@ -9,8 +9,8 @@ const About = () => {
         <section className="grid gap-5 lg:grid-cols-2 grid-cols-1">
           <div className="text-justify text-lg">
             <p className="md:hidden lg:hidden">
-              TechFusion&apos;25, Katihar Engineering College&apos;s flagship
-              event from January 10th to 13th, 2025, offers an enthralling mix
+              TechFusion&apos;26, Katihar Engineering College&apos;s flagship
+              event from January 10th to 13th, 2026, offers an enthralling mix
               of cutting-edge technology, competitions, workshops, and cultural
               festivities.
               <br />
@@ -26,13 +26,13 @@ const About = () => {
               explore the realms of innovation, technology, and culture.
               <br />
               <br />
-              Join us at Katihar Engineering College for TechFusion&apos;25, a
+              Join us at Katihar Engineering College for TechFusion&apos;26, a
               four-day extravaganza blending brilliance, innovation, and
               cultural vibrancy!
             </p>
             <p className="hidden md:block lg:block">
-              TechFusion&apos;25, Katihar Engineering College&apos;s flagship
-              event from January 10th to 13th, 2025, promises an immersive
+              TechFusion&apos;26, Katihar Engineering College&apos;s flagship
+              event from January 10th to 13th, 2026, promises an immersive
               experience merging cutting-edge technology, intense competitions,
               enriching workshops, invigorating cultural events, and
               thought-provoking guest lectures. The initial three days spotlight
@@ -44,7 +44,7 @@ const About = () => {
               institutes statewide and beyond, these days cultivate an
               environment where innovation thrives, igniting collisions of minds
               and sparking creativity. Shifting seamlessly to cultural
-              celebrations on the fourth day, TechFusion&apos;25 amplifies
+              celebrations on the fourth day, TechFusion&apos;26 amplifies
               vibrant cultural events, embracing diversity and talent.
               <br />
               <br />
@@ -56,7 +56,7 @@ const About = () => {
               culture.
               <br />
               <br />
-              Join us at Katihar Engineering College for TechFusion&apos;25, a
+              Join us at Katihar Engineering College for TechFusion&apos;26, a
               four-day extravaganza where brilliance converges with innovation
               and fervent cultural expression!
             </p>

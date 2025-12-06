@@ -76,13 +76,13 @@ const CertificateVerificationForm = () => {
           className="font-bold text-[2rem] md:text-[3rem] text-border-white"
           style={{ ...neonTextStyle }}
         >
-          Verify TechFusion&apos;25 Participation Certificate
+          Verify TechFusion&apos;26 Participation Certificate
         </h1>
         <Card className="mx-auto w-full max-w-xl mb-8 mt-20 text-left">
           <CardHeader>
             <CardTitle>
               <h2 className="font-bold text-xl">
-                Enter TechFusion&apos;25 Certificate Id Below To Verify
+                Enter TechFusion&apos;26 Certificate Id Below To Verify
               </h2>
             </CardTitle>
           </CardHeader>

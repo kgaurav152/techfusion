@@ -156,7 +156,7 @@ export const ContactUsPage = () => {
               When and where does TechFusion take place?
             </AccordionTrigger>
             <AccordionContent>
-              TechFusion will be held from January 10th to January 13th, 2025,
+              TechFusion will be held from January 10th to January 13th, 2026,
               at Katihar Engineering College, Katihar&apos;s campus.
             </AccordionContent>
           </AccordionItem>
@@ -191,7 +191,7 @@ export const ContactUsPage = () => {
             </AccordionTrigger>
             <AccordionContent>
               Participants can avail themselves of food at the campus
-              canteen/mess or opt for a food voucher system at Rs 50 per meal at
+              canteen/mess or opt for a food voucher system at Rs 70 per meal at
               our partnered mess.
             </AccordionContent>
           </AccordionItem>

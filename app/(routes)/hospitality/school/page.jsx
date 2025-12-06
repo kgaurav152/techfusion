@@ -433,7 +433,7 @@ export function SchoolStudentRegistrationForm({ fetchAllSchoolParticipants }) {
               <div className="flex items-center pt-4">
                 <p className="font-semibold font-mono">
                   Participant needs to pay registration fee of{" "}
-                  <span className="font-bold">Rs. 150/-</span>{" "}
+                  <span className="font-bold">Rs. 229/-</span>{" "}
                 </p>
               </div>
             </CardContent>
